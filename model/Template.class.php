@@ -1,6 +1,6 @@
 <?php
 //Configurações de instancia pasta de cache e diretórios padrão
-class Template extends Smarty
+class Template extends SmartyBC
 {
     public function __construct()
     {

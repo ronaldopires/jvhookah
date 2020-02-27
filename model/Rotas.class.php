@@ -4,6 +4,31 @@ class Rotas
 {
 
     public static $pag;
+    private static $pasta_controller = 'controller'; //Pasta padrão de controllers
+    private static $pasta_view = 'view'; //Pasta padrão de templates
+
+    //Pasta principal do site
+    static function get_SiteHOME(){
+        return Config::SITE_URL . '/' . Config::SITE_PASTA;
+    }
+    //Raiz do site
+    static function get_SiteRAIZ(){
+        return $_SERVER['DOCUMENT_ROOT'] . '/' . Config::SITE_PASTA;
+    }
+    //Obter caminho para os templates
+    static function get_SiteTEMA(){
+        return self::get_SiteHOME() . '/' . self::$pasta_view;
+    }
+    //Obter caminho das páginas
+    static function pag_Carrinho(){
+        return self::get_SiteHOME() . '/carrinho';
+    }
+    static function pag_Home(){
+        return self::get_SiteHOME() . '/home';
+    }
+    static function pag_Contato(){
+        return self::get_SiteHOME() . '/contato';
+    }
 
     //Obter rotas de páginas
     public static function get_Pagina()

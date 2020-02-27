@@ -3,7 +3,7 @@
 class Config
 {
     //INFORMAÇÕES BÁSICAS DO SITE
-    const SITE_URL = "http://locallhost";
+    const SITE_URL = "http://localhost/";
     const SITE_PASTA = "jvhookah";
     const SITE_NOME = "Jv Hookah";
     const SITE_EMAIL_ADM = "ronaldobondezica@gmail.com";
@@ -12,8 +12,8 @@ class Config
     const BD_HOST = "localhost";
     const BD_USER = "root";
     const BD_SENHA = "";
-    const BD_BANCO = "jvhookah";
-    const BD_PREFIX = "jvh_";
+    const BD_BANCO = "hookah";
+    const BD_PREFIX = "";
 
     //INFORMAÇÕES PARA PHPMAILER
     const EMAIL_HOST = "smtp.gmail.com";
