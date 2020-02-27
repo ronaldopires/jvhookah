@@ -30,6 +30,25 @@
         <div class="loader"></div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content permission">
+                <div class="modal-body permission_text">
+                    <div class="col">
+                        <p>Você é maior de 18 anos ?</p>
+                    </div>
+                    <div class="col">
+                        <button type="button" id="yes" class="btn btn-success" data-dismiss="modal">SIM</button>
+                        <button type="button" id="no" class="btn btn-danger" data-dismiss="modal">NÃO</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Header Section Begin -->
     <header class="header-section">
         <div class="header-top">
@@ -43,7 +62,7 @@
                     </div>
                 </div>
                 <div class="ht-right">
-                    <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    <a href="{$PAG_LOGIN}" class="login-panel"><i class="fa fa-user"></i>Login</a>
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                         <option value='yt' data-image="{$GET_TEMA}/img/flag-1.jpg" data-imagecss="flag yt"
@@ -75,9 +94,13 @@
                         <div class="advanced-search dropdown">
                             <button type="button" id="categories" class="category-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Todas Categorias</button>
                             <div class="dropdown-menu" aria-labelledby="categories">
-                                <a class="dropdown-item" href="#">Alguma ação</a>
-                                <a class="dropdown-item" href="#">Outra ação</a>
-                                <a class="dropdown-item" href="#">Alguma coisa aqui</a>
+                                <a class="dropdown-item" href="#">Kit Completo</a>
+                                <a class="dropdown-item" href="#">Abafadores</a>
+                                <a class="dropdown-item" href="#">Carvões</a>
+                                <a class="dropdown-item" href="#">Pratos</a>
+                                <a class="dropdown-item" href="#">Essências</a>
+                                <a class="dropdown-item" href="#">Carvões</a>
+                                <a class="dropdown-item" href="#">Carvões</a>
                             </div>
                             <div class="input-group">
                                 <input type="text" placeholder="O que está procurando?">
@@ -170,7 +193,7 @@
                 <nav class="nav-menu mobile-menu">
                     <ul>
                         <li class="active"><a href="{$PAG_HOME}">Home</a></li>
-                        <li><a href="{$SHOP}">Shop</a></li>
+                        <li><a href="{$PAG_SHOP}">Shop</a></li>
                         <li><a href="#">Collection</a>
                             <ul class="dropdown">
                                 <li><a href="#">Men's</a></li>
@@ -183,11 +206,11 @@
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="./blog-details.html">Blog Details</a></li>
-                                <li><a href="{$PAG_SHOP}">Shopping Cart</a></li>
-                                <li><a href="./check-out.html">Checkout</a></li>
-                                <li><a href="./faq.html">Faq</a></li>
-                                <li><a href="./register.html">Register</a></li>
-                                <li><a href="./login.html">Login</a></li>
+                                <li><a href="{$PAG_SHOPPING}">Shopping Cart</a></li>
+                                <li><a href="{$PAG_CHECK_OUT}">Checkout</a></li>
+                                <li><a href="{$PAG_FAQ}">Faq</a></li>
+                                <li><a href="{$PAG_REGISTER}">Register</a></li>
+                                <li><a href="{$PAG_LOGIN}">Login</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -323,6 +346,7 @@
     <script src="{$GET_TEMA}/tema/js/jquery.slicknav.js"></script>
     <script src="{$GET_TEMA}/tema/js/owl.carousel.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/main.js"></script>
+    <script src="{$GET_TEMA}/tema/js/script.js"></script>
 </body>
 
 </html>

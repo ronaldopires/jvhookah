@@ -20,14 +20,32 @@ class Rotas
         return self::get_SiteHOME() . '/' . self::$pasta_view;
     }
     //Obter caminho das páginas
-    static function pag_Carrinho(){
+    static function pag_Shopping(){
         return self::get_SiteHOME() . '/carrinho';
+    }
+    static function pag_Shopping_Detail(){
+        return self::get_SiteHOME() . '/detalhes_produto';
     }
     static function pag_Home(){
         return self::get_SiteHOME() . '/home';
     }
-    static function pag_Contato(){
+    static function pag_Produtos(){
+        return self::get_SiteHOME() . '/produtos';
+    }
+    static function pag_Contact(){
         return self::get_SiteHOME() . '/contato';
+    }
+    static function pag_Login(){
+        return self::get_SiteHOME() . '/login';
+    }
+    static function pag_Register(){
+        return self::get_SiteHOME() . '/register';
+    }
+    static function pag_Check_Out(){
+        return self::get_SiteHOME() . '/checkout';
+    }
+    static function pag_Faq(){
+        return self::get_SiteHOME() . '/perguntas_frequentes';
     }
 
     //Obter rotas de páginas

@@ -1,10 +1,34 @@
-<!-- Breadcrumb Section Begin -->
+<?php
+/* Smarty version 3.1.34-dev-7, created on 2020-02-27 19:47:14
+  from 'C:\xampp\htdocs\jvhookah\view\shopping-cart.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.34-dev-7',
+  'unifunc' => 'content_5e580eb251bb24_63354013',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'ebe5ddbe51ca78ea7d2d0c66270fccbd84a44eb7' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\shopping-cart.tpl',
+      1 => 1582829213,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5e580eb251bb24_63354013 (Smarty_Internal_Template $_smarty_tpl) {
+?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
-                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
+"><i class="fa fa-home"></i> Home</a>
                     <span>Shop</span>
                 </div>
             </div>
@@ -162,7 +186,8 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="product-item">
                                 <div class="pi-pic">
-                                    <img src="{$GET_TEMA}/img/products/product-1.jpg" alt="">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/products/product-1.jpg" alt="">
                                     <div class="sale pp-sale">Sale</div>
                                     <div class="icon">
                                         <i class="icon_heart_alt"></i>
@@ -188,7 +213,8 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="product-item">
                                 <div class="pi-pic">
-                                    <img src="{$GET_TEMA}/img/products/product-2.jpg" alt="">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/products/product-2.jpg" alt="">
                                     <div class="icon">
                                         <i class="icon_heart_alt"></i>
                                     </div>
@@ -213,7 +239,8 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="product-item">
                                 <div class="pi-pic">
-                                    <img src="{$GET_TEMA}/img/products/product-3.jpg" alt="">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/products/product-3.jpg" alt="">
                                     <div class="icon">
                                         <i class="icon_heart_alt"></i>
                                     </div>
@@ -238,7 +265,8 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="product-item">
                                 <div class="pi-pic">
-                                    <img src="{$GET_TEMA}/img/products/product-4.jpg" alt="">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/products/product-4.jpg" alt="">
                                     <div class="icon">
                                         <i class="icon_heart_alt"></i>
                                     </div>
@@ -263,7 +291,8 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="product-item">
                                 <div class="pi-pic">
-                                    <img src="{$GET_TEMA}/img/products/product-5.jpg" alt="">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/products/product-5.jpg" alt="">
                                     <div class="icon">
                                         <i class="icon_heart_alt"></i>
                                     </div>
@@ -288,7 +317,8 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="product-item">
                                 <div class="pi-pic">
-                                    <img src="{$GET_TEMA}/img/products/product-6.jpg" alt="">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/products/product-6.jpg" alt="">
                                     <div class="icon">
                                         <i class="icon_heart_alt"></i>
                                     </div>
@@ -313,7 +343,8 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="product-item">
                                 <div class="pi-pic">
-                                    <img src="{$GET_TEMA}/img/products/product-7.jpg" alt="">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/products/product-7.jpg" alt="">
                                     <div class="sale pp-sale">Sale</div>
                                     <div class="icon">
                                         <i class="icon_heart_alt"></i>
@@ -339,7 +370,8 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="product-item">
                                 <div class="pi-pic">
-                                    <img src="{$GET_TEMA}/img/products/product-8.jpg" alt="">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/products/product-8.jpg" alt="">
                                     <div class="icon">
                                         <i class="icon_heart_alt"></i>
                                     </div>
@@ -364,7 +396,8 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="product-item">
                                 <div class="pi-pic">
-                                    <img src="{$GET_TEMA}/img/products/product-9.jpg" alt="">
+                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/products/product-9.jpg" alt="">
                                     <div class="icon">
                                         <i class="icon_heart_alt"></i>
                                     </div>
@@ -398,4 +431,5 @@
         </div>
     </div>
 </section>
-<!-- Product Shop Section End -->
+<!-- Product Shop Section End --><?php }
+}
