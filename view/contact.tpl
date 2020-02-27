@@ -74,16 +74,16 @@
                     <div class="leave-comment">
                         <h4>Envie uma mensagem</h4>
                         <p>Nossa equipe entrará em contato o mais rápido possível para responder suas perguntas.</p>
-                        <form action="#" class="comment-form">
+                        <form action="envio" method="get" class="comment-form">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input name="nome" id="nome" type="text" placeholder="Seu nome">
+                                    <input name="nome" id="nome" type="text" placeholder="Seu nome" required>
                                 </div>
                                 <div class="col-lg-6">
-                                    <input name="email" id="email" type="email" placeholder="Seu email">
+                                    <input name="email" id="email" type="email" placeholder="Seu email" required>
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem"></textarea>
+                                    <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem" required></textarea>
                                     <button type="submit" class="site-btn">Enviar mensagem</button>
                                 </div>
                             </div>

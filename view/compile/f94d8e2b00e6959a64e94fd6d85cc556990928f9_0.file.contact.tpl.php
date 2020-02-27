@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-27 00:09:49
+/* Smarty version 3.1.34-dev-7, created on 2020-02-27 05:05:42
   from 'C:\xampp\htdocs\jvhookah\view\contact.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e56fabd8deaa9_02040418',
+  'unifunc' => 'content_5e57401621f847_93689765',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f94d8e2b00e6959a64e94fd6d85cc556990928f9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\contact.tpl',
-      1 => 1582758574,
+      1 => 1582776338,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e56fabd8deaa9_02040418 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e57401621f847_93689765 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -98,16 +98,16 @@ function content_5e56fabd8deaa9_02040418 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="leave-comment">
                         <h4>Envie uma mensagem</h4>
                         <p>Nossa equipe entrará em contato o mais rápido possível para responder suas perguntas.</p>
-                        <form action="#" class="comment-form">
+                        <form action="envio" method="get" class="comment-form">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input name="nome" id="nome" type="text" placeholder="Seu nome">
+                                    <input name="nome" id="nome" type="text" placeholder="Seu nome" required>
                                 </div>
                                 <div class="col-lg-6">
-                                    <input name="email" id="email" type="email" placeholder="Seu email">
+                                    <input name="email" id="email" type="email" placeholder="Seu email" required>
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem"></textarea>
+                                    <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem" required></textarea>
                                     <button type="submit" class="site-btn">Enviar mensagem</button>
                                 </div>
                             </div>

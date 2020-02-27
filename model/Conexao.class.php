@@ -1,8 +1,8 @@
 <?php
 
 Class Conexao extends Config{
-    private $host, $user, $senha, $banco, $prefix;
-
+    private $host, $user, $senha, $banco;
+    protected $obj, $itens = array(), $prefix;
     function __construct(){
         $this->host = self::BD_HOST;
         $this->user = self::BD_USER;
@@ -45,7 +45,7 @@ Class Conexao extends Config{
     }
     //Faz uma verificação de itens
     function GetItens(){
-        //return $this->obj->itens;
+        return $this->itens;
     }
 
 }
