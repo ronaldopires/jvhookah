@@ -81,10 +81,10 @@
             <div class="col-lg-8 offset-lg-1">
                 <div class="filter-control">
                     <ul>
-                        <li class="active">Clothings</li>
-                        <li>HandBag</li>
-                        <li>Shoes</li>
-                        <li>Accessories</li>
+                        <li class="active">Acessórios</li>
+                        <li>Pratos</li>
+                        <li>Mangueira</li>
+                        <li>Carvões</li>
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">

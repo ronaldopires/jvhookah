@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-27 06:12:00
+/* Smarty version 3.1.34-dev-7, created on 2020-02-27 20:49:42
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e574fa048da37_20995762',
+  'unifunc' => 'content_5e581d564382c5_14661220',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1582780315,
+      1 => 1582832980,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e574fa048da37_20995762 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e581d564382c5_14661220 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -63,6 +63,25 @@ function content_5e574fa048da37_20995762 (Smarty_Internal_Template $_smarty_tpl)
         <div class="loader"></div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content permission">
+                <div class="modal-body permission_text">
+                    <div class="col">
+                        <p>Você é maior de 18 anos ?</p>
+                    </div>
+                    <div class="col">
+                        <button type="button" id="yes" class="btn btn-success" data-dismiss="modal">SIM</button>
+                        <button type="button" id="no" class="btn btn-danger" data-dismiss="modal">NÃO</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Header Section Begin -->
     <header class="header-section">
         <div class="header-top">
@@ -76,7 +95,8 @@ function content_5e574fa048da37_20995762 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
                 </div>
                 <div class="ht-right">
-                    <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_LOGIN']->value;?>
+" class="login-panel"><i class="fa fa-user"></i>Login</a>
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                         <option value='yt' data-image="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
@@ -112,9 +132,13 @@ function content_5e574fa048da37_20995762 (Smarty_Internal_Template $_smarty_tpl)
                         <div class="advanced-search dropdown">
                             <button type="button" id="categories" class="category-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Todas Categorias</button>
                             <div class="dropdown-menu" aria-labelledby="categories">
-                                <a class="dropdown-item" href="#">Alguma ação</a>
-                                <a class="dropdown-item" href="#">Outra ação</a>
-                                <a class="dropdown-item" href="#">Alguma coisa aqui</a>
+                                <a class="dropdown-item" href="#">Kit Completo</a>
+                                <a class="dropdown-item" href="#">Abafadores</a>
+                                <a class="dropdown-item" href="#">Carvões</a>
+                                <a class="dropdown-item" href="#">Pratos</a>
+                                <a class="dropdown-item" href="#">Essências</a>
+                                <a class="dropdown-item" href="#">Carvões</a>
+                                <a class="dropdown-item" href="#">Carvões</a>
                             </div>
                             <div class="input-group">
                                 <input type="text" placeholder="O que está procurando?">
@@ -210,7 +234,7 @@ function content_5e574fa048da37_20995762 (Smarty_Internal_Template $_smarty_tpl)
                     <ul>
                         <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
 ">Home</a></li>
-                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['SHOP']->value;?>
+                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
 ">Shop</a></li>
                         <li><a href="#">Collection</a>
                             <ul class="dropdown">
@@ -225,12 +249,16 @@ function content_5e574fa048da37_20995762 (Smarty_Internal_Template $_smarty_tpl)
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="./blog-details.html">Blog Details</a></li>
-                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING']->value;?>
 ">Shopping Cart</a></li>
-                                <li><a href="./check-out.html">Checkout</a></li>
-                                <li><a href="./faq.html">Faq</a></li>
-                                <li><a href="./register.html">Register</a></li>
-                                <li><a href="./login.html">Login</a></li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CHECK_OUT']->value;?>
+">Checkout</a></li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_FAQ']->value;?>
+">Faq</a></li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_REGISTER']->value;?>
+">Register</a></li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_LOGIN']->value;?>
+">Login</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -406,6 +434,10 @@ function content_5e574fa048da37_20995762 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/js/main.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/js/script.js"><?php echo '</script'; ?>
 >
 </body>
 

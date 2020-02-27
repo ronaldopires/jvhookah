@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-27 03:41:35
+/* Smarty version 3.1.34-dev-7, created on 2020-02-27 18:17:57
   from 'C:\xampp\htdocs\jvhookah\view\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e572c5fd564d6_82141421',
+  'unifunc' => 'content_5e57f9c5ee7151_91996346',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d6a43a3e8998c3b7a30974c67961ff376e5032' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\home.tpl',
-      1 => 1582766098,
+      1 => 1582823877,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e572c5fd564d6_82141421 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e57f9c5ee7151_91996346 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
@@ -110,10 +110,10 @@ function content_5e572c5fd564d6_82141421 (Smarty_Internal_Template $_smarty_tpl)
             <div class="col-lg-8 offset-lg-1">
                 <div class="filter-control">
                     <ul>
-                        <li class="active">Clothings</li>
-                        <li>HandBag</li>
-                        <li>Shoes</li>
-                        <li>Accessories</li>
+                        <li class="active">Acessórios</li>
+                        <li>Pratos</li>
+                        <li>Mangueira</li>
+                        <li>Carvões</li>
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">
