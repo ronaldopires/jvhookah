@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-27 05:05:42
+/* Smarty version 3.1.34-dev-7, created on 2020-02-28 00:14:35
   from 'C:\xampp\htdocs\jvhookah\view\contact.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e57401621f847_93689765',
+  'unifunc' => 'content_5e584d5b1a3004_20242149',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f94d8e2b00e6959a64e94fd6d85cc556990928f9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\contact.tpl',
-      1 => 1582776338,
+      1 => 1582845273,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e57401621f847_93689765 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e584d5b1a3004_20242149 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -79,7 +79,7 @@ function content_5e57401621f847_93689765 (Smarty_Internal_Template $_smarty_tpl)
                         </div>
                         <div class="ci-text">
                             <span>Phone:</span>
-                            <p><a id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511940249845">+55 11 94024-9845</a> </p>
+                            <p><a class="nav-link" id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511940249845">+55 11 94024-9845</a> </p>
                         </div>
                     </div>
                     <div class="cw-item">

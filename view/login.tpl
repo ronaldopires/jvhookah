@@ -22,27 +22,27 @@
                     <h2>Login</h2>
                     <form action="#">
                         <div class="group-input">
-                            <label for="username">Username or email address *</label>
+                            <label for="username">Email *</label>
                             <input type="text" id="username">
                         </div>
                         <div class="group-input">
-                            <label for="pass">Password *</label>
+                            <label for="pass">Senha *</label>
                             <input type="text" id="pass">
                         </div>
                         <div class="group-input gi-check">
                             <div class="gi-more">
                                 <label for="save-pass">
-                                    Save Password
+                                    Lembrar senha
                                     <input type="checkbox" id="save-pass">
                                     <span class="checkmark"></span>
                                 </label>
-                                <a href="#" class="forget-pass">Forget your Password</a>
+                                <a href="#" class="forget-pass">Esqueci minha senha</a>
                             </div>
                         </div>
-                        <button type="submit" class="site-btn login-btn">Sign In</button>
+                        <button type="submit" class="site-btn login-btn">Entrar</button>
                     </form>
                     <div class="switch-login">
-                        <a href="{$PAG_REGISTER}" class="or-login">Or Create An Account</a>
+                        <a href="{$PAG_REGISTER}" class="or-login">Cadastre-se</a>
                     </div>
                 </div>
             </div>

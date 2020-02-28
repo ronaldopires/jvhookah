@@ -24,11 +24,9 @@ class Rotas
         return self::get_SiteHOME() . '/carrinho';
     }
     static function pag_Shopping_Detail(){
-        return self::get_SiteHOME() . '/detalhes_produto';
+        return self::get_SiteHOME() . '/detalhes_produtos';
     }
-    static function pag_Home(){
-        return self::get_SiteHOME() . '/home';
-    }
+
     static function pag_Produtos(){
         return self::get_SiteHOME() . '/produtos';
     }
@@ -47,6 +45,19 @@ class Rotas
     static function pag_Faq(){
         return self::get_SiteHOME() . '/perguntas_frequentes';
     }
+    //Rotas de imagens internamente
+    static function get_ImagePasta(){
+        return 'media/images/';
+    }
+    //Rotas de imagens para hospedagem
+    static function get_ImageURL(){
+        return self::get_SiteHOME() . '/' . self::get_ImagePasta();
+    }
+    //Rotas de imagens para redimencionar e chamar rota
+    static function ImageLink($img, $largura, $altura){
+        $imagem = self::get_ImageURL() . "thumb.php?src={$img}&w={$largura}&h={$altura}&zc=1";
+        return $imagem;
+    }
 
     //Obter rotas de páginas
     public static function get_Pagina()
@@ -57,7 +68,6 @@ class Rotas
             self::$pag = explode('/', $pagina);
 
             //Concatena a pasta controller com o parametro recebido por get e contatena com .php
-            //$pagina = 'controller/'. $_GET['pag'] . '.php';
             //Verifica a url até o parametro 0 porém podendo usar demais parametros para tratar futuramente
             $pagina = 'controller/' . self::$pag[0] . '.php';
             if (file_exists($pagina)) {
@@ -65,6 +75,8 @@ class Rotas
             } else {
                 include 'erro.php';
             }
+        }else{
+            include 'home.php';
         }
     }
 }

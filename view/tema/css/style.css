@@ -3708,8 +3708,8 @@ ol {
     padding: 13px 35px 11px;
 }
 
-p>#apiwhatsapp:hover {
-    color: #000;
+#apiwhatsapp:hover {
+    color: rgb(14, 71, 88) !important;
 }
 
 
@@ -4339,7 +4339,6 @@ p>#apiwhatsapp:hover {
         padding-right: 15px;
     }
 }
-
 
 .modal-content.permission {
     border-radius: 50% !important;
