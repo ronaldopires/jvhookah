@@ -218,14 +218,18 @@
                                 <div class="pro-qty">
                                     <input type="text" value="1">
                                 </div>
-                                <a href="#" class="primary-btn pd-cart">Comprar</a>
+                                <form action="" method="POST">
+                                    <input type="hidden" name="pro_id" value="{$P.pro_id}">
+                                    <input type="hidden" name="acao" value="add">
+                                    <a href="{$PAG_CHECKOUT}" type="button" class="primary-btn pd-cart">Comprar</a>
+                                </form>
                             </div>
                             <ul class="pd-tags">
-                                <li><span>CATEGORIES</span>: More Accessories, Wallets & Cases</li>
-                                <li><span>TAGS</span>: Clothing, T-shirt, Woman</li>
+                                <li><span>CATEGORIAS</span>: {$P.cate_nome}</li>
+                                <li><span>TAGS</span>: {$P.cate_nome}, {$P.sub_nome}</li>
                             </ul>
                             <div class="pd-share">
-                                <div class="p-code">Sku : 00012</div>
+                                <div class="p-code">Ref: {$P.pro_ref}</div>
                                 <div class="pd-social">
                                     <a href="#"><i class="ti-facebook"></i></a>
                                     <a href="#"><i class="ti-twitter-alt"></i></a>
@@ -257,9 +261,6 @@
                                         <div class="col-lg-7">
                                             <h5>Introduction</h5>
                                             <p>{$P.pro_desc}</p>
-                                            <h5>Features</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                                ex ea commodo consequat. Duis aute irure dolor in </p>
                                         </div>
                                         <div class="col-lg-5">
                                             <img src="{$P.pro_img}" alt="">
@@ -269,61 +270,91 @@
                             </div>
                             <div class="tab-pane fade" id="tab-2" role="tabpanel">
                                 <div class="specification-table">
+                                    {foreach from=$PRO_CARACTERISTICAS item=C}
                                     <table>
                                         <tr>
-                                            <td class="p-catagory">Avaliações</td>
+                                            <td class="p-catagory">Material</td>
                                             <td>
                                                 <div class="pd-rating">
+
+                                                    <!-- <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <span>(5)</span>
+                                                    <i class="fa fa-star-o"></i> -->
+                                                    <span></span>
+                                                <div class="p-stock">{$C.cts_material_tipo}</div>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Preço</td>
+                                            <td class="p-catagory">Base</td>
                                             <td>
-                                                <div class="p-price">R$ {$P.pro_valor}</div>
+                                                <!-- <div class="p-price">{$C.cts_base_nome}</div> -->
+                                                <div class="p-stock">{$C.cts_base_nome}</div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Adicionar ao Carrinho</td>
+                                            <td class="p-catagory">Material da Base</td>
                                             <td>
-                                                <div class="cart-add">+ <i class="icon_bag_alt"></i></div>
+                                                <!-- <div class="cart-add">+ <i class="icon_bag_alt"></i></div> -->
+                                                <div class="p-stock">{$C.cts_material_base}</div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Quantidade disponível</td>
+                                            <td class="p-catagory">Prato</td>
                                             <td>
-                                                <div class="p-stock">{$P.pro_estoque} em estoque</div>
+                                                <div class="p-stock">{$C.cts_prato_nome}</div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Peso</td>
+                                            <td class="p-catagory">Queimador</td>
                                             <td>
                                                 <div class="p-weight">{$P.pro_peso}kg</div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Tamanho</td>
+                                            <td class="p-catagory">Material do Queimador</td>
                                             <td>
                                                 <div class="p-size">{$P.pro_tamanho}</div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Cor</td>
+                                            <td class="p-catagory">Modelo do Queimador</td>
                                             <td><span class="cs-color"></span></td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Ref</td>
+                                            <td class="p-catagory">Tipo do Queimador</td>
+                                            <td>
+                                                <div class="p-code">{$P.pro_ref}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Mangueiras Inclusas</td>
+                                            <td>
+                                                <div class="p-code">{$P.pro_ref}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Material da Mangueira</td>
+                                            <td>
+                                                <div class="p-code">{$P.pro_ref}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Borrachas Inclusas</td>
+                                            <td>
+                                                <div class="p-code">{$P.pro_ref}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Marca</td>
                                             <td>
                                                 <div class="p-code">{$P.pro_ref}</div>
                                             </td>
                                         </tr>
                                     </table>
+                                    {/foreach}
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="tab-3" role="tabpanel">
