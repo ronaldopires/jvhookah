@@ -22,21 +22,21 @@
                     <h2>Register</h2>
                     <form action="#">
                         <div class="group-input">
-                            <label for="username">Username or email address *</label>
+                            <label for="username">Seu email *</label>
                             <input type="text" id="username">
                         </div>
                         <div class="group-input">
-                            <label for="pass">Password *</label>
+                            <label for="pass">Senha *</label>
                             <input type="text" id="pass">
                         </div>
                         <div class="group-input">
-                            <label for="con-pass">Confirm Password *</label>
+                            <label for="con-pass">Confirme a senha *</label>
                             <input type="text" id="con-pass">
                         </div>
-                        <button type="submit" class="site-btn register-btn">REGISTER</button>
+                        <button type="submit" class="site-btn register-btn">Criar Conta</button>
                     </form>
                     <div class="switch-login">
-                        <a href="{$PAG_LOGIN}" class="or-login">Or Login</a>
+                        <a href="{$PAG_LOGIN}" class="or-login">Faça Login</a>
                     </div>
                 </div>
             </div>

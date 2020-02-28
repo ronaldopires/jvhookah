@@ -31,8 +31,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content permission">
                 <div class="modal-body permission_text">
@@ -58,7 +57,7 @@
                         <i class=" fa fa-envelope"></i> hello.colorlib@gmail.com
                     </div>
                     <div class="phone-service">
-                        <i class=" fa fa-phone"></i> +55 11 94024-9845
+                        <i class=" fa fa-phone"></i><a id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511940249845">+55 11 94024-9845</a>
                     </div>
                 </div>
                 <div class="ht-right">

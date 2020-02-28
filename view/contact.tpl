@@ -55,7 +55,7 @@
                         </div>
                         <div class="ci-text">
                             <span>Phone:</span>
-                            <p><a id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511940249845">+55 11 94024-9845</a> </p>
+                            <p><a class="nav-link" id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511940249845">+55 11 94024-9845</a> </p>
                         </div>
                     </div>
                     <div class="cw-item">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-27 20:49:42
+/* Smarty version 3.1.34-dev-7, created on 2020-02-28 00:24:33
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e581d564382c5_14661220',
+  'unifunc' => 'content_5e584fb17b4e75_62740828',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1582832980,
+      1 => 1582845869,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e581d564382c5_14661220 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e584fb17b4e75_62740828 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -64,8 +64,7 @@ function content_5e581d564382c5_14661220 (Smarty_Internal_Template $_smarty_tpl)
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content permission">
                 <div class="modal-body permission_text">
@@ -91,7 +90,7 @@ function content_5e581d564382c5_14661220 (Smarty_Internal_Template $_smarty_tpl)
                         <i class=" fa fa-envelope"></i> hello.colorlib@gmail.com
                     </div>
                     <div class="phone-service">
-                        <i class=" fa fa-phone"></i> +55 11 94024-9845
+                        <i class=" fa fa-phone"></i><a id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511940249845">+55 11 94024-9845</a>
                     </div>
                 </div>
                 <div class="ht-right">
