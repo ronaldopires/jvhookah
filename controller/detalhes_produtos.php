@@ -8,11 +8,19 @@ $produtos->GetProdutos($id);
 //Para produtos relacionados
 $listagem = new Produtos();
 $listagem->GetProdutos();
+//Caracteristicas do produto
+$caract = new Produtos();
+$caract->GetCaractPro($id);
 
+//print_r($caract->GetItens());
 
 $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
 $smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
 $smarty->assign('PAG_REGISTER', Rotas::pag_Register());
 $smarty->assign('PRODUTOS_INFO', $produtos->GetItens());
 $smarty->assign('MAIS_PRODUTOS', $listagem->GetItens());
+$smarty->assign('PAG_CHECKOUT', Rotas::pag_Check_Out());
+$smarty->assign('PRO_CARACTERISTICAS', $caract->GetItens());
+
+
 $smarty->display('product.tpl');

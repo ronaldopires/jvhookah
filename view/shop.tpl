@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
-                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                    <a href="{$PAG_HOME}"><i class="fa fa-home"></i> Home</a>
                     <span>Shop</span>
                 </div>
             </div>
@@ -21,13 +21,13 @@
                 <div class="filter-widget">
                     <h4 class="fw-title">Categories</h4>
                     <ul class="filter-catagories">
-                        <li><a href="#">Men</a></li>
-                        <li><a href="#">Women</a></li>
-                        <li><a href="#">Kids</a></li>
+                        {foreach from=$CATEGORIAS item=C}
+                        <li><a href="{$C.cate_link}">{$C.cate_nome}</a></li>
+                        {/foreach}
                     </ul>
                 </div>
                 <div class="filter-widget">
-                    <h4 class="fw-title">Brand</h4>
+                    <h4 class="fw-title">Marcas</h4>
                     <div class="fw-brand-check">
                         <div class="bc-item">
                             <label for="bc-calvin">
@@ -68,7 +68,8 @@
                                 <input type="text" id="maxamount">
                             </div>
                         </div>
-                        <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="33" data-max="98">
+                        <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                            data-min="33" data-max="98">
                             <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
                             <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                             <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
@@ -163,25 +164,36 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="product-item">
                                 <div class="pi-pic">
-                                    <img src="{$P.pro_img}" alt="">
+                                    <img src="{$P.pro_img}" alt="{$P.pro_nome}">
                                     <!-- <div class="sale pp-sale">Sale</div> -->
                                     <div class="icon">
                                         <i class="icon_heart_alt"></i>
                                     </div>
                                     <ul>
                                         <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#"><i class="fa fa-search-plus"></i></a></li>
+                                        <li class="quick-view"><a href="{$P.pro_img}" data-toggle="modal" data-target="#modalphoto"><i class="fa fa-search-plus"></i></a></li>
                                         <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="pi-text">
-                                    <div class="catagory-name">{$P.sub_nome}</div>
+                                    <div class="catagory-name">{$P.cate_nome}</div>
                                     <a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}">
                                         <h5>{$P.pro_nome}</h5>
                                     </a>
                                     <div class="product-price">
                                         R$ {$P.pro_valor}
                                         <span>$35.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal Photo -->
+                        <div class="modal fade" id="modalphoto" tabindex="-1" role="dialog"
+                            aria-labelledby="modalphoto" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="{$P.pro_img}" alt="{$P.pro_nome}">
                                     </div>
                                 </div>
                             </div>

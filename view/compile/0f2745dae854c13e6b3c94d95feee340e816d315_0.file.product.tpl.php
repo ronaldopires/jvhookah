@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-28 06:20:30
+/* Smarty version 3.1.34-dev-7, created on 2020-02-28 19:13:01
   from 'C:\xampp\htdocs\jvhookah\view\product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e58a31eb9ba41_90247676',
+  'unifunc' => 'content_5e59582dc81f06_89980835',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f2745dae854c13e6b3c94d95feee340e816d315' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\product.tpl',
-      1 => 1582867228,
+      1 => 1582913581,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e58a31eb9ba41_90247676 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e59582dc81f06_89980835 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -256,14 +256,24 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                                 <div class="pro-qty">
                                     <input type="text" value="1">
                                 </div>
-                                <a href="#" class="primary-btn pd-cart">Comprar</a>
+                                <form action="" method="POST">
+                                    <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+">
+                                    <input type="hidden" name="acao" value="add">
+                                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CHECKOUT']->value;?>
+" type="button" class="primary-btn pd-cart">Comprar</a>
+                                </form>
                             </div>
                             <ul class="pd-tags">
-                                <li><span>CATEGORIES</span>: More Accessories, Wallets & Cases</li>
-                                <li><span>TAGS</span>: Clothing, T-shirt, Woman</li>
+                                <li><span>CATEGORIAS</span>: <?php echo $_smarty_tpl->tpl_vars['P']->value['cate_nome'];?>
+</li>
+                                <li><span>TAGS</span>: <?php echo $_smarty_tpl->tpl_vars['P']->value['cate_nome'];?>
+, <?php echo $_smarty_tpl->tpl_vars['P']->value['sub_nome'];?>
+</li>
                             </ul>
                             <div class="pd-share">
-                                <div class="p-code">Sku : 00012</div>
+                                <div class="p-code">Ref: <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_ref'];?>
+</div>
                                 <div class="pd-social">
                                     <a href="#"><i class="ti-facebook"></i></a>
                                     <a href="#"><i class="ti-twitter-alt"></i></a>
@@ -296,9 +306,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                                             <h5>Introduction</h5>
                                             <p><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_desc'];?>
 </p>
-                                            <h5>Features</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                                ex ea commodo consequat. Duis aute irure dolor in </p>
                                         </div>
                                         <div class="col-lg-5">
                                             <img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
@@ -309,66 +316,110 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                             </div>
                             <div class="tab-pane fade" id="tab-2" role="tabpanel">
                                 <div class="specification-table">
+                                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PRO_CARACTERISTICAS']->value, 'C');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
+?>
                                     <table>
                                         <tr>
-                                            <td class="p-catagory">Avaliações</td>
+                                            <td class="p-catagory">Material</td>
                                             <td>
                                                 <div class="pd-rating">
+
+                                                    <!-- <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                    <span>(5)</span>
+                                                    <i class="fa fa-star-o"></i> -->
+                                                    <span></span>
+                                                <div class="p-stock"><?php echo $_smarty_tpl->tpl_vars['C']->value['cts_material_tipo'];?>
+</div>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Preço</td>
+                                            <td class="p-catagory">Base</td>
                                             <td>
-                                                <div class="p-price">R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
+                                                <!-- <div class="p-price"><?php echo $_smarty_tpl->tpl_vars['C']->value['cts_base_nome'];?>
+</div> -->
+                                                <div class="p-stock"><?php echo $_smarty_tpl->tpl_vars['C']->value['cts_base_nome'];?>
 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Adicionar ao Carrinho</td>
+                                            <td class="p-catagory">Material da Base</td>
                                             <td>
-                                                <div class="cart-add">+ <i class="icon_bag_alt"></i></div>
+                                                <!-- <div class="cart-add">+ <i class="icon_bag_alt"></i></div> -->
+                                                <div class="p-stock"><?php echo $_smarty_tpl->tpl_vars['C']->value['cts_material_base'];?>
+</div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Quantidade disponível</td>
+                                            <td class="p-catagory">Prato</td>
                                             <td>
-                                                <div class="p-stock"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_estoque'];?>
- em estoque</div>
+                                                <div class="p-stock"><?php echo $_smarty_tpl->tpl_vars['C']->value['cts_prato_nome'];?>
+</div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Peso</td>
+                                            <td class="p-catagory">Queimador</td>
                                             <td>
                                                 <div class="p-weight"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_peso'];?>
 kg</div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Tamanho</td>
+                                            <td class="p-catagory">Material do Queimador</td>
                                             <td>
                                                 <div class="p-size"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_tamanho'];?>
 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Cor</td>
+                                            <td class="p-catagory">Modelo do Queimador</td>
                                             <td><span class="cs-color"></span></td>
                                         </tr>
                                         <tr>
-                                            <td class="p-catagory">Ref</td>
+                                            <td class="p-catagory">Tipo do Queimador</td>
+                                            <td>
+                                                <div class="p-code"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_ref'];?>
+</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Mangueiras Inclusas</td>
+                                            <td>
+                                                <div class="p-code"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_ref'];?>
+</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Material da Mangueira</td>
+                                            <td>
+                                                <div class="p-code"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_ref'];?>
+</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Borrachas Inclusas</td>
+                                            <td>
+                                                <div class="p-code"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_ref'];?>
+</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Marca</td>
                                             <td>
                                                 <div class="p-code"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_ref'];?>
 </div>
                                             </td>
                                         </tr>
                                     </table>
+                                    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="tab-3" role="tabpanel">
