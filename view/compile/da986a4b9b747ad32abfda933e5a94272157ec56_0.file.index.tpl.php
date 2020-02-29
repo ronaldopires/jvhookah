@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-28 00:24:33
+/* Smarty version 3.1.34-dev-7, created on 2020-02-29 02:15:08
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e584fb17b4e75_62740828',
+  'unifunc' => 'content_5e59bb1c32e1e9_89503826',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1582845869,
+      1 => 1582938906,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e584fb17b4e75_62740828 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e59bb1c32e1e9_89503826 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -36,6 +36,9 @@ function content_5e584fb17b4e75_62740828 (Smarty_Internal_Template $_smarty_tpl)
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
+    <!-- LightBox Gallery-->
+    <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/css/lightbox.min.css" rel="stylesheet" />
     <!-- Css Styles -->
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/css/bootstrap.min.css" type="text/css">
@@ -437,6 +440,10 @@ function content_5e584fb17b4e75_62740828 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/js/script.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/js/lightbox-plus-jquery.min.js"><?php echo '</script'; ?>
 >
 </body>
 
