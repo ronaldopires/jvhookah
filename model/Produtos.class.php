@@ -12,15 +12,23 @@ class Produtos extends Conexao
         //Verifica se existe o ID
         if(!$id == null){
             //Caso exita ele ordena por id
-            $teste = " WHERE pro_id = {$id} ";
+            $pro = " WHERE pro_id = :id ";
         }else{
-            $teste = "";
+            $pro = "";
         }
         //Query  especifica para buscar os produtos de uma categorias especificas
         $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id";
-        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id {$teste} ORDER BY pro_id DESC";
+        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id {$pro} ORDER BY pro_id DESC";
         
+        $params = array(':id' =>(int)$id);
         
+        $this->ExecuteSQL($query, $params);
+        $this->GetLista();
+    }
+
+    public function OrderByPriceASC(){
+        $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id";
+        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id ORDER BY pro_valor DESC";
         $this->ExecuteSQL($query);
         $this->GetLista();
     }
@@ -34,8 +42,12 @@ class Produtos extends Conexao
 
     public function GetProdutosCateID($id){
         $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id";
-        $query .= " WHERE pro_categoria = {$id}";
-        $this->ExecuteSQL($query);
+        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id";
+        $query .= " WHERE pro_categoria = :id";
+
+        $params = array(':id' =>(int)$id);
+
+        $this->ExecuteSQL($query, $params);
         $this->GetLista();
     }
 
@@ -59,7 +71,7 @@ class Produtos extends Conexao
                 'pro_desc' => $lista['pro_desc'],
                 'pro_peso' => $lista['pro_peso'],
                 'pro_cor' => $lista['pro_cor'],
-                'pro_valor' => $lista['pro_valor'],
+                'pro_valor' => Sistema::MoedaBR($lista['pro_valor']),
                 'pro_tamanho' => $lista['pro_tamanho'],
                 'pro_largura' => $lista['pro_largura'],
                 'pro_altura' => $lista['pro_altura'],
@@ -90,7 +102,7 @@ class Produtos extends Conexao
                 'pro_desc' => $lista['pro_desc'],
                 'pro_peso' => $lista['pro_peso'],
                 'pro_cor' => $lista['pro_cor'],
-                'pro_valor' => $lista['pro_valor'],
+                'pro_valor' => Sistema::MoedaBR($lista['pro_valor']),
                 'pro_tamanho' => $lista['pro_tamanho'],
                 'pro_largura' => $lista['pro_largura'],
                 'pro_altura' => $lista['pro_altura'],

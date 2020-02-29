@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-28 19:13:01
+/* Smarty version 3.1.34-dev-7, created on 2020-02-29 06:07:25
   from 'C:\xampp\htdocs\jvhookah\view\product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e59582dc81f06_89980835',
+  'unifunc' => 'content_5e59f18d585fd9_05526672',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f2745dae854c13e6b3c94d95feee340e816d315' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\product.tpl',
-      1 => 1582913581,
+      1 => 1582952842,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e59582dc81f06_89980835 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e59f18d585fd9_05526672 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -175,21 +175,31 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                     <div class="col-lg-6">
                         <div class="product-pic-zoom">
                             <img class="product-big-img" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
-" alt="">
+" alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+">
                             <div class="zoom-icon">
                                 <i class="fa fa-search-plus"></i>
                             </div>
                         </div>
                         <div class="product-thumbs">
                             <div class="product-thumbs-track ps-slider owl-carousel">
-                                <div class="pt active" data-imgbigurl="img/product-single/product-1.jpg"><img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
-" alt=""></div>
-                                <div class="pt" data-imgbigurl="img/product-single/product-2.jpg"><img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/product-single/product-2.jpg" alt=""></div>
-                                <div class="pt" data-imgbigurl="img/product-single/product-3.jpg"><img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/product-single/product-3.jpg" alt=""></div>
-                                <div class="pt" data-imgbigurl="img/product-single/product-3.jpg"><img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/product-single/product-3.jpg" alt=""></div>
+                                <div class="pt active" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+"></div>
+                                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['IMAGENS']->value, 'I');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['I']->value) {
+?>
+                                <div class="pt" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['I']->value['img_nome'];?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['I']->value['img_nome'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+"></div>
+                                <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </div>
                         </div>
                     </div>
@@ -333,7 +343,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-o"></i> -->
                                                     <span></span>
-                                                <div class="p-stock"><?php echo $_smarty_tpl->tpl_vars['C']->value['cts_material_tipo'];?>
+                                                    <div class="p-stock"><?php echo $_smarty_tpl->tpl_vars['C']->value['cts_material_tipo'];?>
 </div>
                                                 </div>
                                             </td>
@@ -537,13 +547,16 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                         </ul>
                     </div>
                     <div class="pi-text">
-                        <div class="catagory-name">Coat</div>
+                        <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['sub_nome'];?>
+</div>
                         <a href="#">
-                            <h5>Pure Pineapple</h5>
+                            <h5><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+</h5>
                         </a>
                         <div class="product-price">
-                            $14.00
-                            <span>$35.00</span>
+                            R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
+
+                            <!-- <span>$35.00</span> -->
                         </div>
                     </div>
                 </div>

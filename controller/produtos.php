@@ -4,7 +4,8 @@
 $smarty = new Template();
 $produtos = new Produtos();
 $categorias = new Categorias();
-
+$listagem = new Produtos();
+$listagem->GetProdutos();
 
 $categorias->GetCategorias();
 /* $caract = new Produtos();
@@ -17,7 +18,7 @@ if(isset(Rotas::$pag[1])){
 }
 
 /* echo '<pre>';
-var_dump($categorias->GetItens());
+var_dump($produtos->GetItens());
 echo '</pre>'; */
 
 $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
@@ -26,6 +27,11 @@ $smarty->assign('PAG_REGISTER', Rotas::pag_Register());
 $smarty->assign('PRODUTOS', $produtos->GetItens());
 $smarty->assign('PRODUTOS_INFO', Rotas::pag_Shopping_Detail());
 $smarty->assign('CATEGORIAS', $categorias->GetItens());
+$smarty->assign('ITENS', $produtos->TotalDados());
+$smarty->assign('GET_IMAGE', Rotas::get_ImagePasta());
+$smarty->assign('MAIS_PRODUTOS', $listagem->GetItens());
+
+
 
 
 $smarty->display('shop.tpl');

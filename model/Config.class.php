@@ -13,7 +13,7 @@ class Config
     const BD_USER = "root";
     const BD_SENHA = "";
     const BD_BANCO = "hookah";
-    const BD_PREFIX = "";
+    const BD_PREFIX = "jv_";
 
     //INFORMAÇÕES PARA PHPMAILER
     const EMAIL_HOST = "smtp.gmail.com";

@@ -22,7 +22,7 @@ class Categorias extends Conexao
         //Buscar itens por categoria
         $query = "SELECT * FROM {$this->prefix}sub_categorias ";
         $this->ExecuteSQL($query);
-        $this->GetLista();
+        $this->GetListaSub();
     }
 
     //Lista dos itens encontrados
@@ -36,6 +36,21 @@ class Categorias extends Conexao
                 'cate_slug' => $lista['cate_slug'],
                 'cate_img' => $lista['cate_img'],
                 'cate_link' => Rotas::pag_Produtos() . '/' . $lista['cate_id'] . '/' . $lista['cate_slug'],
+            );
+            $i++;
+        endwhile;
+    }
+    //Lista dos itens encontrados
+    private function GetListaSub()
+    {
+        $i = 1;
+        while ($lista = $this->ListarDados()):
+            $this->itens[$i] = array(
+                'sub_id' => $lista['sub_id'],
+                'sub_nome' => $lista['sub_nome'],
+                'sub_slug' => $lista['sub_slug'],
+                'sub_img' => Rotas::ImageLink($lista['sub_img'], 1000, 1000),
+                //'sub_link' => Rotas::pag_Produtos() . '/' . $lista['cate_id'] . '/' . $lista['cate_slug'],
             );
             $i++;
         endwhile;

@@ -145,17 +145,17 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="product-pic-zoom">
-                            <img class="product-big-img" src="{$P.pro_img}" alt="">
+                            <img class="product-big-img" src="{$P.pro_img}" alt="{$P.pro_nome}">
                             <div class="zoom-icon">
                                 <i class="fa fa-search-plus"></i>
                             </div>
                         </div>
                         <div class="product-thumbs">
                             <div class="product-thumbs-track ps-slider owl-carousel">
-                                <div class="pt active" data-imgbigurl="img/product-single/product-1.jpg"><img src="{$P.pro_img}" alt=""></div>
-                                <div class="pt" data-imgbigurl="img/product-single/product-2.jpg"><img src="{$GET_TEMA}/img/product-single/product-2.jpg" alt=""></div>
-                                <div class="pt" data-imgbigurl="img/product-single/product-3.jpg"><img src="{$GET_TEMA}/img/product-single/product-3.jpg" alt=""></div>
-                                <div class="pt" data-imgbigurl="img/product-single/product-3.jpg"><img src="{$GET_TEMA}/img/product-single/product-3.jpg" alt=""></div>
+                                <div class="pt active" data-imgbigurl="{$P.pro_img}"><img src="{$P.pro_img}" alt="{$P.pro_nome}"></div>
+                                {foreach from=$IMAGENS item=I}
+                                <div class="pt" data-imgbigurl="{$I.img_nome}"><img src="{$I.img_nome}" alt="{$P.pro_nome}"></div>
+                                {/foreach}
                             </div>
                         </div>
                     </div>
@@ -283,7 +283,7 @@
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star-o"></i> -->
                                                     <span></span>
-                                                <div class="p-stock">{$C.cts_material_tipo}</div>
+                                                    <div class="p-stock">{$C.cts_material_tipo}</div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -462,13 +462,13 @@
                         </ul>
                     </div>
                     <div class="pi-text">
-                        <div class="catagory-name">Coat</div>
+                        <div class="catagory-name">{$P.sub_nome}</div>
                         <a href="#">
-                            <h5>Pure Pineapple</h5>
+                            <h5>{$P.pro_nome}</h5>
                         </a>
                         <div class="product-price">
-                            $14.00
-                            <span>$35.00</span>
+                            R$ {$P.pro_valor}
+                            <!-- <span>$35.00</span> -->
                         </div>
                     </div>
                 </div>

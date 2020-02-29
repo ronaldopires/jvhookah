@@ -33,8 +33,17 @@ Class Conexao extends Config{
     function ExecuteSQL($query, array $params = NULL){
         //Prepare com o conectar vai executar a query e retornar o resultado num objeto
         $this->obj = $this->Conectar()->prepare($query);
+        
+        //Verifica os paramentros passados pela url
+        $pkCount = (is_array($params) ? count($params) : 0);
+        if ($pkCount > 0) {
+            foreach ($params as $key => $value) {
+                $this->obj->bindvalue($key, $value);
+            }
+        }
         return $this->obj->execute();
     }
+    
     //Mostrar o resultado da consulta com um array associativo
     function ListarDados(){
         return $this->obj->fetch(PDO::FETCH_ASSOC);

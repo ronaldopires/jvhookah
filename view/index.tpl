@@ -12,6 +12,8 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
+    <!-- LightBox Gallery-->
+    <link href="{$GET_TEMA}/tema/css/lightbox.min.css" rel="stylesheet" />
     <!-- Css Styles -->
     <link rel="stylesheet" href="{$GET_TEMA}/tema/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="{$GET_TEMA}/tema/css/font-awesome.min.css" type="text/css">
@@ -346,6 +348,7 @@
     <script src="{$GET_TEMA}/tema/js/owl.carousel.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/main.js"></script>
     <script src="{$GET_TEMA}/tema/js/script.js"></script>
+    <script src="{$GET_TEMA}/tema/js/lightbox-plus-jquery.min.js"></script>
 </body>
 
 </html>

@@ -19,6 +19,10 @@ class Rotas
     static function get_SiteTEMA(){
         return self::get_SiteHOME() . '/' . self::$pasta_view;
     }
+    //Obter caminho para controller
+    static function get_Pasta_Controller(){
+        return self::$pasta_view;
+    }
     //Obter caminho das páginas
     static function pag_Shopping(){
         return self::get_SiteHOME() . '/carrinho';
@@ -26,7 +30,6 @@ class Rotas
     static function pag_Shopping_Detail(){
         return self::get_SiteHOME() . '/detalhes_produtos';
     }
-
     static function pag_Produtos(){
         return self::get_SiteHOME() . '/produtos';
     }
