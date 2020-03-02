@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Carrinho' => $baseDir . '/model/Carrinho.class.php',
     'Categorias' => $baseDir . '/model/Categorias.class.php',
     'Conexao' => $baseDir . '/model/Conexao.class.php',
     'Config' => $baseDir . '/model/Config.class.php',

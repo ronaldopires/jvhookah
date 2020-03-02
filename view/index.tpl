@@ -28,9 +28,9 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -120,50 +120,46 @@
                             <li class="cart-icon">
                                 <a href="#">
                                     <i class="icon_bag_alt"></i>
-                                    <span>3</span>
+                                    <span>{$ITENS_CARRINHO}</span>
                                 </a>
                                 <div class="cart-hover">
                                     <div class="select-items">
                                         <table>
                                             <tbody>
+                                                {if $CARRINHO == true} {foreach from=$CARRINHO item=C}
                                                 <tr>
-                                                    <td class="si-pic"><img src="{$GET_TEMA}/img/select-product-1.jpg" alt=""></td>
+                                                    <td class="si-pic"><img width="150" src="{$C.pro_img}" alt=""></td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
+                                                            <p>R$ {$C.pro_valor} X {$C.pro_qtd}</p>
+                                                            <h6>{$C.pro_nome}</h6>
                                                         </div>
                                                     </td>
                                                     <td class="si-close">
-                                                        <i class="ti-close"></i>
+                                                        <form action="{$PAG_SHOPPING_ALTER}" method="post">
+                                                            <input type="hidden" name="pro_id" value="{$C.pro_id}">
+                                                            <input type="hidden" name="acao" value="del">
+                                                            <button class="btn"><i class="ti-close"></i></button>
+                                                        </form>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="si-pic"><img src="{$GET_TEMA}/img/select-product-2.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
+                                                {/foreach} {else}
+                                                <p>Você não possui produtos no seu carrinho.</p>
+                                                {/if}
                                             </tbody>
                                         </table>
                                     </div>
                                     <div class="select-total">
                                         <span>total:</span>
-                                        <h5>$120.00</h5>
+                                        <h5>R$ {$VALOR_TOTAL}</h5>
                                     </div>
                                     <div class="select-button">
-                                        <a href="#" class="primary-btn view-card">VIEW CARD</a>
-                                        <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                                        <a href="{$PAG_SHOP}" class="primary-btn view-card">VER PRODUTOS</a>
+                                        <a href="{$PAG_SHOPPING_CART}" class="primary-btn checkout-btn">CHECK OUT</a>
                                     </div>
                                 </div>
                             </li>
-                            <li class="cart-price">$150.00</li>
+                            <li class="cart-price">R$ {$VALOR_TOTAL}</li>
                         </ul>
                     </div>
                 </div>
@@ -207,7 +203,7 @@
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="./blog-details.html">Blog Details</a></li>
-                                <li><a href="{$PAG_SHOPPING}">Shopping Cart</a></li>
+                                <li><a href="{$PAG_SHOPPING_CART}">Shopping Cart</a></li>
                                 <li><a href="{$PAG_CHECK_OUT}">Checkout</a></li>
                                 <li><a href="{$PAG_FAQ}">Faq</a></li>
                                 <li><a href="{$PAG_REGISTER}">Register</a></li>
@@ -337,8 +333,9 @@
 
     <!-- Js Plugins -->
     <script src="{$GET_TEMA}/tema/js/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="{$GET_TEMA}/tema/js/script.js"></script>
     <script src="{$GET_TEMA}/tema/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/jquery-ui.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/jquery.countdown.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/jquery.nice-select.min.js"></script>
@@ -347,7 +344,6 @@
     <script src="{$GET_TEMA}/tema/js/jquery.slicknav.js"></script>
     <script src="{$GET_TEMA}/tema/js/owl.carousel.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/main.js"></script>
-    <script src="{$GET_TEMA}/tema/js/script.js"></script>
     <script src="{$GET_TEMA}/tema/js/lightbox-plus-jquery.min.js"></script>
 </body>
 

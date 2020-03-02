@@ -218,10 +218,11 @@
                                 <div class="pro-qty">
                                     <input type="text" value="1">
                                 </div>
-                                <form action="" method="POST">
-                                    <input type="hidden" name="pro_id" value="{$P.pro_id}">
-                                    <input type="hidden" name="acao" value="add">
-                                    <a href="{$PAG_CHECKOUT}" type="button" class="primary-btn pd-cart">Comprar</a>
+                                <form name="carrinho" action="{$PAG_SHOPPING_ALTER}" method="post">
+                                    <input type="hidden" name="pro_id" value="{$P.pro_id}" />
+                                    <input type="hidden" name="acao" value="add" />
+                                    <!-- <a href="{$COMPRAR}" type="button" class="primary-btn pd-cart">Comprar</a> -->
+                                    <button class="btn primary-btn pd-cart">Comprar</button>
                                 </form>
                             </div>
                             <ul class="pd-tags">
@@ -463,7 +464,7 @@
                     </div>
                     <div class="pi-text">
                         <div class="catagory-name">{$P.sub_nome}</div>
-                        <a href="#">
+                        <a href="{$PRODUTO}/{$P.pro_id}">
                             <h5>{$P.pro_nome}</h5>
                         </a>
                         <div class="product-price">

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-29 03:36:05
+/* Smarty version 3.1.34-dev-7, created on 2020-03-01 15:35:35
   from 'C:\xampp\htdocs\jvhookah\view\shop.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e59ce15c085c0_69485492',
+  'unifunc' => 'content_5e5bc837755030_21505169',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54dc667461bf64ae499f6d9a6b39584793e4af9c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\shop.tpl',
-      1 => 1582943762,
+      1 => 1583073334,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e59ce15c085c0_69485492 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5bc837755030_21505169 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -102,7 +102,22 @@ foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
 ?>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['C']->value['cate_link'];?>
 "><?php echo $_smarty_tpl->tpl_vars['C']->value['cate_nome'];?>
+</a>
+                                <ul class="filter-catagories">
+                                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['SUB_CATEGORIAS']->value, 'S');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['S']->value) {
+?>
+                                    <li class="ml-5"><a href="<?php echo $_smarty_tpl->tpl_vars['S']->value['sub_link'];?>
+"><?php echo $_smarty_tpl->tpl_vars['S']->value['sub_nome'];?>
 </a></li>
+                                    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                                </ul>
+                            </li>
                             <?php
 }
 }
@@ -286,7 +301,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                                         </ul>
                                     </div>
                                     <div class="pi-text">
-                                        <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['cate_nome'];?>
+                                        <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['sub_nome'];?>
 </div>
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['PRODUTOS_INFO']->value;?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
@@ -298,7 +313,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                                         <div class="product-price">
                                             R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
 
-                                            <span>$35.00</span>
+                                            <!-- <span>$35.00</span> -->
                                         </div>
                                     </div>
                                 </div>
@@ -307,215 +322,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                            <!-- <div class="col-lg-4 col-sm-6">
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/product-2.jpg" alt="">
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
-                                    </div>
-                                    <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">Coat</div>
-                                    <a href="#">
-                                        <h5>Guangzhou sweater</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $13.00
-                                        <span>$35.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/product-3.jpg" alt="">
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
-                                    </div>
-                                    <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">Shoes</div>
-                                    <a href="#">
-                                        <h5>Guangzhou sweater</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $34.00
-                                        <span>$35.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/product-4.jpg" alt="">
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
-                                    </div>
-                                    <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">Coat</div>
-                                    <a href="#">
-                                        <h5>Microfiber Wool Scarf</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $64.00
-                                        <span>$35.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/product-5.jpg" alt="">
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
-                                    </div>
-                                    <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">Shoes</div>
-                                    <a href="#">
-                                        <h5>Men's Painted Hat</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $44.00
-                                        <span>$35.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/product-6.jpg" alt="">
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
-                                    </div>
-                                    <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">Shoes</div>
-                                    <a href="#">
-                                        <h5>Converse Shoes</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $34.00
-                                        <span>$35.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/product-7.jpg" alt="">
-                                    <div class="sale pp-sale">Sale</div>
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
-                                    </div>
-                                    <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">Towel</div>
-                                    <a href="#">
-                                        <h5>Pure Pineapple</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $64.00
-                                        <span>$35.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/product-8.jpg" alt="">
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
-                                    </div>
-                                    <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">Coat</div>
-                                    <a href="#">
-                                        <h5>2 Layer Windbreaker</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $44.00
-                                        <span>$35.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="product-item">
-                                <div class="pi-pic">
-                                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/product-9.jpg" alt="">
-                                    <div class="icon">
-                                        <i class="icon_heart_alt"></i>
-                                    </div>
-                                    <ul>
-                                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                        <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                        <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="pi-text">
-                                    <div class="catagory-name">Shoes</div>
-                                    <a href="#">
-                                        <h5>Converse Shoes</h5>
-                                    </a>
-                                    <div class="product-price">
-                                        $34.00
-                                        <span>$35.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
+
                         </div>
                     </div>
                     <div class="loading-more">

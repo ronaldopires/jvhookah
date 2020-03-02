@@ -20,7 +20,7 @@ class Categorias extends Conexao
     public function GetSubCategorias()
     {
         //Buscar itens por categoria
-        $query = "SELECT * FROM {$this->prefix}sub_categorias ";
+        $query = "SELECT * FROM {$this->prefix}sub_categorias s INNER JOIN {$this->prefix}categorias c ON s.cate_id = c.cate_id ";
         $this->ExecuteSQL($query);
         $this->GetListaSub();
     }
@@ -47,10 +47,11 @@ class Categorias extends Conexao
         while ($lista = $this->ListarDados()):
             $this->itens[$i] = array(
                 'sub_id' => $lista['sub_id'],
+                'cate_id' => $lista['cate_id'],
                 'sub_nome' => $lista['sub_nome'],
                 'sub_slug' => $lista['sub_slug'],
                 'sub_img' => Rotas::ImageLink($lista['sub_img'], 1000, 1000),
-                //'sub_link' => Rotas::pag_Produtos() . '/' . $lista['cate_id'] . '/' . $lista['cate_slug'],
+                'sub_link' => Rotas::pag_Produtos(). '/'.$lista['cate_id'] . '/' . $lista['cate_slug'] . '/' . $lista['sub_id'] . '/' . $lista['sub_slug'],
             );
             $i++;
         endwhile;
