@@ -25,6 +25,25 @@ class Categorias extends Conexao
         $this->GetListaSub();
     }
 
+    public function GetMarcas(){
+        //Buscar itens por marca
+        $query = "SELECT * FROM {$this->prefix}fabricantes ";
+        $this->ExecuteSQL($query);
+        $this->GetListaMarcas();
+    }
+
+    private function GetListaMarcas(){
+        $i = 1;
+        while ($lista = $this->ListarDados()):
+            $this->itens[$i] = array(
+                'fab_id' => $lista['fab_id'],
+                'fab_pro_id' => $lista['fab_pro_id'],
+                'fab_nome' => $lista['fab_nome'],
+            );
+            $i++;
+        endwhile;
+    }
+
     //Lista dos itens encontrados
     private function GetLista()
     {

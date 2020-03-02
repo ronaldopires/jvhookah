@@ -11,6 +11,7 @@ class Produtos extends Conexao
     {
         //Verifica se existe o ID
         if(!$id == null){
+            //$id = filter_var(FILTER_SANITIZE_NUMBER_INT);
             //Caso exita ele ordena por id
             $pro = " WHERE pro_id = :id ";
         }else{
@@ -26,14 +27,36 @@ class Produtos extends Conexao
         $this->GetLista();
     }
 
-    public function OrderByPriceASC(){
+    public function OrderByProducts($opcao){
+        switch ($opcao){
+            case 0:
+                $opcao = " ORDER BY pro_id DESC ";
+            break;
+            case 1:
+                $opcao = " ORDER BY pro_valor ASC ";
+            break;
+            case 2:
+                $opcao = " ORDER BY pro_valor DESC ";
+            break;
+            /* case 3:
+                $opcao = " ORDER BY pro_valor DESC ";
+            break; */
+            case 4:
+                $opcao = " ORDER BY pro_nome ASC ";
+            break;
+            case 5:
+                $opcao = " ORDER BY pro_nome DESC ";
+            break;
+        }
+
         $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id";
-        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id ORDER BY pro_valor DESC";
+        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id {$opcao}";
         $this->ExecuteSQL($query);
         $this->GetLista();
     }
 
     public function GetCaractPro($id){
+        //$id = filter_var(FILTER_SANITIZE_NUMBER_INT);
         $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}caracteristicas c ON p.pro_id = c.cts_pro_id";
         $query .= " WHERE pro_id = {$id}";
         $this->ExecuteSQL($query);

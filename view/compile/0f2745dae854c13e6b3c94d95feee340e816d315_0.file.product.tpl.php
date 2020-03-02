@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-02 03:53:42
+/* Smarty version 3.1.34-dev-7, created on 2020-03-02 17:15:56
   from 'C:\xampp\htdocs\jvhookah\view\product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5c75364a6337_76724928',
+  'unifunc' => 'content_5e5d313c4aa809_88648086',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f2745dae854c13e6b3c94d95feee340e816d315' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\product.tpl',
-      1 => 1583117620,
+      1 => 1583165755,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5c75364a6337_76724928 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5d313c4aa809_88648086 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -57,31 +57,31 @@ function content_5e5c75364a6337_76724928 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="fw-brand-check">
                         <div class="bc-item">
                             <label for="bc-calvin">
-                                    Calvin Klein
-                                    <input type="checkbox" id="bc-calvin">
-                                    <span class="checkmark"></span>
-                                </label>
+                                Calvin Klein
+                                <input type="checkbox" id="bc-calvin">
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
                         <div class="bc-item">
                             <label for="bc-diesel">
-                                    Diesel
-                                    <input type="checkbox" id="bc-diesel">
-                                    <span class="checkmark"></span>
-                                </label>
+                                Diesel
+                                <input type="checkbox" id="bc-diesel">
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
                         <div class="bc-item">
                             <label for="bc-polo">
-                                    Polo
-                                    <input type="checkbox" id="bc-polo">
-                                    <span class="checkmark"></span>
-                                </label>
+                                Polo
+                                <input type="checkbox" id="bc-polo">
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
                         <div class="bc-item">
                             <label for="bc-tommy">
-                                    Tommy Hilfiger
-                                    <input type="checkbox" id="bc-tommy">
-                                    <span class="checkmark"></span>
-                                </label>
+                                Tommy Hilfiger
+                                <input type="checkbox" id="bc-tommy">
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,8 @@ function content_5e5c75364a6337_76724928 (Smarty_Internal_Template $_smarty_tpl)
                                 <input type="text" id="maxamount">
                             </div>
                         </div>
-                        <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="33" data-max="98">
+                        <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                            data-min="33" data-max="98">
                             <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
                             <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                             <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
@@ -185,7 +186,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                             <div class="product-thumbs-track ps-slider owl-carousel">
                                 <div class="pt active" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
 "><img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
-" alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+"
+                                        alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 "></div>
                                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['IMAGENS']->value, 'I');
@@ -194,7 +196,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['I']->value) {
 ?>
                                 <div class="pt" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['I']->value['img_nome'];?>
 "><img src="<?php echo $_smarty_tpl->tpl_vars['I']->value['img_nome'];?>
-" alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+"
+                                        alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 "></div>
                                 <?php
 }
@@ -222,10 +225,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 <span>(5)</span>
                             </div>
                             <div class="pd-desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor sit amet, consectetur adipisicing elit, sed do mod tempor</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor sit
+                                    amet, consectetur adipisicing elit, sed do mod tempor</p>
                                 <h4>R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
 
-                                    <!--<span>629.99</span>--></h4>
+                                    <!--<span>629.99</span>-->
+                                </h4>
                             </div>
                             <div class="pd-color">
                                 <h6>Color</h6>
@@ -305,7 +310,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 <a data-toggle="tab" href="#tab-2" role="tab">ESPECIFICAÇÕES</a>
                             </li>
                             <li>
-                                <a data-toggle="tab" href="#tab-3" role="tab">COMENTÁRIOS (02)</a>
+                                <a data-toggle="tab" href="#tab-3" role="tab">COMENTÁRIOS</a>
                             </li>
                         </ul>
                     </div>
@@ -534,33 +539,35 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
 ?>
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
+                <div class="col-lg-12 col-sm-6">
+                    <div class="product-item">
+                        <div class="pi-pic">
+                            <img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
 " alt="">
-                        <!-- <div class="sale">Sale</div> -->
-                        <div class="icon">
-                            <i class="icon_heart_alt"></i>
+                            <!-- <div class="sale">Sale</div> -->
+                            <div class="icon">
+                                <i class="icon_heart_alt"></i>
+                            </div>
+                            <ul>
+                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                            <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="pi-text">
-                        <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['sub_nome'];?>
+                        <div class="pi-text">
+                            <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['sub_nome'];?>
 </div>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['PRODUTO']->value;?>
+                            <a href="<?php echo $_smarty_tpl->tpl_vars['PRODUTO']->value;?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
 ">
-                            <h5><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+                                <h5><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 </h5>
-                        </a>
-                        <div class="product-price">
-                            R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
+                            </a>
+                            <div class="product-price">
+                                R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
 
-                            <!-- <span>$35.00</span> -->
+                                <!-- <span>$35.00</span> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -568,7 +575,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-
 
             </div>
             <!-- <div class="col-lg-3 col-sm-6">

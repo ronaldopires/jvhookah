@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-29 05:23:50
+/* Smarty version 3.1.34-dev-7, created on 2020-03-02 17:11:38
   from 'C:\xampp\htdocs\jvhookah\view\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e59e7561121f9_78560832',
+  'unifunc' => 'content_5e5d303ad2e1c3_07275587',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d6a43a3e8998c3b7a30974c67961ff376e5032' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\home.tpl',
-      1 => 1582950229,
+      1 => 1583165498,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e59e7561121f9_78560832 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5d303ad2e1c3_07275587 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
         <div class="single-hero-items set-bg" data-setbg="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/hero-1.jpg">
-            <div class="container">
+/img/home1.jpg">
+            <!-- <div class="container">
                 <div class="row">
                     <div class="col-lg-5">
                         <span>Bag,kids</span>
@@ -38,11 +38,11 @@ function content_5e59e7561121f9_78560832 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="off-card">
                     <h2>Sale <span>50%</span></h2>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="single-hero-items set-bg" data-setbg="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/hero-2.jpg">
-            <div class="container">
+/img/home2.jpg">
+            <!-- <div class="container">
                 <div class="row">
                     <div class="col-lg-5">
                         <span>Bag,kids</span>
@@ -54,7 +54,23 @@ function content_5e59e7561121f9_78560832 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="off-card">
                     <h2>Sale <span>50%</span></h2>
                 </div>
-            </div>
+            </div> -->
+        </div>
+        <div class="single-hero-items set-bg" data-setbg="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/home3.jpg">
+            <!-- <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <span>Bag,kids</span>
+                        <h1>Black friday</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                        <a href="#" class="primary-btn">Shop Now</a>
+                    </div>
+                </div>
+                <div class="off-card">
+                    <h2>Sale <span>50%</span></h2>
+                </div>
+            </div> -->
         </div>
     </div>
 </section>

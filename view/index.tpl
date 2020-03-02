@@ -12,8 +12,9 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <!-- LightBox Gallery-->
-    <link href="{$GET_TEMA}/tema/css/lightbox.min.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <!-- Css Styles -->
     <link rel="stylesheet" href="{$GET_TEMA}/tema/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="{$GET_TEMA}/tema/css/font-awesome.min.css" type="text/css">
@@ -28,9 +29,9 @@
 
 <body>
     <!-- Page Preloder -->
-    <!-- <div id="preloder">
+    <div id="preloder">
         <div class="loader"></div>
-    </div> -->
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -190,7 +191,7 @@
                 <nav class="nav-menu mobile-menu">
                     <ul>
                         <li class="active"><a href="{$PAG_HOME}">Home</a></li>
-                        <li><a href="{$PAG_SHOP}">Shop</a></li>
+                        <li><a href="{$PAG_SHOP}">Produtos</a></li>
                         <li><a href="#">Collection</a>
                             <ul class="dropdown">
                                 <li><a href="#">Men's</a></li>
@@ -334,8 +335,10 @@
     <!-- Js Plugins -->
     <script src="{$GET_TEMA}/tema/js/jquery-3.3.1.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/script.js"></script>
-    <script src="{$GET_TEMA}/tema/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> -->
+    <!-- <script src="{$GET_TEMA}/tema/js/bootstrap.min.js"></script> -->
     <script src="{$GET_TEMA}/tema/js/jquery-ui.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/jquery.countdown.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/jquery.nice-select.min.js"></script>
@@ -344,7 +347,6 @@
     <script src="{$GET_TEMA}/tema/js/jquery.slicknav.js"></script>
     <script src="{$GET_TEMA}/tema/js/owl.carousel.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/main.js"></script>
-    <script src="{$GET_TEMA}/tema/js/lightbox-plus-jquery.min.js"></script>
 </body>
 
 </html>
