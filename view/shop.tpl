@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
                     <a href="{$PAG_HOME}"><i class="fa fa-home"></i> Home</a>
-                    <span>Shop</span>
+                    <span>Produtos</span>
                 </div>
             </div>
         </div>
@@ -16,7 +16,13 @@
 {if $ITENS
 < 1} <div class="container">
     <div class="col-8 offset-2">
-        <h2 class="text-center my-4">Nenhum produto encontrado.</h2>
+        <div class="alert alert-warning mt-2 alert-dismissible fade show" role="alert">
+            <strong>Ops</strong>
+            <h3 class="my-2 text-center">Nenhum produto encontrado.</h3>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <div class="section-title">
             <hr>
             <h2>Sugerido para você</h2>
@@ -27,23 +33,24 @@
             <div class="product-item">
                 <div class="pi-pic">
                     <img src="{$P.pro_img}" alt="">
-                    <!-- <div class="sale">Sale</div> -->
+                    <div class="sale">- 10%</div>
                     <div class="icon">
                         <i class="icon_heart_alt"></i>
                     </div>
                     <ul>
-                        <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                        <li class="w-icon active"><a href="{$PRODUTOS_INFO}/{$P.pro_id}"><i
+                                    class="icon_bag_alt"></i></a></li>
                         <li class="quick-view"><a href="#">+ Quick View</a></li>
                         <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                     </ul>
                 </div>
                 <div class="pi-text">
-                    <div class="catagory-name">Coat</div>
+                    <div class="catagory-name">{$P.sub_nome}</div>
                     <a href="#">
-                        <h5>Pure Pineapple</h5>
+                        <h5>{$P.pro_nome}</h5>
                     </a>
                     <div class="product-price">
-                        $14.00
+                        R$ {$P.pro_valor}
                         <span>$35.00</span>
                     </div>
                 </div>
@@ -66,11 +73,11 @@
                         <ul class="filter-catagories">
                             {foreach from=$CATEGORIAS item=C}
                             <li><a href="{$C.cate_link}">{$C.cate_nome}</a>
-                                <ul class="filter-catagories">
+                                <!--  <ul class="filter-catagories">
                                     {foreach from=$SUB_CATEGORIAS item=S}
                                     <li class="ml-5"><a href="{$S.sub_link}">{$S.sub_nome}</a></li>
                                     {/foreach}
-                                </ul>
+                                </ul> -->
                             </li>
                             {/foreach}
                         </ul>
@@ -78,34 +85,15 @@
                     <div class="filter-widget">
                         <h4 class="fw-title">Marcas</h4>
                         <div class="fw-brand-check">
+                            {foreach from=$MARCAS item=M}
                             <div class="bc-item">
-                                <label for="bc-calvin">
-                                Calvin Klein
-                                <input type="checkbox" id="bc-calvin">
-                                <span class="checkmark"></span>
-                            </label>
+                                <label for="{$M.fab_nome}">
+                                    {$M.fab_nome}
+                                    <input type="checkbox" id="{$M.fab_nome}">
+                                    <span class="checkmark"></span>
+                                </label>
                             </div>
-                            <div class="bc-item">
-                                <label for="bc-diesel">
-                                Diesel
-                                <input type="checkbox" id="bc-diesel">
-                                <span class="checkmark"></span>
-                            </label>
-                            </div>
-                            <div class="bc-item">
-                                <label for="bc-polo">
-                                Polo
-                                <input type="checkbox" id="bc-polo">
-                                <span class="checkmark"></span>
-                            </label>
-                            </div>
-                            <div class="bc-item">
-                                <label for="bc-tommy">
-                                Tommy Hilfiger
-                                <input type="checkbox" id="bc-tommy">
-                                <span class="checkmark"></span>
-                            </label>
-                            </div>
+                            {/foreach}
                         </div>
                     </div>
                     <div class="filter-widget">
@@ -117,13 +105,14 @@
                                     <input type="text" id="maxamount">
                                 </div>
                             </div>
-                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="33" data-max="98">
+                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                                data-min="33" data-max="98">
                                 <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
                                 <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                                 <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                             </div>
                         </div>
-                        <a href="#" class="filter-btn">Filter</a>
+                        <a href="#" class="filter-btn">Filtrar</a>
                     </div>
                     <div class="filter-widget">
                         <h4 class="fw-title">Color</h4>
@@ -193,19 +182,20 @@
                         <div class="row">
                             <div class="col-lg-7 col-md-7">
                                 <div class="select-option">
-                                    <select class="sorting">
-                                    <option selected>ORDENAR POR</option>
-                                    <option value="{$MENOR_PRECO}">MENOR PREÇO</option>
-                                    <option value="{$MAIOR_PRECO}">MAIOR PREÇO</option>
-                                    <option value="{$MAIS_VENDIDOS}">MAIS VENDIDOS</option>
-                                    <option value="{$PRODUTOS}">A-Z</option>
-                                    <option value="{$Z-A}">Z-A</option>
-                                    <option value="{$DATA_LANCAMENTO}">DATA DE LANÇAMENTO</option>
-                                    <option value="{$MELHOR_DESCONTO}">MELHOR DESCONTO</option>
-                                </select>
+                                    <form name="formulario1" action="{$PAG_PRODUTOS}" method="post">
+                                        <select name="opcoes" id="opcoes" class="sorting">
+                                            <option value="0" selected>ORDENAÇÃO PADRÃO</option>
+                                            <option value="1">MENOR PREÇO</option>
+                                            <option value="2">MAIOR PREÇO</option>
+                                            <option value="3">MAIS RECENTE</option>
+                                            <option value="4">A-Z</option>
+                                            <option value="5">Z-A</option>
+                                        </select>
+                                        <input style="display: none;" id="enviar" type="submit" value="Enviar"></input>
+                                    </form>
                                     <select class="p-show">
-                                    <option value="">Itens:</option>
-                                </select>
+                                        <option value="">Itens:</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-5 col-md-5 text-right">
@@ -219,15 +209,20 @@
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-item">
                                     <div class="pi-pic">
-                                        <a href="{$P.pro_img}.jpg" data-lightbox="rotate" data-title="{$P.pro_nome}"><img src="{$P.pro_img}" alt="{$P.pro_nome}"></a>
+                                        <a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}"><img
+                                                src="{$P.pro_img}" alt="{$P.pro_nome}" title="{$P.pro_nome}"></a>
                                         <!-- <div class="sale pp-sale">Sale</div> -->
                                         <div class="icon">
                                             <i class="icon_heart_alt"></i>
                                         </div>
                                         <ul>
-                                            <li class="w-icon active"><a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}"><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="{$P.pro_img}.jpg" data-lightbox="rotate" data-title="{$P.pro_nome}"><i class="fa fa-search-plus"></i></a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                            <li class="w-icon active"><a
+                                                    href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}"><i
+                                                        class="icon_bag_alt" title="Comprar"></i></a></li>
+                                            <li class="quick-view"><a href="#" data-toggle="modal"
+                                                    data-target="#{$P.pro_slug}" title="Zoom na foto"><i class="fa fa-search-plus"></i></a>
+                                            </li>
+                                            <li class="w-icon"><a href="#" title="Comparar"><i class="fa fa-random"></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="pi-text">
@@ -237,7 +232,27 @@
                                         </a>
                                         <div class="product-price">
                                             R$ {$P.pro_valor}
-                                            <!-- <span>$35.00</span> -->
+                                            <span>$35.00</span>
+                                        </div>
+                                    </div>
+                                    <!-- Modal Products-->
+                                    <div class="modal fade" id="{$P.pro_slug}" tabindex="-1" role="dialog"
+                                        aria-labelledby="PhotoProducts" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <div class="card">
+                                                        <div class="product-pic-zoom">
+                                                            <img class="card-img-top product-big-img" src="{$P.pro_img}"
+                                                                alt="{$P.pro_nome}">
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <p class="card-text">{$P.pro_nome} </p>
+                                                            <!-- <a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}" class="btn btn-success">Comprar</a> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -249,8 +264,8 @@
                     <div class="loading-more">
                         <i class="icon_loading"></i>
                         <a href="#">
-                        Loading More
-                    </a>
+                            Loading More
+                        </a>
                     </div>
                 </div>
             </div>

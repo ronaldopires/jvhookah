@@ -153,6 +153,7 @@ ol {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
+    height: 340px;
 }
 
 .spad {
@@ -816,7 +817,7 @@ ol {
 -----------------------*/
 
 .hero-items .single-hero-items {
-    height: 725px;
+    /* height: 725px; */
     padding-top: 210px;
 }
 

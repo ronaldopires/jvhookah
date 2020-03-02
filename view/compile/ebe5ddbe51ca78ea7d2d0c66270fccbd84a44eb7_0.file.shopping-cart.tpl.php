@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-02 03:40:28
+/* Smarty version 3.1.34-dev-7, created on 2020-03-02 18:38:11
   from 'C:\xampp\htdocs\jvhookah\view\shopping-cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5c721c41cc39_78017246',
+  'unifunc' => 'content_5e5d44833b2b53_23007937',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ebe5ddbe51ca78ea7d2d0c66270fccbd84a44eb7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\shopping-cart.tpl',
-      1 => 1583116826,
+      1 => 1583170690,
       2 => 'file',
     ),
   ),
@@ -20,16 +20,18 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5c721c41cc39_78017246 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5d44833b2b53_23007937 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text product-more">
-                    <a href="./home.html"><i class="fa fa-home"></i> Home</a>
-                    <a href="./shop.html">Shop</a>
-                    <span>Shopping Cart</span>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
+"><i class="fa fa-home"></i> Home</a>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
+">Produtos</a>
+                    <span>Fechar Pedido</span>
                 </div>
             </div>
         </div>
@@ -138,7 +140,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         <div class="cart-buttons">
                             <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
 " class="primary-btn continue-shop">Continue Comprando</a>
-                            <a href="#" class="primary-btn up-cart">Atualizar Carrinho</a>
+                            <!-- <a href="#" class="primary-btn up-cart">Atualizar Carrinho</a> -->
                         </div>
                         <div class="discount-coupon">
                             <h6>Cupom de Desconto</h6>

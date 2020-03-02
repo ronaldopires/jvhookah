@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Fev-2020 às 21:06
+-- Tempo de geração: 02-Mar-2020 às 20:13
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.1
 
@@ -21,16 +21,14 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `hookah`
 --
-CREATE DATABASE IF NOT EXISTS `hookah` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `hookah`;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `caracteristicas`
+-- Estrutura da tabela `jv_caracteristicas`
 --
 
-CREATE TABLE `caracteristicas` (
+CREATE TABLE `jv_caracteristicas` (
   `cts_id` int(11) NOT NULL,
   `cts_pro_id` int(11) NOT NULL,
   `cts_material_tipo` varchar(100) NOT NULL,
@@ -49,19 +47,19 @@ CREATE TABLE `caracteristicas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `caracteristicas`
+-- Extraindo dados da tabela `jv_caracteristicas`
 --
 
-INSERT INTO `caracteristicas` (`cts_id`, `cts_pro_id`, `cts_material_tipo`, `cts_base_nome`, `cts_material_base`, `cts_prato_nome`, `cts_material_queimador`, `cts_modelo_queimador`, `cts_tipo_queimador`, `cts_mangueira`, `cts_material_mangueira`, `cts_borracha_nome`, `cts_material_borracha`, `cts_espessura_borranha`, `cts_tamanho_borracha`) VALUES
+INSERT INTO `jv_caracteristicas` (`cts_id`, `cts_pro_id`, `cts_material_tipo`, `cts_base_nome`, `cts_material_base`, `cts_prato_nome`, `cts_material_queimador`, `cts_modelo_queimador`, `cts_tipo_queimador`, `cts_mangueira`, `cts_material_mangueira`, `cts_borracha_nome`, `cts_material_borracha`, `cts_espessura_borranha`, `cts_tamanho_borracha`) VALUES
 (1, 6, 'Madeira', 'Incluso', 'Vidro', 'Incluso', 'Cerâmica', 'Phunnel', 'Femea', '1', 'Plastico', '3', 'Borracha', 'Fina', 'Pequena');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `categorias`
+-- Estrutura da tabela `jv_categorias`
 --
 
-CREATE TABLE `categorias` (
+CREATE TABLE `jv_categorias` (
   `cate_id` int(11) NOT NULL,
   `cate_nome` varchar(50) NOT NULL,
   `cate_slug` varchar(50) NOT NULL,
@@ -69,10 +67,10 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `categorias`
+-- Extraindo dados da tabela `jv_categorias`
 --
 
-INSERT INTO `categorias` (`cate_id`, `cate_nome`, `cate_slug`, `cate_img`) VALUES
+INSERT INTO `jv_categorias` (`cate_id`, `cate_nome`, `cate_slug`, `cate_img`) VALUES
 (1, 'Acessórios', 'acessorios', ''),
 (2, 'Consumíveis', 'consumiveis', ''),
 (3, 'Kit Completo', 'kit_completo', '');
@@ -80,30 +78,41 @@ INSERT INTO `categorias` (`cate_id`, `cate_nome`, `cate_slug`, `cate_img`) VALUE
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `fabricantes`
+-- Estrutura da tabela `jv_fabricantes`
 --
 
-CREATE TABLE `fabricantes` (
+CREATE TABLE `jv_fabricantes` (
   `fab_id` int(11) NOT NULL,
   `fab_pro_id` int(11) NOT NULL,
-  `fab_nome` varchar(255) NOT NULL
+  `fab_nome` varchar(255) NOT NULL,
+  `fab_slug` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `fabricantes`
+-- Extraindo dados da tabela `jv_fabricantes`
 --
 
-INSERT INTO `fabricantes` (`fab_id`, `fab_pro_id`, `fab_nome`) VALUES
-(1, 1, 'Bohemian'),
-(2, 2, 'EazyBowl');
+INSERT INTO `jv_fabricantes` (`fab_id`, `fab_pro_id`, `fab_nome`, `fab_slug`) VALUES
+(1, 1, 'Bohemian', 'bohemian'),
+(2, 2, 'EazyBowl', 'eazybowl'),
+(3, 4, 'Amazon', 'amazon'),
+(4, 7, 'Anubis', 'anubis'),
+(5, 2, 'Avatar', 'avatar'),
+(6, 3, 'Brasuka', 'brasuka'),
+(7, 4, 'Dom Hookah', 'dom-hookah'),
+(8, 6, 'Hookah King', 'hookah-king'),
+(9, 6, 'Legacy', 'legacy'),
+(10, 5, 'Triton', 'triton'),
+(11, 3, 'Zeus', 'zeus'),
+(12, 2, 'Titan', 'titan');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `imagens`
+-- Estrutura da tabela `jv_imagens`
 --
 
-CREATE TABLE `imagens` (
+CREATE TABLE `jv_imagens` (
   `img_id` int(11) NOT NULL,
   `img_nome` varchar(255) NOT NULL,
   `img_pasta` varchar(255) NOT NULL,
@@ -111,20 +120,22 @@ CREATE TABLE `imagens` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `imagens`
+-- Extraindo dados da tabela `jv_imagens`
 --
 
-INSERT INTO `imagens` (`img_id`, `img_nome`, `img_pasta`, `img_pro_id`) VALUES
-(1, 'piteira_hookah_rosa.jpg', 'piteira_hookah_rosa.jpg', 7),
-(2, 'piteira_hookah_azul.jpg', 'piteira_hookah_azul.jpg', 7);
+INSERT INTO `jv_imagens` (`img_id`, `img_nome`, `img_pasta`, `img_pro_id`) VALUES
+(1, 'piteira-hookah-azul.jpg', '', 7),
+(2, 'piteira-hookah-rosa.jpg', '', 7),
+(3, 'piteira-hookah-like-flip-hose.jpg', '', 7),
+(4, 'piteira-hookah.jpg', '', 7);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtos`
+-- Estrutura da tabela `jv_produtos`
 --
 
-CREATE TABLE `produtos` (
+CREATE TABLE `jv_produtos` (
   `pro_id` int(11) NOT NULL,
   `pro_categoria` int(11) NOT NULL,
   `pro_sub_categoria` int(11) NOT NULL,
@@ -149,10 +160,10 @@ CREATE TABLE `produtos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `produtos`
+-- Extraindo dados da tabela `jv_produtos`
 --
 
-INSERT INTO `produtos` (`pro_id`, `pro_categoria`, `pro_sub_categoria`, `pro_caracteristica`, `pro_nome`, `pro_desc`, `pro_peso`, `pro_cor`, `pro_valor`, `pro_tamanho`, `pro_largura`, `pro_altura`, `pro_comprimento`, `pro_img`, `pro_slug`, `pro_estoque`, `pro_modelo`, `pro_ref`, `pro_fabricante`, `pro_ativo`, `pro_frete_free`) VALUES
+INSERT INTO `jv_produtos` (`pro_id`, `pro_categoria`, `pro_sub_categoria`, `pro_caracteristica`, `pro_nome`, `pro_desc`, `pro_peso`, `pro_cor`, `pro_valor`, `pro_tamanho`, `pro_largura`, `pro_altura`, `pro_comprimento`, `pro_img`, `pro_slug`, `pro_estoque`, `pro_modelo`, `pro_ref`, `pro_fabricante`, `pro_ativo`, `pro_frete_free`) VALUES
 (1, 1, 1, 0, 'Vaso Narguile – Vaso Aladin Preto', 'Vaso Narguile – Vaso Aladin Preto\r\n\r\nVaso Econo para narguiles pequenos.', 1.000, 'Preto', 50.00, 'Tamanho Pequeno', 0, 0, 0, 'vaso_aladin_preto.jpg', 'vaso_narguile_preto', 35, 'Aladin', '001', 123, 's', 'não'),
 (2, 1, 1, 0, 'Vaso Narguile – Vaso Jumbo Bless Transparente Com Dourado', 'Vaso Narguile – Vaso Jumbo Bless Transparente Com Dourado\r\n\r\nVaso transparente para narguiles e arguiles pequenos. Vaso estiloso e ótimo custo beneficio.', 0.100, 'Transparente Com Dourado', 300.00, 'Pequeno', 0, 0, 0, 'vaso_jumbo.jpg', 'vaso_jumbo', 35, 'Jumbo', '01254', 1, 's', 'não'),
 (3, 1, 1, 0, 'Vaso Narguile – Vaso Sino Monte Verde Dourado', 'Vaso Narguile – Vaso Sino Monte Verde Dourado\r\nVaso grande para narguile, da marca Monte Verde com detalhes dourados. Compatível com narguiles grandes.', 1.000, 'Verde Dourado', 90.00, 'Grande', 0, 0, 0, 'vaso_sino_monte.jpg', 'vaso_sino_monte', 50, 'Monte', '023365', 1, 's', 'não'),
@@ -164,10 +175,10 @@ INSERT INTO `produtos` (`pro_id`, `pro_categoria`, `pro_sub_categoria`, `pro_car
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `sub_categorias`
+-- Estrutura da tabela `jv_sub_categorias`
 --
 
-CREATE TABLE `sub_categorias` (
+CREATE TABLE `jv_sub_categorias` (
   `sub_id` int(11) NOT NULL,
   `cate_id` int(11) NOT NULL,
   `sub_nome` varchar(255) NOT NULL,
@@ -176,10 +187,10 @@ CREATE TABLE `sub_categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `sub_categorias`
+-- Extraindo dados da tabela `jv_sub_categorias`
 --
 
-INSERT INTO `sub_categorias` (`sub_id`, `cate_id`, `sub_nome`, `sub_slug`, `sub_img`) VALUES
+INSERT INTO `jv_sub_categorias` (`sub_id`, `cate_id`, `sub_nome`, `sub_slug`, `sub_img`) VALUES
 (1, 1, 'Vasos', 'vasos', ''),
 (2, 1, 'Mangueiras', 'mangueiras', ''),
 (3, 2, 'Carvões', 'carvoes', ''),
@@ -191,39 +202,39 @@ INSERT INTO `sub_categorias` (`sub_id`, `cate_id`, `sub_nome`, `sub_slug`, `sub_
 --
 
 --
--- Índices para tabela `caracteristicas`
+-- Índices para tabela `jv_caracteristicas`
 --
-ALTER TABLE `caracteristicas`
+ALTER TABLE `jv_caracteristicas`
   ADD PRIMARY KEY (`cts_id`);
 
 --
--- Índices para tabela `categorias`
+-- Índices para tabela `jv_categorias`
 --
-ALTER TABLE `categorias`
+ALTER TABLE `jv_categorias`
   ADD PRIMARY KEY (`cate_id`);
 
 --
--- Índices para tabela `fabricantes`
+-- Índices para tabela `jv_fabricantes`
 --
-ALTER TABLE `fabricantes`
+ALTER TABLE `jv_fabricantes`
   ADD PRIMARY KEY (`fab_id`);
 
 --
--- Índices para tabela `imagens`
+-- Índices para tabela `jv_imagens`
 --
-ALTER TABLE `imagens`
+ALTER TABLE `jv_imagens`
   ADD PRIMARY KEY (`img_id`);
 
 --
--- Índices para tabela `produtos`
+-- Índices para tabela `jv_produtos`
 --
-ALTER TABLE `produtos`
+ALTER TABLE `jv_produtos`
   ADD PRIMARY KEY (`pro_id`);
 
 --
--- Índices para tabela `sub_categorias`
+-- Índices para tabela `jv_sub_categorias`
 --
-ALTER TABLE `sub_categorias`
+ALTER TABLE `jv_sub_categorias`
   ADD PRIMARY KEY (`sub_id`);
 
 --
@@ -231,39 +242,39 @@ ALTER TABLE `sub_categorias`
 --
 
 --
--- AUTO_INCREMENT de tabela `caracteristicas`
+-- AUTO_INCREMENT de tabela `jv_caracteristicas`
 --
-ALTER TABLE `caracteristicas`
+ALTER TABLE `jv_caracteristicas`
   MODIFY `cts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `categorias`
+-- AUTO_INCREMENT de tabela `jv_categorias`
 --
-ALTER TABLE `categorias`
+ALTER TABLE `jv_categorias`
   MODIFY `cate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de tabela `fabricantes`
+-- AUTO_INCREMENT de tabela `jv_fabricantes`
 --
-ALTER TABLE `fabricantes`
-  MODIFY `fab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `jv_fabricantes`
+  MODIFY `fab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT de tabela `imagens`
+-- AUTO_INCREMENT de tabela `jv_imagens`
 --
-ALTER TABLE `imagens`
-  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `jv_imagens`
+  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de tabela `produtos`
+-- AUTO_INCREMENT de tabela `jv_produtos`
 --
-ALTER TABLE `produtos`
+ALTER TABLE `jv_produtos`
   MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de tabela `sub_categorias`
+-- AUTO_INCREMENT de tabela `jv_sub_categorias`
 --
-ALTER TABLE `sub_categorias`
+ALTER TABLE `jv_sub_categorias`
   MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 

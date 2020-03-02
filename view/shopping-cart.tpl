@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text product-more">
-                    <a href="./home.html"><i class="fa fa-home"></i> Home</a>
-                    <a href="./shop.html">Shop</a>
-                    <span>Shopping Cart</span>
+                    <a href="{$PAG_HOME}"><i class="fa fa-home"></i> Home</a>
+                    <a href="{$PAG_PRODUTOS}">Produtos</a>
+                    <span>Fechar Pedido</span>
                 </div>
             </div>
         </div>
@@ -88,7 +88,7 @@
                     <div class="col-lg-5">
                         <div class="cart-buttons">
                             <a href="{$PAG_SHOP}" class="primary-btn continue-shop">Continue Comprando</a>
-                            <a href="#" class="primary-btn up-cart">Atualizar Carrinho</a>
+                            <!-- <a href="#" class="primary-btn up-cart">Atualizar Carrinho</a> -->
                         </div>
                         <div class="discount-coupon">
                             <h6>Cupom de Desconto</h6>

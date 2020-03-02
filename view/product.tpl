@@ -32,31 +32,31 @@
                     <div class="fw-brand-check">
                         <div class="bc-item">
                             <label for="bc-calvin">
-                                    Calvin Klein
-                                    <input type="checkbox" id="bc-calvin">
-                                    <span class="checkmark"></span>
-                                </label>
+                                Calvin Klein
+                                <input type="checkbox" id="bc-calvin">
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
                         <div class="bc-item">
                             <label for="bc-diesel">
-                                    Diesel
-                                    <input type="checkbox" id="bc-diesel">
-                                    <span class="checkmark"></span>
-                                </label>
+                                Diesel
+                                <input type="checkbox" id="bc-diesel">
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
                         <div class="bc-item">
                             <label for="bc-polo">
-                                    Polo
-                                    <input type="checkbox" id="bc-polo">
-                                    <span class="checkmark"></span>
-                                </label>
+                                Polo
+                                <input type="checkbox" id="bc-polo">
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
                         <div class="bc-item">
                             <label for="bc-tommy">
-                                    Tommy Hilfiger
-                                    <input type="checkbox" id="bc-tommy">
-                                    <span class="checkmark"></span>
-                                </label>
+                                Tommy Hilfiger
+                                <input type="checkbox" id="bc-tommy">
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,8 @@
                                 <input type="text" id="maxamount">
                             </div>
                         </div>
-                        <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="33" data-max="98">
+                        <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                            data-min="33" data-max="98">
                             <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
                             <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                             <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
@@ -152,9 +153,11 @@
                         </div>
                         <div class="product-thumbs">
                             <div class="product-thumbs-track ps-slider owl-carousel">
-                                <div class="pt active" data-imgbigurl="{$P.pro_img}"><img src="{$P.pro_img}" alt="{$P.pro_nome}"></div>
+                                <div class="pt active" data-imgbigurl="{$P.pro_img}"><img src="{$P.pro_img}"
+                                        alt="{$P.pro_nome}"></div>
                                 {foreach from=$IMAGENS item=I}
-                                <div class="pt" data-imgbigurl="{$I.img_nome}"><img src="{$I.img_nome}" alt="{$P.pro_nome}"></div>
+                                <div class="pt" data-imgbigurl="{$I.img_nome}"><img src="{$I.img_nome}"
+                                        alt="{$P.pro_nome}"></div>
                                 {/foreach}
                             </div>
                         </div>
@@ -175,9 +178,11 @@
                                 <span>(5)</span>
                             </div>
                             <div class="pd-desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor sit amet, consectetur adipisicing elit, sed do mod tempor</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor sit
+                                    amet, consectetur adipisicing elit, sed do mod tempor</p>
                                 <h4>R$ {$P.pro_valor}
-                                    <!--<span>629.99</span>--></h4>
+                                    <!--<span>629.99</span>-->
+                                </h4>
                             </div>
                             <div class="pd-color">
                                 <h6>Color</h6>
@@ -250,7 +255,7 @@
                                 <a data-toggle="tab" href="#tab-2" role="tab">ESPECIFICAÇÕES</a>
                             </li>
                             <li>
-                                <a data-toggle="tab" href="#tab-3" role="tab">COMENTÁRIOS (02)</a>
+                                <a data-toggle="tab" href="#tab-3" role="tab">COMENTÁRIOS</a>
                             </li>
                         </ul>
                     </div>
@@ -449,32 +454,33 @@
         <div class="row">
             <div class="product-slider owl-carousel">
                 {foreach from=$MAIS_PRODUTOS item=P}
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="{$P.pro_img}" alt="">
-                        <!-- <div class="sale">Sale</div> -->
-                        <div class="icon">
-                            <i class="icon_heart_alt"></i>
+                <div class="col-lg-12 col-sm-6">
+                    <div class="product-item">
+                        <div class="pi-pic">
+                            <img src="{$P.pro_img}" alt="">
+                            <!-- <div class="sale">Sale</div> -->
+                            <div class="icon">
+                                <i class="icon_heart_alt"></i>
+                            </div>
+                            <ul>
+                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                            <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="pi-text">
-                        <div class="catagory-name">{$P.sub_nome}</div>
-                        <a href="{$PRODUTO}/{$P.pro_id}">
-                            <h5>{$P.pro_nome}</h5>
-                        </a>
-                        <div class="product-price">
-                            R$ {$P.pro_valor}
-                            <!-- <span>$35.00</span> -->
+                        <div class="pi-text">
+                            <div class="catagory-name">{$P.sub_nome}</div>
+                            <a href="{$PRODUTO}/{$P.pro_id}">
+                                <h5>{$P.pro_nome}</h5>
+                            </a>
+                            <div class="product-price">
+                                R$ {$P.pro_valor}
+                                <!-- <span>$35.00</span> -->
+                            </div>
                         </div>
                     </div>
                 </div>
                 {/foreach}
-
 
             </div>
             <!-- <div class="col-lg-3 col-sm-6">
