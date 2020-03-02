@@ -5,7 +5,7 @@
             <h1>404</h1>
             <h2>Page not found</h2>
         </div>
-        <a href="<?php Rotas::get_SiteHOME();?>">Homepage</a>
+        <a href="<?php echo Rotas::get_SiteHOME();?>">Homepage</a>
     </div>
 </div>
 

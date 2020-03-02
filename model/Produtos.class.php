@@ -41,10 +41,13 @@ class Produtos extends Conexao
     }
 
     public function GetProdutosCateID($id){
+
+        //$id = filter_var(FILTER_SANITIZE_NUMBER_INT);
+
         $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id";
         $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id";
         $query .= " WHERE pro_categoria = :id";
-
+        
         $params = array(':id' =>(int)$id);
 
         $this->ExecuteSQL($query, $params);
@@ -72,12 +75,13 @@ class Produtos extends Conexao
                 'pro_peso' => $lista['pro_peso'],
                 'pro_cor' => $lista['pro_cor'],
                 'pro_valor' => Sistema::MoedaBR($lista['pro_valor']),
+                'pro_valor_us' => $lista['pro_valor'],
                 'pro_tamanho' => $lista['pro_tamanho'],
                 'pro_largura' => $lista['pro_largura'],
                 'pro_altura' => $lista['pro_altura'],
                 'pro_comprimento' => $lista['pro_comprimento'],
                 'pro_img' => Rotas::ImageLink($lista['pro_img'], 500, 500),
-                'pro_img_p' => Rotas::ImageLink($lista['pro_img'], 300, 300),
+                'pro_img_p' => Rotas::ImageLink($lista['pro_img'], 150, 150),
                 'pro_slug' => $lista['pro_slug'],
                 'pro_estoque' => $lista['pro_estoque'],
                 'pro_modelo' => $lista['pro_modelo'],

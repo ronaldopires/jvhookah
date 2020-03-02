@@ -18,7 +18,7 @@ if(isset(Rotas::$pag[1])){
 $listagem->GetProdutos();
 
 /* echo '<pre>';
-var_dump($image->GetItens());
+var_dump($produtos->GetItens());
 echo '</pre>'; */
 
 
@@ -27,9 +27,11 @@ $smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
 $smarty->assign('PAG_REGISTER', Rotas::pag_Register());
 $smarty->assign('PRODUTOS_INFO', $produtos->GetItens());
 $smarty->assign('MAIS_PRODUTOS', $listagem->GetItens());
-$smarty->assign('PAG_CHECKOUT', Rotas::pag_Check_Out());
+$smarty->assign('PAG_SHOPPING_ALTER', Rotas::pag_Shopping_Alter());
+$smarty->assign('COMPRAR', Rotas::pag_Shopping_Alter());
 $smarty->assign('PRO_CARACTERISTICAS', $caract->GetItens());
 $smarty->assign('IMAGENS', $image->GetItens());
+$smarty->assign('PRODUTO', Rotas::pag_Shopping_Detail());
 
 
 $smarty->display('product.tpl');

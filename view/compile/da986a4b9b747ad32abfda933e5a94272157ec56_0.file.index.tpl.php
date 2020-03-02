@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-29 02:15:08
+/* Smarty version 3.1.34-dev-7, created on 2020-03-01 15:14:13
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e59bb1c32e1e9_89503826',
+  'unifunc' => 'content_5e5bc33594a9b9_84026618',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1582938906,
+      1 => 1583072049,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e59bb1c32e1e9_89503826 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5bc33594a9b9_84026618 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -62,9 +62,9 @@ function content_5e59bb1c32e1e9_89503826 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -159,52 +159,64 @@ function content_5e59bb1c32e1e9_89503826 (Smarty_Internal_Template $_smarty_tpl)
                             <li class="cart-icon">
                                 <a href="#">
                                     <i class="icon_bag_alt"></i>
-                                    <span>3</span>
+                                    <span><?php echo $_smarty_tpl->tpl_vars['ITENS_CARRINHO']->value;?>
+</span>
                                 </a>
                                 <div class="cart-hover">
                                     <div class="select-items">
                                         <table>
                                             <tbody>
+                                                <?php if ($_smarty_tpl->tpl_vars['CARRINHO']->value == true) {?> <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['CARRINHO']->value, 'C');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
+?>
                                                 <tr>
-                                                    <td class="si-pic"><img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/select-product-1.jpg" alt=""></td>
+                                                    <td class="si-pic"><img width="150" src="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img'];?>
+" alt=""></td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
+                                                            <p>R$ <?php echo $_smarty_tpl->tpl_vars['C']->value['pro_valor'];?>
+ X <?php echo $_smarty_tpl->tpl_vars['C']->value['pro_qtd'];?>
+</p>
+                                                            <h6><?php echo $_smarty_tpl->tpl_vars['C']->value['pro_nome'];?>
+</h6>
                                                         </div>
                                                     </td>
                                                     <td class="si-close">
-                                                        <i class="ti-close"></i>
+                                                        <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_ALTER']->value;?>
+" method="post">
+                                                            <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_id'];?>
+">
+                                                            <input type="hidden" name="acao" value="del">
+                                                            <button class="btn"><i class="ti-close"></i></button>
+                                                        </form>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="si-pic"><img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/select-product-2.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
+                                                <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { ?>
+                                                <p>Você não possui produtos no seu carrinho.</p>
+                                                <?php }?>
                                             </tbody>
                                         </table>
                                     </div>
                                     <div class="select-total">
                                         <span>total:</span>
-                                        <h5>$120.00</h5>
+                                        <h5>R$ <?php echo $_smarty_tpl->tpl_vars['VALOR_TOTAL']->value;?>
+</h5>
                                     </div>
                                     <div class="select-button">
-                                        <a href="#" class="primary-btn view-card">VIEW CARD</a>
-                                        <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+" class="primary-btn view-card">VER PRODUTOS</a>
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_CART']->value;?>
+" class="primary-btn checkout-btn">CHECK OUT</a>
                                     </div>
                                 </div>
                             </li>
-                            <li class="cart-price">$150.00</li>
+                            <li class="cart-price">R$ <?php echo $_smarty_tpl->tpl_vars['VALOR_TOTAL']->value;?>
+</li>
                         </ul>
                     </div>
                 </div>
@@ -251,7 +263,7 @@ function content_5e59bb1c32e1e9_89503826 (Smarty_Internal_Template $_smarty_tpl)
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="./blog-details.html">Blog Details</a></li>
-                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING']->value;?>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_CART']->value;?>
 ">Shopping Cart</a></li>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CHECK_OUT']->value;?>
 ">Checkout</a></li>
@@ -399,11 +411,15 @@ function content_5e59bb1c32e1e9_89503826 (Smarty_Internal_Template $_smarty_tpl)
 /tema/js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"><?php echo '</script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/js/script.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
@@ -436,10 +452,6 @@ function content_5e59bb1c32e1e9_89503826 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/js/main.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/js/script.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>

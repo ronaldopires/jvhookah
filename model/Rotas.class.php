@@ -24,8 +24,11 @@ class Rotas
         return self::$pasta_view;
     }
     //Obter caminho das páginas
-    static function pag_Shopping(){
+    static function pag_Shopping_Cart(){
         return self::get_SiteHOME() . '/carrinho';
+    }
+    static function pag_Shopping_Alter(){
+        return self::get_SiteHOME() . '/shopping_cart';
     }
     static function pag_Shopping_Detail(){
         return self::get_SiteHOME() . '/detalhes_produtos';
@@ -42,7 +45,7 @@ class Rotas
     static function pag_Register(){
         return self::get_SiteHOME() . '/register';
     }
-    static function     pag_Check_Out(){
+    static function pag_Check_Out(){
         return self::get_SiteHOME() . '/checkout';
     }
     static function pag_Faq(){
@@ -60,6 +63,11 @@ class Rotas
     static function ImageLink($img, $largura, $altura){
         $imagem = self::get_ImageURL() . "thumb.php?src={$img}&w={$largura}&h={$altura}&zc=1";
         return $imagem;
+    }
+    //Rotas para redirecionar de página
+    static function Redirecionar($tempo, $pagina){
+        $url = '<meta http-equiv="refresh" content="'. $tempo .'; url='. $pagina .'">';
+        echo $url;
     }
 
     //Obter rotas de páginas

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-29 06:07:25
+/* Smarty version 3.1.34-dev-7, created on 2020-03-02 03:53:42
   from 'C:\xampp\htdocs\jvhookah\view\product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e59f18d585fd9_05526672',
+  'unifunc' => 'content_5e5c75364a6337_76724928',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f2745dae854c13e6b3c94d95feee340e816d315' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\product.tpl',
-      1 => 1582952842,
+      1 => 1583117620,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e59f18d585fd9_05526672 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5c75364a6337_76724928 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -266,12 +266,14 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 <div class="pro-qty">
                                     <input type="text" value="1">
                                 </div>
-                                <form action="" method="POST">
+                                <form name="carrinho" action="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_ALTER']->value;?>
+" method="post">
                                     <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
-">
-                                    <input type="hidden" name="acao" value="add">
-                                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CHECKOUT']->value;?>
-" type="button" class="primary-btn pd-cart">Comprar</a>
+" />
+                                    <input type="hidden" name="acao" value="add" />
+                                    <!-- <a href="<?php echo $_smarty_tpl->tpl_vars['COMPRAR']->value;?>
+" type="button" class="primary-btn pd-cart">Comprar</a> -->
+                                    <button class="btn primary-btn pd-cart">Comprar</button>
                                 </form>
                             </div>
                             <ul class="pd-tags">
@@ -549,7 +551,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                     <div class="pi-text">
                         <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['sub_nome'];?>
 </div>
-                        <a href="#">
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['PRODUTO']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+">
                             <h5><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 </h5>
                         </a>

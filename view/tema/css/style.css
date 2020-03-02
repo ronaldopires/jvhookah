@@ -2294,6 +2294,29 @@ ol {
     margin-bottom: 33px;
 }
 
+#menos {
+    position: relative;
+    top: 3px;
+    left: -39px;
+}
+
+#cep::selection {
+    display: none;
+    visibility: hidden;
+}
+
+#mais {
+    position: relative;
+    top: -71px;
+    left: 40px;
+}
+
+#resultado {
+    position: relative;
+    top: -34px;
+    right: -19px;
+}
+
 .product-details .quantity .pro-qty {
     width: 123px;
     height: 46px;
@@ -2712,6 +2735,16 @@ ol {
     font-weight: 700;
 }
 
+.valor-total {
+    color: #e7ab3c;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#cupom {
+    margin-bottom: 0 !important;
+}
+
 .cart-table table tr td.qua-col {
     width: 16%;
 }
@@ -2912,11 +2945,12 @@ ol {
     margin-bottom: 30px;
 }
 
-.checkout-form label {
+
+/* .checkout-form label {
     color: #252525;
     font-size: 16px;
     margin-bottom: 5px;
-}
+} */
 
 .checkout-form label span {
     color: #d85d5c;
