@@ -29,9 +29,9 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -94,7 +94,7 @@
                     </div>
                     <div class="col-lg-7 col-md-7">
                         <div class="advanced-search dropdown">
-                            <button type="button" id="categories" class="category-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Todas Categorias</button>
+                            <!-- <button type="button" id="categories" class="category-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Todas Categorias</button>
                             <div class="dropdown-menu" aria-labelledby="categories">
                                 <a class="dropdown-item" href="#">Kit Completo</a>
                                 <a class="dropdown-item" href="#">Abafadores</a>
@@ -103,7 +103,7 @@
                                 <a class="dropdown-item" href="#">Essências</a>
                                 <a class="dropdown-item" href="#">Carvões</a>
                                 <a class="dropdown-item" href="#">Carvões</a>
-                            </div>
+                            </div> -->
                             <div class="input-group">
                                 <input type="text" placeholder="O que está procurando?">
                                 <button type="button"><i class="ti-search"></i></button>
@@ -160,7 +160,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="cart-price">R$ {$VALOR_TOTAL}</li>
+                            <!-- <li class="cart-price">R$ {$VALOR_TOTAL}</li> -->
                         </ul>
                     </div>
                 </div>
@@ -226,7 +226,7 @@
             <div class="logo-carousel owl-carousel">
                 <div class="logo-item">
                     <div class="tablecell-inner">
-                        <img src="{$GET_TEMA}/img/logo-carousel/logo-1.png" alt="">
+                        <img src="{$GET_TEMA}/img/logo-carousel/Logo_triton_horizontal.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
@@ -261,7 +261,7 @@
                 <div class="col-lg-3">
                     <div class="footer-left">
                         <div class="footer-logo">
-                            <a href="#"><img src="{$GET_TEMA}/img/footer-logo.png" alt=""></a>
+                            <a href="#"><img src="{$GET_TEMA}/img/logo-carousel/jvhk2.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Endereço: Av. Maria Luiza Americano, 2806</li>

@@ -43,7 +43,7 @@
                                 <td class="cart-pic first-row"><img width="150" src="{$P.pro_img}" alt="{$P.pro_nome}"></td>
                                 <td class="cart-title first-row">
                                     <a href="{$PRODUTOS_INFO}/{$P.pro_id}">
-                                        <h5>{$P.pro_nome}</h5>
+                                        <h5>{$P.pro_nome} {$P.pro_cor_selected}</h5>
                                     </a>
                                 </td>
                                 <td class="p-price first-row">R$ {$P.pro_valor}</td>

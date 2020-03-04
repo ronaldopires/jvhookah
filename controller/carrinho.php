@@ -1,16 +1,18 @@
 <?php
 
-if(isset($_SESSION['PRO'])){
+if(isset($_SESSION['PRO']) and count($_SESSION['PRO']) > 0){
 
     $smarty = new Template();
     $carrinho = new Carrinho();
     
     /* echo '<pre>';
-    var_dump($carrinho->GetCarrinho());
+    var_dump($_SESSION);
     echo '</pre>'; */
     
-    //unset($_SESSION['PRO']);
     
+    
+    //unset($_SESSION['PRO1']);
+
     $smarty->assign('PRO', $carrinho->GetCarrinho());
     $smarty->assign('TOTAL', Sistema::MoedaBR($carrinho->GetTotal()));
     $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
@@ -21,10 +23,6 @@ if(isset($_SESSION['PRO'])){
     $smarty->assign('PAG_PRODUTOS', Rotas::pag_Produtos());
     $smarty->assign('PRODUTOS_INFO', Rotas::pag_Shopping_Detail());
     
-    
-
-
-
 
     $smarty->display('shopping-cart.tpl');    
 }else {

@@ -82,37 +82,43 @@
                             {/foreach}
                         </ul>
                     </div>
-                    <div class="filter-widget">
-                        <h4 class="fw-title">Marcas</h4>
-                        <div class="fw-brand-check">
-                            {foreach from=$MARCAS item=M}
-                            <div class="bc-item">
-                                <label for="{$M.fab_nome}">
+                    <form action="{$PAG_PRODUTOS}" method="POST">
+                        <div class="filter-widget">
+                            <h4 class="fw-title">Marcas</h4>
+                            <div class="fw-brand-check">
+                                {foreach from=$MARCAS item=M}
+                                <div class="bc-item">
+                                    <label for="{$M.fab_nome}">
                                     {$M.fab_nome}
-                                    <input type="checkbox" id="{$M.fab_nome}">
+                                    <input name="checked[]" value="{$M.fab_id}" type="checkbox" id="{$M.fab_nome}">
                                     <span class="checkmark"></span>
                                 </label>
+                                </div>
+                                {/foreach}
                             </div>
-                            {/foreach}
                         </div>
-                    </div>
+                        <div class="filter-widget">
+                            <button class="filter-btn btn">Filtrar</button>
+                        </div>
+                    </form>
                     <div class="filter-widget">
-                        <h4 class="fw-title">Price</h4>
-                        <div class="filter-range-wrap">
-                            <div class="range-slider">
-                                <div class="price-input">
-                                    <input type="text" id="minamount">
-                                    <input type="text" id="maxamount">
+                        <form action="{$PAG_PRODUTOS}" method="post">
+                            <h4 class="fw-title">Preço</h4>
+                            <div class="filter-range-wrap">
+                                <div class="range-slider">
+                                    <div class="price-input">
+                                        <input name="price_min" value="{$MIN}" type="text" id="minamount">
+                                        <input name="price_max" value="{$MAX}" type="text" id="maxamount">
+                                    </div>
+                                </div>
+                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="{$MIN}" data-max="{$MAX}">
+                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                                 </div>
                             </div>
-                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                data-min="33" data-max="98">
-                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                            </div>
-                        </div>
-                        <a href="#" class="filter-btn">Filtrar</a>
+                            <button class="filter-btn btn">Filtrar</button>
+                        </form>
                     </div>
                     <div class="filter-widget">
                         <h4 class="fw-title">Color</h4>
@@ -182,7 +188,7 @@
                         <div class="row">
                             <div class="col-lg-7 col-md-7">
                                 <div class="select-option">
-                                    <form name="formulario1" action="{$PAG_PRODUTOS}" method="post">
+                                    <form action="{$PAG_PRODUTOS}" method="post">
                                         <select name="opcoes" id="opcoes" class="sorting">
                                             <option value="0" selected>ORDENAÇÃO PADRÃO</option>
                                             <option value="1">MENOR PREÇO</option>
@@ -206,21 +212,19 @@
                     <div class="product-list">
                         <div class="row">
                             {foreach from=$PRODUTOS item=P}
+
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-item">
                                     <div class="pi-pic">
-                                        <a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}"><img
-                                                src="{$P.pro_img}" alt="{$P.pro_nome}" title="{$P.pro_nome}"></a>
+                                        <a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}"><img src="{$P.pro_img}" alt="{$P.pro_nome}" title="{$P.pro_nome}"></a>
                                         <!-- <div class="sale pp-sale">Sale</div> -->
                                         <div class="icon">
                                             <i class="icon_heart_alt"></i>
                                         </div>
                                         <ul>
-                                            <li class="w-icon active"><a
-                                                    href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}"><i
+                                            <li class="w-icon active"><a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}"><i
                                                         class="icon_bag_alt" title="Comprar"></i></a></li>
-                                            <li class="quick-view"><a href="#" data-toggle="modal"
-                                                    data-target="#{$P.pro_slug}" title="Zoom na foto"><i class="fa fa-search-plus"></i></a>
+                                            <li class="quick-view"><a href="#" data-toggle="modal" data-target="#{$P.pro_slug}" title="Zoom na foto"><i class="fa fa-search-plus"></i></a>
                                             </li>
                                             <li class="w-icon"><a href="#" title="Comparar"><i class="fa fa-random"></i></a></li>
                                         </ul>
@@ -236,15 +240,13 @@
                                         </div>
                                     </div>
                                     <!-- Modal Products-->
-                                    <div class="modal fade" id="{$P.pro_slug}" tabindex="-1" role="dialog"
-                                        aria-labelledby="PhotoProducts" aria-hidden="true">
+                                    <div class="modal fade" id="{$P.pro_slug}" tabindex="-1" role="dialog" aria-labelledby="PhotoProducts" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-body">
                                                     <div class="card">
                                                         <div class="product-pic-zoom">
-                                                            <img class="card-img-top product-big-img" src="{$P.pro_img}"
-                                                                alt="{$P.pro_nome}">
+                                                            <img class="card-img-top product-big-img" src="{$P.pro_img}" alt="{$P.pro_nome}">
                                                         </div>
                                                         <div class="card-body">
                                                             <p class="card-text">{$P.pro_nome} </p>

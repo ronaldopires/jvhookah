@@ -1,4 +1,4 @@
-$(window).ready(function () {
+$(window).ready(function() {
 
     let botao;
     var lsModal = localStorage.getItem("modal");
@@ -12,11 +12,11 @@ $(window).ready(function () {
         let botao;
         $('#exampleModal').modal('show');
         //caso seja maior
-        $('#yes').click(function () {
+        $('#yes').click(function() {
             //
         });
         //Caso seja menor
-        $('#no').click(function () {
+        $('#no').click(function() {
             acessoNegado();
         });
 
@@ -27,7 +27,7 @@ $(window).ready(function () {
         window.location.href = "https://www.youtube.com/";
     }
 
-    
+
 
 
     //Calcular frete
@@ -60,8 +60,12 @@ $(window).ready(function () {
 
 
 //Simular envio do formulário da página de produtos para filtrar a pesquisa
-function notify() {
+function clickOrder() {
     $("#enviar").trigger("click");
 }
 //
-$("#opcoes").change("click", notify);
+$("#opcoes").change("click", clickOrder);
+
+$("#marca").change("click", function() {
+    alert("Opá");
+})

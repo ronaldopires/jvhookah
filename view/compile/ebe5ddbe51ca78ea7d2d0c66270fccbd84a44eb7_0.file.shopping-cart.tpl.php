@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-02 18:38:11
+/* Smarty version 3.1.34-dev-7, created on 2020-03-03 23:25:11
   from 'C:\xampp\htdocs\jvhookah\view\shopping-cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5d44833b2b53_23007937',
+  'unifunc' => 'content_5e5ed947d876e6_15271258',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ebe5ddbe51ca78ea7d2d0c66270fccbd84a44eb7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\shopping-cart.tpl',
-      1 => 1583170690,
+      1 => 1583273589,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5d44833b2b53_23007937 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5ed947d876e6_15271258 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -78,6 +78,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
 ">
                                         <h5><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_cor_selected'];?>
 </h5>
                                     </a>
                                 </td>

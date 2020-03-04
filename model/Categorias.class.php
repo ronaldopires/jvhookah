@@ -31,17 +31,64 @@ class Categorias extends Conexao
         $this->ExecuteSQL($query);
         $this->GetListaMarcas();
     }
+    public function GetMarcasProducts($id){
+        //Buscar itens por marca
+        $query = "SELECT * FROM {$this->prefix}fabricantes f INNER JOIN {$this->prefix}produtos p ON f.fab_id = p.pro_fabricantes join {$this->prefix}categorias c on p.pro_categoria = c.cate_id join {$this->prefix}sub_categorias s on p.pro_sub_categoria = s.sub_id where fab_id = ".$id;
+        // $params = array(':id' => (int)$id);
+        echo $query ."<br>";
+
+        $this->ExecuteSQL($query);
+        $this->GetListaMarcasProducts();
+    }
 
     private function GetListaMarcas(){
         $i = 1;
         while ($lista = $this->ListarDados()):
             $this->itens[$i] = array(
                 'fab_id' => $lista['fab_id'],
-                'fab_pro_id' => $lista['fab_pro_id'],
                 'fab_nome' => $lista['fab_nome'],
+                'fab_slug' => $lista['fab_slug'],
+                'fab_link' => Rotas::pag_Produtos() . '/' . $lista['fab_id'] . '/' .  $lista['fab_slug']
             );
             $i++;
         endwhile;
+    }
+    private function GetListaMarcasProducts(){
+        $i = 1;
+        while ($lista = $this->ListarDados()):
+            $this->itens[$i] = array(
+                'fab_id' => $lista['fab_id'],
+                'fab_nome' => $lista['fab_nome'],
+                'fab_slug' => $lista['fab_slug'],
+                'fab_link' => Rotas::pag_Produtos() . '/' . $lista['fab_id'] . '/' .  $lista['fab_slug'],
+                'pro_id' => $lista['pro_id'],
+                'pro_nome' => $lista['pro_nome'],
+                'pro_desc' => $lista['pro_desc'],
+                'pro_peso' => $lista['pro_peso'],
+                'pro_cor' => $lista['pro_cor'],
+                'pro_valor' => Sistema::MoedaBR($lista['pro_valor']),
+                'pro_valor_us' => $lista['pro_valor'],
+                'pro_tamanho' => $lista['pro_tamanho'],
+                'pro_largura' => $lista['pro_largura'],
+                'pro_altura' => $lista['pro_altura'],
+                'pro_comprimento' => $lista['pro_comprimento'],
+                'pro_img' => Rotas::ImageLink($lista['pro_img'], 500, 500),
+                'pro_img_p' => Rotas::ImageLink($lista['pro_img'], 150, 150),
+                'pro_slug' => $lista['pro_slug'],
+                'pro_estoque' => $lista['pro_estoque'],
+                'pro_modelo' => $lista['pro_modelo'],
+                'pro_ref' => $lista['pro_ref'],
+                'pro_fabricante' => $lista['pro_fabricante'],
+                'pro_ativo' => $lista['pro_ativo'],
+                'pro_frete_free' => $lista['pro_frete_free'],
+                'cate_nome' => $lista['cate_nome'],
+                'cate_id' => $lista['cate_id'],
+                'sub_id' => $lista['sub_id'],
+                'sub_nome' => $lista['sub_nome'],
+            );
+            $i++;
+        endwhile;
+        
     }
 
     //Lista dos itens encontrados

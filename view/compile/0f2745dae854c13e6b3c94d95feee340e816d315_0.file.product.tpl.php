@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-02 17:15:56
+/* Smarty version 3.1.34-dev-7, created on 2020-03-03 23:23:20
   from 'C:\xampp\htdocs\jvhookah\view\product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5d313c4aa809_88648086',
+  'unifunc' => 'content_5e5ed8d8925d70_57590319',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f2745dae854c13e6b3c94d95feee340e816d315' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\product.tpl',
-      1 => 1583165755,
+      1 => 1583274197,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5d313c4aa809_88648086 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5ed8d8925d70_57590319 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -30,8 +30,8 @@ function content_5e5d313c4aa809_88648086 (Smarty_Internal_Template $_smarty_tpl)
                     <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
 "><i class="fa fa-home"></i> Home</a>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
-">Shop</a>
-                    <span>Detail</span>
+">Produtos</a>
+                    <span>Detalhes</span>
                 </div>
             </div>
         </div>
@@ -43,137 +43,14 @@ function content_5e5d313c4aa809_88648086 (Smarty_Internal_Template $_smarty_tpl)
 <section class="product-shop spad page-details">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
-                <div class="filter-widget">
-                    <h4 class="fw-title">Categorias</h4>
-                    <ul class="filter-catagories">
-                        <li><a href="#">Men</a></li>
-                        <li><a href="#">Women</a></li>
-                        <li><a href="#">Kids</a></li>
-                    </ul>
-                </div>
-                <div class="filter-widget">
-                    <h4 class="fw-title">Brand</h4>
-                    <div class="fw-brand-check">
-                        <div class="bc-item">
-                            <label for="bc-calvin">
-                                Calvin Klein
-                                <input type="checkbox" id="bc-calvin">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="bc-item">
-                            <label for="bc-diesel">
-                                Diesel
-                                <input type="checkbox" id="bc-diesel">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="bc-item">
-                            <label for="bc-polo">
-                                Polo
-                                <input type="checkbox" id="bc-polo">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="bc-item">
-                            <label for="bc-tommy">
-                                Tommy Hilfiger
-                                <input type="checkbox" id="bc-tommy">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="filter-widget">
-                    <h4 class="fw-title">Price</h4>
-                    <div class="filter-range-wrap">
-                        <div class="range-slider">
-                            <div class="price-input">
-                                <input type="text" id="minamount">
-                                <input type="text" id="maxamount">
-                            </div>
-                        </div>
-                        <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                            data-min="33" data-max="98">
-                            <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                        </div>
-                    </div>
-                    <a href="#" class="filter-btn">Filter</a>
-                </div>
-                <div class="filter-widget">
-                    <h4 class="fw-title">Color</h4>
-                    <div class="fw-color-choose">
-                        <div class="cs-item">
-                            <input type="radio" id="cs-black">
-                            <label class="cs-black" for="cs-black">Black</label>
-                        </div>
-                        <div class="cs-item">
-                            <input type="radio" id="cs-violet">
-                            <label class="cs-violet" for="cs-violet">Violet</label>
-                        </div>
-                        <div class="cs-item">
-                            <input type="radio" id="cs-blue">
-                            <label class="cs-blue" for="cs-blue">Blue</label>
-                        </div>
-                        <div class="cs-item">
-                            <input type="radio" id="cs-yellow">
-                            <label class="cs-yellow" for="cs-yellow">Yellow</label>
-                        </div>
-                        <div class="cs-item">
-                            <input type="radio" id="cs-red">
-                            <label class="cs-red" for="cs-red">Red</label>
-                        </div>
-                        <div class="cs-item">
-                            <input type="radio" id="cs-green">
-                            <label class="cs-green" for="cs-green">Green</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="filter-widget">
-                    <h4 class="fw-title">Size</h4>
-                    <div class="fw-size-choose">
-                        <div class="sc-item">
-                            <input type="radio" id="s-size">
-                            <label for="s-size">s</label>
-                        </div>
-                        <div class="sc-item">
-                            <input type="radio" id="m-size">
-                            <label for="m-size">m</label>
-                        </div>
-                        <div class="sc-item">
-                            <input type="radio" id="l-size">
-                            <label for="l-size">l</label>
-                        </div>
-                        <div class="sc-item">
-                            <input type="radio" id="xs-size">
-                            <label for="xs-size">xs</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="filter-widget">
-                    <h4 class="fw-title">Tags</h4>
-                    <div class="fw-tags">
-                        <a href="#">Towel</a>
-                        <a href="#">Shoes</a>
-                        <a href="#">Coat</a>
-                        <a href="#">Dresses</a>
-                        <a href="#">Trousers</a>
-                        <a href="#">Men's hats</a>
-                        <a href="#">Backpack</a>
-                    </div>
-                </div>
-            </div>
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PRODUTOS_INFO']->value, 'P');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
 ?>
-            <div class="col-lg-9">
+            <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-5">
                         <div class="product-pic-zoom">
                             <img class="product-big-img" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
@@ -186,8 +63,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                             <div class="product-thumbs-track ps-slider owl-carousel">
                                 <div class="pt active" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
 "><img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
-"
-                                        alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 "></div>
                                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['IMAGENS']->value, 'I');
@@ -196,8 +72,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['I']->value) {
 ?>
                                 <div class="pt" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['I']->value['img_nome'];?>
 "><img src="<?php echo $_smarty_tpl->tpl_vars['I']->value['img_nome'];?>
-"
-                                        alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 "></div>
                                 <?php
 }
@@ -206,7 +81,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-7">
                         <div class="product-details">
                             <div class="pd-title">
                                 <span><?php echo $_smarty_tpl->tpl_vars['P']->value['cate_nome'];?>
@@ -225,62 +100,41 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 <span>(5)</span>
                             </div>
                             <div class="pd-desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor sit
-                                    amet, consectetur adipisicing elit, sed do mod tempor</p>
+                                <!-- <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor sit amet, consectetur adipisicing elit, sed do mod tempor</p> -->
                                 <h4>R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
 
-                                    <!--<span>629.99</span>-->
+                                    <span>629.99</span>
                                 </h4>
                             </div>
-                            <div class="pd-color">
-                                <h6>Color</h6>
-                                <div class="pd-color-choose">
-                                    <div class="cc-item">
-                                        <input type="radio" id="cc-black">
-                                        <label for="cc-black" class="cc-black"></label>
-                                    </div>
-                                    <div class="cc-item">
-                                        <input type="radio" id="cc-yellow">
-                                        <label for="cc-yellow" class="cc-yellow"></label>
-                                    </div>
-                                    <div class="cc-item">
-                                        <input type="radio" id="cc-violet">
-                                        <label for="cc-violet" class="cc-violet"></label>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="pd-size-choose">
-                                <div class="sc-item">
-                                    <input type="radio" id="sm-size">
-                                    <label for="sm-size">s</label>
-                                </div>
-                                <div class="sc-item">
-                                    <input type="radio" id="md-size">
-                                    <label for="md-size">m</label>
-                                </div>
-                                <div class="sc-item">
-                                    <input type="radio" id="lg-size">
-                                    <label for="lg-size">l</label>
-                                </div>
-                                <div class="sc-item">
-                                    <input type="radio" id="xl-size">
-                                    <label for="xl-size">xs</label>
-                                </div>
-                            </div>
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
+                                <p>Cores disponíveis</p>
                                 <form name="carrinho" action="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_ALTER']->value;?>
 " method="post">
-                                    <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
-" />
-                                    <input type="hidden" name="acao" value="add" />
-                                    <!-- <a href="<?php echo $_smarty_tpl->tpl_vars['COMPRAR']->value;?>
-" type="button" class="primary-btn pd-cart">Comprar</a> -->
-                                    <button class="btn primary-btn pd-cart">Comprar</button>
-                                </form>
+                                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['COR']->value, 'C');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
+?>
+                                    <div class="sc-item">
+                                        <input name="pro_cor_selected" value="<?php echo $_smarty_tpl->tpl_vars['C']->value;?>
+" required type="radio" id="sm-size[<?php echo $_smarty_tpl->tpl_vars['C']->value;?>
+]">
+                                        <label for="sm-size[<?php echo $_smarty_tpl->tpl_vars['C']->value;?>
+]"><?php echo $_smarty_tpl->tpl_vars['C']->value;?>
+</label>
+                                    </div>
+                                    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </div>
+                            <div class="quantity">
+                                <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+" />
+                                <input type="hidden" name="acao" value="add" />
+                                <button class="btn primary-btn pd-cart">Comprar</button>
+                            </div>
+                            </form>
                             <ul class="pd-tags">
                                 <li><span>CATEGORIAS</span>: <?php echo $_smarty_tpl->tpl_vars['P']->value['cate_nome'];?>
 </li>
@@ -544,7 +398,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                         <div class="pi-pic">
                             <img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
 " alt="">
-                            <!-- <div class="sale">Sale</div> -->
+                            <div class="sale bg-warning">Poucas Peças</div>
+                            <div class="estoque bg-danger">Esgotado</div>
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
                             </div>
