@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-02 17:11:38
+/* Smarty version 3.1.34-dev-7, created on 2020-03-03 00:03:54
   from 'C:\xampp\htdocs\jvhookah\view\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5d303ad2e1c3_07275587',
+  'unifunc' => 'content_5e5d90dab9cb73_43337730',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d6a43a3e8998c3b7a30974c67961ff376e5032' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\home.tpl',
-      1 => 1583165498,
+      1 => 1583190229,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5d303ad2e1c3_07275587 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5d90dab9cb73_43337730 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
@@ -80,37 +80,31 @@ function content_5e5d303ad2e1c3_07275587 (Smarty_Internal_Template $_smarty_tpl)
 <div class="banner-section spad">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>Aqui você encontra</h2>
+            <div class="col-lg-4">
+                <div class="single-banner">
+                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/post.png" alt="">
+                    <!-- <div class="inner-text">
+                        <h4>Men’s</h4>
+                    </div> -->
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-8 offset-2">
-                <div class="product-slider owl-carousel">
-                    <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['CATEGORIAS']->value, 'C');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
-?>
-                    <div class="product-item">
-                        <div class="col-lg-4">
-                            <div class="single-banner">
-                                <img src="<?php echo $_smarty_tpl->tpl_vars['C']->value['sub_img'];?>
-" alt="<?php echo $_smarty_tpl->tpl_vars['C']->value['sub_nome'];?>
-">
-                                <div class="inner-text">
-                                    <h4><?php echo $_smarty_tpl->tpl_vars['C']->value['sub_nome'];?>
-</h4>
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-lg-4">
+                <div class="single-banner">
+                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/banner-2.jpg" alt="">
+                    <div class="inner-text">
+                        <h4>Women’s</h4>
                     </div>
-                    <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-banner">
+                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/banner-3.jpg" alt="">
+                    <div class="inner-text">
+                        <h4>Kid’s</h4>
+                    </div>
                 </div>
             </div>
         </div>

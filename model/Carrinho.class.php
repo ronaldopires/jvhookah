@@ -25,7 +25,7 @@ class Carrinho
                 'pro_valor' => $lista['VALOR'],
                 'pro_valor_us' => $lista['VALOR_US'],
                 'pro_desc' => $lista['DESCONTO'],
-                'pro_cor' => $lista['COR'],
+                'pro_cor_selected' => $lista['COR_ESCOLHIDA'],
                 'pro_tamanho' => $lista['TAMANHO'],
                 'pro_peso' => $lista['PESO'],
                 'pro_qtd' => $lista['QTD'],
@@ -70,7 +70,7 @@ class Carrinho
             $VALOR = $pro['pro_valor'];
             $VALOR_US = $pro['pro_valor_us'];
             $DESCONTO = $pro['pro_desc'];
-            $COR = $pro['pro_cor'];
+            $COR_ESCOLHIDA = $_POST['pro_cor_selected'];
             $TAMANHO = $pro['pro_tamanho'];
             $ESTOQUE = $pro['pro_estoque'];
             $PESO = $pro['pro_peso'];
@@ -89,26 +89,28 @@ class Carrinho
                     $_SESSION['PRO'][$ID]['VALOR'] = $VALOR;
                     $_SESSION['PRO'][$ID]['VALOR_US'] = $VALOR_US;
                     $_SESSION['PRO'][$ID]['DESCONTO'] = $DESCONTO;
-                    $_SESSION['PRO'][$ID]['COR'] = $COR;
+                    $_SESSION['PRO'][$ID]['COR_ESCOLHIDA'] = $COR_ESCOLHIDA;
                     $_SESSION['PRO'][$ID]['TAMANHO'] = $TAMANHO;
                     $_SESSION['PRO'][$ID]['ESTOQUE'] = $ESTOQUE;
                     $_SESSION['PRO'][$ID]['PESO'] = $PESO;
                     $_SESSION['PRO'][$ID]['QTD'] = $QTD;
                     $_SESSION['PRO'][$ID]['IMG'] = $IMG;
                     $_SESSION['PRO'][$ID]['LINK'] = $LINK;
+                
+                } else
+                if ($_SESSION['PRO'][$ID]['QTD'] < $_SESSION['PRO'][$ID]['ESTOQUE']) {
+                    $_SESSION['PRO'][$ID]['QTD'] += $QTD;
+                    
                 } else {
-                    if ($_SESSION['PRO'][$ID]['QTD'] < $_SESSION['PRO'][$ID]['ESTOQUE']) {
-                        $_SESSION['PRO'][$ID]['QTD'] += $QTD;
-
-                    } else {
-                        echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
-                                <h4>A quantidade desejada para o ' . $NOME . ' está indisponível.<h4>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button></div>' . Rotas::Redirecionar(3, Rotas::pag_Shopping_Cart());
-                    }
-                    //Rotas::Redirecionar(0, Rotas::pag_Shopping_Cart());
+                    echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
+                                    <h4>A quantidade desejada para o ' . $NOME . ' está indisponível.<h4>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button></div>' . Rotas::Redirecionar(3, Rotas::pag_Shopping_Cart());
                 }
+
+                //Rotas::Redirecionar(3, Rotas::pag_Shopping_Cart());
+
                 break;
             case 'del':
                 //Deletar produto pelo id
@@ -122,7 +124,7 @@ class Carrinho
                                 <h4>Itens removidos com sucesso.<h4>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
-                                </button></div>'. Rotas::Redirecionar(3, Rotas::pag_Shopping_Cart());
+                                </button></div>' . Rotas::Redirecionar(3, Rotas::pag_Shopping_Cart());
 
                 break;
             case 'remover':
@@ -172,7 +174,7 @@ class Carrinho
                                 <h4 class="">A quantidade desejada para o ' . $NOME . ' está indisponível.<h4>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
-                                </button></div>'. Rotas::Redirecionar(3, Rotas::pag_Shopping_Cart());;
+                                </button></div>' . Rotas::Redirecionar(3, Rotas::pag_Shopping_Cart());
             return true;
         }
         return false;

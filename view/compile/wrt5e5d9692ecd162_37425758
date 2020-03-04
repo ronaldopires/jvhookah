@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-03 03:51:42
+/* Smarty version 3.1.34-dev-7, created on 2020-03-03 00:28:18
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5dc63ed94225_56586404',
+  'unifunc' => 'content_5e5d9692eb13a3_69293945',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1583203898,
+      1 => 1583191693,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5dc63ed94225_56586404 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e5d9692eb13a3_69293945 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -62,9 +62,9 @@ function content_5e5dc63ed94225_56586404 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
     <!-- Page Preloder -->
-    <!-- <div id="preloder">
+    <div id="preloder">
         <div class="loader"></div>
-    </div> -->
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -291,7 +291,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                 <div class="logo-item">
                     <div class="tablecell-inner">
                         <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/logo-carousel/Logo_triton_horizontal.png" alt="">
+/img/logo-carousel/logo-1.png" alt="">
                     </div>
                 </div>
                 <div class="logo-item">
@@ -331,7 +331,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                     <div class="footer-left">
                         <div class="footer-logo">
                             <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/logo-carousel/jvhk2.png" alt=""></a>
+/img/jvhl2.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Endereço: Av. Maria Luiza Americano, 2806</li>

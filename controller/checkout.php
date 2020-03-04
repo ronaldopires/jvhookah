@@ -1,1 +1,5 @@
-<h2>Fechar pedido</h2>
+<?php
+
+$smarty = new Template();
+
+$smarty->display('check-out.tpl');

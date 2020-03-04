@@ -30,28 +30,30 @@ class Produtos extends Conexao
     public function OrderByProducts($opcao){
         switch ($opcao){
             case 0:
-                $opcao = " ORDER BY pro_id DESC ";
+                $order = " ORDER BY pro_id DESC ";
             break;
             case 1:
-                $opcao = " ORDER BY pro_valor ASC ";
+                $order = " ORDER BY pro_valor ASC ";
             break;
             case 2:
-                $opcao = " ORDER BY pro_valor DESC ";
+                $order = " ORDER BY pro_valor DESC ";
             break;
             /* case 3:
                 $opcao = " ORDER BY pro_valor DESC ";
             break; */
             case 4:
-                $opcao = " ORDER BY pro_nome ASC ";
+                $order = " ORDER BY pro_nome ASC ";
             break;
             case 5:
-                $opcao = " ORDER BY pro_nome DESC ";
+                $order = " ORDER BY pro_nome DESC ";
             break;
         }
 
         $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id";
-        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id {$opcao}";
-        $this->ExecuteSQL($query);
+        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id {$order}";
+        $params = array(':opcao' => (int)$opcao);
+
+        $this->ExecuteSQL($query, $params);
         $this->GetLista();
     }
 
@@ -77,16 +79,40 @@ class Produtos extends Conexao
         $this->GetLista();
     }
 
-    /* public function GetProdutosID($id)
+    public function GetProdutosPriceMin()
     {
         //Query  especifica para buscar os produtos de uma categorias especificas
-        $query =  "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id ";
-        //$query .= "JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_cate_id ";
-        $query .= "WHERE pro_id = {$id}";
+        $query =  "SELECT MIN(pro_valor) FROM {$this->prefix}produtos";
+        
         $this->ExecuteSQL($query);
+        return $this->ListarDados($query);
+        
+    }
+
+    public function GetProdutosPriceMax()
+    {
+        //Query  especifica para buscar os produtos de uma categorias especificas
+        $query =  "SELECT MAX(pro_valor) FROM {$this->prefix}produtos ";
+        
+        $this->ExecuteSQL($query);
+        return $this->ListarDados($query);
+        
+    }
+
+    public function GetProdutosBetween($min, $max)
+    {
+        //Query  especifica para buscar os produtos de uma categorias especificas
+        $query =  "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id"; 
+        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id";
+        $query .= " WHERE pro_valor BETWEEN :min and :max";
+
+        $params = array(':min' => (int)$min, ':max' => (int)$max);
+        
+        $this->ExecuteSQL($query, $params);
         $this->GetLista();
-    } */
-    //Retorna a lista de produtos
+        
+    }
+
     private function GetLista()
     {
         $i = 1;

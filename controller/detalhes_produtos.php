@@ -9,6 +9,10 @@ $listagem = new Produtos();
 //Caracteristicas do produto
 $caract = new Produtos();
 $image = new ProdutoImages();
+$marca = new Categorias();
+$marca->GetMarcas();
+$sub_categorias = new Categorias();
+$sub_categorias->GetSubCategorias();
 $image->GetImagePRO(Rotas::$pag[1]);
 if(isset(Rotas::$pag[1])){
     $id = Rotas::$pag[1];
@@ -21,6 +25,9 @@ $listagem->GetProdutos();
 var_dump($produtos->GetItens());
 echo '</pre>'; */
 
+foreach($produtos->GetItens() as $pro){
+    $pro_cor = explode(",",$pro['pro_cor']);
+}
 
 $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
 $smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
@@ -32,6 +39,9 @@ $smarty->assign('COMPRAR', Rotas::pag_Shopping_Alter());
 $smarty->assign('PRO_CARACTERISTICAS', $caract->GetItens());
 $smarty->assign('IMAGENS', $image->GetItens());
 $smarty->assign('PRODUTO', Rotas::pag_Shopping_Detail());
+$smarty->assign('SUB_CATEGORIAS', $sub_categorias->GetItens());
+$smarty->assign('MARCAS', $marca->Getitens());
+$smarty->assign('COR', $pro_cor);
 
 
 $smarty->display('product.tpl');
