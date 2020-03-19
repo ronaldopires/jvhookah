@@ -16,6 +16,7 @@
 9.  Contact
 10. Footer
 11. Page not Found
+12. Profile
 
 -------------------------------------------------------------------*/
 
@@ -4532,4 +4533,47 @@ ol {
     .notfound .notfound-404 h1 {
         font-size: 182px;
     }
+}
+
+
+/*---------------------
+  Profile
+-----------------------*/
+
+.account {
+    background-color: #3b3b3b;
+    color: #fff !important;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 2px solid #fff;
+}
+
+.account:hover {
+    background-color: #3b3b3b !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #e7ab3c;
+}
+
+.nav-pills .nav-link.active:hover {
+    color: #E8E8E8;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0;
+    font-weight: 700;
+    color: #E8E8E8;
+    background-color: #3b3b3b;
+    border-bottom: 2px solid #3b3b3b;
+}
+
+.page-profile .nav-link:hover {
+    color: #e7ab3c;
+}
+
+.page-profile .nav {
+    width: 18rem;
 }

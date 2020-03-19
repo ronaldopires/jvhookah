@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-17 04:34:33
+/* Smarty version 3.1.34-dev-7, created on 2020-03-19 06:26:38
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e70454925dca4_19057899',
+  'unifunc' => 'content_5e73028e3f1ef4_81707380',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1584416071,
+      1 => 1584595595,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e70454925dca4_19057899 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e73028e3f1ef4_81707380 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -104,12 +104,12 @@ function content_5e70454925dca4_19057899 (Smarty_Internal_Template $_smarty_tpl)
 " class="login-panel"><i class="fa fa-user"></i>Login</a> <?php }?>
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                        <option value='yt' data-image="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+                            <option value='yt' data-image="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /img/flag-1.jpg" data-imagecss="flag yt"
-                        data-title="English">English</option>
-                        <option value='yu' data-image="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+                                data-title="English">English</option>
+                            <option value='yu' data-image="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /img/flag-2.jpg" data-imagecss="flag yu"
-                        data-title="Bangladesh">German </option>
+                                data-title="Bangladesh">German </option>
                         </select>
                     </div>
                     <div class="top-social">
@@ -272,10 +272,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
 ">Checkout</a></li>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_FAQ']->value;?>
 ">Faq</a></li>
+                                <?php if ($_smarty_tpl->tpl_vars['LOGADO']->value == false) {?>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_REGISTER']->value;?>
 ">Register</a></li>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_LOGIN']->value;?>
 ">Login</a></li>
+                                <?php }?>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PROFILE']->value;?>
 ">Perfil</a></li>
                             </ul>
