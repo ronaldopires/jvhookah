@@ -29,7 +29,6 @@ $(window).ready(function() {
 
 
 
-
     //Calcular frete
     /* 
         $('#cepform').on('submit', function(e) {

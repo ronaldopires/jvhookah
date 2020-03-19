@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-17 04:34:36
+/* Smarty version 3.1.34-dev-7, created on 2020-03-19 06:50:38
   from 'C:\xampp\htdocs\jvhookah\view\profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e70454c6c2e99_61871102',
+  'unifunc' => 'content_5e73082e40c155_03876061',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '610b14de3f4952108b48a3faec480ab490fa26b5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\profile.tpl',
-      1 => 1584415997,
+      1 => 1584597037,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,68 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e70454c6c2e99_61871102 (Smarty_Internal_Template $_smarty_tpl) {
-?>Página de perfil<?php }
+function content_5e73082e40c155_03876061 (Smarty_Internal_Template $_smarty_tpl) {
+?><!-- Breadcrumb Section Begin -->
+<div class="breacrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text product-more">
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
+"><i class="fa fa-home"></i> Home</a>
+                    <span>Meu Perfil</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Section Begin -->
+<!-- Tabs Profile -->
+<section class="page-profile my-4">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-auto mr-3">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand d-none d-sm-block d-md-none" href="#">Minha Conta</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-profile" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="menu-profile">
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link account d-sm-none d-md-block">Minha Conta</a>
+                            <a class="nav-link active" id="dados-pessoais-tab" data-toggle="pill" href="#dados-pessoais" role="tab" aria-controls="dados-pessoais" aria-selected="true"> <i class="ti-user mr-2"></i> Dados Pessoais</a>
+                            <a class="nav-link" id="enderecos-tab" data-toggle="pill" href="#enderecos" role="tab" aria-controls="enderecos" aria-selected="false"><i class="ti-pencil-alt mr-2"></i>
+                                Endereços</a>
+                            <a class="nav-link" id="historico-pedidos-tab" data-toggle="pill" href="#historico-pedidos" role="tab" aria-controls="historico-pedidos" aria-selected="false">
+                                <i class="icon_bag_alt mr-2"></i> Histórico de Pedidos</a>
+                            <a class="nav-link" id="configuracoes-tab" data-toggle="pill" href="#configuracoes" role="tab" aria-controls="configuracoes" aria-selected="false">
+                                <i class="ti-settings mr-2"></i> Configurações</a>
+                            <a class="nav-link" href="#">Sair</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="col p-3 border">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="dados-pessoais" role="tabpanel" aria-labelledby="dados-pessoais-tab">
+                        <h4 class="text-center">DADOS PESSOAIS</h4>
+                        <hr>
+                    </div>
+                    <div class="tab-pane fade" id="enderecos" role="tabpanel" aria-labelledby="enderecos-tab">
+                        <h4 class="text-center">ENDEREÇOS</h4>
+                        <hr>
+                    </div>
+                    <div class="tab-pane fade" id="historico-pedidos" role="tabpanel" aria-labelledby="historico-pedidos-tab">
+                        <h4 class="text-center">HISTÓRICO DE PEDIDOS</h4>
+                        <hr>
+                    </div>
+                    <div class="tab-pane fade" id="configuracoes" role="tabpanel" aria-labelledby="configuracoes-tab">
+                        <h4 class="text-center">MINHAS CONFIGURAÇÕES</h4>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><?php }
 }
