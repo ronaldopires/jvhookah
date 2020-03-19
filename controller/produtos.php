@@ -60,13 +60,14 @@ if (isset($_POST['checked'])) {
     foreach($_POST['checked'] as $key){
         $indice = $key;
         $filtro->GetMarcasProducts($indice);
-        $products = array($filtro->GetItens());
-        
-        $smarty->assign('PRODUTOS', $filtro->GetItens());
+        $teste = $filtro->GetItens();
+        array_push($teste, $filtro->GetItens());
+        var_dump($teste);
     }
+
+    $smarty->assign('PRODUTOS', $teste[0]);
     
 }
-$smarty->assign('PRODUTOS', $produtos->GetItens());
 
 //Filter price products
 $min = (int) $valor->GetProdutosPriceMin()['MIN(pro_valor)'];
@@ -87,6 +88,7 @@ $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
 $smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
 $smarty->assign('PAG_REGISTER', Rotas::pag_Register());
 $smarty->assign('PRODUTOS_INFO', Rotas::pag_Shopping_Detail());
+$smarty->assign('PRODUTOS', $produtos->GetItens());
 $smarty->assign('CATEGORIAS', $categorias->GetItens());
 $smarty->assign('SUB_CATEGORIAS', $sub_categorias->GetItens());
 $smarty->assign('ITENS', $produtos->TotalDados());

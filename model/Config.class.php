@@ -7,6 +7,7 @@ class Config
     const SITE_PASTA = "jvhookah";
     const SITE_NOME = "Jv Hookah";
     const SITE_EMAIL_ADM = "ronaldobondezica@gmail.com";
+    const SITE_CEP = '08040740';
 
     //INFORMAÇÕES DO BANCO DE DADOS
     const BD_HOST = "localhost";

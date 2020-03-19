@@ -64,7 +64,9 @@
                     </div>
                 </div>
                 <div class="ht-right">
-                    <a href="{$PAG_LOGIN}" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    {if $LOGADO == TRUE}
+                    <a href="{$PAG_LOGOUT}" class="login-panel"><i class="fa fa-user"></i>Logout</a> {else}
+                    <a href="{$PAG_LOGIN}" class="login-panel"><i class="fa fa-user"></i>Login</a> {/if}
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                         <option value='yt' data-image="{$GET_TEMA}/img/flag-1.jpg" data-imagecss="flag yt"
@@ -209,6 +211,7 @@
                                 <li><a href="{$PAG_FAQ}">Faq</a></li>
                                 <li><a href="{$PAG_REGISTER}">Register</a></li>
                                 <li><a href="{$PAG_LOGIN}">Login</a></li>
+                                <li><a href="{$PAG_PROFILE}">Perfil</a></li>
                             </ul>
                         </li>
                     </ul>

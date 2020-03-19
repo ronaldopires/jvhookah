@@ -54,19 +54,19 @@
                                                 <input type="hidden" name="pro_id" value="{$P.pro_id}">
                                                 <input type="hidden" name="pro_qtd" value="{$P.pro_qtd}">
                                                 <input type="hidden" name="acao" value="remover">
-                                                <button id="menos" class="btn"><i class="ti-minus"></i></button>
+                                                <button class="btn menos"><i class="ti-minus"></i></button>
                                             </form>
                                             <form action="{$PAG_SHOPPING_ALTER}" method="post">
                                                 <input type="hidden" name="pro_id" value="{$P.pro_id}">
                                                 <input type="hidden" name="pro_qtd" value="{$P.pro_qtd}">
                                                 <input type="hidden" name="acao" value="quantidade">
-                                                <input id="resultado" class="form-control" min="1" name="pro_qtd" type="text" value="{$P.pro_qtd}">
+                                                <input class="form-control resultado" min="1" name="pro_qtd" type="text" value="{$P.pro_qtd}">
                                             </form>
                                             <!-- Adiciona uma unidade -->
                                             <form name="form_add" action="{$PAG_SHOPPING_ALTER}" method="post">
                                                 <input type="hidden" name="pro_id" value="{$P.pro_id}">
                                                 <input type="hidden" name="acao" value="add">
-                                                <button id="mais" class="btn"><i class="ti-plus"></i></button>
+                                                <button class="btn mais"><i class="ti-plus"></i></button>
                                             </form>
                                         </div>
                                     </div>
@@ -99,29 +99,30 @@
                         </div>
                     </div>
                     <div class="col-lg-5 offset-lg-2">
-                        <div class="proceed-checkout">
-                            <ul>
-                                <li class="subtotal">Subtotal <span>R$ {$TOTAL}</span></li>
-                                <li class="subtotal">Frete <span><a href="#cep"> A calcular </a></span></li>
-                                <li class="subtotal">
-                                    <div class="row no-gutters my-2 justify-content-end">
-                                        <form name="cepform" id="cepform" class="form-inline" action="">
-                                            <input class="form-control" type="text" name="cep" id="cep" placeholder="Digite seu cep">
-                                            <div class="input-group-prepend">
-                                                <button class="btn btn-success input-group ml-2">calcular</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </li>
-                                <li class="subtotal">
-                                    <div class="col" id="frete">
 
-                                    </div>
-                                </li>
-                                <li class="cart-total">Total <span>R$ {$TOTAL}</span></li>
-                            </ul>
-                            <a href="#" class="proceed-btn">FINALIZAR PEDIDO</a>
+                        <div class="proceed-checkout">
+                            <form id="formCep" class="discount-coupon" action="{$PAG_CHECKOUT}" method="POST">
+                                <ul>
+                                    <li class="subtotal">Subtotal <span>R$ {$TOTAL}</span></li>
+                                    <li class="subtotal cart-total">Frete <span><button type="button" class="site-btn coupon-btn" id="btnCep">A calcular</button></span></li>
+                                    <li class="" id="divCep">
+                                        <div class="form-group row no-gutters my-2 coupon-form">
+                                            <input type="hidden" name="peso_frete" id="peso_frete" value="2">
+                                            <input type="hidden" name="frete_valor" id="frete_valor">
+                                            <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" required/>
+                                            <button type="button" id="btnCalcularCep" class="site-btn coupon-btn">Calcular</button>
+                                        </div>
+                                        <p class="float-left" id="message"></p>
+                                    </li>
+                                    <li class="subtotal" id="resultCep">
+                                        <span class="col" id="frete"></span>
+                                    </li>
+                                    <li class="cart-total">Total <span>R$ {$TOTAL}</span></li>
+                                </ul>
+                                <button class="proceed-btn btn btn-block">FINALIZAR PEDIDO</button>
+                            </form>
                         </div>
+
                     </div>
                 </div>
             </div>

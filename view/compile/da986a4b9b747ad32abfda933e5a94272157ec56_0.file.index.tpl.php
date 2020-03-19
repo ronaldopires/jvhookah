@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-03 03:51:42
+/* Smarty version 3.1.34-dev-7, created on 2020-03-17 04:34:33
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5dc63ed94225_56586404',
+  'unifunc' => 'content_5e70454925dca4_19057899',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1583203898,
+      1 => 1584416071,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5dc63ed94225_56586404 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e70454925dca4_19057899 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -97,8 +97,11 @@ function content_5e5dc63ed94225_56586404 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
                 </div>
                 <div class="ht-right">
+                    <?php if ($_smarty_tpl->tpl_vars['LOGADO']->value == TRUE) {?>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_LOGOUT']->value;?>
+" class="login-panel"><i class="fa fa-user"></i>Logout</a> <?php } else { ?>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_LOGIN']->value;?>
-" class="login-panel"><i class="fa fa-user"></i>Login</a>
+" class="login-panel"><i class="fa fa-user"></i>Login</a> <?php }?>
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                         <option value='yt' data-image="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
@@ -273,6 +276,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
 ">Register</a></li>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_LOGIN']->value;?>
 ">Login</a></li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PROFILE']->value;?>
+">Perfil</a></li>
                             </ul>
                         </li>
                     </ul>

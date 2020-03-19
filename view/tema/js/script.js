@@ -66,6 +66,36 @@ function clickOrder() {
 //
 $("#opcoes").change("click", clickOrder);
 
-$("#marca").change("click", function() {
-    alert("Opá");
+/**
+ * Div cep
+ */
+$('#btnCep').on('click', () => {
+    $('#divCep').slideDown('slow');
+});
+//Desabilita o envio do formulário com o enter
+$('form#formCep').keypress(function(e) {
+    if ((e.keyCode == 10) || (e.keyCode == 13)) {
+        e.preventDefault();
+    }
+});
+
+$('#btnCalcularCep').on('click', () => {
+    let cep_cli = $('#cep_cli').val();
+    let peso_frete = $('#peso_frete').val();
+    if ((cep_cli.length !== 8)) {
+        $('#message').html('<span class="text-danger">Tamanho inválido. Digite 8 digitos.</span>');
+        $('#cep_cli').css('border-color', 'red');
+    } else {
+        $('#resultCep').show();
+        $('#frete').addClass('py-3')
+        $('#frete').html('<div class="loader d-block"></div><span>Carregando...</span>')
+        $('#frete').load('controller/frete.php?cepcliente=' + cep_cli + '&pesofrete=' + peso_frete);
+        $('#message').hide();
+        $('#cep_cli').css('border-color', '#ebebeb');
+        /* $('input:radio[name=frete_radio]').each(function() {
+            if ($(this).is(':checked'))
+                console.log($(this).val());
+        }); */
+    }
+
 })

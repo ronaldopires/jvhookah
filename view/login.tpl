@@ -20,14 +20,14 @@
             <div class="col-lg-6 offset-lg-3">
                 <div class="login-form">
                     <h2>Login</h2>
-                    <form action="#">
+                    <form method="POST">
                         <div class="group-input">
                             <label for="username">Email *</label>
-                            <input type="text" id="username">
+                            <input type="email" name="email" id="username" required>
                         </div>
                         <div class="group-input">
                             <label for="pass">Senha *</label>
-                            <input type="text" id="pass">
+                            <input type="password" name="senha" id="pass" required>
                         </div>
                         <div class="group-input gi-check">
                             <div class="gi-more">

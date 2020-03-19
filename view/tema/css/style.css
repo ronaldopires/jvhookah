@@ -2316,7 +2316,7 @@ ol {
     margin-bottom: 33px;
 }
 
-#menos {
+.menos {
     position: relative;
     top: 3px;
     left: -39px;
@@ -2327,16 +2327,22 @@ ol {
     visibility: hidden;
 }
 
-#mais {
+.mais {
     position: relative;
     top: -71px;
     left: 40px;
 }
 
-#resultado {
+.btn .mais:active:focus {
+    outline: none;
+}
+
+.resultado {
     position: relative;
     top: -34px;
     right: -19px;
+    border: none;
+    background: none;
 }
 
 .product-details .quantity .pro-qty {
@@ -2857,11 +2863,13 @@ ol {
     margin-bottom: 16px;
 }
 
-.discount-coupon .coupon-form {
+.discount-coupon .coupon-form,
+#cep_cli {
     position: relative;
 }
 
-.discount-coupon .coupon-form input {
+.discount-coupon .coupon-form input,
+#cep_cli {
     width: 100%;
     height: 46px;
     border: 2px solid #ebebeb;
@@ -2930,6 +2938,11 @@ ol {
     padding: 15px 25px 14px 25px;
     display: block;
     text-align: center;
+}
+
+#divCep,
+#resultCep {
+    display: none;
 }
 
 

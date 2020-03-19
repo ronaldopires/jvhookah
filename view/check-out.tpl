@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text product-more">
-                    <a href="./index.html"><i class="fa fa-home"></i> Home</a>
-                    <a href="./shop.html">Shop</a>
+                    <a href="{$PAG_HOME}"><i class="fa fa-home"></i> Home</a>
+                    <a href="{$PAG_SHOP}">Produtos</a>
                     <span>Check Out</span>
                 </div>
             </div>
@@ -19,7 +19,7 @@
     <div class="container">
         <form action="#" class="checkout-form">
             <div class="row">
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                     <div class="checkout-content">
                         <a href="#" class="content-btn">Click Here To Login</a>
                     </div>
@@ -72,21 +72,22 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="checkout-content">
+                </div> -->
+                <div class="col-lg-10 offset-1">
+                    <!-- <div class="checkout-content col-4">
                         <input type="text" placeholder="Enter Your Coupon Code">
-                    </div>
+                    </div> -->
                     <div class="place-order">
-                        <h4>Your Order</h4>
+                        <h4>Seu Pedido</h4>
                         <div class="order-total">
                             <ul class="order-table">
-                                <li>Product <span>Total</span></li>
-                                <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                                <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                                <li class="fw-normal">Combination x 1 <span>$120.00</span></li>
-                                <li class="fw-normal">Subtotal <span>$240.00</span></li>
-                                <li class="total-price">Total <span>$240.00</span></li>
+                                <li>Produto <span>Total</span></li>
+                                {foreach from=$PRO item=P}
+                                <li class="fw-normal">{$P.pro_nome} x {$P.pro_qtd} <span>R$ {$P.pro_subTotal}</span></li>
+                                {/foreach}
+                                <li class="fw-normal">Subtotal <span>R$ {$TOTAL}</span></li>
+                                <li class="fw-normal">Frete <span>R$ {$TOTAL}</span></li>
+                                <li class="total-price">Total <span>R$ {$TOTAL}</span></li>
                             </ul>
                             <div class="payment-check">
                                 <div class="pc-item">
@@ -105,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="order-btn">
-                                <button type="submit" class="site-btn place-btn">Place Order</button>
+                                <a type="submit" href="{$PAYMENT}" class="site-btn place-btn">Finalizar Pedido</a>
                             </div>
                         </div>
                     </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-02 22:39:45
+/* Smarty version 3.1.34-dev-7, created on 2020-03-17 02:26:29
   from 'C:\xampp\htdocs\jvhookah\view\check-out.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5d7d210a0513_39565549',
+  'unifunc' => 'content_5e7027453689c1_07952509',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c8f3025ab18da9c83673f04fb9bfb762c4e4ab35' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\check-out.tpl',
-      1 => 1583185080,
+      1 => 1584408385,
       2 => 'file',
     ),
   ),
@@ -20,15 +20,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5d7d210a0513_39565549 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e7027453689c1_07952509 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text product-more">
-                    <a href="./index.html"><i class="fa fa-home"></i> Home</a>
-                    <a href="./shop.html">Shop</a>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
+"><i class="fa fa-home"></i> Home</a>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+">Produtos</a>
                     <span>Check Out</span>
                 </div>
             </div>
@@ -42,7 +44,7 @@ function content_5e5d7d210a0513_39565549 (Smarty_Internal_Template $_smarty_tpl)
     <div class="container">
         <form action="#" class="checkout-form">
             <div class="row">
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                     <div class="checkout-content">
                         <a href="#" class="content-btn">Click Here To Login</a>
                     </div>
@@ -95,21 +97,35 @@ function content_5e5d7d210a0513_39565549 (Smarty_Internal_Template $_smarty_tpl)
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="checkout-content">
+                </div> -->
+                <div class="col-lg-10 offset-1">
+                    <!-- <div class="checkout-content col-4">
                         <input type="text" placeholder="Enter Your Coupon Code">
-                    </div>
+                    </div> -->
                     <div class="place-order">
-                        <h4>Your Order</h4>
+                        <h4>Seu Pedido</h4>
                         <div class="order-total">
                             <ul class="order-table">
-                                <li>Product <span>Total</span></li>
-                                <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                                <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                                <li class="fw-normal">Combination x 1 <span>$120.00</span></li>
-                                <li class="fw-normal">Subtotal <span>$240.00</span></li>
-                                <li class="total-price">Total <span>$240.00</span></li>
+                                <li>Produto <span>Total</span></li>
+                                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PRO']->value, 'P');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+?>
+                                <li class="fw-normal"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+ x <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_qtd'];?>
+ <span>R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_subTotal'];?>
+</span></li>
+                                <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                                <li class="fw-normal">Subtotal <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
+</span></li>
+                                <li class="fw-normal">Frete <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
+</span></li>
+                                <li class="total-price">Total <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
+</span></li>
                             </ul>
                             <div class="payment-check">
                                 <div class="pc-item">
@@ -128,7 +144,8 @@ function content_5e5d7d210a0513_39565549 (Smarty_Internal_Template $_smarty_tpl)
                                 </div>
                             </div>
                             <div class="order-btn">
-                                <button type="submit" class="site-btn place-btn">Place Order</button>
+                                <a type="submit" href="<?php echo $_smarty_tpl->tpl_vars['PAYMENT']->value;?>
+" class="site-btn place-btn">Finalizar Pedido</a>
                             </div>
                         </div>
                     </div>

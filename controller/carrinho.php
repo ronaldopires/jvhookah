@@ -6,7 +6,7 @@ if(isset($_SESSION['PRO']) and count($_SESSION['PRO']) > 0){
     $carrinho = new Carrinho();
     
     /* echo '<pre>';
-    var_dump($_SESSION);
+    var_dump($frete['tipo']);
     echo '</pre>'; */
     
     
@@ -21,7 +21,9 @@ if(isset($_SESSION['PRO']) and count($_SESSION['PRO']) > 0){
     $smarty->assign('PAG_SHOP', Rotas::pag_Produtos());
     $smarty->assign('PAG_LOGIN', Rotas::pag_Login());
     $smarty->assign('PAG_PRODUTOS', Rotas::pag_Produtos());
+    $smarty->assign('PAG_CHECKOUT', Rotas::pag_Check_Out());
     $smarty->assign('PRODUTOS_INFO', Rotas::pag_Shopping_Detail());
+    $smarty->assign('PESO', $carrinho->GetPeso());
     
 
     $smarty->display('shopping-cart.tpl');    

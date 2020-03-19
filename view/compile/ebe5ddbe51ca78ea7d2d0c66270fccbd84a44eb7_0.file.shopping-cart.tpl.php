@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-03 23:25:11
+/* Smarty version 3.1.34-dev-7, created on 2020-03-16 23:37:09
   from 'C:\xampp\htdocs\jvhookah\view\shopping-cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5ed947d876e6_15271258',
+  'unifunc' => 'content_5e6fff957a69c1_30664518',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ebe5ddbe51ca78ea7d2d0c66270fccbd84a44eb7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\shopping-cart.tpl',
-      1 => 1583273589,
+      1 => 1584398221,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5ed947d876e6_15271258 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e6fff957a69c1_30664518 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -94,7 +94,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                                                 <input type="hidden" name="pro_qtd" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_qtd'];?>
 ">
                                                 <input type="hidden" name="acao" value="remover">
-                                                <button id="menos" class="btn"><i class="ti-minus"></i></button>
+                                                <button class="btn menos"><i class="ti-minus"></i></button>
                                             </form>
                                             <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_ALTER']->value;?>
 " method="post">
@@ -103,7 +103,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                                                 <input type="hidden" name="pro_qtd" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_qtd'];?>
 ">
                                                 <input type="hidden" name="acao" value="quantidade">
-                                                <input id="resultado" class="form-control" min="1" name="pro_qtd" type="text" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_qtd'];?>
+                                                <input class="form-control resultado" min="1" name="pro_qtd" type="text" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_qtd'];?>
 ">
                                             </form>
                                             <!-- Adiciona uma unidade -->
@@ -112,7 +112,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                                                 <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
 ">
                                                 <input type="hidden" name="acao" value="add">
-                                                <button id="mais" class="btn"><i class="ti-plus"></i></button>
+                                                <button class="btn mais"><i class="ti-plus"></i></button>
                                             </form>
                                         </div>
                                     </div>
@@ -152,31 +152,33 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </div>
                     </div>
                     <div class="col-lg-5 offset-lg-2">
-                        <div class="proceed-checkout">
-                            <ul>
-                                <li class="subtotal">Subtotal <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
-</span></li>
-                                <li class="subtotal">Frete <span><a href="#cep"> A calcular </a></span></li>
-                                <li class="subtotal">
-                                    <div class="row no-gutters my-2 justify-content-end">
-                                        <form name="cepform" id="cepform" class="form-inline" action="">
-                                            <input class="form-control" type="text" name="cep" id="cep" placeholder="Digite seu cep">
-                                            <div class="input-group-prepend">
-                                                <button class="btn btn-success input-group ml-2">calcular</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </li>
-                                <li class="subtotal">
-                                    <div class="col" id="frete">
 
-                                    </div>
-                                </li>
-                                <li class="cart-total">Total <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
+                        <div class="proceed-checkout">
+                            <form id="formCep" class="discount-coupon" action="<?php echo $_smarty_tpl->tpl_vars['PAG_CHECKOUT']->value;?>
+" method="POST">
+                                <ul>
+                                    <li class="subtotal">Subtotal <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
 </span></li>
-                            </ul>
-                            <a href="#" class="proceed-btn">FINALIZAR PEDIDO</a>
+                                    <li class="subtotal cart-total">Frete <span><button type="button" class="site-btn coupon-btn" id="btnCep">A calcular</button></span></li>
+                                    <li class="" id="divCep">
+                                        <div class="form-group row no-gutters my-2 coupon-form">
+                                            <input type="hidden" name="peso_frete" id="peso_frete" value="2">
+                                            <input type="hidden" name="frete_valor" id="frete_valor">
+                                            <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" required/>
+                                            <button type="button" id="btnCalcularCep" class="site-btn coupon-btn">Calcular</button>
+                                        </div>
+                                        <p class="float-left" id="message"></p>
+                                    </li>
+                                    <li class="subtotal" id="resultCep">
+                                        <span class="col" id="frete"></span>
+                                    </li>
+                                    <li class="cart-total">Total <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
+</span></li>
+                                </ul>
+                                <button class="proceed-btn btn btn-block">FINALIZAR PEDIDO</button>
+                            </form>
                         </div>
+
                     </div>
                 </div>
             </div>

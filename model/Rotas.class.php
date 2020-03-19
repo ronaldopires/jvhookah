@@ -42,11 +42,20 @@ class Rotas
     static function pag_Login(){
         return self::get_SiteHOME() . '/login';
     }
+    static function pag_Logout(){
+        return self::get_SiteHOME() . '/logoff';
+    }
+    static function pag_Profile(){
+        return self::get_SiteHOME() . '/profile';
+    }
     static function pag_Register(){
         return self::get_SiteHOME() . '/register';
     }
     static function pag_Check_Out(){
         return self::get_SiteHOME() . '/checkout';
+    }
+    static function pag_Payment(){
+        return self::get_SiteHOME() . '/payment';
     }
     static function pag_Faq(){
         return self::get_SiteHOME() . '/perguntas_frequentes';
