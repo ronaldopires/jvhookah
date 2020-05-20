@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-03 00:03:54
+/* Smarty version 3.1.36, created on 2020-05-19 17:38:47
   from 'C:\xampp\htdocs\jvhookah\view\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5d90dab9cb73_43337730',
+  'version' => '3.1.36',
+  'unifunc' => 'content_5ec3fd87d6fce9_79366998',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d6a43a3e8998c3b7a30974c67961ff376e5032' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\home.tpl',
-      1 => 1583190229,
+      1 => 1583292223,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5d90dab9cb73_43337730 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec3fd87d6fce9_79366998 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">

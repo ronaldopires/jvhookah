@@ -16,6 +16,7 @@ if (!Login::Logado()) {
     $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
     $smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
     $smarty->assign('PAG_REGISTER', Rotas::pag_Register());
+    $smarty->assign('PASS_RESET', Rotas::pag_RecoveryPassword());
 
     $smarty->display('login.tpl');
 } else {
