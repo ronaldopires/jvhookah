@@ -98,3 +98,7 @@ $('#btnCalcularCep').on('click', () => {
     }
 
 })
+
+$('#btn-finalizar').on('click', () => {
+    $('#divCep').slideDown('slow');
+})

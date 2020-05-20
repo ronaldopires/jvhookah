@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-17 02:26:29
+/* Smarty version 3.1.36, created on 2020-05-19 23:58:42
   from 'C:\xampp\htdocs\jvhookah\view\check-out.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e7027453689c1_07952509',
+  'version' => '3.1.36',
+  'unifunc' => 'content_5ec456922f2ed9_80611886',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c8f3025ab18da9c83673f04fb9bfb762c4e4ab35' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\check-out.tpl',
-      1 => 1584408385,
+      1 => 1589924290,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e7027453689c1_07952509 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec456922f2ed9_80611886 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -31,6 +31,8 @@ function content_5e7027453689c1_07952509 (Smarty_Internal_Template $_smarty_tpl)
 "><i class="fa fa-home"></i> Home</a>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
 ">Produtos</a>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPING_CART']->value;?>
+">Carrinho</a>
                     <span>Check Out</span>
                 </div>
             </div>
@@ -109,8 +111,9 @@ function content_5e7027453689c1_07952509 (Smarty_Internal_Template $_smarty_tpl)
                                 <li>Produto <span>Total</span></li>
                                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PRO']->value, 'P');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+$_smarty_tpl->tpl_vars['P']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+$_smarty_tpl->tpl_vars['P']->do_else = false;
 ?>
                                 <li class="fw-normal"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
  x <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_qtd'];?>
@@ -118,11 +121,10 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
 </span></li>
                                 <?php
 }
-}
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                                <li class="fw-normal">Subtotal <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
+                                <li class="fw-normal">Subtotal <span>R$ <?php echo $_smarty_tpl->tpl_vars['VALOR']->value;?>
 </span></li>
-                                <li class="fw-normal">Frete <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
+                                <li class="fw-normal">Frete <span>R$ <?php echo $_smarty_tpl->tpl_vars['FRETE']->value;?>
 </span></li>
                                 <li class="total-price">Total <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
 </span></li>

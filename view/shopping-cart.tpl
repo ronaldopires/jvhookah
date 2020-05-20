@@ -104,12 +104,12 @@
                             <form id="formCep" class="discount-coupon" action="{$PAG_CHECKOUT}" method="POST">
                                 <ul>
                                     <li class="subtotal">Subtotal <span>R$ {$TOTAL}</span></li>
-                                    <li class="subtotal cart-total">Frete <span><button type="button" class="site-btn coupon-btn" id="btnCep">A calcular</button></span></li>
+                                    <li class="subtotal cart-total">Frete <span><input type="button" name="btn-calc" class="site-btn coupon-btn" id="btnCep" required value=" A calcular" /></span></li>
                                     <li class="" id="divCep">
                                         <div class="form-group row no-gutters my-2 coupon-form">
                                             <input type="hidden" name="peso_frete" id="peso_frete" value="2">
                                             <input type="hidden" name="frete_valor" id="frete_valor">
-                                            <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" required/>
+                                            <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" autofocus required/>
                                             <button type="button" id="btnCalcularCep" class="site-btn coupon-btn">Calcular</button>
                                         </div>
                                         <p class="float-left" id="message"></p>
@@ -119,7 +119,7 @@
                                     </li>
                                     <li class="cart-total">Total <span>R$ {$TOTAL}</span></li>
                                 </ul>
-                                <button class="proceed-btn btn btn-block">FINALIZAR PEDIDO</button>
+                                <button id="btn-finalizar" class="proceed-btn btn btn-block">FINALIZAR PEDIDO</button>
                             </form>
                         </div>
 

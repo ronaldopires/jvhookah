@@ -48,6 +48,9 @@ class Rotas
     static function pag_Profile(){
         return self::get_SiteHOME() . '/profile';
     }
+    static function pag_Order_Details(){
+        return self::get_SiteHOME() . '/order_details';
+    }
     static function pag_Register(){
         return self::get_SiteHOME() . '/register';
     }
@@ -59,6 +62,9 @@ class Rotas
     }
     static function pag_Faq(){
         return self::get_SiteHOME() . '/perguntas_frequentes';
+    }
+    static function pag_RecoveryPassword(){
+        return self::get_SiteHOME() . '/recovery_password';
     }
     //Rotas de imagens internamente
     static function get_ImagePasta(){

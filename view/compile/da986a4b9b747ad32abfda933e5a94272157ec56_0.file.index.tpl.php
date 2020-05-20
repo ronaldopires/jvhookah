@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-19 06:26:38
+/* Smarty version 3.1.36, created on 2020-05-19 17:38:27
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e73028e3f1ef4_81707380',
+  'version' => '3.1.36',
+  'unifunc' => 'content_5ec3fd733a8c38_09302677',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1584595595,
+      1 => 1584655158,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e73028e3f1ef4_81707380 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec3fd733a8c38_09302677 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -171,8 +171,9 @@ function content_5e73028e3f1ef4_81707380 (Smarty_Internal_Template $_smarty_tpl)
                                             <tbody>
                                                 <?php if ($_smarty_tpl->tpl_vars['CARRINHO']->value == true) {?> <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['CARRINHO']->value, 'C');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
+$_smarty_tpl->tpl_vars['C']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
+$_smarty_tpl->tpl_vars['C']->do_else = false;
 ?>
                                                 <tr>
                                                     <td class="si-pic"><img width="150" src="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img'];?>
@@ -197,7 +198,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
                                                     </td>
                                                 </tr>
                                                 <?php
-}
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { ?>
                                                 <p>Você não possui produtos no seu carrinho.</p>

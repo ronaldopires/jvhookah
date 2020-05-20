@@ -6,6 +6,7 @@
                 <div class="breadcrumb-text product-more">
                     <a href="{$PAG_HOME}"><i class="fa fa-home"></i> Home</a>
                     <a href="{$PAG_SHOP}">Produtos</a>
+                    <a href="{$PAG_SHOPING_CART}">Carrinho</a>
                     <span>Check Out</span>
                 </div>
             </div>
@@ -85,8 +86,8 @@
                                 {foreach from=$PRO item=P}
                                 <li class="fw-normal">{$P.pro_nome} x {$P.pro_qtd} <span>R$ {$P.pro_subTotal}</span></li>
                                 {/foreach}
-                                <li class="fw-normal">Subtotal <span>R$ {$TOTAL}</span></li>
-                                <li class="fw-normal">Frete <span>R$ {$TOTAL}</span></li>
+                                <li class="fw-normal">Subtotal <span>R$ {$VALOR}</span></li>
+                                <li class="fw-normal">Frete <span>R$ {$FRETE}</span></li>
                                 <li class="total-price">Total <span>R$ {$TOTAL}</span></li>
                             </ul>
                             <div class="payment-check">

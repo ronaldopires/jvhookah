@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-27 20:49:56
+/* Smarty version 3.1.36, created on 2020-05-19 23:11:03
   from 'C:\xampp\htdocs\jvhookah\view\faq.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e581d64e8ae23_21313964',
+  'version' => '3.1.36',
+  'unifunc' => 'content_5ec44b671a0dc9_61937794',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4e83468556c03d5018db142963990cdebfc8bc18' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\faq.tpl',
-      1 => 1582832896,
+      1 => 1582844111,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e581d64e8ae23_21313964 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec44b671a0dc9_61937794 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">

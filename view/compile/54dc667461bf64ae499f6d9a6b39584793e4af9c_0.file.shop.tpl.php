@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-04 02:17:23
+/* Smarty version 3.1.36, created on 2020-05-19 18:10:06
   from 'C:\xampp\htdocs\jvhookah\view\shop.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e5f01a3ead089_92853446',
+  'version' => '3.1.36',
+  'unifunc' => 'content_5ec404dee80e19_52509322',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54dc667461bf64ae499f6d9a6b39584793e4af9c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\shop.tpl',
-      1 => 1583284642,
+      1 => 1583292223,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e5f01a3ead089_92853446 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec404dee80e19_52509322 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -54,8 +54,9 @@ function content_5e5f01a3ead089_92853446 (Smarty_Internal_Template $_smarty_tpl)
         <div class="product-slider owl-carousel">
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['MAIS_PRODUTOS']->value, 'P');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+$_smarty_tpl->tpl_vars['P']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+$_smarty_tpl->tpl_vars['P']->do_else = false;
 ?>
             <div class="product-item">
                 <div class="pi-pic">
@@ -90,7 +91,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
             </div>
             <?php
 }
-}
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 
@@ -109,8 +109,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         <ul class="filter-catagories">
                             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['CATEGORIAS']->value, 'C');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
+$_smarty_tpl->tpl_vars['C']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
+$_smarty_tpl->tpl_vars['C']->do_else = false;
 ?>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['C']->value['cate_link'];?>
 "><?php echo $_smarty_tpl->tpl_vars['C']->value['cate_nome'];?>
@@ -118,20 +119,19 @@ foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
                                 <!--  <ul class="filter-catagories">
                                     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['SUB_CATEGORIAS']->value, 'S');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['S']->value) {
+$_smarty_tpl->tpl_vars['S']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['S']->value) {
+$_smarty_tpl->tpl_vars['S']->do_else = false;
 ?>
                                     <li class="ml-5"><a href="<?php echo $_smarty_tpl->tpl_vars['S']->value['sub_link'];?>
 "><?php echo $_smarty_tpl->tpl_vars['S']->value['sub_nome'];?>
 </a></li>
                                     <?php
 }
-}
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </ul> -->
                             </li>
                             <?php
-}
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </ul>
@@ -143,8 +143,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             <div class="fw-brand-check">
                                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['MARCAS']->value, 'M');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['M']->value) {
+$_smarty_tpl->tpl_vars['M']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['M']->value) {
+$_smarty_tpl->tpl_vars['M']->do_else = false;
 ?>
                                 <div class="bc-item">
                                     <label for="<?php echo $_smarty_tpl->tpl_vars['M']->value['fab_nome'];?>
@@ -158,7 +159,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['M']->value) {
                                 </label>
                                 </div>
                                 <?php
-}
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </div>
@@ -286,8 +286,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         <div class="row">
                             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PRODUTOS']->value, 'P');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+$_smarty_tpl->tpl_vars['P']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+$_smarty_tpl->tpl_vars['P']->do_else = false;
 ?>
 
                             <div class="col-lg-4 col-sm-6">
@@ -360,7 +361,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                                 </div>
                             </div>
                             <?php
-}
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 

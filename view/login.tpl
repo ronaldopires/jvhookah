@@ -36,7 +36,7 @@
                                     <input type="checkbox" id="save-pass">
                                     <span class="checkmark"></span>
                                 </label>
-                                <a href="#" class="forget-pass">Esqueci minha senha</a>
+                                <a href="{$PASS_RESET}" class="forget-pass">Esqueci minha senha</a>
                             </div>
                         </div>
                         <button type="submit" class="site-btn login-btn">Entrar</button>

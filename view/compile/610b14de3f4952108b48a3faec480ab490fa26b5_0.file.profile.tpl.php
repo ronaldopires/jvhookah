@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-19 06:50:38
+/* Smarty version 3.1.36, created on 2020-05-19 17:38:27
   from 'C:\xampp\htdocs\jvhookah\view\profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e73082e40c155_03876061',
+  'version' => '3.1.36',
+  'unifunc' => 'content_5ec3fd73aaf193_98540251',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '610b14de3f4952108b48a3faec480ab490fa26b5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\profile.tpl',
-      1 => 1584597037,
+      1 => 1589866367,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e73082e40c155_03876061 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec3fd73aaf193_98540251 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -49,11 +49,11 @@ function content_5e73082e40c155_03876061 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="collapse navbar-collapse" id="menu-profile">
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link account d-sm-none d-md-block">Minha Conta</a>
-                            <a class="nav-link active" id="dados-pessoais-tab" data-toggle="pill" href="#dados-pessoais" role="tab" aria-controls="dados-pessoais" aria-selected="true"> <i class="ti-user mr-2"></i> Dados Pessoais</a>
-                            <a class="nav-link" id="enderecos-tab" data-toggle="pill" href="#enderecos" role="tab" aria-controls="enderecos" aria-selected="false"><i class="ti-pencil-alt mr-2"></i>
-                                Endereços</a>
-                            <a class="nav-link" id="historico-pedidos-tab" data-toggle="pill" href="#historico-pedidos" role="tab" aria-controls="historico-pedidos" aria-selected="false">
+                            <a class="nav-link active" id="historico-pedidos-tab" data-toggle="pill" href="#historico-pedidos" role="tab" aria-controls="historico-pedidos" aria-selected="false">
                                 <i class="icon_bag_alt mr-2"></i> Histórico de Pedidos</a>
+                            <a class="nav-link" id="dados-pessoais-tab" data-toggle="pill" href="#dados-pessoais" role="tab" aria-controls="dados-pessoais" aria-selected="true"> <i class="ti-user mr-2"></i> Dados Pessoais</a>
+                            <a class="nav-link" id="enderecos-tab" data-toggle="pill" href="#enderecos" role="tab" aria-controls="enderecos" aria-selected="false"><i class="ti-map-alt mr-2"></i>
+                                Endereços</a>
                             <a class="nav-link" id="configuracoes-tab" data-toggle="pill" href="#configuracoes" role="tab" aria-controls="configuracoes" aria-selected="false">
                                 <i class="ti-settings mr-2"></i> Configurações</a>
                             <a class="nav-link" href="#">Sair</a>
@@ -63,17 +63,103 @@ function content_5e73082e40c155_03876061 (Smarty_Internal_Template $_smarty_tpl)
             </div>
             <div class="col p-3 border">
                 <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="dados-pessoais" role="tabpanel" aria-labelledby="dados-pessoais-tab">
+                    <div class="tab-pane fade" id="dados-pessoais" role="tabpanel" aria-labelledby="dados-pessoais-tab">
                         <h4 class="text-center">DADOS PESSOAIS</h4>
                         <hr>
                     </div>
                     <div class="tab-pane fade" id="enderecos" role="tabpanel" aria-labelledby="enderecos-tab">
                         <h4 class="text-center">ENDEREÇOS</h4>
                         <hr>
+                        <!-- address-->
+                        <div class="card-deck">
+                            <div class="card col-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">Casa</h5>
+                                    <p class="card-text">Osahan House, Jawaddi Kalan, Ludhiana, Punjab 141002, India</p>
+                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modalExemplo">
+                                        <i class="ti-pencil-alt mr-2"></i> Editar
+                                      </button>
+                                    <a href="#" class="btn btn-outline-danger"><i class="ti-trash mr-2"></i> Deletar</a>
+                                </div>
+                            </div>
+                            <div class="card col-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">Trabalho</h5>
+                                    <p class="card-text">NCC, Model Town Rd, Pritm Nagar, Model Town, Ludhiana, Punjab 141002, India</p>
+                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modalExemplo">
+                                        <i class="ti-pencil-alt mr-2"></i> Editar
+                                      </button>
+                                    <a href="#" class="btn btn-outline-danger"><i class="ti-trash mr-2"></i> Deletar</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal Address-->
+                        <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        <button type="button" class="btn btn-primary">Salvar mudanças</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="historico-pedidos" role="tabpanel" aria-labelledby="historico-pedidos-tab">
+                    <div class="tab-pane fade show active" id="historico-pedidos" role="tabpanel" aria-labelledby="historico-pedidos-tab">
                         <h4 class="text-center">HISTÓRICO DE PEDIDOS</h4>
                         <hr>
+                        <div class="col">
+                            <table class="table">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Hora</th>
+                                        <th scope="col">Ref</th>
+                                        <th scope="col" colspan="2">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PEDIDOS']->value, 'P');
+$_smarty_tpl->tpl_vars['P']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+$_smarty_tpl->tpl_vars['P']->do_else = false;
+?>
+                                    <tr>
+                                        <th scope="row"><?php echo $_smarty_tpl->tpl_vars['P']->value['ped_data'];?>
+ </th>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['P']->value['ped_hora'];?>
+</td>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['P']->value['ped_ref'];?>
+</td>
+                                        <td>Aguardando Pagamento</td>
+                                        <td>
+                                            <form method="POST" action="<?php echo $_smarty_tpl->tpl_vars['DETALHES_PEDIDOS']->value;?>
+">
+                                                <input type="hidden" name="cod_pedido" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['ped_cod'];?>
+">
+                                                <button type="submit" class="btn btn-outline-primary">
+                                                    <i class="ti-menu mr-2"></i> Detalhes
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="configuracoes" role="tabpanel" aria-labelledby="configuracoes-tab">
                         <h4 class="text-center">MINHAS CONFIGURAÇÕES</h4>

@@ -19,7 +19,7 @@ class Config
     //INFORMAÇÕES PARA PHPMAILER
     const EMAIL_HOST = "smtp.gmail.com";
     const EMAIL_USER = "ronaldobondezica@gmail.com";
-	const EMAIL_NOME = "Contato Loja Jv Hookah";
+	const EMAIL_NOME = "Contato Loja Virtual Jv Hookah";
 	const EMAIL_SENHA = "ronaldinhog";
 	const EMAIL_PORTA = 587;
 	const EMAIL_SMTPAUTH = true;

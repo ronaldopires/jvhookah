@@ -5,12 +5,6 @@ if (isset($_SESSION['PRO']) && count($_SESSION['PRO']) > 0) {
     $smarty = new Template();
     $carrinho = new Carrinho();
 
-    /* echo '<pre>';
-    var_dump($frete['tipo']);
-    echo '</pre>'; */
-
-
-
     //unset($_SESSION['PRO1']);
 
     $smarty->assign('PRO', $carrinho->GetCarrinho());
@@ -23,8 +17,10 @@ if (isset($_SESSION['PRO']) && count($_SESSION['PRO']) > 0) {
     $smarty->assign('PAG_PRODUTOS', Rotas::pag_Produtos());
     $smarty->assign('PAG_CHECKOUT', Rotas::pag_Check_Out());
     $smarty->assign('PRODUTOS_INFO', Rotas::pag_Shopping_Detail());
-    $smarty->assign('PESO', $carrinho->GetPeso());
+    $smarty->assign('PESO', number_format($carrinho->GetPeso(), 3, '.', ''));
 
+    // echo number_format($carrinho->GetPeso(), 3, '.', '');
+    
 
     $smarty->display('shopping-cart.tpl');
 } else {

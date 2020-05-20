@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-03-16 23:37:09
+/* Smarty version 3.1.36, created on 2020-05-19 22:42:44
   from 'C:\xampp\htdocs\jvhookah\view\shopping-cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e6fff957a69c1_30664518',
+  'version' => '3.1.36',
+  'unifunc' => 'content_5ec444c4eaf637_59021369',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ebe5ddbe51ca78ea7d2d0c66270fccbd84a44eb7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\shopping-cart.tpl',
-      1 => 1584398221,
+      1 => 1589920963,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e6fff957a69c1_30664518 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec444c4eaf637_59021369 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -66,8 +66,9 @@ function content_5e6fff957a69c1_30664518 (Smarty_Internal_Template $_smarty_tpl)
                         <tbody>
                             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PRO']->value, 'P');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+$_smarty_tpl->tpl_vars['P']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+$_smarty_tpl->tpl_vars['P']->do_else = false;
 ?>
                             <tr>
                                 <td class="cart-pic first-row"><img width="150" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
@@ -131,7 +132,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
                             </tr>
                             <?php
 }
-}
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </tbody>
                     </table>
@@ -159,12 +159,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 <ul>
                                     <li class="subtotal">Subtotal <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
 </span></li>
-                                    <li class="subtotal cart-total">Frete <span><button type="button" class="site-btn coupon-btn" id="btnCep">A calcular</button></span></li>
+                                    <li class="subtotal cart-total">Frete <span><input type="button" name="btn-calc" class="site-btn coupon-btn" id="btnCep" required value=" A calcular" /></span></li>
                                     <li class="" id="divCep">
                                         <div class="form-group row no-gutters my-2 coupon-form">
                                             <input type="hidden" name="peso_frete" id="peso_frete" value="2">
                                             <input type="hidden" name="frete_valor" id="frete_valor">
-                                            <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" required/>
+                                            <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" autofocus required/>
                                             <button type="button" id="btnCalcularCep" class="site-btn coupon-btn">Calcular</button>
                                         </div>
                                         <p class="float-left" id="message"></p>
@@ -175,7 +175,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                     <li class="cart-total">Total <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
 </span></li>
                                 </ul>
-                                <button class="proceed-btn btn btn-block">FINALIZAR PEDIDO</button>
+                                <button id="btn-finalizar" class="proceed-btn btn btn-block">FINALIZAR PEDIDO</button>
                             </form>
                         </div>
 
