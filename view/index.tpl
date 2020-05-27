@@ -10,10 +10,10 @@
     <title>{$TITULO_SITE}</title>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="{$GET_TEMA}/tema/css/bootstrap.min.css" type="text/css">
@@ -34,7 +34,7 @@
     </div> -->
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalIdade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content permission">
                 <div class="modal-body permission_text">
@@ -42,8 +42,8 @@
                         <p>Você é maior de 18 anos ?</p>
                     </div>
                     <div class="col">
-                        <button type="button" id="yes" class="btn btn-success" data-dismiss="modal">SIM</button>
-                        <button type="button" id="no" class="btn btn-danger" data-dismiss="modal">NÃO</button>
+                        <button type="button" id="maior" class="btn btn-success" data-dismiss="modal">SIM</button>
+                        <button type="button" id="menor" class="btn btn-danger" data-dismiss="modal">NÃO</button>
                     </div>
 
                 </div>
@@ -57,7 +57,7 @@
             <div class="container">
                 <div class="ht-left">
                     <div class="mail-service">
-                        <i class=" fa fa-envelope"></i> hello.colorlib@gmail.com
+                        <i class=" fa fa-envelope"></i> ronaldo.carvalho@hotmail.com
                     </div>
                     <div class="phone-service">
                         <i class=" fa fa-phone"></i><a id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511940249845">+55 11 94024-9845</a>
@@ -67,14 +67,14 @@
                     {if $LOGADO == TRUE}
                     <a href="{$PAG_LOGOUT}" class="login-panel"><i class="fa fa-user"></i>Logout</a> {else}
                     <a href="{$PAG_LOGIN}" class="login-panel"><i class="fa fa-user"></i>Login</a> {/if}
-                    <div class="lan-selector">
+                    <!-- <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                             <option value='yt' data-image="{$GET_TEMA}/img/flag-1.jpg" data-imagecss="flag yt"
                                 data-title="English">English</option>
                             <option value='yu' data-image="{$GET_TEMA}/img/flag-2.jpg" data-imagecss="flag yu"
                                 data-title="Bangladesh">German </option>
                         </select>
-                    </div>
+                    </div> -->
                     <div class="top-social">
                         <a href="#"><i class="ti-facebook"></i></a>
                         <a href="#"><i class="ti-twitter-alt"></i></a>
@@ -107,17 +107,20 @@
                                 <a class="dropdown-item" href="#">Carvões</a>
                             </div> -->
                             <div class="input-group">
-                                <input type="text" placeholder="O que está procurando?">
+                                <input type="text" placeholder="O que está procurando ?">
                                 <button type="button"><i class="ti-search"></i></button>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 text-right col-md-3">
                         <ul class="nav-right">
+                            {if $LOGADO == TRUE}
+                            <li class="text-left mr-4">Olá {$USER} </li>
+                            {/if}
                             <li class="heart-icon">
-                                <a href="#">
+                                <a href="{$FAVORITOS}">
                                     <i class="icon_heart_alt"></i>
-                                    <span>1</span>
+                                    <span>{$ITENS_FAVORITOS}</span>
                                 </a>
                             </li>
                             <li class="cart-icon">
@@ -158,7 +161,7 @@
                                     </div>
                                     <div class="select-button">
                                         <a href="{$PAG_SHOP}" class="primary-btn view-card">VER PRODUTOS</a>
-                                        <a href="{$PAG_SHOPPING_CART}" class="primary-btn checkout-btn">CHECK OUT</a>
+                                        <a href="{$PAG_SHOPPING_CART}" class="primary-btn checkout-btn">FINALIZAR PEDIDO</a>
                                     </div>
                                 </div>
                             </li>
@@ -175,18 +178,8 @@
                         <i class="ti-menu"></i>
                         <span>Produtos</span>
                         <ul class="depart-hover">
-                            <li class="active"><a href="#">Kits Completos</a></li>
+                            <li class="active"><a href="{$PAG_SHOP}">Todos os Produtos</a></li>
                             <li><a href="#">Men’s Clothing</a></li>
-                            <li><a href="#">Underwear</a></li>
-                            <li><a href="#">Kid's Clothing</a></li>
-                            <li><a href="#">Brand Fashion</a></li>
-                            <li><a href="#">Accessories/Shoes</a></li>
-                            <li><a href="#">Luxury Brands</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
                         </ul>
                     </div>
                 </div>
@@ -203,17 +196,18 @@
                         </li>
                         <li><a href="./blog.html">Blog</a></li>
                         <li><a href="{$PAG_CONTACT}">Contato</a></li>
-                        <li><a href="#">Pages</a>
+                        <li><a href="#">Páginas</a>
                             <ul class="dropdown">
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                                <li><a href="{$PAG_SHOPPING_CART}">Shopping Cart</a></li>
-                                <li><a href="{$PAG_CHECK_OUT}">Checkout</a></li>
-                                <li><a href="{$PAG_FAQ}">Faq</a></li>
+                                <li><a href="./blog-details.html">Blog</a></li>
+                                <li><a href="{$PAG_SHOPPING_CART}">Carrinho</a></li>
+                                <li><a href="{$PAG_CHECK_OUT}">Finalizar Pedido</a></li>
+                                <li><a href="{$PAG_FAQ}">Perguntas Frequentes</a></li>
                                 {if $LOGADO == false}
                                 <li><a href="{$PAG_REGISTER}">Register</a></li>
                                 <li><a href="{$PAG_LOGIN}">Login</a></li>
+                                {else}
+                                <li><a href="{$PAG_PROFILE}">Meu Perfil</a></li>
                                 {/if}
-                                <li><a href="{$PAG_PROFILE}">Perfil</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -286,29 +280,27 @@
                         <h5>Informações</h5>
                         <ul>
                             <li><a href="#">Sobre</a></li>
-                            <li><a href="#">Checkout</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Serivius</a></li>
+                            <li><a href="{$PAG_REGISTER}">Cadastre-se</a></li>
+                            <li><a href="{$PAG_CONTACT}">Contato</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-2">
                     <div class="footer-widget">
-                        <h5>My Account</h5>
+                        <h5>Meu Perfil</h5>
                         <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Contato</a></li>
-                            <li><a href="#">Shopping Cart</a></li>
-                            <li><a href="#">Shop</a></li>
+                            <li><a href="{$PAG_PROFILE}">Meu Perfil</a></li>
+                            <li><a href="{$PAG_SHOPPING_CART}">Meu Carrinho</a></li>
+                            <li><a href="{$PAG_SHOP}">Produtos</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="newslatter-item">
-                        <h5>Join Our Newsletter Now</h5>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <h5>Inscreva-se na nossa newsletter agora</h5>
+                        <p>Receba atualizações por e-mail sobre nossa loja mais recente e ofertas especiais.</p>
                         <form action="#" class="subscribe-form">
-                            <input type="text" placeholder="Coloque seu email">
+                            <input type="email" placeholder="Coloque seu email">
                             <button type="button">Inscreva-se</button>
                         </form>
                     </div>
@@ -336,13 +328,12 @@
         </div>
     </footer>
     <!-- Footer Section End -->
-
+    <a href="https://api.whatsapp.com/send?phone=5511940249845" title="Entre em contato via WhatsApp" target="_blank" class="whatsFixo"><i class="fa fa-lg fa-whatsapp"></i></a>
     <!-- Js Plugins -->
     <script src="{$GET_TEMA}/tema/js/jquery-3.3.1.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!-- <script src="{$GET_TEMA}/tema/js/bootstrap.min.js"></script> -->
     <script src="{$GET_TEMA}/tema/js/jquery-ui.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/jquery.countdown.min.js"></script>

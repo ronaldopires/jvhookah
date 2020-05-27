@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-19 18:10:09
+/* Smarty version 3.1.36, created on 2020-05-26 22:43:30
   from 'C:\xampp\htdocs\jvhookah\view\product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ec404e16efc72_38424093',
+  'unifunc' => 'content_5ecdc5c225bd64_90604159',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f2745dae854c13e6b3c94d95feee340e816d315' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\product.tpl',
-      1 => 1583292223,
+      1 => 1590543809,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec404e16efc72_38424093 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ecdc5c225bd64_90604159 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -85,12 +85,19 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <div class="col-lg-7">
                         <div class="product-details">
                             <div class="pd-title">
+                                <form class="float-right" action="<?php echo $_smarty_tpl->tpl_vars['FAVORITOS']->value;?>
+" method="POST">
+                                    <div class="icon">
+                                        <input type="hidden" name="pro_id_favorito" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+">
+                                        <button class="btn"><i class="icon_heart_alt"></i></button>
+                                    </div>
+                                </form>
                                 <span><?php echo $_smarty_tpl->tpl_vars['P']->value['cate_nome'];?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['sub_nome'];?>
 </span>
                                 <h3><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 </h3>
-                                <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                             </div>
                             <div class="pd-rating">
                                 <i class="fa fa-star"></i>
@@ -104,7 +111,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 <!-- <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor sit amet, consectetur adipisicing elit, sed do mod tempor</p> -->
                                 <h4>R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
 
-                                    <span>629.99</span>
+                                    <span>R$ 629.99</span>
                                 </h4>
                             </div>
                             <div class="pd-size-choose">
@@ -132,8 +139,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             <div class="quantity">
                                 <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
 " />
-                                <input type="hidden" name="acao" value="add" />
-                                <button class="btn primary-btn pd-cart">Comprar</button>
+                                <input type="hidden" name="acao" value="add" /> <?php if ($_smarty_tpl->tpl_vars['P']->value['pro_estoque'] == 0) {?>
+                                <button class="btn primary-btn pd-cart" disabled>Comprar</button> <span class="text-danger ml-5" style="line-height: 47px;">ESGOTADO</span><?php } else { ?>
+                                <button class="btn primary-btn pd-cart">Comprar</button> <?php }?>
                             </div>
                             </form>
                             <ul class="pd-tags">
@@ -399,7 +407,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                         <div class="pi-pic">
                             <img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
 " alt="">
-                            <div class="sale bg-warning">Poucas Peças</div>
+                            <!-- <div class="sale bg-warning">Poucas Peças</div> -->
                             <div class="estoque bg-danger">Esgotado</div>
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>

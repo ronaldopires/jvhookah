@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-19 18:10:06
+/* Smarty version 3.1.36, created on 2020-05-27 00:54:37
   from 'C:\xampp\htdocs\jvhookah\view\shop.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ec404dee80e19_52509322',
+  'unifunc' => 'content_5ecde47dc8e265_77013102',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54dc667461bf64ae499f6d9a6b39584793e4af9c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\shop.tpl',
-      1 => 1583292223,
+      1 => 1590551675,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec404dee80e19_52509322 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ecde47dc8e265_77013102 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -301,58 +301,67 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
 " alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 " title="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 "></a>
-                                        <!-- <div class="sale pp-sale">Sale</div> -->
+                                        <?php if ($_smarty_tpl->tpl_vars['P']->value['pro_estoque'] == 0) {?>
+                                        <div class="estoque bg-danger">Esgotado</div>
+                                        <?php } elseif ($_smarty_tpl->tpl_vars['P']->value['pro_estoque'] < 20) {?> <div class="estoque bg-danger">Poucas Peças</div>
+                                    <?php }?>
+                                    <!-- <div class="sale pp-sale">Novidade</div> -->
+                                    <form action="<?php echo $_smarty_tpl->tpl_vars['FAVORITOS']->value;?>
+" method="POST">
                                         <div class="icon">
-                                            <i class="icon_heart_alt"></i>
+                                            <input type="hidden" name="pro_id_favorito" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+">
+                                            <button class="btn"><i style="font-size: 24px;" class="icon_heart_alt"></i></button>
                                         </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href="<?php echo $_smarty_tpl->tpl_vars['PRODUTOS_INFO']->value;?>
+                                    </form>
+                                    <ul>
+                                        <li class="w-icon active"><a href="<?php echo $_smarty_tpl->tpl_vars['PRODUTOS_INFO']->value;?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
 "><i
                                                         class="icon_bag_alt" title="Comprar"></i></a></li>
-                                            <li class="quick-view"><a href="#" data-toggle="modal" data-target="#<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+                                        <li class="quick-view"><a href="#" data-toggle="modal" data-target="#<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
 " title="Zoom na foto"><i class="fa fa-search-plus"></i></a>
-                                            </li>
-                                            <li class="w-icon"><a href="#" title="Comparar"><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['sub_nome'];?>
+                                        </li>
+                                        <li class="w-icon"><a href="#" title="Comparar"><i class="fa fa-random"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="pi-text">
+                                    <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['sub_nome'];?>
 </div>
-                                        <a href="<?php echo $_smarty_tpl->tpl_vars['PRODUTOS_INFO']->value;?>
+                                    <a href="<?php echo $_smarty_tpl->tpl_vars['PRODUTOS_INFO']->value;?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
 ">
-                                            <h5><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+                                        <h5><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 </h5>
-                                        </a>
-                                        <div class="product-price">
-                                            R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
-
-                                            <span>$35.00</span>
-                                        </div>
+                                    </a>
+                                    <div class="product-price">
+                                        R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
+ <?php if ($_smarty_tpl->tpl_vars['P']->value['pro_desconto'] > 0) {?>
+                                        <span>R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_desconto'];?>
+</span> <?php }?>
                                     </div>
-                                    <!-- Modal Products-->
-                                    <div class="modal fade" id="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+                                </div>
+                                <!-- Modal Products-->
+                                <div class="modal fade" id="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
 " tabindex="-1" role="dialog" aria-labelledby="PhotoProducts" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <div class="card">
-                                                        <div class="product-pic-zoom">
-                                                            <img class="card-img-top product-big-img" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <div class="card">
+                                                    <div class="product-pic-zoom">
+                                                        <img class="card-img-top product-big-img" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 ">
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <p class="card-text"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <p class="card-text"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
  </p>
-                                                            <!-- <a href="<?php echo $_smarty_tpl->tpl_vars['PRODUTOS_INFO']->value;?>
+                                                        <!-- <a href="<?php echo $_smarty_tpl->tpl_vars['PRODUTOS_INFO']->value;?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
 " class="btn btn-success">Comprar</a> -->
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -360,20 +369,21 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                                     </div>
                                 </div>
                             </div>
-                            <?php
+                        </div>
+                        <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
-                        </div>
-                    </div>
-                    <div class="loading-more">
-                        <i class="icon_loading"></i>
-                        <a href="#">
-                            Loading More
-                        </a>
                     </div>
                 </div>
+                <div class="loading-more">
+                    <i class="icon_loading"></i>
+                    <a href="#">
+                            Loading More
+                        </a>
+                </div>
             </div>
+        </div>
         </div>
     </section>
     <!-- Product Shop Section End -->

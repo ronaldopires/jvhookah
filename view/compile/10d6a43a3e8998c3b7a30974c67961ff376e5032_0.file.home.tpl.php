@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-19 17:38:47
+/* Smarty version 3.1.36, created on 2020-05-27 00:40:49
   from 'C:\xampp\htdocs\jvhookah\view\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ec3fd87d6fce9_79366998',
+  'unifunc' => 'content_5ecde141d07eb1_52898266',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d6a43a3e8998c3b7a30974c67961ff376e5032' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\home.tpl',
-      1 => 1583292223,
+      1 => 1590550848,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec3fd87d6fce9_79366998 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ecde141d07eb1_52898266 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
@@ -81,31 +81,37 @@ function content_5ec3fd87d6fce9_79366998 (Smarty_Internal_Template $_smarty_tpl)
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4">
-                <div class="single-banner">
-                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+                <a href="#1">
+                    <div class="single-banner">
+                        <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /img/post.png" alt="">
-                    <!-- <div class="inner-text">
-                        <h4>Men’s</h4>
-                    </div> -->
-                </div>
+                        <!-- <div class="inner-text">
+                            <h4>Men’s</h4>
+                        </div> -->
+                    </div>
+                </a>
             </div>
             <div class="col-lg-4">
-                <div class="single-banner">
-                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/banner-2.jpg" alt="">
-                    <div class="inner-text">
-                        <h4>Women’s</h4>
+                <a href="#2">
+                    <div class="single-banner">
+                        <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/card-1.png" alt="">
+                        <!-- <div class="inner-text">
+                            <h4>Women’s</h4>
+                        </div> -->
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-lg-4">
-                <div class="single-banner">
-                    <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/banner-3.jpg" alt="">
-                    <div class="inner-text">
-                        <h4>Kid’s</h4>
+                <a href="#3">
+                    <div class="single-banner">
+                        <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/card-2.png" alt="">
+                        <!-- <div class="inner-text">
+                            <h4>Kid’s</h4>
+                        </div> -->
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -119,24 +125,39 @@ function content_5ec3fd87d6fce9_79366998 (Smarty_Internal_Template $_smarty_tpl)
             <div class="col-lg-3">
                 <div class="product-large set-bg" data-setbg="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /img/products/women-large.jpg">
-                    <h2>Women’s</h2>
+                    <h2>Bases</h2>
                     <a href="#">Discover More</a>
                 </div>
             </div>
             <div class="col-lg-8 offset-lg-1">
                 <div class="filter-control">
                     <ul>
-                        <li class="active">Acessórios</li>
-                        <li>Pratos</li>
-                        <li>Mangueira</li>
-                        <li>Carvões</li>
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['CATEGORIA']->value, 'C');
+$_smarty_tpl->tpl_vars['C']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
+$_smarty_tpl->tpl_vars['C']->do_else = false;
+?>
+                        <li class="active"><?php echo $_smarty_tpl->tpl_vars['C']->value['cate_nome'];?>
+</li>
+                        <!-- <li><?php echo $_smarty_tpl->tpl_vars['C']->value['cate_nome'];?>
+</li> -->
+                        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PRODUTOS']->value, 'P');
+$_smarty_tpl->tpl_vars['P']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+$_smarty_tpl->tpl_vars['P']->do_else = false;
+?>
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/women-1.jpg" alt="">
+                            <img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
+" alt="">
                             <div class="sale">Sale</div>
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
@@ -148,17 +169,24 @@ function content_5ec3fd87d6fce9_79366998 (Smarty_Internal_Template $_smarty_tpl)
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="catagory-name">Coat</div>
+                            <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['cate_nome'];?>
+</div>
                             <a href="#">
-                                <h5>Pure Pineapple</h5>
+                                <h5><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+</h5>
                             </a>
                             <div class="product-price">
-                                $14.00
-                                <span>$35.00</span>
+                                R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
+
+                                <!-- <span>R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
+</span> -->
                             </div>
                         </div>
                     </div>
-                    <div class="product-item">
+                    <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                    <!-- <div class="product-item">
                         <div class="pi-pic">
                             <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /img/products/women-2.jpg" alt="">
@@ -226,7 +254,7 @@ function content_5ec3fd87d6fce9_79366998 (Smarty_Internal_Template $_smarty_tpl)
                                 $34.00
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

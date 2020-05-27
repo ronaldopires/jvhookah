@@ -17,11 +17,34 @@
 10. Footer
 11. Page not Found
 12. Profile
-
+13. Product
 -------------------------------------------------------------------*/
 
 
 /*----------------------------------------*/
+
+a.whatsFixo {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(37, 211, 102, 1);
+    width: 80px;
+    height: 80px;
+    z-index: 1010;
+    border-radius: 0.5em;
+}
+
+a.whatsFixo i {
+    font-size: 4.0em;
+    color: rgba(255, 255, 255, 1);
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-align: center;
+    line-height: 60px;
+}
 
 
 /* Template default CSS
@@ -511,15 +534,15 @@ ol {
     position: absolute;
     right: -8px;
     top: -1px;
-    height: 15px;
-    width: 15px;
+    height: 19px;
+    width: 19px;
     background: #e7ab3c;
     color: #ffffff;
     border-radius: 50%;
     font-size: 11px;
     font-weight: 700;
     text-align: center;
-    line-height: 15px;
+    line-height: 19px;
 }
 
 .inner-header .nav-right li.cart-icon {
@@ -542,15 +565,15 @@ ol {
     position: absolute;
     right: -8px;
     top: -1px;
-    height: 15px;
-    width: 15px;
+    height: 19px;
+    width: 19px;
     background: #e7ab3c;
     color: #ffffff;
     border-radius: 50%;
     font-size: 11px;
     font-weight: 700;
     text-align: center;
-    line-height: 15px;
+    line-height: 19px;
 }
 
 .inner-header .nav-right li.cart-icon .cart-hover {
@@ -1339,7 +1362,7 @@ ol {
 .man-banner {
     padding-right: 65px;
     padding-left: 65px;
-    padding-top: 80px;
+    padding-top: 150px;
     padding-bottom: 80px;
 }
 
@@ -3983,6 +4006,64 @@ ol {
     color: #6B6B6B;
 }
 
+#svg_form_time {
+    height: 15px;
+    max-width: 80%;
+    margin: 40px auto 20px;
+    display: block;
+}
+
+#svg_form_time circle,
+#svg_form_time rect {
+    fill: white;
+}
+
+.button {
+    background: #e7ab3c;
+    padding: 15px 25px;
+    display: inline-block;
+    margin: 10px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.disabled {
+    display: none;
+}
+
+.block {
+    padding: 50px 100px 70px;
+    margin: 30px auto;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.input-register {
+    width: 100%;
+    margin: 5px 0px;
+    display: inline-block;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    font-size: 1em;
+    font-family: inherit;
+    background: white;
+}
+
+.paragraph {
+    margin: 5px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #e7ab3c;
+}
+
 
 /* ------------------------------ Responsive Media Styles ---------------------------- */
 
@@ -4155,6 +4236,9 @@ ol {
     .checkout-content input {
         margin-top: 50px;
     }
+    .page-profile .nav {
+        width: 100% !important;
+    }
 }
 
 
@@ -4271,11 +4355,72 @@ ol {
     }
     .cart-table table tr th {
         font-size: 12px;
+        padding-left: 15px;
+    }
+    .cart-table table tbody tr td {
+        padding-left: 15px;
+    }
+    .cart-table table tr td.cart-title h5 {
+        font-size: 12px;
+    }
+    .cart-table table tr th:nth-child(1) {
+        display: none;
+    }
+    .cart-table table tbody tr td:nth-child(1) {
+        display: none;
+    }
+    .cart-table table tr td.qua-col .quantity .pro-qty {
+        width: 60px;
+        position: relative;
+        padding: 0;
+    }
+    .resultado {
+        padding: 0;
+        position: absolute;
+        top: 0;
+        left: 2%;
+    }
+    .menos {
+        padding: 0;
+        position: absolute;
+        top: 17%;
+        left: 0;
+    }
+    .mais {
+        position: absolute;
+        top: 17%;
+        right: 11%;
+        padding: 0;
+    }
+    /*Icone Whats*/
+    a.whatsFixo {
+        width: 40px;
+        height: 40px;
+    }
+    a.whatsFixo i {
+        font-size: 1.5em;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        top: 5px;
+        left: 5px;
+    }
+    .cart-table table tr td.qua-col .pro-qty input {
+        text-align: center;
+        /* width: 52px; */
+        font-size: 14px;
+        font-weight: 700;
+        border: none;
+        color: #4c4c4c;
+        line-height: 40px;
+        float: left;
+    }
+    .cart-table table tr td.p-price,
+    .cart-table table tr td.total-price {
+        font-size: 12px;
     }
     .hero-items .single-hero-items {
-        padding: 110px 25px 80px;
         height: auto;
-        background: left center;
     }
     .hero-items .single-hero-items h1 {
         font-size: 40px;
@@ -4326,6 +4471,9 @@ ol {
     }
     .checkout-content input {
         margin-top: 50px;
+    }
+    .page-profile .nav {
+        width: 100% !important;
     }
 }
 
@@ -4576,4 +4724,13 @@ ol {
 
 .page-profile .nav {
     width: 18rem;
+}
+
+
+/*---------------------
+  Produt
+-----------------------*/
+
+.divProduto {
+    border: 1px solid black;
 }

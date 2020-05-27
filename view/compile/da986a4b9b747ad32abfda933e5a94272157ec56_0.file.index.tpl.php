@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-19 17:38:27
+/* Smarty version 3.1.36, created on 2020-05-27 00:38:24
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ec3fd733a8c38_09302677',
+  'unifunc' => 'content_5ecde0b094b386_53870109',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1584655158,
+      1 => 1590550702,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec3fd733a8c38_09302677 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ecde0b094b386_53870109 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -34,10 +34,10 @@ function content_5ec3fd733a8c38_09302677 (Smarty_Internal_Template $_smarty_tpl)
 </title>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
@@ -67,7 +67,7 @@ function content_5ec3fd733a8c38_09302677 (Smarty_Internal_Template $_smarty_tpl)
     </div> -->
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalIdade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content permission">
                 <div class="modal-body permission_text">
@@ -75,8 +75,8 @@ function content_5ec3fd733a8c38_09302677 (Smarty_Internal_Template $_smarty_tpl)
                         <p>Você é maior de 18 anos ?</p>
                     </div>
                     <div class="col">
-                        <button type="button" id="yes" class="btn btn-success" data-dismiss="modal">SIM</button>
-                        <button type="button" id="no" class="btn btn-danger" data-dismiss="modal">NÃO</button>
+                        <button type="button" id="maior" class="btn btn-success" data-dismiss="modal">SIM</button>
+                        <button type="button" id="menor" class="btn btn-danger" data-dismiss="modal">NÃO</button>
                     </div>
 
                 </div>
@@ -90,7 +90,7 @@ function content_5ec3fd733a8c38_09302677 (Smarty_Internal_Template $_smarty_tpl)
             <div class="container">
                 <div class="ht-left">
                     <div class="mail-service">
-                        <i class=" fa fa-envelope"></i> hello.colorlib@gmail.com
+                        <i class=" fa fa-envelope"></i> ronaldo.carvalho@hotmail.com
                     </div>
                     <div class="phone-service">
                         <i class=" fa fa-phone"></i><a id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511940249845">+55 11 94024-9845</a>
@@ -102,7 +102,7 @@ function content_5ec3fd733a8c38_09302677 (Smarty_Internal_Template $_smarty_tpl)
 " class="login-panel"><i class="fa fa-user"></i>Logout</a> <?php } else { ?>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_LOGIN']->value;?>
 " class="login-panel"><i class="fa fa-user"></i>Login</a> <?php }?>
-                    <div class="lan-selector">
+                    <!-- <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                             <option value='yt' data-image="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /img/flag-1.jpg" data-imagecss="flag yt"
@@ -111,7 +111,7 @@ function content_5ec3fd733a8c38_09302677 (Smarty_Internal_Template $_smarty_tpl)
 /img/flag-2.jpg" data-imagecss="flag yu"
                                 data-title="Bangladesh">German </option>
                         </select>
-                    </div>
+                    </div> -->
                     <div class="top-social">
                         <a href="#"><i class="ti-facebook"></i></a>
                         <a href="#"><i class="ti-twitter-alt"></i></a>
@@ -146,17 +146,23 @@ function content_5ec3fd733a8c38_09302677 (Smarty_Internal_Template $_smarty_tpl)
                                 <a class="dropdown-item" href="#">Carvões</a>
                             </div> -->
                             <div class="input-group">
-                                <input type="text" placeholder="O que está procurando?">
+                                <input type="text" placeholder="O que está procurando ?">
                                 <button type="button"><i class="ti-search"></i></button>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 text-right col-md-3">
                         <ul class="nav-right">
+                            <?php if ($_smarty_tpl->tpl_vars['LOGADO']->value == TRUE) {?>
+                            <li class="text-left mr-4">Olá <?php echo $_smarty_tpl->tpl_vars['USER']->value;?>
+ </li>
+                            <?php }?>
                             <li class="heart-icon">
-                                <a href="#">
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['FAVORITOS']->value;?>
+">
                                     <i class="icon_heart_alt"></i>
-                                    <span>1</span>
+                                    <span><?php echo $_smarty_tpl->tpl_vars['ITENS_FAVORITOS']->value;?>
+</span>
                                 </a>
                             </li>
                             <li class="cart-icon">
@@ -214,7 +220,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
 " class="primary-btn view-card">VER PRODUTOS</a>
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_CART']->value;?>
-" class="primary-btn checkout-btn">CHECK OUT</a>
+" class="primary-btn checkout-btn">FINALIZAR PEDIDO</a>
                                     </div>
                                 </div>
                             </li>
@@ -232,18 +238,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                         <i class="ti-menu"></i>
                         <span>Produtos</span>
                         <ul class="depart-hover">
-                            <li class="active"><a href="#">Kits Completos</a></li>
+                            <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+">Todos os Produtos</a></li>
                             <li><a href="#">Men’s Clothing</a></li>
-                            <li><a href="#">Underwear</a></li>
-                            <li><a href="#">Kid's Clothing</a></li>
-                            <li><a href="#">Brand Fashion</a></li>
-                            <li><a href="#">Accessories/Shoes</a></li>
-                            <li><a href="#">Luxury Brands</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
-                            <li><a href="#">Brand Outdoor Apparel</a></li>
                         </ul>
                     </div>
                 </div>
@@ -263,23 +260,24 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                         <li><a href="./blog.html">Blog</a></li>
                         <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTACT']->value;?>
 ">Contato</a></li>
-                        <li><a href="#">Pages</a>
+                        <li><a href="#">Páginas</a>
                             <ul class="dropdown">
-                                <li><a href="./blog-details.html">Blog Details</a></li>
+                                <li><a href="./blog-details.html">Blog</a></li>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_CART']->value;?>
-">Shopping Cart</a></li>
+">Carrinho</a></li>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CHECK_OUT']->value;?>
-">Checkout</a></li>
+">Finalizar Pedido</a></li>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_FAQ']->value;?>
-">Faq</a></li>
+">Perguntas Frequentes</a></li>
                                 <?php if ($_smarty_tpl->tpl_vars['LOGADO']->value == false) {?>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_REGISTER']->value;?>
 ">Register</a></li>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_LOGIN']->value;?>
 ">Login</a></li>
-                                <?php }?>
+                                <?php } else { ?>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PROFILE']->value;?>
-">Perfil</a></li>
+">Meu Perfil</a></li>
+                                <?php }?>
                             </ul>
                         </li>
                     </ul>
@@ -358,29 +356,32 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                         <h5>Informações</h5>
                         <ul>
                             <li><a href="#">Sobre</a></li>
-                            <li><a href="#">Checkout</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Serivius</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_REGISTER']->value;?>
+">Cadastre-se</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTACT']->value;?>
+">Contato</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-2">
                     <div class="footer-widget">
-                        <h5>My Account</h5>
+                        <h5>Meu Perfil</h5>
                         <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Contato</a></li>
-                            <li><a href="#">Shopping Cart</a></li>
-                            <li><a href="#">Shop</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PROFILE']->value;?>
+">Meu Perfil</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_CART']->value;?>
+">Meu Carrinho</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+">Produtos</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="newslatter-item">
-                        <h5>Join Our Newsletter Now</h5>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <h5>Inscreva-se na nossa newsletter agora</h5>
+                        <p>Receba atualizações por e-mail sobre nossa loja mais recente e ofertas especiais.</p>
                         <form action="#" class="subscribe-form">
-                            <input type="text" placeholder="Coloque seu email">
+                            <input type="email" placeholder="Coloque seu email">
                             <button type="button">Inscreva-se</button>
                         </form>
                     </div>
@@ -411,7 +412,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
         </div>
     </footer>
     <!-- Footer Section End -->
-
+    <a href="https://api.whatsapp.com/send?phone=5511940249845" title="Entre em contato via WhatsApp" target="_blank" class="whatsFixo"><i class="fa fa-lg fa-whatsapp"></i></a>
     <!-- Js Plugins -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
@@ -422,14 +423,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
 /tema/js/script.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"><?php echo '</script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"><?php echo '</script'; ?>
+ src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
-    <!-- <?php echo '<script'; ?>
- src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"><?php echo '</script'; ?>
-> -->
     <!-- <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/js/bootstrap.min.js"><?php echo '</script'; ?>

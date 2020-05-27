@@ -25,7 +25,7 @@ class Carrinho
                 'pro_valor' => $lista['VALOR'],
                 'pro_valor_us' => $lista['VALOR_US'],
                 'pro_desc' => $lista['DESCONTO'],
-                'pro_cor_selected' => $lista['COR_ESCOLHIDA'],
+                'pro_cor' => $lista['COR'],
                 'pro_tamanho' => $lista['TAMANHO'],
                 'pro_peso' => $lista['PESO'],
                 'pro_qtd' => $lista['QTD'],
@@ -64,13 +64,13 @@ class Carrinho
         $produtos->GetProdutos($id);
 
         foreach ($produtos->GetItens() as $pro) {
-            # code...
+            // Laço para cada item do carrinho
             $ID = $pro['pro_id'];
             $NOME = $pro['pro_nome'];
             $VALOR = $pro['pro_valor'];
             $VALOR_US = $pro['pro_valor_us'];
             $DESCONTO = $pro['pro_desc'];
-            $COR_ESCOLHIDA = $_POST['pro_cor_selected'];
+            $COR = $pro['pro_cor'];
             $TAMANHO = $pro['pro_tamanho'];
             $ESTOQUE = $pro['pro_estoque'];
             $PESO = $pro['pro_peso'];
@@ -89,17 +89,18 @@ class Carrinho
                     $_SESSION['PRO'][$ID]['VALOR'] = $VALOR;
                     $_SESSION['PRO'][$ID]['VALOR_US'] = $VALOR_US;
                     $_SESSION['PRO'][$ID]['DESCONTO'] = $DESCONTO;
-                    $_SESSION['PRO'][$ID]['COR_ESCOLHIDA'] = $COR_ESCOLHIDA;
+                    $_SESSION['PRO'][$ID]['COR'] = $COR;
                     $_SESSION['PRO'][$ID]['TAMANHO'] = $TAMANHO;
                     $_SESSION['PRO'][$ID]['ESTOQUE'] = $ESTOQUE;
                     $_SESSION['PRO'][$ID]['PESO'] = $PESO;
                     $_SESSION['PRO'][$ID]['QTD'] = $QTD;
                     $_SESSION['PRO'][$ID]['IMG'] = $IMG;
                     $_SESSION['PRO'][$ID]['LINK'] = $LINK;
-                
+                    Rotas::Redirecionar(0, Rotas::pag_Shopping_Cart());
                 } else
                 if ($_SESSION['PRO'][$ID]['QTD'] < $_SESSION['PRO'][$ID]['ESTOQUE']) {
                     $_SESSION['PRO'][$ID]['QTD'] += $QTD;
+                    Rotas::Redirecionar(0, Rotas::pag_Shopping_Cart());
                     
                 } else {
                     echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
@@ -171,7 +172,7 @@ class Carrinho
             $_SESSION['PRO'][$ID]['QTD'] = 1;
             $NOME = $_SESSION['PRO'][$ID]['NOME'];
             echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
-                                <h4 class="">A quantidade desejada para o ' . $NOME . ' está indisponível.<h4>
+                                <h4 class="">A quantidade desejada para ' . $NOME . ' está indisponível.<h4>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button></div>' . Rotas::Redirecionar(3, Rotas::pag_Shopping_Cart());

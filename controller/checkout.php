@@ -1,9 +1,9 @@
 <?php
 
-if (isset($_SESSION['PRO']) and count($_SESSION['PRO']) > 0) {
-    
-    if(!isset($_POST['frete_radio'])){
-        // Rotas::Redirecionar(3, Rotas::pag_Shopping_Cart());
+if (isset($_SESSION['PRO']) && count($_SESSION['PRO']) > 0) {
+
+    if (!isset($_POST['frete_radio'])) {
+
         echo '
             <div class="container" style="font-family: "Muli", sans-serif;">
             <div class="col-8 offset-2 text-center my-5">
@@ -12,20 +12,17 @@ if (isset($_SESSION['PRO']) and count($_SESSION['PRO']) > 0) {
             <a href="carrinho" type="button" class="btn btn-outline-info">Voltar</a>
             </div>
             </div>
-            ';
-    exit();
+            ' . Rotas::Redirecionar(3, Rotas::pag_Shopping_Cart());
+        exit();
     }
-    
+
     $smarty = new Template();
     $carrinho = new Carrinho();
 
     $smarty->assign('PRO', $carrinho->GetCarrinho());
-   
+
     $_SESSION['PED']['frete'] = $_POST['frete_radio'];
     $_SESSION['PED']['total_com_frete'] = ($_POST['frete_radio'] + $carrinho->GetTotal());
-    
-    echo $_SESSION['PED']['frete'] . "<br>";
-    echo $_SESSION['PED']['total_com_frete'];
 
     $smarty->assign('VALOR', Sistema::MoedaBR($carrinho->GetTotal()));
     $smarty->assign('FRETE', Sistema::MoedaBR($_SESSION['PED']['frete']));
@@ -36,5 +33,14 @@ if (isset($_SESSION['PRO']) and count($_SESSION['PRO']) > 0) {
     $smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
     $smarty->display('check-out.tpl');
 } else {
-    echo 'Sem produtos';
+    echo '
+    <div class="container" style="font-family: "Muli", sans-serif;">
+    <div class="col-8 offset-2 text-center my-5">
+    <span style="font-size:10em;"><i class="ti-shopping-cart"></i></span>
+    <h3 class="section-title">Seu carrinho está vazio no momento.</h3>
+    <p>Clique no botão para verificar nossos produtos.<p>
+    <a href="produtos" type="button" class="btn btn-outline-info">Escolher produtos</a>
+    </div>
+    </div>
+    ' . Rotas::Redirecionar(3, Rotas::pag_Produtos());
 }

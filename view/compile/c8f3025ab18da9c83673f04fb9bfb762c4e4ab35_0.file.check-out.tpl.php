@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-19 23:58:42
+/* Smarty version 3.1.36, created on 2020-05-26 14:02:04
   from 'C:\xampp\htdocs\jvhookah\view\check-out.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ec456922f2ed9_80611886',
+  'unifunc' => 'content_5ecd053c6eaa81_47610057',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c8f3025ab18da9c83673f04fb9bfb762c4e4ab35' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\check-out.tpl',
-      1 => 1589924290,
+      1 => 1590422547,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec456922f2ed9_80611886 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ecd053c6eaa81_47610057 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -45,65 +45,8 @@ function content_5ec456922f2ed9_80611886 (Smarty_Internal_Template $_smarty_tpl)
 <section class="checkout-section spad">
     <div class="container">
         <form action="#" class="checkout-form">
-            <div class="row">
-                <!-- <div class="col-lg-6">
-                    <div class="checkout-content">
-                        <a href="#" class="content-btn">Click Here To Login</a>
-                    </div>
-                    <h4>Biiling Details</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <label for="fir">First Name<span>*</span></label>
-                            <input type="text" id="fir">
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="last">Last Name<span>*</span></label>
-                            <input type="text" id="last">
-                        </div>
-                        <div class="col-lg-12">
-                            <label for="cun-name">Company Name</label>
-                            <input type="text" id="cun-name">
-                        </div>
-                        <div class="col-lg-12">
-                            <label for="cun">Country<span>*</span></label>
-                            <input type="text" id="cun">
-                        </div>
-                        <div class="col-lg-12">
-                            <label for="street">Street Address<span>*</span></label>
-                            <input type="text" id="street" class="street-first">
-                            <input type="text">
-                        </div>
-                        <div class="col-lg-12">
-                            <label for="zip">Postcode / ZIP (optional)</label>
-                            <input type="text" id="zip">
-                        </div>
-                        <div class="col-lg-12">
-                            <label for="town">Town / City<span>*</span></label>
-                            <input type="text" id="town">
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="email">Email Address<span>*</span></label>
-                            <input type="text" id="email">
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="phone">Phone<span>*</span></label>
-                            <input type="text" id="phone">
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="create-item">
-                                <label for="acc-create">
-                                    Create an account?
-                                    <input type="checkbox" id="acc-create">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+            <div class="row no-gutters">
                 <div class="col-lg-10 offset-1">
-                    <!-- <div class="checkout-content col-4">
-                        <input type="text" placeholder="Enter Your Coupon Code">
-                    </div> -->
                     <div class="place-order">
                         <h4>Seu Pedido</h4>
                         <div class="order-total">
