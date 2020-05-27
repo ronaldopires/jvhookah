@@ -217,41 +217,48 @@
                                 <div class="product-item">
                                     <div class="pi-pic">
                                         <a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}"><img src="{$P.pro_img}" alt="{$P.pro_nome}" title="{$P.pro_nome}"></a>
-                                        <!-- <div class="sale pp-sale">Sale</div> -->
+                                        {if $P.pro_estoque == 0}
+                                        <div class="estoque bg-danger">Esgotado</div>
+                                        {else if $P.pro_estoque
+                                        < 20} <div class="estoque bg-danger">Poucas Peças</div>
+                                    {/if}
+                                    <!-- <div class="sale pp-sale">Novidade</div> -->
+                                    <form action="{$FAVORITOS}" method="POST">
                                         <div class="icon">
-                                            <i class="icon_heart_alt"></i>
+                                            <input type="hidden" name="pro_id_favorito" value="{$P.pro_id}">
+                                            <button class="btn"><i style="font-size: 24px;" class="icon_heart_alt"></i></button>
                                         </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}"><i
+                                    </form>
+                                    <ul>
+                                        <li class="w-icon active"><a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}"><i
                                                         class="icon_bag_alt" title="Comprar"></i></a></li>
-                                            <li class="quick-view"><a href="#" data-toggle="modal" data-target="#{$P.pro_slug}" title="Zoom na foto"><i class="fa fa-search-plus"></i></a>
-                                            </li>
-                                            <li class="w-icon"><a href="#" title="Comparar"><i class="fa fa-random"></i></a></li>
-                                        </ul>
+                                        <li class="quick-view"><a href="#" data-toggle="modal" data-target="#{$P.pro_slug}" title="Zoom na foto"><i class="fa fa-search-plus"></i></a>
+                                        </li>
+                                        <li class="w-icon"><a href="#" title="Comparar"><i class="fa fa-random"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="pi-text">
+                                    <div class="catagory-name">{$P.sub_nome}</div>
+                                    <a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}">
+                                        <h5>{$P.pro_nome}</h5>
+                                    </a>
+                                    <div class="product-price">
+                                        R$ {$P.pro_valor} {if $P.pro_desconto > 0}
+                                        <span>R$ {$P.pro_desconto}</span> {/if}
                                     </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">{$P.sub_nome}</div>
-                                        <a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}">
-                                            <h5>{$P.pro_nome}</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            R$ {$P.pro_valor}
-                                            <span>$35.00</span>
-                                        </div>
-                                    </div>
-                                    <!-- Modal Products-->
-                                    <div class="modal fade" id="{$P.pro_slug}" tabindex="-1" role="dialog" aria-labelledby="PhotoProducts" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <div class="card">
-                                                        <div class="product-pic-zoom">
-                                                            <img class="card-img-top product-big-img" src="{$P.pro_img}" alt="{$P.pro_nome}">
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <p class="card-text">{$P.pro_nome} </p>
-                                                            <!-- <a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}" class="btn btn-success">Comprar</a> -->
-                                                        </div>
+                                </div>
+                                <!-- Modal Products-->
+                                <div class="modal fade" id="{$P.pro_slug}" tabindex="-1" role="dialog" aria-labelledby="PhotoProducts" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <div class="card">
+                                                    <div class="product-pic-zoom">
+                                                        <img class="card-img-top product-big-img" src="{$P.pro_img}" alt="{$P.pro_nome}">
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <p class="card-text">{$P.pro_nome} </p>
+                                                        <!-- <a href="{$PRODUTOS_INFO}/{$P.pro_id}/{$P.pro_slug}" class="btn btn-success">Comprar</a> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -259,18 +266,19 @@
                                     </div>
                                 </div>
                             </div>
-                            {/foreach}
-
                         </div>
-                    </div>
-                    <div class="loading-more">
-                        <i class="icon_loading"></i>
-                        <a href="#">
-                            Loading More
-                        </a>
+                        {/foreach}
+
                     </div>
                 </div>
+                <div class="loading-more">
+                    <i class="icon_loading"></i>
+                    <a href="#">
+                            Loading More
+                        </a>
+                </div>
             </div>
+        </div>
         </div>
     </section>
     <!-- Product Shop Section End -->

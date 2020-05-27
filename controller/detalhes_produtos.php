@@ -42,6 +42,8 @@ $smarty->assign('PRODUTO', Rotas::pag_Shopping_Detail());
 $smarty->assign('SUB_CATEGORIAS', $sub_categorias->GetItens());
 $smarty->assign('MARCAS', $marca->Getitens());
 $smarty->assign('COR', $pro_cor);
+$smarty->assign('FAVORITOS', Rotas::pag_Produtos_Favoritos());
+
 
 
 $smarty->display('product.tpl');

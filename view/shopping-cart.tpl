@@ -14,12 +14,42 @@
 </div>
 <!-- Breadcrumb Section Begin -->
 
+<!--Alerta Remover Todos os Itens-->
+<div class="row no-gutters justify-content-center">
+    <div class="container">
+        <div id="alertRemoveAll" class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+            <p class="">Tem certeza que deseja remover <strong>TODOS</strong> os itens do seu carrinho ?</p>
+            <form action="{$PAG_SHOPPING_ALTER}" method="post">
+                <input type="hidden" name="pro_id" value="1">
+                <input type="hidden" name="acao" value="limpar">
+                <button class="btn btn-warning md-mx-2 col-sm-6 col-md-2 col-lg-2">Remover</button>
+                <button type="button" class="closeAlert btn bg-white col-sm-2 col-md-2 col-lg-2">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Alerta Remover um item-->
+<div class="row no-gutters justify-content-center">
+    <div class="container">
+        <div id="alertRemoveItem" class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+            <p class="">Tem certeza que deseja remover esse item do seu carrinho ?</p>
+            <form action="{$PAG_SHOPPING_ALTER}" method="post">
+                {foreach from=$PRO item=P}
+                <input type="hidden" name="pro_id" value="{$P.pro_id}">
+                <input type="hidden" name="acao" value="del"> {/foreach}
+                <button class="btn btn-warning md-mx-2 col-sm-2 col-md-2 col-lg-2">Remover</button>
+                <button type="button" class="closeAlert btn bg-white col-sm-2 col-md-2 col-lg-2">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- Shopping Cart Section Begin -->
 <section class="shopping-cart spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="cart-table">
+                <div class="cart-table table-responsive sm-invisible">
                     <table>
                         <thead>
                             <tr>
@@ -29,11 +59,7 @@
                                 <th>Quantidade</th>
                                 <th>Total</th>
                                 <th>
-                                    <form action="{$PAG_SHOPPING_ALTER}" method="post">
-                                        <input type="hidden" name="pro_id" value="1">
-                                        <input type="hidden" name="acao" value="limpar">
-                                        <button class="btn"><i class="ti-close"></i></button>
-                                    </form>
+                                    <button id="btnRemoveAll" class="btn "><i class="ti-close"></i></button>
                                 </th>
                             </tr>
                         </thead>
@@ -43,13 +69,14 @@
                                 <td class="cart-pic first-row"><img width="150" src="{$P.pro_img}" alt="{$P.pro_nome}"></td>
                                 <td class="cart-title first-row">
                                     <a href="{$PRODUTOS_INFO}/{$P.pro_id}">
-                                        <h5>{$P.pro_nome} {$P.pro_cor_selected}</h5>
+                                        <h5>{$P.pro_nome} {$P.pro_cor}</h5>
                                     </a>
                                 </td>
                                 <td class="p-price first-row">R$ {$P.pro_valor}</td>
                                 <td class="qua-col first-row">
                                     <div class="quantity">
                                         <div class="pro-qty">
+                                            <!--Remover uma unidade-->
                                             <form action="{$PAG_SHOPPING_ALTER}" method="post">
                                                 <input type="hidden" name="pro_id" value="{$P.pro_id}">
                                                 <input type="hidden" name="pro_qtd" value="{$P.pro_qtd}">
@@ -73,11 +100,7 @@
                                 </td>
                                 <td class="total-price first-row">R$ {$P.pro_subTotal}</td>
                                 <td class="close-td first-row">
-                                    <form action="{$PAG_SHOPPING_ALTER}" method="post">
-                                        <input type="hidden" name="pro_id" value="{$P.pro_id}">
-                                        <input type="hidden" name="acao" value="del">
-                                        <button class="btn"><i class="ti-close"></i></button>
-                                    </form>
+                                    <button class="btn btnRemoveItem"><i class="ti-close"></i></button>
                                 </td>
                             </tr>
                             {/foreach}
@@ -108,8 +131,9 @@
                                     <li class="" id="divCep">
                                         <div class="form-group row no-gutters my-2 coupon-form">
                                             <input type="hidden" name="peso_frete" id="peso_frete" value="2">
-                                            <input type="hidden" name="frete_valor" id="frete_valor">
-                                            <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" autofocus required/>
+                                            <input type="hidden" name="frete_valor" id="frete_valor"> {if $LOGADO == true}
+                                            <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" value="{$CEP}" required/> {else}
+                                            <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" autofocus required/> {/if}
                                             <button type="button" id="btnCalcularCep" class="site-btn coupon-btn">Calcular</button>
                                         </div>
                                         <p class="float-left" id="message"></p>

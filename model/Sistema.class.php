@@ -163,8 +163,8 @@ class Sistema {
          echo '<script> function goBack() {
                     window.history.back();
                     } </script>';
-         echo '<button onclick="goBack()" class="btn btn-default">'
-         . '<i class="glyphicon glyphicon-circle-arrow-left" ></i> Voltar </button> ';
+         echo '<button onclick="goBack()" class="btn btn-default p-1 m-2">'
+         . '<i class="ti-arrow-left" ></i> Voltar </button> ';
      }
     
   

@@ -66,6 +66,15 @@ class Rotas
     static function pag_RecoveryPassword(){
         return self::get_SiteHOME() . '/recovery_password';
     }
+    static function pag_New_Password(){
+        return self::get_SiteHOME() . '/new_password';
+    }
+    static function pag_Produtos_Favoritos(){
+        return self::get_SiteHOME() . '/produtos_favoritos';
+    }
+    static function pag_Error(){
+        return 'erro.php';
+    }
     //Rotas de imagens internamente
     static function get_ImagePasta(){
         return 'media/images/';

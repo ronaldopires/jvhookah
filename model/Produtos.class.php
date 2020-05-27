@@ -38,9 +38,9 @@ class Produtos extends Conexao
             case 2:
                 $order = " ORDER BY pro_valor DESC ";
             break;
-            /* case 3:
-                $opcao = " ORDER BY pro_valor DESC ";
-            break; */
+            case 3:
+                $order = " ORDER BY pro_data_cad ASC ";
+            break;
             case 4:
                 $order = " ORDER BY pro_nome ASC ";
             break;
@@ -138,6 +138,8 @@ class Produtos extends Conexao
                 'pro_fabricante' => $lista['pro_fabricante'],
                 'pro_ativo' => $lista['pro_ativo'],
                 'pro_frete_free' => $lista['pro_frete_free'],
+                'pro_data_cad' => Sistema::Fdata($lista['pro_data_cad']),
+                'pro_desconto' => $lista['pro_desconto'],
                 'cate_nome' => $lista['cate_nome'],
                 'cate_id' => $lista['cate_id'],
                 'sub_nome' => $lista['sub_nome'],
@@ -187,5 +189,90 @@ class Produtos extends Conexao
             $i++;
         endwhile;
     }
+
+    //TESTE DE FAVORITO
+    public function Favoritos($id) {
+
+        $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id";
+        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id WHERE pro_id = :id ORDER BY pro_id DESC";
+        
+        $params = array(':id' =>(int)$id);
+
+        $this->ExecuteSQL($query, $params);
+        $this->GetLista();
+        
+        
+        foreach($this->GetItens() as $prof){
+            $ID              = $prof['pro_id'];
+            $NOME            = $prof['pro_nome'];
+            $DESC            = $prof['pro_desc'];
+            $PESO            = $prof['pro_peso'];
+            $COR             = $prof['pro_cor'];
+            $VALOR           = $prof['pro_valor'];
+            $VALOR_US        = $prof['pro_valor'];
+            $TAMANHO         = $prof['pro_tamanho'];
+            $LARGURA         = $prof['pro_largura'];
+            $ALTURA          = $prof['pro_altura'];
+            $COMPRIMENTO     = $prof['pro_comprimento'];
+            $IMG             = $prof['pro_img'];
+            $SLUG            = $prof['pro_slug'];
+            $ESTOQUE         = $prof['pro_estoque'];
+            $MODELO          = $prof['pro_modelo'];
+            $REF             = $prof['pro_ref'];
+            $FABRICANTE      = $prof['pro_fabricante'];
+            $ATIVO           = $prof['pro_ativo'];
+            $FRETE_FREE      = $prof['pro_frete_free'];
+            $DATA_CAD        = $prof['pro_data_cad'];
+            $DESCONTO        = $prof['pro_desconto'];
+            $CATE_NOME       = $prof['cate_nome'];
+            $CATE_ID         = $prof['cate_id'];
+            $SUB_NOME        = $prof['sub_nome'];
+            $DATA_FAVORITO   = Sistema::DataAtualBR() ." - ". Sistema::HoraAtual();
+            $QTD_FAVORITOS   = 1;
+        }
+        
+        if(!isset($_SESSION['PROF'][$ID]['ID'])){
+        
+            $_SESSION['PROF'][$ID]['ID']              = $ID;
+            $_SESSION['PROF'][$ID]['NOME']            = $NOME;
+            $_SESSION['PROF'][$ID]['DESC']            = $DESC;
+            $_SESSION['PROF'][$ID]['PESO']            = $PESO;
+            $_SESSION['PROF'][$ID]['COR']             = $COR;
+            $_SESSION['PROF'][$ID]['VALOR']           = $VALOR;
+            $_SESSION['PROF'][$ID]['VALOR_US']        = $VALOR_US;
+            $_SESSION['PROF'][$ID]['TAMANHO']         = $TAMANHO;
+            $_SESSION['PROF'][$ID]['LARGURA']         = $LARGURA;
+            $_SESSION['PROF'][$ID]['ALTURA']          = $ALTURA;
+            $_SESSION['PROF'][$ID]['COMPRIMENTO']     = $COMPRIMENTO;
+            $_SESSION['PROF'][$ID]['IMG']             = $IMG;
+            $_SESSION['PROF'][$ID]['SLUG']            = $SLUG;
+            $_SESSION['PROF'][$ID]['ESTOQUE']         = $ESTOQUE;
+            $_SESSION['PROF'][$ID]['MODELO']          = $MODELO;
+            $_SESSION['PROF'][$ID]['REF']             = $REF;
+            $_SESSION['PROF'][$ID]['FABRICANTE']      = $FABRICANTE;
+            $_SESSION['PROF'][$ID]['ATIVO']           = $ATIVO;
+            $_SESSION['PROF'][$ID]['FRETE_FREE']      = $FRETE_FREE;
+            $_SESSION['PROF'][$ID]['DATA_CAD']        = $DATA_CAD;
+            $_SESSION['PROF'][$ID]['DESCONTO']        = $DESCONTO;
+            $_SESSION['PROF'][$ID]['CATE_NOME']       = $CATE_NOME;
+            $_SESSION['PROF'][$ID]['CATE_ID']         = $CATE_ID;
+            $_SESSION['PROF'][$ID]['SUB_NOME']        = $SUB_NOME;
+            $_SESSION['PROF'][$ID]['DATA_FAVORITO']   = $DATA_FAVORITO;
+            $_SESSION['PROF'][$ID]['QTD_FAVORITOS']   = $QTD_FAVORITOS++;
+
+            Rotas::Redirecionar(0, Rotas::pag_Produtos_Favoritos());
+        }else{
+            echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
+            <h4>Produto já favoritado<h4>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button></div>';
+            
+        }
+        
+        
+    }
+
+
     
 }

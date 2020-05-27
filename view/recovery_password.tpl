@@ -22,8 +22,8 @@
                     <h2>Recuperar Senha</h2>
                     <form method="POST">
                         <div class="group-input">
-                            <label for="username">Email *</label>
-                            <input type="email" name="email" id="username" placeholder="Digite seu e-mail..." required>
+                            <label for="cli_email">Email *</label>
+                            <input type="email" name="cli_email" id="cli_email" placeholder="Digite seu e-mail..." required>
                         </div>
                         <button type="submit" class="site-btn login-btn">Recuperar</button>
                     </form>

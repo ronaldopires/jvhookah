@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Mar-2020 às 03:39
+-- Tempo de geração: 22-Maio-2020 às 17:38
 -- Versão do servidor: 10.4.10-MariaDB
 -- versão do PHP: 7.3.12
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `hookah`
 --
-CREATE DATABASE IF NOT EXISTS `hookah` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `hookah`;
 
 -- --------------------------------------------------------
 
@@ -88,11 +86,19 @@ CREATE TABLE `jv_clientes` (
   `cli_nome` varchar(80) NOT NULL,
   `cli_sobrenome` varchar(80) NOT NULL,
   `cli_cpf` varchar(11) NOT NULL,
+  `cli_sexo` varchar(2) NOT NULL,
+  `cli_cep` int(11) NOT NULL,
+  `cli_endereco` varchar(150) NOT NULL,
+  `cli_bairro` varchar(100) NOT NULL,
+  `cli_cidade` varchar(100) NOT NULL,
+  `cli_uf` varchar(2) NOT NULL,
+  `cli_numero` varchar(30) NOT NULL,
+  `cli_complemento` varchar(100) DEFAULT NULL,
   `cli_email` varchar(60) NOT NULL,
   `cli_senha` varchar(40) NOT NULL,
-  `cli_ddd` varchar(3) NOT NULL,
-  `cli_celular` varchar(10) NOT NULL,
-  `cli_data_nasc` date NOT NULL,
+  `cli_telefone` varchar(10) DEFAULT NULL,
+  `cli_celular` varchar(10) DEFAULT NULL,
+  `cli_data_nasc` date DEFAULT NULL,
   `cli_data_cad` date NOT NULL,
   `cli_hora_cad` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -101,8 +107,10 @@ CREATE TABLE `jv_clientes` (
 -- Extraindo dados da tabela `jv_clientes`
 --
 
-INSERT INTO `jv_clientes` (`cli_id`, `cli_nome`, `cli_sobrenome`, `cli_cpf`, `cli_email`, `cli_senha`, `cli_ddd`, `cli_celular`, `cli_data_nasc`, `cli_data_cad`, `cli_hora_cad`) VALUES
-(1, 'Teste', 'teste', '12345678900', 'teste@teste.com', '123', '11', '123456789', '1992-08-29', '0000-00-00', '00:00:00');
+INSERT INTO `jv_clientes` (`cli_id`, `cli_nome`, `cli_sobrenome`, `cli_cpf`, `cli_sexo`, `cli_cep`, `cli_endereco`, `cli_bairro`, `cli_cidade`, `cli_uf`, `cli_numero`, `cli_complemento`, `cli_email`, `cli_senha`, `cli_telefone`, `cli_celular`, `cli_data_nasc`, `cli_data_cad`, `cli_hora_cad`) VALUES
+(1, 'Teste', 'teste', '12345678900', 'm', 12345678, 'Rua teste', 'Teste', 'São Paulo', 'SP', '1', NULL, 'teste@teste.com', '202cb962ac59075b964b07152d234b70', '11', '123456789', '1992-08-29', '0000-00-00', '00:00:00'),
+(3, 'Ronaldo', 'Carvalho', '01234567890', 'm', 8040740, 'Rua das Nemésias', 'Jardim Casa Pintada', 'São Paulo', 'SP', '422', '0', 'ronaldo@hotmail.com', '202cb962ac59075b964b07152d234b70', '955544918', '955544918', '1992-08-29', '2020-05-20', '19:16:22'),
+(4, 'Renata', 'Lopes', '00012345678', 'f', 8040740, 'Rua das Nemésias', 'Jardim Casa Pintada', 'São Paulo', 'SP', '422', '', 'renata@hotmail.com', '202cb962ac59075b964b07152d234b70', '0123456789', '0123456789', '1988-01-25', '2020-05-20', '19:25:55');
 
 -- --------------------------------------------------------
 
@@ -178,7 +186,19 @@ INSERT INTO `jv_itens_pedido` (`item_id`, `item_produto`, `item_valor`, `item_qt
 (2, 5, 390.00, 1, '123456'),
 (3, 7, 27.50, 1, '123456'),
 (4, 5, 390.00, 1, '123456'),
-(5, 4, 450.00, 2, '6d381746ec21b01652aca310a7e98088');
+(5, 4, 450.00, 2, '6d381746ec21b01652aca310a7e98088'),
+(6, 7, 27.50, 1, 'cd8541e5114f2cabdf3450dda3e23af9'),
+(7, 7, 27.50, 1, 'b5f9d9c2bff2441cf4d2bdbbe048f1bd'),
+(8, 5, 390.00, 3, '13789ed7ee69b81b3edfd9dac7bf2aea'),
+(9, 5, 390.00, 2, '200519190511'),
+(10, 7, 27.50, 1, '200519190511'),
+(11, 7, 27.50, 2, '200519220519'),
+(12, 7, 27.50, 1, '200519230532'),
+(13, 5, 390.00, 1, '200519230515'),
+(14, 7, 27.50, 1, '200519230554'),
+(15, 7, 27.50, 1, '200519230528'),
+(16, 7, 27.50, 1, '200519230504'),
+(17, 7, 27.50, 1, '200519230515');
 
 -- --------------------------------------------------------
 
@@ -207,8 +227,19 @@ CREATE TABLE `jv_pedidos` (
 
 INSERT INTO `jv_pedidos` (`ped_id`, `ped_data`, `ped_hora`, `ped_cliente`, `ped_cod`, `ped_ref`, `ped_pag_status`, `ped_pag_forma`, `ped_pag_tipo`, `ped_pag_codigo`, `ped_frete_valor`, `ped_frete_tipo`) VALUES
 (1, '2020-03-17', '02:44:14', 1, '123456', '123', '', '', '', '', NULL, NULL),
-(2, '2020-03-17', '02:57:06', 1, '123456', '123', '', '', '', '', NULL, NULL),
-(3, '2020-03-17', '02:59:38', 1, '6d381746ec21b01652aca310a7e98088', '123', '', '', '', '', NULL, NULL);
+(2, '2020-03-17', '02:57:06', 3, '123456', '123', '', '', '', '', NULL, NULL),
+(3, '2020-03-17', '02:59:38', 1, '6d381746ec21b01652aca310a7e98088', '123', '', '', '', '', NULL, NULL),
+(4, '2020-05-19', '04:23:49', 1, 'cd8541e5114f2cabdf3450dda3e23af9', '123', '', '', '', '', NULL, NULL),
+(5, '2020-05-19', '04:32:50', 1, 'b5f9d9c2bff2441cf4d2bdbbe048f1bd', '123', '', '', '', '', NULL, NULL),
+(6, '2020-05-19', '18:27:00', 1, '13789ed7ee69b81b3edfd9dac7bf2aea', '2005191805001', '', '', '', '', NULL, NULL),
+(7, '2020-05-19', '19:15:11', 3, '200519190511', '200519190511', '', '', '', '', NULL, NULL),
+(8, '2020-05-19', '22:52:19', 3, '200519220519', '200519220519', '', '', '', '', NULL, NULL),
+(9, '2020-05-19', '23:11:32', 4, '200519230532', '200519230532', '', '', '', '', 24.90, NULL),
+(10, '2020-05-19', '23:18:15', 4, '200519230515', '200519230515', '', '', '', '', 24.90, NULL),
+(11, '2020-05-19', '23:24:54', 4, '200519230554', '200519230554', '', '', '', '', 24.90, NULL),
+(12, '2020-05-19', '23:29:28', 3, '200519230528', '200519230528', '', '', '', '', 24.90, NULL),
+(13, '2020-05-19', '23:32:04', 4, '200519230504', '200519230504', '', '', '', '', 24.90, NULL),
+(14, '2020-05-19', '23:33:15', 3, '200519230515', '200519230515', '', '', '', '', 24.90, NULL);
 
 -- --------------------------------------------------------
 
@@ -252,7 +283,7 @@ INSERT INTO `jv_produtos` (`pro_id`, `pro_categoria`, `pro_sub_categoria`, `pro_
 (4, 1, 1, 0, 3, 'Vaso Narguile – Vaso Bohemian Genie', 'Vaso Narguile – Vaso Bohemian Genie Azul\r\nOs vasos Bohemian são vasos para narguile extremamente detalhados. São fabricados em cristal na Republica Tcheca, com detalhes em outro 24k a Bohemian é um item luxuoso para colocar em seu narguile!\r\nSeu encaixe de stem é compatível com narguiles de tamanho grande nacionais e importados.\r\nTamanho: 30 centímetros.', 3.000, 'Azul', 450.00, 'Grande', 0, 0, 0, 'vaso_bohemian.jpg', 'vaso_bohemian', 50, 'Bohemian', '55624', 1, 's', 'não'),
 (5, 1, 1, 0, 4, 'Vaso Narguile – Vaso Bohemian Egermann Yunan Preta', 'Vaso Narguile – Vaso Bohemian Egermann Yunan Preta\r\nOs vasos Bohemian são vasos para narguile extremamente detalhados. São fabricados em cristal na Republica Tcheca, com detalhes em outro 24k a Bohemian é um item luxuoso para colocar em seu narguile!\r\nSeu encaixe de stem é compatível com narguiles de tamanho grande nacionais e importados.\r\nTamanho: 30 centímetros.', 1.000, 'Preta', 390.00, 'Grande', 0, 0, 0, 'vaso_bohemian_yunan.jpg', 'vaso_bohemian_yunan', 100, 'Bohemian', '65412', 2, 's', 'não'),
 (6, 3, 1, 1, 5, 'SETUP LOVE 02 - NARGUILE COMPLETO LOVE HOOKAH FRANCE BLACK CLEAR COM BASE MONTE VERDE JUMBO FOLHA PRETO', 'O Narguile Completo Love Hookah France foi desenvolvido para aqueles que gostam de Arguiles moderno, o mesmo fabricado em alumínio com uma pintura anodizada e uma central fabricada em madeira, mais um produto com ótimo acabamento da marca Love Hookah. Com um comprimento de aproximadamente 67 cm é uma Stem Macho, o Arguile Love Hookah France garante um encaixe em vasos médio (26 cm) e grande (30 cm) estilo Bohemia com muita facilidade, pois sua Downstem com tamanho de aproximadamente 17 cm, traz encaixes através de parafuso lateral. Para que se tenha uma vida útil prolongada, a sua limpeza deve ser feita apenas com água e pano macio, recomenda-se não molhar a madeira, e para secagem uma flanela limpa, o que também irá te fornecer um ótimo brilho para sua peça Love Hookah France. Contém no Kit: 1 un. Queimador OnlyBowl Liso Preto; 1 un. Prato Wire Grande Clássico Preto; 1 un. Stem Love Hookah France Preto Clear; 1 un. Base Monte Verde Jumbo Folha Preto; 1 un. Mangueira Kubo Hose Metalic Dourado; 3 un. Borrachas.', 3.000, 'Preto', 299.00, 'Grande', 0, 0, 0, 'narguile_completo_love.jpg', 'narguile_completo_love', 250, 'France', '23215', 2, 's', 'não'),
-(7, 1, 2, 0, 5, 'PITEIRA HOOKAH LIKE FLIP HOSE', 'Piteira de aluminio Hookah Like. Produzida com alumínio de alta qualidade, higienização simplificada e ampla gama de cor.', 0.100, 'COBRE,AZUL CLARO,BRANCO,DOURADO,PRATA,PRETO,PRETO FOSCO,ROSA,ROXO,VERDE,VERMELHO', 27.50, 'Grande', 0, 0, 0, 'piteira_hookah_verde.jpg', 'piteira-hookah', 50, 'HOOKAH LIKE', '2541', 1, 's', 'não');
+(7, 1, 2, 0, 5, 'PITEIRA HOOKAH LIKE FLIP HOSE', 'Piteira de aluminio Hookah Like. Produzida com alumínio de alta qualidade, higienização simplificada e ampla gama de cor.', 0.100, 'VERDE', 27.50, 'Grande', 0, 0, 0, 'piteira_hookah_verde.jpg', 'piteira-hookah', 50, 'HOOKAH LIKE', '2541', 1, 's', 'não');
 
 -- --------------------------------------------------------
 
@@ -345,55 +376,55 @@ ALTER TABLE `jv_sub_categorias`
 -- AUTO_INCREMENT de tabela `jv_caracteristicas`
 --
 ALTER TABLE `jv_caracteristicas`
-  MODIFY `cts_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cts_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `jv_categorias`
 --
 ALTER TABLE `jv_categorias`
-  MODIFY `cate_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `jv_clientes`
 --
 ALTER TABLE `jv_clientes`
-  MODIFY `cli_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cli_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `jv_fabricantes`
 --
 ALTER TABLE `jv_fabricantes`
-  MODIFY `fab_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `fab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `jv_imagens`
 --
 ALTER TABLE `jv_imagens`
-  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `jv_itens_pedido`
 --
 ALTER TABLE `jv_itens_pedido`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `jv_pedidos`
 --
 ALTER TABLE `jv_pedidos`
-  MODIFY `ped_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ped_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `jv_produtos`
 --
 ALTER TABLE `jv_produtos`
-  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `jv_sub_categorias`
 --
 ALTER TABLE `jv_sub_categorias`
-  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

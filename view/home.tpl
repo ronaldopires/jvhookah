@@ -55,28 +55,34 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4">
-                <div class="single-banner">
-                    <img src="{$GET_TEMA}/img/post.png" alt="">
-                    <!-- <div class="inner-text">
-                        <h4>Men’s</h4>
-                    </div> -->
-                </div>
+                <a href="#1">
+                    <div class="single-banner">
+                        <img src="{$GET_TEMA}/img/post.png" alt="">
+                        <!-- <div class="inner-text">
+                            <h4>Men’s</h4>
+                        </div> -->
+                    </div>
+                </a>
             </div>
             <div class="col-lg-4">
-                <div class="single-banner">
-                    <img src="{$GET_TEMA}/img/banner-2.jpg" alt="">
-                    <div class="inner-text">
-                        <h4>Women’s</h4>
+                <a href="#2">
+                    <div class="single-banner">
+                        <img src="{$GET_TEMA}/img/card-1.png" alt="">
+                        <!-- <div class="inner-text">
+                            <h4>Women’s</h4>
+                        </div> -->
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-lg-4">
-                <div class="single-banner">
-                    <img src="{$GET_TEMA}/img/banner-3.jpg" alt="">
-                    <div class="inner-text">
-                        <h4>Kid’s</h4>
+                <a href="#3">
+                    <div class="single-banner">
+                        <img src="{$GET_TEMA}/img/card-2.png" alt="">
+                        <!-- <div class="inner-text">
+                            <h4>Kid’s</h4>
+                        </div> -->
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -89,23 +95,24 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="product-large set-bg" data-setbg="{$GET_TEMA}/img/products/women-large.jpg">
-                    <h2>Women’s</h2>
+                    <h2>Bases</h2>
                     <a href="#">Discover More</a>
                 </div>
             </div>
             <div class="col-lg-8 offset-lg-1">
                 <div class="filter-control">
                     <ul>
-                        <li class="active">Acessórios</li>
-                        <li>Pratos</li>
-                        <li>Mangueira</li>
-                        <li>Carvões</li>
+                        {foreach from=$CATEGORIA item=C}
+                        <li class="active">{$C.cate_nome}</li>
+                        <!-- <li>{$C.cate_nome}</li> -->
+                        {/foreach}
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">
+                    {foreach from=$PRODUTOS item=P}
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="{$GET_TEMA}/img/products/women-1.jpg" alt="">
+                            <img src="{$P.pro_img}" alt="">
                             <div class="sale">Sale</div>
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
@@ -117,17 +124,18 @@
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="catagory-name">Coat</div>
+                            <div class="catagory-name">{$P.cate_nome}</div>
                             <a href="#">
-                                <h5>Pure Pineapple</h5>
+                                <h5>{$P.pro_nome}</h5>
                             </a>
                             <div class="product-price">
-                                $14.00
-                                <span>$35.00</span>
+                                R$ {$P.pro_valor}
+                                <!-- <span>R$ {$P.pro_valor}</span> -->
                             </div>
                         </div>
                     </div>
-                    <div class="product-item">
+                    {/foreach}
+                    <!-- <div class="product-item">
                         <div class="pi-pic">
                             <img src="{$GET_TEMA}/img/products/women-2.jpg" alt="">
                             <div class="icon">
@@ -192,7 +200,7 @@
                                 $34.00
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

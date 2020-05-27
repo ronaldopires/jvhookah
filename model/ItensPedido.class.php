@@ -14,10 +14,9 @@ class Itens extends Conexao
         $query = "SELECT * FROM {$this->prefix}pedidos p, {$this->prefix}itens_pedido i, {$this->prefix}produtos d WHERE p.ped_cod = i.item_ped_cod AND i.item_produto = d.pro_id ";
         $query .= " AND p.ped_cod = :pedido";
 
-        if(($cliente != null) AND ($cliente > 0)){
-            $cli = (int)$cliente;
-            $query .= " AND p.ped_cliente = $cliente";
-            $params[':cliente'] = (int)$cliente;
+        if ($cliente != null && $cliente > 0) {
+            $query .= " AND p.ped_cliente = {:cliente}";
+            $params[':cliente'] = (int) $cliente;
         }
         $params[':pedido'] = (int)$pedido;
         
@@ -28,6 +27,10 @@ class Itens extends Conexao
     private function GetLista() {
         $i = 1;
         while($lista = $this->ListarDados()):
+            // subtotal de cada item
+            $sub = $lista['item_valor'] * $lista['item_qtd'];
+            $this->valor_total += $sub;
+
             $this->itens[$i] = array(
                 'ped_id' => $lista['ped_id'],
                 'ped_data' => Sistema::Fdata($lista['ped_data']),
@@ -43,7 +46,7 @@ class Itens extends Conexao
                 'ped_frete_valor' => $lista['ped_frete_valor'],
                 'ped_frete_tipo' => $lista['ped_frete_tipo'],
                 'item_id' => $lista['item_id'],
-                'item_nome' => $lista['item_nome'],
+                'item_nome' => $lista['pro_nome'],
                 'item_valor' => Sistema::MoedaBR($lista['item_valor']),
                 'item_valor_us' => $lista['item_valor'],
                 'item_qtd' => $lista['item_qtd'],

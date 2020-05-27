@@ -35,11 +35,9 @@ if (isset($_POST['opcoes'])) {
             $produtos->OrderByProducts($opcao);
             break;
         case 3:
-            //$opcao = 3;
-            //$produtos->OrderByProducts($opcao);
-            echo "Ordenar pelo mais recente ";
-            echo "Indisponível no momento";
-            //Criar campo data na tabela de produtos
+            echo $_POST['opcoes'];
+            $opcao = 3;
+            $produtos->OrderByProducts($opcao);
             break;
         case 4:
             $opcao = 4;
@@ -84,6 +82,13 @@ if (isset($_POST['price_min']) and isset($_POST['price_min'])) {
     $smarty->assign('PRODUTOS', $betweenProducts->GetItens());
 }
 
+
+/* echo '<pre>';
+var_dump($_SESSION['PROF']);
+echo '</pre>'; */
+
+
+
 $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
 $smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
 $smarty->assign('PAG_REGISTER', Rotas::pag_Register());
@@ -98,5 +103,7 @@ $smarty->assign('PAG_PRODUTOS', Rotas::pag_Produtos());
 $smarty->assign('MARCAS', $marca->Getitens());
 $smarty->assign('MIN', $min);
 $smarty->assign('MAX', $max);
+$smarty->assign('FAVORITOS', Rotas::pag_Produtos_Favoritos());
+$smarty->assign('ITENS_FAVORITOS', $_SESSION['PROF']);
 
 $smarty->display('shop.tpl');

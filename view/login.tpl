@@ -22,12 +22,12 @@
                     <h2>Login</h2>
                     <form method="POST">
                         <div class="group-input">
-                            <label for="username">Email *</label>
-                            <input type="email" name="email" id="username" required>
+                            <label for="cli_email">Email *</label>
+                            <input type="email" name="cli_email" id="cli_email" required>
                         </div>
                         <div class="group-input">
-                            <label for="pass">Senha *</label>
-                            <input type="password" name="senha" id="pass" required>
+                            <label for="cli_senha">Senha *</label>
+                            <input type="password" name="cli_senha" id="cli_senha" required>
                         </div>
                         <div class="group-input gi-check">
                             <div class="gi-more">

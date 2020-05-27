@@ -40,9 +40,14 @@
                     <div class="col-lg-7">
                         <div class="product-details">
                             <div class="pd-title">
+                                <form class="float-right" action="{$FAVORITOS}" method="POST">
+                                    <div class="icon">
+                                        <input type="hidden" name="pro_id_favorito" value="{$P.pro_id}">
+                                        <button class="btn"><i class="icon_heart_alt"></i></button>
+                                    </div>
+                                </form>
                                 <span>{$P.cate_nome}/{$P.sub_nome}</span>
                                 <h3>{$P.pro_nome}</h3>
-                                <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                             </div>
                             <div class="pd-rating">
                                 <i class="fa fa-star"></i>
@@ -55,7 +60,7 @@
                             <div class="pd-desc">
                                 <!-- <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor sit amet, consectetur adipisicing elit, sed do mod tempor</p> -->
                                 <h4>R$ {$P.pro_valor}
-                                    <span>629.99</span>
+                                    <span>R$ 629.99</span>
                                 </h4>
                             </div>
                             <div class="pd-size-choose">
@@ -70,8 +75,9 @@
                             </div>
                             <div class="quantity">
                                 <input type="hidden" name="pro_id" value="{$P.pro_id}" />
-                                <input type="hidden" name="acao" value="add" />
-                                <button class="btn primary-btn pd-cart">Comprar</button>
+                                <input type="hidden" name="acao" value="add" /> {if $P.pro_estoque == 0}
+                                <button class="btn primary-btn pd-cart" disabled>Comprar</button> <span class="text-danger ml-5" style="line-height: 47px;">ESGOTADO</span>{else}
+                                <button class="btn primary-btn pd-cart">Comprar</button> {/if}
                             </div>
                             </form>
                             <ul class="pd-tags">
@@ -302,7 +308,7 @@
                     <div class="product-item">
                         <div class="pi-pic">
                             <img src="{$P.pro_img}" alt="">
-                            <div class="sale bg-warning">Poucas Peças</div>
+                            <!-- <div class="sale bg-warning">Poucas Peças</div> -->
                             <div class="estoque bg-danger">Esgotado</div>
                             <div class="icon">
                                 <i class="icon_heart_alt"></i>
