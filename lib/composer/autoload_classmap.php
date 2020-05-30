@@ -16,6 +16,7 @@ return array(
     'EnviarEmail' => $baseDir . '/model/EnviarEmail.class.php',
     'Itens' => $baseDir . '/model/ItensPedido.class.php',
     'Login' => $baseDir . '/model/Login.class.php',
+    'Paginacao' => $baseDir . '/model/Paginacao.class.php',
     'Pedidos' => $baseDir . '/model/Pedidos.class.php',
     'ProdutoImages' => $baseDir . '/model/ProdutosImages.class.php',
     'Produtos' => $baseDir . '/model/Produtos.class.php',

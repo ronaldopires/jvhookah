@@ -130,77 +130,11 @@
                             </a>
                             <div class="product-price">
                                 R$ {$P.pro_valor}
-                                <!-- <span>R$ {$P.pro_valor}</span> -->
+                                <span>R$ {$P.pro_valor}</span>
                             </div>
                         </div>
                     </div>
                     {/foreach}
-                    <!-- <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{$GET_TEMA}/img/products/women-2.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Shoes</div>
-                            <a href="#">
-                                <h5>Guangzhou sweater</h5>
-                            </a>
-                            <div class="product-price">
-                                $13.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{$GET_TEMA}/img/products/women-3.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
-                            <a href="#">
-                                <h5>Pure Pineapple</h5>
-                            </a>
-                            <div class="product-price">
-                                $34.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{$GET_TEMA}/img/products/women-4.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
-                            <a href="#">
-                                <h5>Converse Shoes</h5>
-                            </a>
-                            <div class="product-price">
-                                $34.00
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -360,43 +294,50 @@
     </div>
 </section>
 <!-- Man Banner Section End -->
-
 <!-- Instagram Section Begin -->
+<div class="row no-gutters">
+    <div class="col-lg-12">
+        <div class="section-title">
+            <h2>Nosso Instagram</h2>
+            <a class="nav-link" href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a>
+        </div>
+    </div>
+</div>
 <div class="instagram-photo">
-    <div class="insta-item set-bg" data-setbg="{$GET_TEMA}/img/insta-1.jpg">
+    <div class="insta-item set-bg" data-setbg="{$GET_TEMA}/img/p1.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
+            <h5><a href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a></h5>
         </div>
     </div>
-    <div class="insta-item set-bg" data-setbg="{$GET_TEMA}/img/insta-2.jpg">
+    <div class="insta-item set-bg" data-setbg="{$GET_TEMA}/img/p2.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
+            <h5><a href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a></h5>
         </div>
     </div>
-    <div class="insta-item set-bg" data-setbg="{$GET_TEMA}/img/insta-3.jpg">
+    <div class="insta-item set-bg" data-setbg="{$GET_TEMA}/img/p3.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
+            <h5><a href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a></h5>
         </div>
     </div>
-    <div class="insta-item set-bg" data-setbg="{$GET_TEMA}/img/insta-4.jpg">
+    <div class="insta-item set-bg" data-setbg="{$GET_TEMA}/img/p4.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
+            <h5><a href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a></h5>
         </div>
     </div>
-    <div class="insta-item set-bg" data-setbg="{$GET_TEMA}/img/insta-5.jpg">
+    <div class="insta-item set-bg" data-setbg="{$GET_TEMA}/img/p5.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
+            <h5><a href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a></h5>
         </div>
     </div>
-    <div class="insta-item set-bg" data-setbg="{$GET_TEMA}/img/insta-6.jpg">
+    <div class="insta-item set-bg" data-setbg="{$GET_TEMA}/img/p6.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
+            <h5><a href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a></h5>
         </div>
     </div>
 </div>

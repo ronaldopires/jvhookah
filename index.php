@@ -10,6 +10,13 @@ require './lib/autoload.php';
 
 $smarty = new Template();
 $produtos = new Produtos();
+$categorias = new Categorias();
+
+$categorias->GetSubCategorias();
+
+/* echo '<pre>';
+var_dump($categorias->GetItens());
+echo '</pre>'; */
 
 if (isset($_SESSION['PRO']) and !empty($_SESSION['PRO'])) {
     $total = 0;
@@ -32,6 +39,7 @@ if (Login::Logado()) {
     $smarty->assign('LOGADO', true);
     $smarty->assign('USER', $_SESSION['CLI']['cli_nome']);
     $smarty->assign('PAG_LOGOUT', Rotas::pag_Logout());
+    $smarty->assign('FOTO', $_SESSION['CLI']['cli_foto']);
 } else {
     $smarty->assign('LOGADO', false);
     $smarty->assign('USER', '');
@@ -48,7 +56,6 @@ if(isset($_SESSION['PROF'])){
     $smarty->assign('ITENS_FAVORITOS', 0);
 }
 
-
 //Valores chaves para o template
 $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
 $smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
@@ -63,5 +70,6 @@ $smarty->assign('PAG_FAQ', Rotas::pag_Faq());
 $smarty->assign('TITULO_SITE', Config::SITE_NOME);
 $smarty->assign('PAG_LOGOUT', Rotas::pag_Logout());
 $smarty->assign('PAG_PROFILE', Rotas::pag_Profile());
+$smarty->assign('CATEGORIAS', $categorias->GetItens());
 
 $smarty->display('index.tpl');

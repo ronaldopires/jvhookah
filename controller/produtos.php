@@ -3,24 +3,48 @@
 $smarty = new Template();
 $produtos = new Produtos();
 $categorias = new Categorias();
-//Buscar produtos de uma categoria especifica
-if (isset(Rotas::$pag[1])) {
-    $id = Rotas::$pag[1];
+
+//CATEGORIAS E SUB CATEGORIAS
+$categoria = 'categoria';;
+$sub_categoria = 'sub_categoria';
+if (isset(Rotas::$pag[1]) && Rotas::$pag[1] == $categoria) {
+    $id = Rotas::$pag[2];
     $produtos->GetProdutosCateID($id);
-} else {
+    $smarty->assign('PRODUTOS', $produtos->GetItens());
+    $smarty->assign('PAGINAS', $produtos->MostrarPaginacao());
+
+} else if (isset(Rotas::$pag[1]) && Rotas::$pag[1] == $sub_categoria) {
+    $id = Rotas::$pag[2];
+    $produtos->GetProdutosSubCateID($id);
+    $smarty->assign('PRODUTOS', $produtos->GetItens());
+    $smarty->assign('PAGINAS', $produtos->MostrarPaginacao());
+}else{
     $produtos->GetProdutos();
+    $smarty->assign('PRODUTOS', $produtos->GetItens());
+    $smarty->assign('PAGINAS', $produtos->MostrarPaginacao());
+
 }
+
 //Listando mais produtos
-$listagem = new Produtos();
-$listagem->GetProdutos();
+if($produtos->TotalDados() < 1){
+    $listagem = new Produtos();
+    $listagem->GetProdutos();
+    $smarty->assign('MAIS_PRODUTOS', $listagem->GetItens());
+    $smarty->assign('ITENS', $produtos->TotalDados());
+
+}else{
+    $smarty->assign('ITENS', $produtos->TotalDados());
+}
+
 $marca = new Categorias();
 $marca->GetMarcas();
 $categorias->GetCategorias();
 $sub_categorias = new Categorias();
 $sub_categorias->GetSubCategorias();
-$valor = new Produtos();
 
+//Filtro de ordenação
 if (isset($_POST['opcoes'])) {
+
     switch ($_POST['opcoes']) {
         case 0:
             $opcao = 0;
@@ -35,7 +59,6 @@ if (isset($_POST['opcoes'])) {
             $produtos->OrderByProducts($opcao);
             break;
         case 3:
-            echo $_POST['opcoes'];
             $opcao = 3;
             $produtos->OrderByProducts($opcao);
             break;
@@ -48,30 +71,34 @@ if (isset($_POST['opcoes'])) {
             $produtos->OrderByProducts($opcao);
             break;
     }
-}
-// $smarty->assign('PRODUTOS', $produtos->GetItens());
+    $smarty->assign('PRODUTOS', $produtos->GetItens());
+    $smarty->assign('PAGINAS', $produtos->MostrarPaginacao());
 
-$filtro = new Categorias();
+
+}
+
+/**
+ * Filtro de marcas
+ * Pesquisar método melhor para exibir produtos
+ */
 if (isset($_POST['checked'])) {
-    $tamanho = count($_POST['checked']);
-
-    foreach($_POST['checked'] as $key){
-        $indice = $key;
-        $filtro->GetMarcasProducts($indice);
-        $teste = $filtro->GetItens();
-        array_push($teste, $filtro->GetItens());
-        var_dump($teste);
+    $filtro_marcas = new Categorias();
+    $check = count($_POST['checked']);
+    $resultado = array();
+    foreach($_POST['checked'] as $id){
+        $filtro_marcas->GetMarcasProducts($id);
+        array_push($resultado, $filtro_marcas->GetItens());
+                
+        $smarty->assign('PRODUTOS', $filtro_marcas->GetItens());
     }
-
-    $smarty->assign('PRODUTOS', $teste[0]);
-    
+    $smarty->assign('PAGINAS', $filtro_marcas->MostrarPaginacao());
 }
 
-//Filter price products
-$min = (int) $valor->GetProdutosPriceMin()['MIN(pro_valor)'];
-$max = (int) $valor->GetProdutosPriceMax()['MAX(pro_valor)'];
-
+//FILTRO PREÇO
+$min = (int) $produtos->GetProdutosPriceMin()['MIN(pro_valor)'];
+$max = (int) $produtos->GetProdutosPriceMax()['MAX(pro_valor)'];
 if (isset($_POST['price_min']) and isset($_POST['price_min'])) {
+
     $price_min = $_POST['price_min'];
     $price_max = $_POST['price_max'];
 
@@ -80,30 +107,30 @@ if (isset($_POST['price_min']) and isset($_POST['price_min'])) {
     $betweenProducts = new Produtos();
     $betweenProducts->GetProdutosBetween($result_min, $result_max);
     $smarty->assign('PRODUTOS', $betweenProducts->GetItens());
+    $smarty->assign('PAGINAS', $betweenProducts->MostrarPaginacao());
+ 
 }
+$smarty->assign('MIN', $min);
+$smarty->assign('MAX', $max);
 
 
-/* echo '<pre>';
-var_dump($_SESSION['PROF']);
-echo '</pre>'; */
 
-
+if(isset($_SESSION['PROF'])){
+    $smarty->assign('ITENS_FAVORITOS', $_SESSION['PROF']);
+}
 
 $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
 $smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
 $smarty->assign('PAG_REGISTER', Rotas::pag_Register());
 $smarty->assign('PRODUTOS_INFO', Rotas::pag_Shopping_Detail());
-$smarty->assign('PRODUTOS', $produtos->GetItens());
+$smarty->assign('GET_IMAGE', Rotas::get_ImagePasta());
+$smarty->assign('PAG_PRODUTOS', Rotas::pag_Produtos());
+$smarty->assign('FAVORITOS', Rotas::pag_Produtos_Favoritos());
+$smarty->assign('PAG_SHOP', Rotas::pag_Produtos());
 $smarty->assign('CATEGORIAS', $categorias->GetItens());
 $smarty->assign('SUB_CATEGORIAS', $sub_categorias->GetItens());
-$smarty->assign('ITENS', $produtos->TotalDados());
-$smarty->assign('GET_IMAGE', Rotas::get_ImagePasta());
-$smarty->assign('MAIS_PRODUTOS', $listagem->GetItens());
-$smarty->assign('PAG_PRODUTOS', Rotas::pag_Produtos());
 $smarty->assign('MARCAS', $marca->Getitens());
-$smarty->assign('MIN', $min);
-$smarty->assign('MAX', $max);
-$smarty->assign('FAVORITOS', Rotas::pag_Produtos_Favoritos());
-$smarty->assign('ITENS_FAVORITOS', $_SESSION['PROF']);
+$smarty->assign('TOTAL', $produtos->TotalDados());
+
 
 $smarty->display('shop.tpl');

@@ -47,14 +47,17 @@ $(window).on('load', function() {
     function calcFrete() {
         let cep_cliente = $('#cep_cli').val();
         let peso_frete = $('#peso_frete').val();
+        let altura_frete = $('#altura_frete').val();
+        let largura_frete = $('#largura_frete').val();
+        let comprimento_frete = $('#comprimento_frete').val();
         if ((cep_cliente.length !== 8)) {
             $('#message').html('<span class="text-danger">Tamanho inválido. Digite 8 digitos.</span>');
             $('#cep_cli').css('border-color', 'red');
         } else {
             $('#resultCep').show();
-            $('#frete').addClass('py-3')
+            $('#frete').addClass('col-12 p-0')
             $('#frete').html('<div class="loader d-block"></div><span>Carregando...</span>')
-            $('#frete').load('controller/frete.php?cepcliente=' + cep_cliente + '&pesofrete=' + peso_frete);
+            $('#frete').load('controller/frete.php?cep_cliente=' + cep_cliente + '&peso_frete=' + peso_frete + '&altura_frete=' + altura_frete + '&largura_frete=' + largura_frete + '&comprimento_frete=' + comprimento_frete);
             $('#message').hide();
             $('#cep_cli').css('border-color', '#ebebeb');
         }
@@ -185,6 +188,44 @@ $(window).on('load', function() {
     $('#btnAlterarSenha').on('click', () => {
         $('#divAlterarSenha').toggle('slow');
     });
+
+    /* Voltar ao Topo */
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('a[href="#top"]').fadeIn();
+        } else {
+            $('a[href="#top"]').fadeOut();
+        }
+    });
+
+    $('a[href="#top"]').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 800);
+        return false;
+    });
+
+    /* Senha */
+    let $inputSenha = $('#cli_senha');
+    let $eye = $('#eye');
+
+    $eye.mousedown(function() {
+        $inputSenha.attr("type", "text");
+        $eye.removeClass("fa fa-eye-slash");
+        $eye.addClass("fa fa-eye");
+    });
+
+    $eye.mouseup(function() {
+        $inputSenha.attr("type", "password");
+        $eye.removeClass("fa fa-eye");
+        $eye.addClass("fa fa-eye-slash");
+    });
+
+    $("#eye").mouseout(function() {
+        $("#senha").attr("type", "password");
+    });
+
+
 
 
 

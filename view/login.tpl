@@ -27,7 +27,7 @@
                         </div>
                         <div class="group-input">
                             <label for="cli_senha">Senha *</label>
-                            <input type="password" name="cli_senha" id="cli_senha" required>
+                            <input type="password" name="cli_senha" id="cli_senha" required><i id="eye" class="fa fa-eye-slash"></i>
                         </div>
                         <div class="group-input gi-check">
                             <div class="gi-more">

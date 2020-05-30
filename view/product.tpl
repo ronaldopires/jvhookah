@@ -23,16 +23,16 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="product-pic-zoom">
-                            <img class="product-big-img" src="{$P.pro_img}" alt="{$P.pro_nome}">
+                            <img class="product-big-img" src="{$P.pro_img_gg}" alt="{$P.pro_nome}">
                             <div class="zoom-icon">
                                 <i class="fa fa-search-plus"></i>
                             </div>
                         </div>
                         <div class="product-thumbs">
                             <div class="product-thumbs-track ps-slider owl-carousel">
-                                <div class="pt active" data-imgbigurl="{$P.pro_img}"><img src="{$P.pro_img}" alt="{$P.pro_nome}"></div>
+                                <div class="pt active" data-imgbigurl="{$P.pro_img_gg}"><img src="{$P.pro_img_gg}" alt="{$P.pro_nome}"></div>
                                 {foreach from=$IMAGENS item=I}
-                                <div class="pt" data-imgbigurl="{$I.img_nome}"><img src="{$I.img_nome}" alt="{$P.pro_nome}"></div>
+                                <div class="pt" data-imgbigurl="{$I.img_nome_gg}"><img src="{$I.img_nome_gg}" alt="{$P.pro_nome}"></div>
                                 {/foreach}
                             </div>
                         </div>
@@ -59,8 +59,8 @@
                             </div>
                             <div class="pd-desc">
                                 <!-- <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor sit amet, consectetur adipisicing elit, sed do mod tempor</p> -->
-                                <h4>R$ {$P.pro_valor}
-                                    <span>R$ 629.99</span>
+                                <h4>R$ {$P.pro_valor} {if $P.pro_desconto > 0}
+                                    <span>R$ {$P.pro_valor_us}</span> {/if}
                                 </h4>
                             </div>
                             <div class="pd-size-choose">
@@ -76,7 +76,11 @@
                             <div class="quantity">
                                 <input type="hidden" name="pro_id" value="{$P.pro_id}" />
                                 <input type="hidden" name="acao" value="add" /> {if $P.pro_estoque == 0}
-                                <button class="btn primary-btn pd-cart" disabled>Comprar</button> <span class="text-danger ml-5" style="line-height: 47px;">ESGOTADO</span>{else}
+                                <div class="col">
+                                    <h3>Desculpe-nos</h3>
+                                    <p>Infelizmente não temos este produto em estoque</p>
+                                </div>
+                                {else}
                                 <button class="btn primary-btn pd-cart">Comprar</button> {/if}
                             </div>
                             </form>

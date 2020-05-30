@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-26 22:00:32
+/* Smarty version 3.1.36, created on 2020-05-28 17:21:04
   from 'C:\xampp\htdocs\jvhookah\view\contact.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ecdbbb0eab122_90791672',
+  'unifunc' => 'content_5ed01d3055ca07_51480351',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f94d8e2b00e6959a64e94fd6d85cc556990928f9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\contact.tpl',
-      1 => 1590526576,
+      1 => 1590697263,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ecdbbb0eab122_90791672 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed01d3055ca07_51480351 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -45,9 +45,9 @@ function content_5ecdbbb0eab122_90791672 (Smarty_Internal_Template $_smarty_tpl)
                 width="610" height="450" frameborder="0" style="border:0;" allowfullscreen="">
             
             </iframe>
-            <div class="icon">
+            <!-- <div class="icon">
                 <i class="fa fa-map-marker"></i>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

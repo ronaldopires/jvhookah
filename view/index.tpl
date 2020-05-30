@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{$TITULO_SITE}</title>
+    <!--Favicon-->
+    <link rel="shortcut icon" href="{$GET_TEMA}/tema/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{$GET_TEMA}/tema/img/favicon.ico" type="image/x-icon">
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" />
@@ -115,7 +118,16 @@
                     <div class="col-lg-3 text-right col-md-3">
                         <ul class="nav-right">
                             {if $LOGADO == TRUE}
-                            <li class="text-left mr-4">Olá {$USER} </li>
+                            <li class="text-left">
+                                <div class="row no-gutters" style="font-size: 14px;">
+                                    <div class="col">
+                                        <img class="img img-responsive img_profile" src="{$FOTO}" alt="Foto Perfil" />
+                                    </div>
+                                    <div class="col ml-3">
+                                        <span style="line-height: 40px;">{$USER}</span>
+                                    </div>
+                                </div>
+                            </li>
                             {/if}
                             <li class="heart-icon">
                                 <a href="{$FAVORITOS}">
@@ -160,7 +172,7 @@
                                         <h5>R$ {$VALOR_TOTAL}</h5>
                                     </div>
                                     <div class="select-button">
-                                        <a href="{$PAG_SHOP}" class="primary-btn view-card">VER PRODUTOS</a>
+                                        <!-- <a href="{$PAG_SHOP}" class="primary-btn view-card">VER PRODUTOS</a> -->
                                         <a href="{$PAG_SHOPPING_CART}" class="primary-btn checkout-btn">FINALIZAR PEDIDO</a>
                                     </div>
                                 </div>
@@ -179,7 +191,9 @@
                         <span>Produtos</span>
                         <ul class="depart-hover">
                             <li class="active"><a href="{$PAG_SHOP}">Todos os Produtos</a></li>
-                            <li><a href="#">Men’s Clothing</a></li>
+                            {foreach $CATEGORIAS item=C}
+                            <li><a href="{$PAG_SHOP}/sub_categoria/{$C.sub_id}/{$C.sub_slug}">{$C.sub_nome}</a></li>
+                            {/foreach}
                         </ul>
                     </div>
                 </div>
@@ -203,7 +217,7 @@
                                 <li><a href="{$PAG_CHECK_OUT}">Finalizar Pedido</a></li>
                                 <li><a href="{$PAG_FAQ}">Perguntas Frequentes</a></li>
                                 {if $LOGADO == false}
-                                <li><a href="{$PAG_REGISTER}">Register</a></li>
+                                <li><a href="{$PAG_REGISTER}">Cadastre-se</a></li>
                                 <li><a href="{$PAG_LOGIN}">Login</a></li>
                                 {else}
                                 <li><a href="{$PAG_PROFILE}">Meu Perfil</a></li>
@@ -260,11 +274,11 @@
                 <div class="col-lg-3">
                     <div class="footer-left">
                         <div class="footer-logo">
-                            <a href="#"><img src="{$GET_TEMA}/img/logo-carousel/jvhk2.png" alt=""></a>
+                            <a href="{$PAG_HOME}"><img src="{$GET_TEMA}/img/logo-carousel/jvhk2.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Endereço: Av. Maria Luiza Americano, 2806</li>
-                            <li>Phone: +55 11 94024-9845</li>
+                            <li>WhatsApp: +55 11 94024-9845</li>
                             <li>Email: hello.colorlib@gmail.com</li>
                         </ul>
                         <div class="footer-social">
@@ -281,7 +295,8 @@
                         <ul>
                             <li><a href="#">Sobre</a></li>
                             <li><a href="{$PAG_REGISTER}">Cadastre-se</a></li>
-                            <li><a href="{$PAG_CONTACT}">Contato</a></li>
+                            <li><a href="{$PAG_CONTACT}">Fale Conosco</a></li>
+                            <li><a href="{$PAG_SHOP}">Produtos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -291,7 +306,6 @@
                         <ul>
                             <li><a href="{$PAG_PROFILE}">Meu Perfil</a></li>
                             <li><a href="{$PAG_SHOPPING_CART}">Meu Carrinho</a></li>
-                            <li><a href="{$PAG_SHOP}">Produtos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -300,7 +314,7 @@
                         <h5>Inscreva-se na nossa newsletter agora</h5>
                         <p>Receba atualizações por e-mail sobre nossa loja mais recente e ofertas especiais.</p>
                         <form action="#" class="subscribe-form">
-                            <input type="email" placeholder="Coloque seu email">
+                            <input type="email" placeholder="Digite seu email">
                             <button type="button">Inscreva-se</button>
                         </form>
                     </div>
@@ -316,7 +330,7 @@
                             Copyright &copy;
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            </script> All rights reserved | by <a href="https://github.com/ronaldopires" target="_blank">Ronaldo Carvalho</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="payment-pic">
@@ -328,7 +342,12 @@
         </div>
     </footer>
     <!-- Footer Section End -->
+    <!-- Whatsapp contato-->
     <a href="https://api.whatsapp.com/send?phone=5511940249845" title="Entre em contato via WhatsApp" target="_blank" class="whatsFixo"><i class="fa fa-lg fa-whatsapp"></i></a>
+
+    <a href="#top"><i class="fa fa-angle-up"></i></a>
+
+
     <!-- Js Plugins -->
     <script src="{$GET_TEMA}/tema/js/jquery-3.3.1.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/script.js"></script>

@@ -13,7 +13,7 @@ class Carrinho
 
         //Laço nos itens criando uma sessão
         foreach ($_SESSION['PRO'] as $lista) {
-            $sub = ($lista['VALOR_US'] * $lista['QTD']);
+            $sub = ($lista['VALOR_US'] - $lista['DESCONTO']) * $lista['QTD'];
             $this->total_valor += $sub;
 
             $peso = $lista['PESO'] * $lista['QTD'];
@@ -24,12 +24,16 @@ class Carrinho
                 'pro_nome' => $lista['NOME'],
                 'pro_valor' => $lista['VALOR'],
                 'pro_valor_us' => $lista['VALOR_US'],
-                'pro_desc' => $lista['DESCONTO'],
+                'pro_desconto' => $lista['DESCONTO'],
+                'pro_desc' => $lista['DESC'],
                 'pro_cor' => $lista['COR'],
                 'pro_tamanho' => $lista['TAMANHO'],
-                'pro_peso' => $lista['PESO'],
-                'pro_qtd' => $lista['QTD'],
                 'pro_estoque' => $lista['ESTOQUE'],
+                'pro_peso' => $lista['PESO'],
+                'pro_largura' => $lista['LARGURA'],
+                'pro_altura' => $lista['ALTURA'],
+                'pro_comprimento' => $lista['COMPRIMENTO'],
+                'pro_qtd' => $lista['QTD'],
                 'pro_img' => $lista['IMG'],
                 'pro_link' => $lista['LINK'],
                 'pro_subTotal' => Sistema::MoedaBR($sub),
@@ -69,11 +73,15 @@ class Carrinho
             $NOME = $pro['pro_nome'];
             $VALOR = $pro['pro_valor'];
             $VALOR_US = $pro['pro_valor_us'];
-            $DESCONTO = $pro['pro_desc'];
+            $DESCONTO = $pro['pro_desconto'];
+            $DESC = $pro['pro_desc'];
             $COR = $pro['pro_cor'];
             $TAMANHO = $pro['pro_tamanho'];
             $ESTOQUE = $pro['pro_estoque'];
             $PESO = $pro['pro_peso'];
+            $LARGURA = $pro['pro_largura'];
+            $ALTURA = $pro['pro_altura'];
+            $COMPRIMENTO = $pro['pro_comprimento'];
             $QTD = 1;
             $IMG = $pro['pro_img'];
             $LINK = Rotas::pag_Shopping_Detail() . '/' . $ID . '/' . $pro['pro_slug'];
@@ -89,10 +97,14 @@ class Carrinho
                     $_SESSION['PRO'][$ID]['VALOR'] = $VALOR;
                     $_SESSION['PRO'][$ID]['VALOR_US'] = $VALOR_US;
                     $_SESSION['PRO'][$ID]['DESCONTO'] = $DESCONTO;
+                    $_SESSION['PRO'][$ID]['DESC'] = $DESC;
                     $_SESSION['PRO'][$ID]['COR'] = $COR;
                     $_SESSION['PRO'][$ID]['TAMANHO'] = $TAMANHO;
                     $_SESSION['PRO'][$ID]['ESTOQUE'] = $ESTOQUE;
                     $_SESSION['PRO'][$ID]['PESO'] = $PESO;
+                    $_SESSION['PRO'][$ID]['LARGURA'] = $LARGURA;
+                    $_SESSION['PRO'][$ID]['ALTURA'] = $ALTURA;
+                    $_SESSION['PRO'][$ID]['COMPRIMENTO'] = $COMPRIMENTO;
                     $_SESSION['PRO'][$ID]['QTD'] = $QTD;
                     $_SESSION['PRO'][$ID]['IMG'] = $IMG;
                     $_SESSION['PRO'][$ID]['LINK'] = $LINK;

@@ -32,7 +32,7 @@
                                 Endereços</a>
                             <a class="nav-link" id="configuracoes-tab" data-toggle="pill" href="#configuracoes" role="tab" aria-controls="configuracoes" aria-selected="false">
                                 <i class="ti-settings mr-2"></i> Configurações</a>
-                            <a class="nav-link" href="{$LOGOFF}">Sair</a>
+                            <a class="nav-link" href="{$LOGOFF}"><i class="ti-power-off mr-2"></i> Sair</a>
                         </div>
                     </div>
                 </nav>
@@ -78,6 +78,9 @@
                                     {/foreach}
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="col">
+                            {$PAGINACAO}
                         </div>
                         {/if}
                     </div>

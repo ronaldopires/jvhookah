@@ -21,9 +21,9 @@
                 width="610" height="450" frameborder="0" style="border:0;" allowfullscreen="">
             
             </iframe>
-            <div class="icon">
+            <!-- <div class="icon">
                 <i class="fa fa-map-marker"></i>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
