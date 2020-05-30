@@ -11,7 +11,7 @@ if (!Login::Logado()) {
         $email = preg_replace("/[^[:alnum:]_.-@]/", '', $email);
 
         if($login->GetLogin($email, $senha)){ 
-            isset($_SESSION['PRO']) ? Rotas::Redirecionar(0, Rotas::pag_Shopping_Cart()) : Rotas::Redirecionar(0, Rotas::pag_Profile());
+            isset($_SESSION['PRO']) && !empty($_SESSION['PRO']) ?  Rotas::Redirecionar(0, Rotas::pag_Shopping_Cart()) : Rotas::Redirecionar(0, Rotas::pag_Profile());
         }
     }
 

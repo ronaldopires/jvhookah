@@ -43,6 +43,7 @@ class Login extends Conexao
             $_SESSION['CLI']['cli_complemento'] = $lista['cli_complemento'];
             $_SESSION['CLI']['cli_data_cad'] = $lista['cli_data_cad'];
             $_SESSION['CLI']['cli_hora_cad'] = $lista['cli_hora_cad'];
+            $_SESSION['CLI']['cli_foto'] = Rotas::ImageLinkProfile($lista['cli_foto'], 50, 50);
         
             return TRUE;
         } else {

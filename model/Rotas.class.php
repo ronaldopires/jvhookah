@@ -77,15 +77,26 @@ class Rotas
     }
     //Rotas de imagens internamente
     static function get_ImagePasta(){
-        return 'media/images/';
+        return 'media/images/produtos/';
+    }
+    static function get_ImagePastaProfile(){
+        return 'media/images/profile/';
     }
     //Rotas de imagens para hospedagem
     static function get_ImageURL(){
         return self::get_SiteHOME() . '/' . self::get_ImagePasta();
     }
+    static function get_ImageURLProfile(){
+        return self::get_SiteHOME() . '/' . self::get_ImagePastaProfile();
+    }
     //Rotas de imagens para redimencionar e chamar rota
     static function ImageLink($img, $largura, $altura){
         $imagem = self::get_ImageURL() . "thumb.php?src={$img}&w={$largura}&h={$altura}&zc=1";
+        return $imagem;
+    }
+    //Rotas de imagens para redimencionar e chamar rota
+    static function ImageLinkProfile($img, $largura, $altura){
+        $imagem = self::get_ImageURLProfile() . "thumb.php?src={$img}&w={$largura}&h={$altura}&zc=1";
         return $imagem;
     }
     //Rotas para redirecionar de página

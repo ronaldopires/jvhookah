@@ -31,8 +31,11 @@ class Pedidos extends Conexao
 
         if(($cliente != null) AND ($cliente > 0)){
             $cli = (int)$cliente;
-            $query .= " WHERE ped_cliente = {$cli} ORDER BY p.ped_data DESC";
+            $query .= " AND ped_cliente = {$cli} ORDER BY p.ped_data DESC";
         }
+
+        $query .= $this->PaginacaoLink("ped_id", $this->prefix."pedidos WHERE ped_cliente=" . (int)$cliente );
+
         
         $this->ExecuteSQL($query);
         $this->GetLista();

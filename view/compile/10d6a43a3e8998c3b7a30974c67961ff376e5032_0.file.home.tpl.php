@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-27 00:40:49
+/* Smarty version 3.1.36, created on 2020-05-27 20:09:37
   from 'C:\xampp\htdocs\jvhookah\view\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ecde141d07eb1_52898266',
+  'unifunc' => 'content_5ecef331c3e309_24515971',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d6a43a3e8998c3b7a30974c67961ff376e5032' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\home.tpl',
-      1 => 1590550848,
+      1 => 1590620976,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ecde141d07eb1_52898266 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ecef331c3e309_24515971 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
@@ -178,83 +178,14 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                             <div class="product-price">
                                 R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
 
-                                <!-- <span>R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
-</span> -->
+                                <span>R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
+</span>
                             </div>
                         </div>
                     </div>
                     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                    <!-- <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/women-2.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Shoes</div>
-                            <a href="#">
-                                <h5>Guangzhou sweater</h5>
-                            </a>
-                            <div class="product-price">
-                                $13.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/women-3.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
-                            <a href="#">
-                                <h5>Pure Pineapple</h5>
-                            </a>
-                            <div class="product-price">
-                                $34.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/women-4.jpg" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
-                            <a href="#">
-                                <h5>Converse Shoes</h5>
-                            </a>
-                            <div class="product-price">
-                                $34.00
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -420,49 +351,56 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </div>
 </section>
 <!-- Man Banner Section End -->
-
 <!-- Instagram Section Begin -->
+<div class="row no-gutters">
+    <div class="col-lg-12">
+        <div class="section-title">
+            <h2>Nosso Instagram</h2>
+            <a class="nav-link" href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a>
+        </div>
+    </div>
+</div>
 <div class="instagram-photo">
     <div class="insta-item set-bg" data-setbg="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/insta-1.jpg">
+/img/p1.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
+            <h5><a href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a></h5>
         </div>
     </div>
     <div class="insta-item set-bg" data-setbg="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/insta-2.jpg">
+/img/p2.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
+            <h5><a href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a></h5>
         </div>
     </div>
     <div class="insta-item set-bg" data-setbg="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/insta-3.jpg">
+/img/p3.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
+            <h5><a href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a></h5>
         </div>
     </div>
     <div class="insta-item set-bg" data-setbg="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/insta-4.jpg">
+/img/p4.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
+            <h5><a href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a></h5>
         </div>
     </div>
     <div class="insta-item set-bg" data-setbg="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/insta-5.jpg">
+/img/p5.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
+            <h5><a href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a></h5>
         </div>
     </div>
     <div class="insta-item set-bg" data-setbg="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/insta-6.jpg">
+/img/p6.jpg">
         <div class="inside-text">
             <i class="ti-instagram"></i>
-            <h5><a href="#">colorlib_Collection</a></h5>
+            <h5><a href="https://www.instagram.com/jvhookahlounge/" target="_blank">@jvhookahlounge</a></h5>
         </div>
     </div>
 </div>

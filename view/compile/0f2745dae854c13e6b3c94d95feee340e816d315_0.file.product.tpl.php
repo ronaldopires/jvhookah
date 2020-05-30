@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-26 22:43:30
+/* Smarty version 3.1.36, created on 2020-05-29 14:04:19
   from 'C:\xampp\htdocs\jvhookah\view\product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ecdc5c225bd64_90604159',
+  'unifunc' => 'content_5ed14093e511f6_32008677',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f2745dae854c13e6b3c94d95feee340e816d315' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\product.tpl',
-      1 => 1590543809,
+      1 => 1590771857,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ecdc5c225bd64_90604159 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed14093e511f6_32008677 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -53,7 +53,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="product-pic-zoom">
-                            <img class="product-big-img" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
+                            <img class="product-big-img" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_gg'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 ">
                             <div class="zoom-icon">
@@ -62,8 +62,8 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                         </div>
                         <div class="product-thumbs">
                             <div class="product-thumbs-track ps-slider owl-carousel">
-                                <div class="pt active" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
-"><img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
+                                <div class="pt active" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_gg'];?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_gg'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 "></div>
                                 <?php
@@ -72,8 +72,8 @@ $_smarty_tpl->tpl_vars['I']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['I']->value) {
 $_smarty_tpl->tpl_vars['I']->do_else = false;
 ?>
-                                <div class="pt" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['I']->value['img_nome'];?>
-"><img src="<?php echo $_smarty_tpl->tpl_vars['I']->value['img_nome'];?>
+                                <div class="pt" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['I']->value['img_nome_gg'];?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['I']->value['img_nome_gg'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 "></div>
                                 <?php
@@ -110,8 +110,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             <div class="pd-desc">
                                 <!-- <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor sit amet, consectetur adipisicing elit, sed do mod tempor</p> -->
                                 <h4>R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
-
-                                    <span>R$ 629.99</span>
+ <?php if ($_smarty_tpl->tpl_vars['P']->value['pro_desconto'] > 0) {?>
+                                    <span>R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor_us'];?>
+</span> <?php }?>
                                 </h4>
                             </div>
                             <div class="pd-size-choose">
@@ -140,7 +141,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
 " />
                                 <input type="hidden" name="acao" value="add" /> <?php if ($_smarty_tpl->tpl_vars['P']->value['pro_estoque'] == 0) {?>
-                                <button class="btn primary-btn pd-cart" disabled>Comprar</button> <span class="text-danger ml-5" style="line-height: 47px;">ESGOTADO</span><?php } else { ?>
+                                <div class="col">
+                                    <h3>Desculpe-nos</h3>
+                                    <p>Infelizmente não temos este produto em estoque</p>
+                                </div>
+                                <?php } else { ?>
                                 <button class="btn primary-btn pd-cart">Comprar</button> <?php }?>
                             </div>
                             </form>

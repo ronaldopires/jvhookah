@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-20 19:33:25
+/* Smarty version 3.1.36, created on 2020-05-28 20:22:36
   from 'C:\xampp\htdocs\jvhookah\view\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ec569e511fea0_14694160',
+  'unifunc' => 'content_5ed047bcadbf47_52281181',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'adc373154e181c74bd6aea353612e2ef1efbaf66' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\login.tpl',
-      1 => 1589995918,
+      1 => 1590708155,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec569e511fea0_14694160 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed047bcadbf47_52281181 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -51,7 +51,7 @@ function content_5ec569e511fea0_14694160 (Smarty_Internal_Template $_smarty_tpl)
                         </div>
                         <div class="group-input">
                             <label for="cli_senha">Senha *</label>
-                            <input type="password" name="cli_senha" id="cli_senha" required>
+                            <input type="password" name="cli_senha" id="cli_senha" required><i id="eye" class="fa fa-eye-slash"></i>
                         </div>
                         <div class="group-input gi-check">
                             <div class="gi-more">

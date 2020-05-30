@@ -3,6 +3,9 @@
 Class Conexao extends Config{
     private $host, $user, $senha, $banco;
     protected $obj, $itens = array(), $prefix;
+
+    public $paginacao_links, $total_paginas, $limite, $inicio;
+
     function __construct(){
         $this->host = self::BD_HOST;
         $this->user = self::BD_USER;
@@ -55,6 +58,56 @@ Class Conexao extends Config{
     //Faz uma verificação de itens
     function GetItens(){
         return $this->itens;
+    }
+    //Páginacao
+    function PaginacaoLink($campo, $tabela){
+        $pag = new Paginacao();
+        $pag->GetPaginacao($campo, $tabela);
+        $this->paginacao_links = $pag->link;
+        $this->total_paginas = $pag->total_paginas;
+        $this->limite = $pag->limite;
+        $this->inicio = $pag->inicio;
+
+        if($this->total_paginas > 0){
+            return " LIMIT {$this->inicio}, {$this->limite} ";
+        }else{
+            return "";
+        }
+    }
+    protected function Paginacao($paginas=array()){
+        if(isset($_GET['p'])){
+            $p_atual = $_GET['p'];
+        }else{
+            $p_atual = 1;
+        }
+        
+        $pag = '<nav aria-label="Navegação de página exemplo">';
+        $pag .= '<ul class="pagination justify-content-center">';
+        //Primeira página recebe sempre p=1
+        $pag .='<li class="page-item"><a class="page-link" href="?p=1">Primeira</a></li>';
+        //Anterior recebe p-1
+        $p_atual > 1 ? $pag .= '<li class="page-item" title="Anterior"><a class="page-link" href="?p='. ($p_atual - 1) .'" ><i class="ti-angle-double-left"></i></a></li>' : $this->inicio;
+        
+        //Páginas
+        foreach($paginas as $p){
+            if($p_atual == $p){
+                $pag .= '<li class="page-item active"><a class="page-link" href="?p='.$p.'">'. $p .'<span class="sr-only">(atual)</span></a></li>';
+            }else{
+                $pag .= '<li class="page-item"><a class="page-link" href="?p='.$p.'">'. $p .'</a></li>';
+            }
+        }
+        
+        $p_atual < $this->total_paginas ? $pag .='<li class="page-item" title="Avançar"><a class="page-link" href="?p='. ($p_atual + 1) .'"><i class="ti-angle-double-right"></i></a></li>' : $this->total_paginas ;
+        $pag .='<li class="page-item" title="Última"><a class="page-link" href="?p='.$this->total_paginas.'">Última</a></li>';
+        $pag .= '</ul></nav>';
+
+        if($this->total_paginas > 1) {
+            return $pag;
+        } 
+            
+    }
+    function MostrarPaginacao(){
+        return $this->Paginacao($this->paginacao_links);
     }
 
 }

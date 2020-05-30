@@ -19,7 +19,7 @@ if (isset($_SESSION['PRO']) && count($_SESSION['PRO']) > 0) {
 
     //Caso esteja logado adicionar o cep no calculo
     /* echo '<pre>';
-    var_dump($_SESSION['CLI']);
+    var_dump($_SESSION['PRO']);
     echo '</pre>'; */
 
     if (Login::Logado()) {

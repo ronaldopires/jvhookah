@@ -127,19 +127,26 @@
                             <form id="formCep" class="discount-coupon" action="{$PAG_CHECKOUT}" method="POST">
                                 <ul>
                                     <li class="subtotal">Subtotal <span>R$ {$TOTAL}</span></li>
-                                    <li class="subtotal cart-total">Frete <span><input type="button" name="btn-calc" class="site-btn coupon-btn" id="btnCep" required value=" A calcular" /></span></li>
-                                    <li class="" id="divCep">
+                                    <li class="subtotal cart-total">
+                                        <b style="line-height: 47px;">Frete</b> <span><input type="button" name="btn-calc" class="site-btn coupon-btn" id="btnCep" required value=" A calcular" /></span></li>
+                                    <li class="mt-3" id="divCep">
                                         <div class="form-group row no-gutters my-2 coupon-form">
-                                            <input type="hidden" name="peso_frete" id="peso_frete" value="2">
+                                            {foreach from=$PRO item=P}
+                                            <input type="hidden" name="peso_frete" id="peso_frete" value="{$PESO}">
+                                            <input type="hidden" name="largura_frete" id="largura_frete" value="{$P.pro_largura}">
+                                            <input type="hidden" name="altura_frete" id="altura_frete" value="{$P.pro_altura}">
+                                            <input type="hidden" name="comprimento_frete" id="comprimento_frete" value="{$P.pro_comprimento}"> {/foreach}
                                             <input type="hidden" name="frete_valor" id="frete_valor"> {if $LOGADO == true}
                                             <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" value="{$CEP}" required/> {else}
                                             <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" autofocus required/> {/if}
                                             <button type="button" id="btnCalcularCep" class="site-btn coupon-btn">Calcular</button>
                                         </div>
+                                    </li>
+                                    <li>
                                         <p class="float-left" id="message"></p>
                                     </li>
                                     <li class="subtotal" id="resultCep">
-                                        <span class="col" id="frete"></span>
+                                        <span id="frete"></span>
                                     </li>
                                     <li class="cart-total">Total <span>R$ {$TOTAL}</span></li>
                                 </ul>

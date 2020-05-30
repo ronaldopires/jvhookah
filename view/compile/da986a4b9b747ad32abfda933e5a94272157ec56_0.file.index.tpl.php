@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-27 00:38:24
+/* Smarty version 3.1.36, created on 2020-05-29 14:59:36
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ecde0b094b386_53870109',
+  'unifunc' => 'content_5ed14d8863cdd6_77326586',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1590550702,
+      1 => 1590775169,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ecde0b094b386_53870109 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed14d8863cdd6_77326586 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -32,6 +32,11 @@ function content_5ecde0b094b386_53870109 (Smarty_Internal_Template $_smarty_tpl)
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $_smarty_tpl->tpl_vars['TITULO_SITE']->value;?>
 </title>
+    <!--Favicon-->
+    <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/img/favicon.ico" type="image/x-icon">
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" />
@@ -154,8 +159,18 @@ function content_5ecde0b094b386_53870109 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="col-lg-3 text-right col-md-3">
                         <ul class="nav-right">
                             <?php if ($_smarty_tpl->tpl_vars['LOGADO']->value == TRUE) {?>
-                            <li class="text-left mr-4">Olá <?php echo $_smarty_tpl->tpl_vars['USER']->value;?>
- </li>
+                            <li class="text-left">
+                                <div class="row no-gutters" style="font-size: 14px;">
+                                    <div class="col">
+                                        <img class="img img-responsive img_profile" src="<?php echo $_smarty_tpl->tpl_vars['FOTO']->value;?>
+" alt="Foto Perfil" />
+                                    </div>
+                                    <div class="col ml-3">
+                                        <span style="line-height: 40px;"><?php echo $_smarty_tpl->tpl_vars['USER']->value;?>
+</span>
+                                    </div>
+                                </div>
+                            </li>
                             <?php }?>
                             <li class="heart-icon">
                                 <a href="<?php echo $_smarty_tpl->tpl_vars['FAVORITOS']->value;?>
@@ -217,8 +232,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
 </h5>
                                     </div>
                                     <div class="select-button">
-                                        <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
-" class="primary-btn view-card">VER PRODUTOS</a>
+                                        <!-- <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+" class="primary-btn view-card">VER PRODUTOS</a> -->
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_CART']->value;?>
 " class="primary-btn checkout-btn">FINALIZAR PEDIDO</a>
                                     </div>
@@ -240,7 +255,20 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                         <ul class="depart-hover">
                             <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
 ">Todos os Produtos</a></li>
-                            <li><a href="#">Men’s Clothing</a></li>
+                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['CATEGORIAS']->value, 'C');
+$_smarty_tpl->tpl_vars['C']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
+$_smarty_tpl->tpl_vars['C']->do_else = false;
+?>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+/sub_categoria/<?php echo $_smarty_tpl->tpl_vars['C']->value['sub_id'];?>
+/<?php echo $_smarty_tpl->tpl_vars['C']->value['sub_slug'];?>
+"><?php echo $_smarty_tpl->tpl_vars['C']->value['sub_nome'];?>
+</a></li>
+                            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </ul>
                     </div>
                 </div>
@@ -271,7 +299,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
 ">Perguntas Frequentes</a></li>
                                 <?php if ($_smarty_tpl->tpl_vars['LOGADO']->value == false) {?>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_REGISTER']->value;?>
-">Register</a></li>
+">Cadastre-se</a></li>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_LOGIN']->value;?>
 ">Login</a></li>
                                 <?php } else { ?>
@@ -335,12 +363,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                 <div class="col-lg-3">
                     <div class="footer-left">
                         <div class="footer-logo">
-                            <a href="#"><img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+                            <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /img/logo-carousel/jvhk2.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Endereço: Av. Maria Luiza Americano, 2806</li>
-                            <li>Phone: +55 11 94024-9845</li>
+                            <li>WhatsApp: +55 11 94024-9845</li>
                             <li>Email: hello.colorlib@gmail.com</li>
                         </ul>
                         <div class="footer-social">
@@ -359,7 +388,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_REGISTER']->value;?>
 ">Cadastre-se</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTACT']->value;?>
-">Contato</a></li>
+">Fale Conosco</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+">Produtos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -371,8 +402,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
 ">Meu Perfil</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_CART']->value;?>
 ">Meu Carrinho</a></li>
-                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
-">Produtos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -381,7 +410,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                         <h5>Inscreva-se na nossa newsletter agora</h5>
                         <p>Receba atualizações por e-mail sobre nossa loja mais recente e ofertas especiais.</p>
                         <form action="#" class="subscribe-form">
-                            <input type="email" placeholder="Coloque seu email">
+                            <input type="email" placeholder="Digite seu email">
                             <button type="button">Inscreva-se</button>
                         </form>
                     </div>
@@ -399,7 +428,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
 >
                                 document.write(new Date().getFullYear());
                             <?php echo '</script'; ?>
-> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+> All rights reserved | by <a href="https://github.com/ronaldopires" target="_blank">Ronaldo Carvalho</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="payment-pic">
@@ -412,7 +441,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
         </div>
     </footer>
     <!-- Footer Section End -->
+    <!-- Whatsapp contato-->
     <a href="https://api.whatsapp.com/send?phone=5511940249845" title="Entre em contato via WhatsApp" target="_blank" class="whatsFixo"><i class="fa fa-lg fa-whatsapp"></i></a>
+
+    <a href="#top"><i class="fa fa-angle-up"></i></a>
+
+
     <!-- Js Plugins -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>

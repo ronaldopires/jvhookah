@@ -33,11 +33,12 @@ class Categorias extends Conexao
     }
     public function GetMarcasProducts($id){
         //Buscar itens por marca
-        $query = "SELECT * FROM {$this->prefix}fabricantes f INNER JOIN {$this->prefix}produtos p ON f.fab_id = p.pro_fabricantes join {$this->prefix}categorias c on p.pro_categoria = c.cate_id join {$this->prefix}sub_categorias s on p.pro_sub_categoria = s.sub_id where fab_id = ".$id;
-        // $params = array(':id' => (int)$id);
-        echo $query ."<br>";
+        $query = " SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id INNER JOIN {$this->prefix}fabricantes f ON p.pro_fabricantes = f.fab_id AND pro_fabricantes = " . $id;
+        $query .= $this->PaginacaoLink("pro_fabricantes", $this->prefix."produtos WHERE pro_fabricantes = " . $id);
+        // echo $query . "<br>";
+        $params = array(':id' => (int)$id);
 
-        $this->ExecuteSQL($query);
+        $this->ExecuteSQL($query, $params);
         $this->GetListaMarcasProducts();
     }
 
@@ -72,19 +73,24 @@ class Categorias extends Conexao
                 'pro_largura' => $lista['pro_largura'],
                 'pro_altura' => $lista['pro_altura'],
                 'pro_comprimento' => $lista['pro_comprimento'],
-                'pro_img' => Rotas::ImageLink($lista['pro_img'], 500, 500),
                 'pro_img_p' => Rotas::ImageLink($lista['pro_img'], 150, 150),
+                'pro_img' => Rotas::ImageLink($lista['pro_img'], 500, 500),
+                'pro_img_g' => Rotas::ImageLink($lista['pro_img'], 700, 700),
+                'pro_img_gg' => Rotas::ImageLink($lista['pro_img'], 1200, 1200),
                 'pro_slug' => $lista['pro_slug'],
                 'pro_estoque' => $lista['pro_estoque'],
                 'pro_modelo' => $lista['pro_modelo'],
                 'pro_ref' => $lista['pro_ref'],
                 'pro_fabricante' => $lista['pro_fabricante'],
-                'pro_ativo' => $lista['pro_ativo'],
+                'pro_lancamento' => $lista['pro_lancamento'],
                 'pro_frete_free' => $lista['pro_frete_free'],
+                'pro_data_cad' => $lista['pro_data_cad'],
+                'pro_desconto' => $lista['pro_desconto'],
                 'cate_nome' => $lista['cate_nome'],
                 'cate_id' => $lista['cate_id'],
                 'sub_id' => $lista['sub_id'],
                 'sub_nome' => $lista['sub_nome'],
+                'sub_slug' => $lista['sub_slug']
             );
             $i++;
         endwhile;
@@ -101,7 +107,7 @@ class Categorias extends Conexao
                 'cate_nome' => $lista['cate_nome'],
                 'cate_slug' => $lista['cate_slug'],
                 'cate_img' => $lista['cate_img'],
-                'cate_link' => Rotas::pag_Produtos() . '/' . $lista['cate_id'] . '/' . $lista['cate_slug'],
+                'cate_link' => Rotas::pag_Produtos() . '\categoria/' . $lista['cate_id'] . '/' . $lista['cate_slug'],
             );
             $i++;
         endwhile;
@@ -114,10 +120,11 @@ class Categorias extends Conexao
             $this->itens[$i] = array(
                 'sub_id' => $lista['sub_id'],
                 'cate_id' => $lista['cate_id'],
+                'cate_nome' => $lista['cate_nome'],
                 'sub_nome' => $lista['sub_nome'],
                 'sub_slug' => $lista['sub_slug'],
                 'sub_img' => Rotas::ImageLink($lista['sub_img'], 1000, 1000),
-                'sub_link' => Rotas::pag_Produtos(). '/'.$lista['cate_id'] . '/' . $lista['cate_slug'] . '/' . $lista['sub_id'] . '/' . $lista['sub_slug'],
+                'sub_link' => Rotas::pag_Produtos(). '\sub_categoria/'.$lista['cate_id'] . '/' . $lista['cate_slug'] . '/' . $lista['sub_id'] . '/' . $lista['sub_slug'],
             );
             $i++;
         endwhile;

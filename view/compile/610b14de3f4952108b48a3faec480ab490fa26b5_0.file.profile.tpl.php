@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-26 17:25:12
+/* Smarty version 3.1.36, created on 2020-05-29 16:10:21
   from 'C:\xampp\htdocs\jvhookah\view\profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ecd7b28a87479_39217354',
+  'unifunc' => 'content_5ed15e1d406eb4_94360333',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '610b14de3f4952108b48a3faec480ab490fa26b5' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\profile.tpl',
-      1 => 1590524711,
+      1 => 1590779419,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ecd7b28a87479_39217354 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed15e1d406eb4_94360333 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -57,7 +57,7 @@ function content_5ecd7b28a87479_39217354 (Smarty_Internal_Template $_smarty_tpl)
                             <a class="nav-link" id="configuracoes-tab" data-toggle="pill" href="#configuracoes" role="tab" aria-controls="configuracoes" aria-selected="false">
                                 <i class="ti-settings mr-2"></i> Configurações</a>
                             <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['LOGOFF']->value;?>
-">Sair</a>
+"><i class="ti-power-off mr-2"></i> Sair</a>
                         </div>
                     </div>
                 </nav>
@@ -115,6 +115,10 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="col">
+                            <?php echo $_smarty_tpl->tpl_vars['PAGINACAO']->value;?>
+
                         </div>
                         <?php }?>
                     </div>

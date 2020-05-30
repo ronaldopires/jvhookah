@@ -247,6 +247,10 @@ if (Login::Logado() && !empty($_SESSION['CLI'])) {
     $smarty->assign('DETALHES_PEDIDOS', Rotas::pag_Order_Details());
     $smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
     $smarty->assign('LOGOFF', Rotas::pag_Logout());
+    $smarty->assign('PAGINACAO', $pedidos->MostrarPaginacao());
+
+
+
     $smarty->display('profile.tpl');
     
 } else {
