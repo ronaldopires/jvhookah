@@ -14,15 +14,15 @@ Class Conexao extends Config{
         $this->prefix = self::BD_PREFIX;
 
         try {
-            if($this->Conectar() == null){
-                $this->Conectar();
+            if($this->conectar() == null){
+                $this->conectar();
             }
         } catch (Exception $e) {
             exit($e->getMessage(). '<h2>Erro ao conectar com o banco de dados!</h2>');
         }
     }
-    //Conectar no banco
-    private function Conectar(){
+    //conectar no banco
+    private function conectar(){
         $options = array(
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", //Configura o banco para utf-8 
             PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING  
@@ -33,9 +33,9 @@ Class Conexao extends Config{
     }
     
     //Função para executar no banco
-    function ExecuteSQL($query, array $params = NULL){
+    function executeSql($query, array $params = NULL){
         //Prepare com o conectar vai executar a query e retornar o resultado num objeto
-        $this->obj = $this->Conectar()->prepare($query);
+        $this->obj = $this->conectar()->prepare($query);
         
         //Verifica os paramentros passados pela url
         $pkCount = (is_array($params) ? count($params) : 0);
@@ -48,21 +48,21 @@ Class Conexao extends Config{
     }
     
     //Mostrar o resultado da consulta com um array associativo
-    function ListarDados(){
+    function listarDados(){
         return $this->obj->fetch(PDO::FETCH_ASSOC);
     }
     //Executa um rowcount para verificar quantos objetos existem
-    function TotalDados(){
+    function totalDados(){
         return $this->obj->rowCount();
     }
     //Faz uma verificação de itens
-    function GetItens(){
+    function getItens(){
         return $this->itens;
     }
     //Páginacao
-    function PaginacaoLink($campo, $tabela){
+    function paginacaoLink($campo, $tabela){
         $pag = new Paginacao();
-        $pag->GetPaginacao($campo, $tabela);
+        $pag->getPaginacao($campo, $tabela);
         $this->paginacao_links = $pag->link;
         $this->total_paginas = $pag->total_paginas;
         $this->limite = $pag->limite;
@@ -74,7 +74,7 @@ Class Conexao extends Config{
             return "";
         }
     }
-    protected function Paginacao($paginas=array()){
+    protected function paginacao($paginas=array()){
         if(isset($_GET['p'])){
             $p_atual = $_GET['p'];
         }else{
@@ -106,8 +106,8 @@ Class Conexao extends Config{
         } 
             
     }
-    function MostrarPaginacao(){
-        return $this->Paginacao($this->paginacao_links);
+    function mostrarPaginacao(){
+        return $this->paginacao($this->paginacao_links);
     }
 
 }

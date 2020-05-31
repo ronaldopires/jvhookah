@@ -9,31 +9,31 @@ $categoria = 'categoria';;
 $sub_categoria = 'sub_categoria';
 if (isset(Rotas::$pag[1]) && Rotas::$pag[1] == $categoria) {
     $id = Rotas::$pag[2];
-    $produtos->GetProdutosCateID($id);
-    $smarty->assign('PRODUTOS', $produtos->GetItens());
-    $smarty->assign('PAGINAS', $produtos->MostrarPaginacao());
+    $produtos->getProdutosCateID($id);
+    $smarty->assign('PRODUTOS', $produtos->getItens());
+    $smarty->assign('PAGINAS', $produtos->mostrarPaginacao());
 
 } else if (isset(Rotas::$pag[1]) && Rotas::$pag[1] == $sub_categoria) {
     $id = Rotas::$pag[2];
-    $produtos->GetProdutosSubCateID($id);
-    $smarty->assign('PRODUTOS', $produtos->GetItens());
-    $smarty->assign('PAGINAS', $produtos->MostrarPaginacao());
+    $produtos->getProdutosSubCateID($id);
+    $smarty->assign('PRODUTOS', $produtos->getItens());
+    $smarty->assign('PAGINAS', $produtos->mostrarPaginacao());
 }else{
-    $produtos->GetProdutos();
-    $smarty->assign('PRODUTOS', $produtos->GetItens());
-    $smarty->assign('PAGINAS', $produtos->MostrarPaginacao());
+    $produtos->getProdutos();
+    $smarty->assign('PRODUTOS', $produtos->getItens());
+    $smarty->assign('PAGINAS', $produtos->mostrarPaginacao());
 
 }
 
 //Listando mais produtos
-if($produtos->TotalDados() < 1){
+if($produtos->totalDados() < 1){
     $listagem = new Produtos();
-    $listagem->GetProdutos();
-    $smarty->assign('MAIS_PRODUTOS', $listagem->GetItens());
-    $smarty->assign('ITENS', $produtos->TotalDados());
+    $listagem->getProdutos();
+    $smarty->assign('MAIS_PRODUTOS', $listagem->getItens());
+    $smarty->assign('ITENS', $produtos->totalDados());
 
 }else{
-    $smarty->assign('ITENS', $produtos->TotalDados());
+    $smarty->assign('ITENS', $produtos->totalDados());
 }
 
 $marca = new Categorias();
@@ -48,31 +48,31 @@ if (isset($_POST['opcoes'])) {
     switch ($_POST['opcoes']) {
         case 0:
             $opcao = 0;
-            $produtos->OrderByProducts($opcao);
+            $produtos->ordenarPro($opcao);
             break;
         case 1:
             $opcao = 1;
-            $produtos->OrderByProducts($opcao);
+            $produtos->ordenarPro($opcao);
             break;
         case 2:
             $opcao = 2;
-            $produtos->OrderByProducts($opcao);
+            $produtos->ordenarPro($opcao);
             break;
         case 3:
             $opcao = 3;
-            $produtos->OrderByProducts($opcao);
+            $produtos->ordenarPro($opcao);
             break;
         case 4:
             $opcao = 4;
-            $produtos->OrderByProducts($opcao);
+            $produtos->ordenarPro($opcao);
             break;
         case 5:
             $opcao = 5;
-            $produtos->OrderByProducts($opcao);
+            $produtos->ordenarPro($opcao);
             break;
     }
-    $smarty->assign('PRODUTOS', $produtos->GetItens());
-    $smarty->assign('PAGINAS', $produtos->MostrarPaginacao());
+    $smarty->assign('PRODUTOS', $produtos->getItens());
+    $smarty->assign('PAGINAS', $produtos->mostrarPaginacao());
 
 
 }
@@ -87,16 +87,16 @@ if (isset($_POST['checked'])) {
     $resultado = array();
     foreach($_POST['checked'] as $id){
         $filtro_marcas->GetMarcasProducts($id);
-        array_push($resultado, $filtro_marcas->GetItens());
+        array_push($resultado, $filtro_marcas->getItens());
                 
-        $smarty->assign('PRODUTOS', $filtro_marcas->GetItens());
+        $smarty->assign('PRODUTOS', $filtro_marcas->getItens());
     }
-    $smarty->assign('PAGINAS', $filtro_marcas->MostrarPaginacao());
+    $smarty->assign('PAGINAS', $filtro_marcas->mostrarPaginacao());
 }
 
 //FILTRO PREÇO
-$min = (int) $produtos->GetProdutosPriceMin()['MIN(pro_valor)'];
-$max = (int) $produtos->GetProdutosPriceMax()['MAX(pro_valor)'];
+$min = (int) $produtos->getProdutosPrecoMin()['MIN(pro_valor)'];
+$max = (int) $produtos->getProdutosPrecoMax()['MAX(pro_valor)'];
 if (isset($_POST['price_min']) and isset($_POST['price_min'])) {
 
     $price_min = $_POST['price_min'];
@@ -105,9 +105,9 @@ if (isset($_POST['price_min']) and isset($_POST['price_min'])) {
     $result_min = substr_replace($price_min, '', 0, 2);
     $result_max = substr_replace($price_max, '', 0, 2);
     $betweenProducts = new Produtos();
-    $betweenProducts->GetProdutosBetween($result_min, $result_max);
-    $smarty->assign('PRODUTOS', $betweenProducts->GetItens());
-    $smarty->assign('PAGINAS', $betweenProducts->MostrarPaginacao());
+    $betweenProducts->getProdutosBetween($result_min, $result_max);
+    $smarty->assign('PRODUTOS', $betweenProducts->getItens());
+    $smarty->assign('PAGINAS', $betweenProducts->mostrarPaginacao());
  
 }
 $smarty->assign('MIN', $min);
@@ -115,22 +115,19 @@ $smarty->assign('MAX', $max);
 
 
 
-if(isset($_SESSION['PROF'])){
-    $smarty->assign('ITENS_FAVORITOS', $_SESSION['PROF']);
+if(isset($_SESSION['FAVORITOS'])){
+    $smarty->assign('ITENS_FAVORITOS', $_SESSION['FAVORITOS']);
 }
 
 $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
-$smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
-$smarty->assign('PAG_REGISTER', Rotas::pag_Register());
-$smarty->assign('PRODUTOS_INFO', Rotas::pag_Shopping_Detail());
-$smarty->assign('GET_IMAGE', Rotas::get_ImagePasta());
-$smarty->assign('PAG_PRODUTOS', Rotas::pag_Produtos());
-$smarty->assign('FAVORITOS', Rotas::pag_Produtos_Favoritos());
-$smarty->assign('PAG_SHOP', Rotas::pag_Produtos());
-$smarty->assign('CATEGORIAS', $categorias->GetItens());
-$smarty->assign('SUB_CATEGORIAS', $sub_categorias->GetItens());
-$smarty->assign('MARCAS', $marca->Getitens());
-$smarty->assign('TOTAL', $produtos->TotalDados());
+$smarty->assign('PAG_HOME', Rotas::getSiteHome());
+$smarty->assign('PAG_DETALHES_PRODUTO', Rotas::pagDetalhesProduto());
+$smarty->assign('GET_IMAGE', Rotas::getImagePasta());
+$smarty->assign('PAG_PRODUTOS', Rotas::pagProdutos());
+$smarty->assign('FAVORITOS', Rotas::pagProdutosFavoritos());
+$smarty->assign('CATEGORIAS', $categorias->getItens());
+$smarty->assign('SUB_CATEGORIAS', $sub_categorias->getItens());
+$smarty->assign('MARCAS', $marca->getItens());
 
 
-$smarty->display('shop.tpl');
+$smarty->display('produtos.tpl');

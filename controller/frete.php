@@ -11,7 +11,7 @@ $comprimento = $_GET['comprimento_frete'];
 $frete = new Correios($destino, $peso,$largura, $altura, $comprimento);
 
 //chamo meu metodo para calcular
-$calc = $frete->Calcular();
+$calc = $frete->calcular();
 
 
 //verifica se foi calculado, se sim retorna xml , caso não, mostra erros

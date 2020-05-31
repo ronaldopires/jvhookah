@@ -4,7 +4,7 @@ class Config
 {
     //INFORMAÇÕES BÁSICAS DO SITE
     const SITE_URL = "http://localhost";
-    const SITE_PASTA = "jvhookah";
+    const SITE_PASTA = "jvhookah/";
     const SITE_NOME = "Jv Hookah";
     const SITE_EMAIL_ADM = "ronaldobondezica@gmail.com";
     const SITE_CEP = '08280090';

@@ -154,7 +154,7 @@
                                                         </div>
                                                     </td>
                                                     <td class="si-close">
-                                                        <form action="{$PAG_SHOPPING_ALTER}" method="post">
+                                                        <form action="{$PAG_ALTERAR_CARRINHO}" method="post">
                                                             <input type="hidden" name="pro_id" value="{$C.pro_id}">
                                                             <input type="hidden" name="acao" value="del">
                                                             <button class="btn"><i class="ti-close"></i></button>
@@ -173,7 +173,7 @@
                                     </div>
                                     <div class="select-button">
                                         <!-- <a href="{$PAG_SHOP}" class="primary-btn view-card">VER PRODUTOS</a> -->
-                                        <a href="{$PAG_SHOPPING_CART}" class="primary-btn checkout-btn">FINALIZAR PEDIDO</a>
+                                        <a href="{$PAG_CARRINHO}" class="primary-btn checkout-btn">FINALIZAR PEDIDO</a>
                                     </div>
                                 </div>
                             </li>
@@ -190,17 +190,17 @@
                         <i class="ti-menu"></i>
                         <span>Produtos</span>
                         <ul class="depart-hover">
-                            <li class="active"><a href="{$PAG_SHOP}">Todos os Produtos</a></li>
+                            <li class="active"><a href="{$PAG_PRODUTOS}">Todos os Produtos</a></li>
                             {foreach $CATEGORIAS item=C}
-                            <li><a href="{$PAG_SHOP}/sub_categoria/{$C.sub_id}/{$C.sub_slug}">{$C.sub_nome}</a></li>
+                            <li><a href="{$PAG_PRODUTOS}/sub_categoria/{$C.sub_id}/{$C.sub_slug}">{$C.sub_nome}</a></li>
                             {/foreach}
                         </ul>
                     </div>
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="{$PAG_HOME}">Home</a></li>
-                        <li><a href="{$PAG_SHOP}">Produtos</a></li>
+                        <li class=""><a href="{$PAG_HOME}">Home</a></li>
+                        <li><a href="{$PAG_PRODUTOS}">Produtos</a></li>
                         <li><a href="#">Collection</a>
                             <ul class="dropdown">
                                 <li><a href="#">Men's</a></li>
@@ -208,19 +208,19 @@
                                 <li><a href="#">Kid's</a></li>
                             </ul>
                         </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="{$PAG_CONTACT}">Contato</a></li>
+                        <li><a href="{$PAG_BLOG}">Blog</a></li>
+                        <li><a href="{$PAG_CONTATO}">Contato</a></li>
                         <li><a href="#">Páginas</a>
                             <ul class="dropdown">
-                                <li><a href="./blog-details.html">Blog</a></li>
-                                <li><a href="{$PAG_SHOPPING_CART}">Carrinho</a></li>
-                                <li><a href="{$PAG_CHECK_OUT}">Finalizar Pedido</a></li>
-                                <li><a href="{$PAG_FAQ}">Perguntas Frequentes</a></li>
+                                <li><a href="{$PAG_BLOG}">Blog</a></li>
+                                <li><a href="{$PAG_CARRINHO}">Carrinho</a></li>
+                                <li><a href="{$PAG_FINALIZAR_PEDIDO}">Finalizar Pedido</a></li>
+                                <li><a href="{$PAG_PERGUNTAS_FREQUENTES}">Perguntas Frequentes</a></li>
                                 {if $LOGADO == false}
-                                <li><a href="{$PAG_REGISTER}">Cadastre-se</a></li>
+                                <li><a href="{$PAG_CADASTRO}">Cadastre-se</a></li>
                                 <li><a href="{$PAG_LOGIN}">Login</a></li>
                                 {else}
-                                <li><a href="{$PAG_PROFILE}">Meu Perfil</a></li>
+                                <li><a href="{$PAG_PERFIL}">Meu Perfil</a></li>
                                 {/if}
                             </ul>
                         </li>
@@ -232,7 +232,7 @@
     </header>
     <!-- Header End -->
     <!--Rotas de páginas -->
-    {php} Rotas::get_Pagina(); {/php}
+    {php} Rotas::getPagina(); {/php}
     <!-- Partner Logo Section Begin -->
     <div class="partner-logo">
         <div class="container">
@@ -294,9 +294,9 @@
                         <h5>Informações</h5>
                         <ul>
                             <li><a href="#">Sobre</a></li>
-                            <li><a href="{$PAG_REGISTER}">Cadastre-se</a></li>
+                            <li><a href="{$PAG_CADASTRO}">Cadastre-se</a></li>
                             <li><a href="{$PAG_CONTACT}">Fale Conosco</a></li>
-                            <li><a href="{$PAG_SHOP}">Produtos</a></li>
+                            <li><a href="{$PAG_PRODUTOS}">Produtos</a></li>
                         </ul>
                     </div>
                 </div>

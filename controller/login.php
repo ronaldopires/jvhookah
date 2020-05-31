@@ -11,16 +11,16 @@ if (!Login::Logado()) {
         $email = preg_replace("/[^[:alnum:]_.-@]/", '', $email);
 
         if($login->GetLogin($email, $senha)){ 
-            isset($_SESSION['PRO']) && !empty($_SESSION['PRO']) ?  Rotas::Redirecionar(0, Rotas::pag_Shopping_Cart()) : Rotas::Redirecionar(0, Rotas::pag_Profile());
+            isset($_SESSION['CARRINHO']) && !empty($_SESSION['CARRINHO']) ?  Rotas::redirecionar(0, Rotas::pagCarrinho()) : Rotas::redirecionar(0, Rotas::pagMeuPerfil());
         }
     }
 
     $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
-    $smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
-    $smarty->assign('PAG_REGISTER', Rotas::pag_Register());
-    $smarty->assign('PASS_RESET', Rotas::pag_RecoveryPassword());
+    $smarty->assign('PAG_HOME', Rotas::getSiteHome());
+    $smarty->assign('PAG_CADASTRO', Rotas::pagCadastro());
+    $smarty->assign('PASS_RESET', Rotas::pagRecuperarSenha());
 
     $smarty->display('login.tpl');
 } else {
-    Rotas::Redirecionar(0, Rotas::pag_Profile());
+    Rotas::redirecionar(0, Rotas::pagMeuPerfil());
 }

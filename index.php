@@ -18,36 +18,36 @@ $categorias->GetSubCategorias();
 var_dump($categorias->GetItens());
 echo '</pre>'; */
 
-if (isset($_SESSION['PRO']) and !empty($_SESSION['PRO'])) {
+if (isset($_SESSION['CARRINHO']) and !empty($_SESSION['CARRINHO'])) {
     $total = 0;
     
-    foreach ($_SESSION['PRO'] as $lista) {
+    foreach ($_SESSION['CARRINHO'] as $lista) {
         $qtd = $lista['QTD'];
         $total = $total + $qtd;
     }
     $carrinho = new Carrinho();
     $smarty->assign('CARRINHO', $carrinho->GetCarrinho());
-    $smarty->assign('VALOR_TOTAL', Sistema::MoedaBR($carrinho->GetTotal()));
+    $smarty->assign('VALOR_TOTAL', Sistema::moedaBr($carrinho->GetTotal()));
     $smarty->assign('ITENS_CARRINHO', $total);
-    $smarty->assign('PAG_SHOPPING_ALTER', Rotas::pag_Shopping_Alter());
+    $smarty->assign('PAG_CARRINHO', Rotas::pagCarrinho());
 } else {
     $smarty->assign('CARRINHO', false);
-    $smarty->assign('VALOR_TOTAL', Sistema::MoedaBR(0));
+    $smarty->assign('VALOR_TOTAL', Sistema::moedaBr(0));
     $smarty->assign('ITENS_CARRINHO', 0);
 }
 if (Login::Logado()) {
     $smarty->assign('LOGADO', true);
     $smarty->assign('USER', $_SESSION['CLI']['cli_nome']);
-    $smarty->assign('PAG_LOGOUT', Rotas::pag_Logout());
+    $smarty->assign('PAG_LOGOUT', Rotas::pagLogout());
     $smarty->assign('FOTO', $_SESSION['CLI']['cli_foto']);
 } else {
     $smarty->assign('LOGADO', false);
     $smarty->assign('USER', '');
-    $smarty->assign('PAG_LOGIN', Rotas::pag_Login());
+    $smarty->assign('PAG_LOGIN', Rotas::pagLogin());
 }
-if(isset($_SESSION['PROF'])){
+if(isset($_SESSION['FAVORITOS'])){
     $total = 0;
-    foreach($_SESSION['PROF'] as $lista){
+    foreach($_SESSION['FAVORITOS'] as $lista){
         $qtd = $lista['QTD_FAVORITOS'];
         $total = $total + $qtd;
     }
@@ -56,20 +56,23 @@ if(isset($_SESSION['PROF'])){
     $smarty->assign('ITENS_FAVORITOS', 0);
 }
 
+
+
 //Valores chaves para o template
-$smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
-$smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
-$smarty->assign('PAG_SHOP', Rotas::pag_Produtos());
-$smarty->assign('PAG_SHOPPING_CART', Rotas::pag_Shopping_Cart());
-$smarty->assign('PAG_SHOPPING_DETAIL', Rotas::pag_Shopping_Detail());
-$smarty->assign('PAG_CONTACT', Rotas::pag_Contact());
-$smarty->assign('FAVORITOS', Rotas::pag_Produtos_Favoritos());
-$smarty->assign('PAG_REGISTER', Rotas::pag_Register());
-$smarty->assign('PAG_CHECK_OUT', Rotas::pag_Check_Out());
-$smarty->assign('PAG_FAQ', Rotas::pag_Faq());
+$smarty->assign('PAG_HOME', Rotas::getSiteHome());
+$smarty->assign('PAG_PRODUTOS', Rotas::pagProdutos());
+$smarty->assign('PAG_CARRINHO', Rotas::pagCarrinho());
+$smarty->assign('PAG_ALTERAR_CARRINHO', Rotas::pagAlterarCarrinho());
+$smarty->assign('PAG_CONTATO', Rotas::pagContato());
+$smarty->assign('PAG_CADASTRO', Rotas::pagCadastro());
+$smarty->assign('PAG_FINALIZAR_PEDIDO', Rotas::pagFinalizarPedido());
+$smarty->assign('PAG_PERGUNTAS_FREQUENTES', Rotas::pagPerguntasFrequentes());
+$smarty->assign('PAG_LOGOUT', Rotas::pagLogout());
+$smarty->assign('PAG_PERFIL', Rotas::pagMeuPerfil());
+$smarty->assign('PAG_BLOG', Rotas::pagBlog());
 $smarty->assign('TITULO_SITE', Config::SITE_NOME);
-$smarty->assign('PAG_LOGOUT', Rotas::pag_Logout());
-$smarty->assign('PAG_PROFILE', Rotas::pag_Profile());
-$smarty->assign('CATEGORIAS', $categorias->GetItens());
+$smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
+$smarty->assign('FAVORITOS', Rotas::pagProdutosFavoritos());
+$smarty->assign('CATEGORIAS', $categorias->getItens());
 
 $smarty->display('index.tpl');

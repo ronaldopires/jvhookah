@@ -6,24 +6,24 @@ $produtos = new Produtos();
 if (isset($_POST['pro_id_favorito'])) {
     $id = $_POST['pro_id_favorito'];
 
-    $produtos->Favoritos($id);
+    $produtos->favoritos($id);
 }
-if (isset($_SESSION['PROF']) && !empty($_SESSION['PROF'])) {
+if (isset($_SESSION['FAVORITOS']) && !empty($_SESSION['FAVORITOS'])) {
 
     /* echo '<pre>';
-    var_dump($_SESSION['PROF']);
+    var_dump($_SESSION['FAVORITOS']);
     echo '</pre>'; */
 
     
     if(isset($_POST['removerFavorito'])){
-        unset($_SESSION['PROF'][$_POST['pro_id']]);        
-        Rotas::Redirecionar(0, Rotas::pag_Produtos_Favoritos());
+        unset($_SESSION['FAVORITOS'][$_POST['pro_id']]);        
+        Rotas::redirecionar(0, Rotas::pagProdutosFavoritos());
     }
 
 
 
-    $smarty->assign('FAVORITOS', $_SESSION['PROF']);
-    $smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
+    $smarty->assign('FAVORITOS', $_SESSION['FAVORITOS']);
+    $smarty->assign('PAG_HOME', Rotas::getSiteHome());
     $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
 
 

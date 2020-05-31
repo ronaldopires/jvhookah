@@ -3,10 +3,10 @@
 class Paginacao extends Conexao {
     public $limite, $inicio, $total_paginas, $link = array();
 
-    function GetPaginacao($campo, $tabela){
+    function getPaginacao($campo, $tabela){
         $query = " SELECT {$campo} FROM {$tabela} ";
-        $this->ExecuteSQL($query);
-        $total_itens = $this->TotalDados();
+        $this->executeSql($query);
+        $total_itens = $this->totalDados();
         $this->limite = Config::BD_LIMIT_PAG;
         $paginas = ceil($total_itens / $this->limite);
 

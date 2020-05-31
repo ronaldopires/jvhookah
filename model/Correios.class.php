@@ -58,7 +58,7 @@ class Correios
     /**
      * faz a verificação e calculo do frete
      **/
-    public function Calcular()
+    public function calcular()
     {
                 
         $cURL = curl_init(sprintf(

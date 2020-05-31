@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-29 13:58:32
+/* Smarty version 3.1.36, created on 2020-05-30 21:49:10
   from 'C:\xampp\htdocs\jvhookah\view\shopping-cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed13f38881a23_60063752',
+  'unifunc' => 'content_5ed2ff06345ed6_04446086',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ebe5ddbe51ca78ea7d2d0c66270fccbd84a44eb7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\shopping-cart.tpl',
-      1 => 1590771403,
+      1 => 1590886149,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed13f38881a23_60063752 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed2ff06345ed6_04446086 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -31,7 +31,7 @@ function content_5ed13f38881a23_60063752 (Smarty_Internal_Template $_smarty_tpl)
 "><i class="fa fa-home"></i> Home</a>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
 ">Produtos</a>
-                    <span>Fechar Pedido</span>
+                    <span>Meu Carrinho</span>
                 </div>
             </div>
         </div>
@@ -169,7 +169,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="cart-buttons">
-                            <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+                            <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
 " class="primary-btn continue-shop">Continue Comprando</a>
                             <!-- <a href="#" class="primary-btn up-cart">Atualizar Carrinho</a> -->
                         </div>
@@ -210,9 +210,9 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                             <input type="hidden" name="frete_valor" id="frete_valor"> <?php if ($_smarty_tpl->tpl_vars['LOGADO']->value == true) {?>
-                                            <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" value="<?php echo $_smarty_tpl->tpl_vars['CEP']->value;?>
+                                            <input type="number" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" value="<?php echo $_smarty_tpl->tpl_vars['CEP']->value;?>
 " required/> <?php } else { ?>
-                                            <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" autofocus required/> <?php }?>
+                                            <input type="number" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" autofocus required/> <?php }?>
                                             <button type="button" id="btnCalcularCep" class="site-btn coupon-btn">Calcular</button>
                                         </div>
                                     </li>

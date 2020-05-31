@@ -7,25 +7,23 @@ class Sistema
      *
      * @return String: data atual fotmato BR
      */
-    public static function DataAtualBR()
+    public static function dataAtualBr()
     {
-
         return date('d/m/Y');
     }
     /**
      *
      * @return String: data atual US (formato MYSQL)
      */
-    public static function DataAtualUS()
+    public static function dataAtualUs()
     {
-
         return date('Y-m-d');
     }
     /**
      *
      * @return string: hora atual, hora , minuto e segundo
      */
-    public static function HoraAtual()
+    public static function horaAtual()
     {
 
         return date('H:i:s');
@@ -36,7 +34,7 @@ class Sistema
      * @param type $valor
      * @return float - valor formatado em REal
      */
-    public static function MoedaBR($valor)
+    public static function moedaBr($valor)
     {
         // 500.99   500,99    1500.99  1.500,99
         return number_format($valor, 2, ",", ".");
@@ -46,7 +44,7 @@ class Sistema
      * @param string pega data americana e deixa em BR
      * @return string
      */
-    public static function Fdata($data)
+    public static function formatarData($data)
     {
         // 2017-04-23 23/04/2017
         $data_correta = explode("-", $data);
@@ -59,7 +57,7 @@ class Sistema
      * @param type int: tamanho da senha
      * @return string: senha randonica
      */
-    public static function GerarSenha()
+    public static function gerarSenha()
     {
         //2      // fe45214qa  mqws23ma  0o z b
         $tamanho = 1;
@@ -89,7 +87,7 @@ class Sistema
      * @param type string: CPF
      * @return boolean: true caso o CPF seja correto
      */
-    public static function ValidarCPF($cpf = false)
+    public static function validarCpf($cpf = false)
     {
         // determina um valor inicial para o digito $d1 e $d2
         $d1 = 0;
@@ -144,7 +142,7 @@ class Sistema
      *
      * @return string - IP do usuario
      */
-    public static function GetIp()
+    public static function getIp()
     {
 
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -163,7 +161,7 @@ class Sistema
     /**
      * mostra botão voltar com java script
      */
-    public static function VoltarPagina()
+    public static function voltarPagina()
     {
 
         echo '<script> function goBack() {
@@ -202,14 +200,14 @@ class Sistema
      * @param string $valor original
      * @return string valor criptografado
      */
-    public static function Criptografia($valor)
+    public static function criptografia($valor)
     {
 
         return hash('SHA512', $valor);
 
     }
 
-    public function ValidarCEP($cep)
+    public function validarCep($cep)
     {
         // retira espacos em branco
         $cep = trim($cep);
@@ -219,7 +217,7 @@ class Sistema
         // verifica o resultado
         if (!$avaliaCep) {
             echo "CEP invalido";
-        } 
+        }
         return $avaliaCep;
     }
 

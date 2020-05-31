@@ -14,69 +14,69 @@ class Categorias extends Conexao
     {
         //Buscar itens por categoria
         $query = "SELECT * FROM {$this->prefix}categorias ";
-        $this->ExecuteSQL($query);
+        $this->executeSql($query);
         $this->GetLista();
     }
     public function GetSubCategorias()
     {
         //Buscar itens por categoria
         $query = "SELECT * FROM {$this->prefix}sub_categorias s INNER JOIN {$this->prefix}categorias c ON s.cate_id = c.cate_id ";
-        $this->ExecuteSQL($query);
+        $this->executeSql($query);
         $this->GetListaSub();
     }
 
     public function GetMarcas(){
         //Buscar itens por marca
         $query = "SELECT * FROM {$this->prefix}fabricantes ";
-        $this->ExecuteSQL($query);
+        $this->executeSql($query);
         $this->GetListaMarcas();
     }
     public function GetMarcasProducts($id){
         //Buscar itens por marca
         $query = " SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id INNER JOIN {$this->prefix}fabricantes f ON p.pro_fabricantes = f.fab_id AND pro_fabricantes = " . $id;
-        $query .= $this->PaginacaoLink("pro_fabricantes", $this->prefix."produtos WHERE pro_fabricantes = " . $id);
+        $query .= $this->paginacaoLink("pro_fabricantes", $this->prefix."produtos WHERE pro_fabricantes = " . $id);
         // echo $query . "<br>";
         $params = array(':id' => (int)$id);
 
-        $this->ExecuteSQL($query, $params);
+        $this->executeSql($query, $params);
         $this->GetListaMarcasProducts();
     }
 
     private function GetListaMarcas(){
         $i = 1;
-        while ($lista = $this->ListarDados()):
+        while ($lista = $this->listarDados()):
             $this->itens[$i] = array(
                 'fab_id' => $lista['fab_id'],
                 'fab_nome' => $lista['fab_nome'],
                 'fab_slug' => $lista['fab_slug'],
-                'fab_link' => Rotas::pag_Produtos() . '/' . $lista['fab_id'] . '/' .  $lista['fab_slug']
+                'fab_link' => Rotas::pagProdutos() . '/' . $lista['fab_id'] . '/' .  $lista['fab_slug']
             );
             $i++;
         endwhile;
     }
     private function GetListaMarcasProducts(){
         $i = 1;
-        while ($lista = $this->ListarDados()):
+        while ($lista = $this->listarDados()):
             $this->itens[$i] = array(
                 'fab_id' => $lista['fab_id'],
                 'fab_nome' => $lista['fab_nome'],
                 'fab_slug' => $lista['fab_slug'],
-                'fab_link' => Rotas::pag_Produtos() . '/' . $lista['fab_id'] . '/' .  $lista['fab_slug'],
+                'fab_link' => Rotas::pagProdutos() . '/' . $lista['fab_id'] . '/' .  $lista['fab_slug'],
                 'pro_id' => $lista['pro_id'],
                 'pro_nome' => $lista['pro_nome'],
                 'pro_desc' => $lista['pro_desc'],
                 'pro_peso' => $lista['pro_peso'],
                 'pro_cor' => $lista['pro_cor'],
-                'pro_valor' => Sistema::MoedaBR($lista['pro_valor']),
+                'pro_valor' => Sistema::moedaBr($lista['pro_valor']),
                 'pro_valor_us' => $lista['pro_valor'],
                 'pro_tamanho' => $lista['pro_tamanho'],
                 'pro_largura' => $lista['pro_largura'],
                 'pro_altura' => $lista['pro_altura'],
                 'pro_comprimento' => $lista['pro_comprimento'],
-                'pro_img_p' => Rotas::ImageLink($lista['pro_img'], 150, 150),
-                'pro_img' => Rotas::ImageLink($lista['pro_img'], 500, 500),
-                'pro_img_g' => Rotas::ImageLink($lista['pro_img'], 700, 700),
-                'pro_img_gg' => Rotas::ImageLink($lista['pro_img'], 1200, 1200),
+                'pro_img_p' => Rotas::imageLink($lista['pro_img'], 150, 150),
+                'pro_img' => Rotas::imageLink($lista['pro_img'], 500, 500),
+                'pro_img_g' => Rotas::imageLink($lista['pro_img'], 700, 700),
+                'pro_img_gg' => Rotas::imageLink($lista['pro_img'], 1200, 1200),
                 'pro_slug' => $lista['pro_slug'],
                 'pro_estoque' => $lista['pro_estoque'],
                 'pro_modelo' => $lista['pro_modelo'],
@@ -101,13 +101,13 @@ class Categorias extends Conexao
     private function GetLista()
     {
         $i = 1;
-        while ($lista = $this->ListarDados()):
+        while ($lista = $this->listarDados()):
             $this->itens[$i] = array(
                 'cate_id' => $lista['cate_id'],
                 'cate_nome' => $lista['cate_nome'],
                 'cate_slug' => $lista['cate_slug'],
                 'cate_img' => $lista['cate_img'],
-                'cate_link' => Rotas::pag_Produtos() . '\categoria/' . $lista['cate_id'] . '/' . $lista['cate_slug'],
+                'cate_link' => Rotas::pagProdutos() . '\categoria/' . $lista['cate_id'] . '/' . $lista['cate_slug'],
             );
             $i++;
         endwhile;
@@ -116,15 +116,15 @@ class Categorias extends Conexao
     private function GetListaSub()
     {
         $i = 1;
-        while ($lista = $this->ListarDados()):
+        while ($lista = $this->listarDados()):
             $this->itens[$i] = array(
                 'sub_id' => $lista['sub_id'],
                 'cate_id' => $lista['cate_id'],
                 'cate_nome' => $lista['cate_nome'],
                 'sub_nome' => $lista['sub_nome'],
                 'sub_slug' => $lista['sub_slug'],
-                'sub_img' => Rotas::ImageLink($lista['sub_img'], 1000, 1000),
-                'sub_link' => Rotas::pag_Produtos(). '\sub_categoria/'.$lista['cate_id'] . '/' . $lista['cate_slug'] . '/' . $lista['sub_id'] . '/' . $lista['sub_slug'],
+                'sub_img' => Rotas::imageLink($lista['sub_img'], 1000, 1000),
+                'sub_link' => Rotas::pagProdutos(). '\sub_categoria/'.$lista['cate_id'] . '/' . $lista['cate_slug'] . '/' . $lista['sub_id'] . '/' . $lista['sub_slug'],
             );
             $i++;
         endwhile;

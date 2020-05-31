@@ -42,7 +42,7 @@
                         <button type="submit" class="site-btn login-btn">Entrar</button>
                     </form>
                     <div class="switch-login">
-                        <a href="{$PAG_REGISTER}" class="or-login">Cadastre-se</a>
+                        <a href="{$PAG_CADASTRO}" class="or-login">Cadastre-se</a>
                     </div>
                 </div>
             </div>
