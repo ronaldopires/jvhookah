@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-29 14:59:36
+/* Smarty version 3.1.36, created on 2020-05-31 11:17:42
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed14d8863cdd6_77326586',
+  'unifunc' => 'content_5ed3bc86ba1fd4_39013990',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1590775169,
+      1 => 1590934661,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed14d8863cdd6_77326586 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed3bc86ba1fd4_39013990 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -209,7 +209,7 @@ $_smarty_tpl->tpl_vars['C']->do_else = false;
                                                         </div>
                                                     </td>
                                                     <td class="si-close">
-                                                        <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_ALTER']->value;?>
+                                                        <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_ALTERAR_CARRINHO']->value;?>
 " method="post">
                                                             <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_id'];?>
 ">
@@ -234,7 +234,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                                     <div class="select-button">
                                         <!-- <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
 " class="primary-btn view-card">VER PRODUTOS</a> -->
-                                        <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_CART']->value;?>
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CARRINHO']->value;?>
 " class="primary-btn checkout-btn">FINALIZAR PEDIDO</a>
                                     </div>
                                 </div>
@@ -253,7 +253,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                         <i class="ti-menu"></i>
                         <span>Produtos</span>
                         <ul class="depart-hover">
-                            <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+                            <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
 ">Todos os Produtos</a></li>
                             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['CATEGORIAS']->value, 'C');
@@ -261,7 +261,7 @@ $_smarty_tpl->tpl_vars['C']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
 $_smarty_tpl->tpl_vars['C']->do_else = false;
 ?>
-                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
 /sub_categoria/<?php echo $_smarty_tpl->tpl_vars['C']->value['sub_id'];?>
 /<?php echo $_smarty_tpl->tpl_vars['C']->value['sub_slug'];?>
 "><?php echo $_smarty_tpl->tpl_vars['C']->value['sub_nome'];?>
@@ -274,9 +274,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
+                        <li class=""><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
 ">Home</a></li>
-                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
 ">Produtos</a></li>
                         <li><a href="#">Collection</a>
                             <ul class="dropdown">
@@ -285,25 +285,27 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 <li><a href="#">Kid's</a></li>
                             </ul>
                         </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTACT']->value;?>
+                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_BLOG']->value;?>
+">Blog</a></li>
+                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTATO']->value;?>
 ">Contato</a></li>
                         <li><a href="#">Páginas</a>
                             <ul class="dropdown">
-                                <li><a href="./blog-details.html">Blog</a></li>
-                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_CART']->value;?>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_BLOG']->value;?>
+">Blog</a></li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CARRINHO']->value;?>
 ">Carrinho</a></li>
-                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CHECK_OUT']->value;?>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_FINALIZAR_PEDIDO']->value;?>
 ">Finalizar Pedido</a></li>
-                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_FAQ']->value;?>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PERGUNTAS_FREQUENTES']->value;?>
 ">Perguntas Frequentes</a></li>
                                 <?php if ($_smarty_tpl->tpl_vars['LOGADO']->value == false) {?>
-                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_REGISTER']->value;?>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CADASTRO']->value;?>
 ">Cadastre-se</a></li>
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_LOGIN']->value;?>
 ">Login</a></li>
                                 <?php } else { ?>
-                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PROFILE']->value;?>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PERFIL']->value;?>
 ">Meu Perfil</a></li>
                                 <?php }?>
                             </ul>
@@ -316,7 +318,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </header>
     <!-- Header End -->
     <!--Rotas de páginas -->
-    <?php  Rotas::get_Pagina(); ?>
+    <?php  Rotas::getPagina(); ?>
     <!-- Partner Logo Section Begin -->
     <div class="partner-logo">
         <div class="container">
@@ -385,11 +387,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         <h5>Informações</h5>
                         <ul>
                             <li><a href="#">Sobre</a></li>
-                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_REGISTER']->value;?>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CADASTRO']->value;?>
 ">Cadastre-se</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTACT']->value;?>
 ">Fale Conosco</a></li>
-                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
 ">Produtos</a></li>
                         </ul>
                     </div>

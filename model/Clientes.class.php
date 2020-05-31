@@ -104,14 +104,14 @@ class Clientes extends Conexao
     {
         $query = " SELECT * FROM {$this->prefix}clientes ";
 
-        $this->ExecuteSQL($query);
+        $this->executeSql($query);
         $this->GetLista();
     }
 
     public function GetClientesMonth($mes)
     {
         $query = " SELECT * FROM {$this->prefix}clientes WHERE month(cli_data_cad) = '$mes'";
-        $this->ExecuteSQL($query);
+        $this->executeSql($query);
     }
 
     /**
@@ -127,7 +127,7 @@ class Clientes extends Conexao
         // passo parametros
         $params = array(':id' => (int) $id);
         //executo a SQL
-        $this->ExecuteSQL($query, $params);
+        $this->executeSql($query, $params);
         // chamo a listagem
         $this->GetLista();
     }
@@ -139,7 +139,7 @@ class Clientes extends Conexao
     {
 
         $i = 1;
-        while ($lista = $this->ListarDados()):
+        while ($lista = $this->listarDados()):
 
             $this->itens[$i] = array(
 
@@ -147,7 +147,7 @@ class Clientes extends Conexao
                 'cli_nome' => $lista['cli_nome'],
                 'cli_sobrenome' => $lista['cli_sobrenome'],
                 'cli_cpf' => $lista['cli_cpf'],
-                'cli_data_nasc' => Sistema::Fdata($lista['cli_data_nasc']),
+                'cli_data_nasc' => Sistema::formatarData($lista['cli_data_nasc']),
                 'cli_sexo' => $lista['cli_sexo'],
                 'cli_celular' => $lista['cli_celular'],
                 'cli_telefone' => $lista['cli_telefone'],
@@ -161,7 +161,7 @@ class Clientes extends Conexao
                 'cli_uf' => $lista['cli_uf'],
                 'cli_complemento' => $lista['cli_complemento'],
                 'cli_hora_cad' => $lista['cli_hora_cad'],
-                'cli_data_cad' => Sistema::Fdata($lista['cli_data_cad']),
+                'cli_data_cad' => Sistema::formatarData($lista['cli_data_cad']),
 
             );
 
@@ -174,12 +174,12 @@ class Clientes extends Conexao
     {
         if ($this->GetClienteCPF($this->getCli_cpf()) > 0) {
             echo '<div class="alert alert-danger text-center cli_telefone" id="mostrar_erro"> Este CPF já existe </div>';
-            Rotas::Redirecionar(2, Rotas::pag_Login());
+            Rotas::redirecionar(2, Rotas::pagLogin());
             exit();
         }
         if ($this->GetClienteEmail($this->getCli_email()) > 0) {
             echo '<div class="alert alert-danger text-center" id="mostrar_erro"> Este E-mail já existe </div>';
-            Rotas::Redirecionar(2, Rotas::pag_Login());
+            Rotas::redirecionar(2, Rotas::pagLogin());
             exit();
         }
         //query para inserir clientes
@@ -207,7 +207,7 @@ class Clientes extends Conexao
             ':cli_hora_cad' => $this->getCli_hora_cad(),
         );
     
-        $this->ExecuteSQL($query, $params);
+        $this->executeSql($query, $params);
     }
 
     //Metodo para editar os dados do cliente
@@ -228,7 +228,7 @@ class Clientes extends Conexao
             ':cli_id' => (int) $id
         );
 
-        if ($this->ExecuteSQL($query, $params)):
+        if ($this->executeSql($query, $params)):
             return true;
         else:
             return false;
@@ -252,7 +252,7 @@ class Clientes extends Conexao
             ':cli_id' => (int) $id
         );
 
-        if ($this->ExecuteSQL($query, $params)):
+        if ($this->executeSql($query, $params)):
             return true;
         else:
             return false;
@@ -264,14 +264,14 @@ class Clientes extends Conexao
         // verifico se ja tem este CPF no banco
         if ($this->GetClienteCPF($this->getCli_cpf()) > 0 && $this->getCli_cpf() != $_REQUEST['cli_cpf']):
             echo '<div class="alert alert-danger " id="erro_mostrar"> Este CPF já esta cadastrado ';
-            Sistema::VoltarPagina();
+            Sistema::voltarPagina();
             echo '</div>';
             exit();
         endif;
         // verifica se o email já esta cadstrado
         if ($this->GetClienteEmail($this->getCli_email()) > 0 && $this->getCli_email() != $_REQUEST['cli_email']):
             echo '<div class="alert alert-danger " id="erro_mostrar"> Este Email já esta cadastrado ';
-            Sistema::VoltarPagina();
+            Sistema::voltarPagina();
             echo '</div>';
             exit();
         endif;
@@ -302,7 +302,7 @@ class Clientes extends Conexao
 
         );
 
-        if ($this->ExecuteSQL($query, $params)):
+        if ($this->executeSql($query, $params)):
             return true;
         else:
             return false;
@@ -314,18 +314,18 @@ class Clientes extends Conexao
     {
         $query = "SELECT * FROM {$this->prefix}clientes WHERE cli_cpf = :cpf";
         $params = array(':cpf' => $cpf);
-        $this->ExecuteSQL($query, $params);
-        return $this->TotalDados();
+        $this->executeSql($query, $params);
+        return $this->totalDados();
     }
     //Procura pelo e-mail do cliente para resetar senha
     public function GetClienteEmail($email)
     {
         $query = "SELECT * FROM {$this->prefix}clientes WHERE cli_email = :email";
         $params = array(':email' => $email);
-        $this->ExecuteSQL($query, $params);
+        $this->executeSql($query, $params);
         
-        if($this->TotalDados() > 0){
-            $lista = $this->ListarDados();
+        if($this->totalDados() > 0){
+            $lista = $this->listarDados();
 
             $id = $lista['cli_id'];
             $senha = $lista['cli_senha'];
@@ -343,10 +343,10 @@ class Clientes extends Conexao
         
         $query = "SELECT * FROM {$this->prefix}clientes WHERE cli_email = :email";
         $params = array(':email' => $email);
-        $this->ExecuteSQL($query, $params);
+        $this->executeSql($query, $params);
         
-        if($this->TotalDados() > 0){
-            $lista = $this->ListarDados();
+        if($this->totalDados() > 0){
+            $lista = $this->listarDados();
 
             $id = $lista['cli_id'];
             $senha = $lista['cli_senha'];
@@ -364,7 +364,7 @@ class Clientes extends Conexao
                     <p>Solicitar novo reset de senha</p>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button></div>' . Rotas::Redirecionar(2, Rotas::pag_Login());
+                    </button></div>' . Rotas::redirecionar(2, Rotas::pagLogin());
                     exit();
             }
         }
@@ -379,7 +379,7 @@ class Clientes extends Conexao
             ':senha' => $senha, 
             ':id' => $id
         );
-        $this->ExecuteSQL($query, $params);
+        $this->executeSql($query, $params);
         return TRUE;
     }
 
@@ -390,12 +390,12 @@ class Clientes extends Conexao
         $params = array(
             ':id' => $id
         );
-        $this->ExecuteSQL($query, $params);
+        $this->executeSql($query, $params);
         $this->GetListaCliSenha();
     }
     public function GetListaCliSenha(){
         $i = 1;
-        while ($lista = $this->ListarDados()):
+        while ($lista = $this->listarDados()):
 
             $this->itens[$i] = array(
                 'cli_email' => $lista['cli_email'],
@@ -412,7 +412,7 @@ class Clientes extends Conexao
             ':id' => (int) $id,
         );
 
-        if ($this->ExecuteSQL($query, $params)):
+        if ($this->executeSql($query, $params)):
             return true;
         else:
             return false;
@@ -499,7 +499,7 @@ class Clientes extends Conexao
     public function setCli_nome($cli_nome)
     {
         if (strlen($cli_nome) < 3): echo '<div class="alert alert-danger " id="erro_mostrar"> Digite seu nome ';
-            Sistema::VoltarPagina();
+            Sistema::voltarPagina();
             echo '</div>';
         else:
             $this->cli_nome = $cli_nome;
@@ -509,7 +509,7 @@ class Clientes extends Conexao
     public function setCli_sobrenome($cli_sobrenome)
     {
         if (strlen($cli_sobrenome) < 3): echo '<div class="alert alert-danger " id="erro_mostrar"> Digite seu sobrenome ';
-            Sistema::VoltarPagina();
+            Sistema::voltarPagina();
             echo '</div>';
         else:
             $this->cli_sobrenome = $cli_sobrenome;
@@ -545,7 +545,7 @@ class Clientes extends Conexao
         if (!filter_var($cli_email, FILTER_VALIDATE_EMAIL)):
 
             echo '<div class="alert alert-danger " id="erro_mostrar"> Email incorreto ';
-            Sistema::VoltarPagina();
+            Sistema::voltarPagina();
             echo '</div>';
 
             exit();
@@ -566,7 +566,7 @@ class Clientes extends Conexao
 
         if (strlen($cep) != 8):
             echo '<div class="alert alert-danger " id="erro_mostrar"> CEP incorreto ';
-            Sistema::VoltarPagina();
+            Sistema::voltarPagina();
             echo '</div>';
 
         else:
@@ -596,7 +596,7 @@ class Clientes extends Conexao
 
         if (strlen($uf) != 2): // 11111
             echo '<div class="alert alert-danger " id="erro_mostrar"> UF incorreto ';
-            Sistema::VoltarPagina();
+            Sistema::voltarPagina();
             echo '</div>';
 
         else:

@@ -88,7 +88,43 @@
     </div>
 </div>
 <!-- Banner Section End -->
+<!-- Produtos mais vendidos-->
+<div class="row no-gutters my-4">
+    <div class="col-lg-12 col-md-12 col-sm-auto">
+        <div class="col-lg-12">
+            <div class="section-title">
+                <h2>Mais Vendidos</h2>
+            </div>
+        </div>
+        <div class="col-lg-10 offset-lg-1">
 
+            <div class="card-deck">
+                {foreach from=$MAIS_VENDIDOS item=P}
+                <div class="card mais_vendidos">
+                    <div class="">
+                        <img class="card-img-top img-fluid" src="{$P.pro_img_g}" alt="Imagem de capa do card">
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="pi-text">
+                            <div class="catagory-name mb-3" style="color: #b2b2b2; text-transform: uppercase;">{$P.cate_nome}</div>
+                            <a href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}">
+                                <h5>{$P.pro_nome}</h5>
+                            </a>
+                            <div class="product-price mt-2" style="text-transform: uppercase; color: #e7ab3c; font-weight: 700; font-size: 20px;">
+                                R$ {$P.pro_valor}
+                                <!-- <span>R$ {$P.pro_valor}</span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a type="button" href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}" role="button" class="btn primary-btn pd-cart btn-block">Adicionar</a>
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Women Banner Section Begin -->
 <section class="women-banner spad">
     <div class="container-fluid">
@@ -114,18 +150,22 @@
                         <div class="pi-pic">
                             <img src="{$P.pro_img}" alt="">
                             <div class="sale">Sale</div>
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
+                            <form action="{$FAVORITOS}" method="POST">
+                                <div class="icon">
+                                    <input type="hidden" name="pro_id_favorito" value="{$P.pro_id}">
+                                    <button class="btn"><i style="font-size: 24px;" class="icon_heart_alt"></i></button>
+                                </div>
+                            </form>
                             <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                <li class="w-icon active"><a href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}"><i
+                                    class="icon_bag_alt" title="Comprar"></i></a></li>
+                                <li class="quick-view"><i class="fa fa-search-plus"></i></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
                             <div class="catagory-name">{$P.cate_nome}</div>
-                            <a href="#">
+                            <a href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}">
                                 <h5>{$P.pro_nome}</h5>
                             </a>
                             <div class="product-price">

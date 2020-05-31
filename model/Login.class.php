@@ -19,11 +19,11 @@ class Login extends Conexao
             ':senha' => $this->getSenha(),
         );
 
-        $this->ExecuteSQL($query, $params);
+        $this->executeSql($query, $params);
 
         //Caso exista o usuário no banco as informações são armazenadas na lista
-        if ($this->TotalDados() > 0) {
-            $lista = $this->ListarDados();
+        if ($this->totalDados() > 0) {
+            $lista = $this->listarDados();
             //Cria a sessão de usuário
             $_SESSION['CLI']['cli_id'] = $lista['cli_id'];
             $_SESSION['CLI']['cli_nome'] = $lista['cli_nome'];
@@ -43,7 +43,7 @@ class Login extends Conexao
             $_SESSION['CLI']['cli_complemento'] = $lista['cli_complemento'];
             $_SESSION['CLI']['cli_data_cad'] = $lista['cli_data_cad'];
             $_SESSION['CLI']['cli_hora_cad'] = $lista['cli_hora_cad'];
-            $_SESSION['CLI']['cli_foto'] = Rotas::ImageLinkProfile($lista['cli_foto'], 50, 50);
+            $_SESSION['CLI']['cli_foto'] = Rotas::imageLinkProfile($lista['cli_foto'], 50, 50);
         
             return TRUE;
         } else {
@@ -72,7 +72,7 @@ class Login extends Conexao
             <h4>Efetuando Logoff<h4>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-            </button></div>' . Rotas::Redirecionar(2, Rotas::get_SiteHOME());
+            </button></div>' . Rotas::redirecionar(2, Rotas::getSiteHome());
         exit();
     }
 
@@ -85,7 +85,7 @@ class Login extends Conexao
             <p>Insira um endereço de E-mail válido</p>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-            </button></div>' . Rotas::Redirecionar(2, Rotas::pag_Login());
+            </button></div>' . Rotas::redirecionar(2, Rotas::pagLogin());
             exit();
         else:
             $this->email = $email;
@@ -99,7 +99,7 @@ class Login extends Conexao
             <h4>Formato de senha inválido<h4>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-            </button></div>' . Rotas::Redirecionar(2, Rotas::pag_Login());
+            </button></div>' . Rotas::redirecionar(2, Rotas::pagLogin());
             exit();
         }else{
             $this->senha = md5($senha);

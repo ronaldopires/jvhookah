@@ -20,7 +20,7 @@ class Endereco extends Conexao {
             ':id' => (int)$id
             
         );
-        if ($this->ExecuteSQL($query, $params)):
+        if ($this->executeSql($query, $params)):
             return true;
         else:
             return false;
@@ -32,14 +32,14 @@ class Endereco extends Conexao {
         $query = "SELECT * FROM {$this->prefix}enderecos e INNER JOIN {$this->prefix}clientes c ON e.endereco_cli_id = c.cli_id";
         $query .= " WHERE cli_id = {$id}";
 
-        $this->ExecuteSQL($query);
+        $this->executeSql($query);
         $this->GetLista();
     }
 
     //Obter itens da consulta
     private function GetLista(){
         $i = 1;
-        while($lista = $this->ListarDados()):
+        while($lista = $this->listarDados()):
             $this->itens[$i] = array(
                 'endereco_id' => $lista['endereco_id'], 
                 'endereco_cli_cep' => $lista['endereco_cli_cep'], 
@@ -56,10 +56,21 @@ class Endereco extends Conexao {
 
     //Atualizar Endereço
     public function AtualizarEndereco($cep, $endereco, $bairro, $cidade, $uf, $numero, $complemento, $id){
-        $query = "UPDATE {$this->prefix}enderecos SET endereco_cli_cep = {$cep}, endereco_cli_endereco = {$endereco} ";
-        $query .= " WHERE endereco_cli_id = {$id}";
+        $query = "UPDATE {$this->prefix}enderecos SET endereco_cli_cep = :cep, endereco_cli_endereco = :endereco, endereco_cli_bairro = :bairro, endereco_cli_cidade = :cidade, ";
+        $query .= " endereco_cli_uf = :uf, endereco_cli_numero = :numero, endereco_cli_complemento = :complemento ";
+        $query .= " WHERE endereco_cli_id = :id ";
         echo $query;
-        if ($this->ExecuteSQL($query)):
+        $params = array(
+            ':cep' => $cep,
+            ':endereco' => $endereco,
+            ':bairro' => $bairro,
+            ':cidade' => $cidade,
+            ':uf' => $uf,
+            ':numero' => $numero,
+            ':complemento' => $complemento,
+            ':id' => (int)$id
+        );
+        if ($this->executeSql($query, $params)):
             return true;
         else:
             return false;

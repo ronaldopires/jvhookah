@@ -3,7 +3,6 @@
 
 $smarty = new Template();
 $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
-$smarty->assign('PAG_HOME', Rotas::get_SiteHOME());
-$smarty->assign('PAG_REGISTER', Rotas::pag_Register());
+$smarty->assign('PAG_HOME', Rotas::getSiteHome());
 
-$smarty->display('faq.tpl');
+$smarty->display('perguntas_frequentes.tpl');

@@ -20,20 +20,20 @@ class Itens extends Conexao
         }
         $params[':pedido'] = (int)$pedido;
         
-        $this->ExecuteSQL($query, $params);
+        $this->executeSql($query, $params);
         $this->GetLista();
     }
 
     private function GetLista() {
         $i = 1;
-        while($lista = $this->ListarDados()):
+        while($lista = $this->listarDados()):
             // subtotal de cada item
             $sub = $lista['item_valor'] * $lista['item_qtd'];
             $this->valor_total += $sub;
 
             $this->itens[$i] = array(
                 'ped_id' => $lista['ped_id'],
-                'ped_data' => Sistema::Fdata($lista['ped_data']),
+                'ped_data' => Sistema::formatarData($lista['ped_data']),
                 'ped_data_us' => $lista['ped_data'],
                 'ped_hora' => $lista['ped_hora'],
                 'ped_cliente' => $lista['ped_cliente'],
@@ -47,11 +47,12 @@ class Itens extends Conexao
                 'ped_frete_tipo' => $lista['ped_frete_tipo'],
                 'item_id' => $lista['item_id'],
                 'item_nome' => $lista['pro_nome'],
-                'item_valor' => Sistema::MoedaBR($lista['item_valor']),
+                'item_valor' => Sistema::moedaBr($lista['item_valor']),
                 'item_valor_us' => $lista['item_valor'],
                 'item_qtd' => $lista['item_qtd'],
-                'item_img' => Rotas::ImageLink($lista['pro_img'], 60, 60),
-                'item_sub' => Sistema::MoedaBR($sub),
+                'item_cor' => $lista['item_cor'],
+                'item_img' => Rotas::imageLink($lista['pro_img'], 60, 60),
+                'item_sub' => Sistema::moedaBr($sub),
                 'item_sub_us' => $sub,
             );
             $i++;

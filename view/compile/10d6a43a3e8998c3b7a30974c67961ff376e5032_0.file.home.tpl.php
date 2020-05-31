@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-27 20:09:37
+/* Smarty version 3.1.36, created on 2020-05-31 11:49:29
   from 'C:\xampp\htdocs\jvhookah\view\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ecef331c3e309_24515971',
+  'unifunc' => 'content_5ed3c3f9df6926_64787239',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d6a43a3e8998c3b7a30974c67961ff376e5032' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\home.tpl',
-      1 => 1590620976,
+      1 => 1590936568,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ecef331c3e309_24515971 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed3c3f9df6926_64787239 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
@@ -117,7 +117,61 @@ function content_5ecef331c3e309_24515971 (Smarty_Internal_Template $_smarty_tpl)
     </div>
 </div>
 <!-- Banner Section End -->
+<!-- Produtos mais vendidos-->
+<div class="row no-gutters my-4">
+    <div class="col-lg-12 col-md-12 col-sm-auto">
+        <div class="col-lg-12">
+            <div class="section-title">
+                <h2>Mais Vendidos</h2>
+            </div>
+        </div>
+        <div class="col-lg-10 offset-lg-1">
 
+            <div class="card-deck">
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['MAIS_VENDIDOS']->value, 'P');
+$_smarty_tpl->tpl_vars['P']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+$_smarty_tpl->tpl_vars['P']->do_else = false;
+?>
+                <div class="card mais_vendidos">
+                    <div class="">
+                        <img class="card-img-top img-fluid" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_g'];?>
+" alt="Imagem de capa do card">
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="pi-text">
+                            <div class="catagory-name mb-3" style="color: #b2b2b2; text-transform: uppercase;"><?php echo $_smarty_tpl->tpl_vars['P']->value['cate_nome'];?>
+</div>
+                            <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_DETALHES_PRODUTO']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+">
+                                <h5><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+</h5>
+                            </a>
+                            <div class="product-price mt-2" style="text-transform: uppercase; color: #e7ab3c; font-weight: 700; font-size: 20px;">
+                                R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
+
+                                <!-- <span>R$ <?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
+</span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a type="button" href="<?php echo $_smarty_tpl->tpl_vars['PAG_DETALHES_PRODUTO']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+" role="button" class="btn primary-btn pd-cart btn-block">Adicionar</a>
+                    </div>
+                </div>
+                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Women Banner Section Begin -->
 <section class="women-banner spad">
     <div class="container-fluid">
@@ -159,19 +213,31 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                             <img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
 " alt="">
                             <div class="sale">Sale</div>
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
+                            <form action="<?php echo $_smarty_tpl->tpl_vars['FAVORITOS']->value;?>
+" method="POST">
+                                <div class="icon">
+                                    <input type="hidden" name="pro_id_favorito" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+">
+                                    <button class="btn"><i style="font-size: 24px;" class="icon_heart_alt"></i></button>
+                                </div>
+                            </form>
                             <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                <li class="w-icon active"><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_DETALHES_PRODUTO']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+"><i
+                                    class="icon_bag_alt" title="Comprar"></i></a></li>
+                                <li class="quick-view"><i class="fa fa-search-plus"></i></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
                             <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['cate_nome'];?>
 </div>
-                            <a href="#">
+                            <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_DETALHES_PRODUTO']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+">
                                 <h5><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 </h5>
                             </a>

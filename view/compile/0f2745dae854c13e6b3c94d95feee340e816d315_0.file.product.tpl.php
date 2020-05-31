@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-29 14:04:19
+/* Smarty version 3.1.36, created on 2020-05-30 21:39:46
   from 'C:\xampp\htdocs\jvhookah\view\product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed14093e511f6_32008677',
+  'unifunc' => 'content_5ed2fcd26e0261_16119837',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f2745dae854c13e6b3c94d95feee340e816d315' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\product.tpl',
-      1 => 1590771857,
+      1 => 1590885585,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed14093e511f6_32008677 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed2fcd26e0261_16119837 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -29,7 +29,7 @@ function content_5ed14093e511f6_32008677 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="breadcrumb-text product-more">
                     <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
 "><i class="fa fa-home"></i> Home</a>
-                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
+                    <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
 ">Produtos</a>
                     <span>Detalhes</span>
                 </div>

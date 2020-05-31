@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-28 20:22:36
+/* Smarty version 3.1.36, created on 2020-05-30 20:42:24
   from 'C:\xampp\htdocs\jvhookah\view\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed047bcadbf47_52281181',
+  'unifunc' => 'content_5ed2ef60265253_77173561',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'adc373154e181c74bd6aea353612e2ef1efbaf66' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\login.tpl',
-      1 => 1590708155,
+      1 => 1590882141,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed047bcadbf47_52281181 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed2ef60265253_77173561 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -67,7 +67,7 @@ function content_5ed047bcadbf47_52281181 (Smarty_Internal_Template $_smarty_tpl)
                         <button type="submit" class="site-btn login-btn">Entrar</button>
                     </form>
                     <div class="switch-login">
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_REGISTER']->value;?>
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CADASTRO']->value;?>
 " class="or-login">Cadastre-se</a>
                     </div>
                 </div>
