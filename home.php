@@ -5,10 +5,10 @@
 
 $smarty = new Template();
 $categorias = new Categorias();
-$categorias->GetSubCategorias();
+$categorias->getSubCategorias();
 
 $categoria = new Categorias();
-$categoria->GetCategorias();
+$categoria->getCategorias();
 
 $produtos = new Produtos();
 $produtos->getProdutos();

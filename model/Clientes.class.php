@@ -2,31 +2,31 @@
 
 class Clientes extends Conexao
 {
-    private $cli_nome, 
-    $cli_sobrenome, 
-    $cli_cpf, 
-    $cli_data_nasc, 
-    $cli_sexo, 
-    $cli_celular, 
-    $cli_telefone, 
-    $cli_email, 
-    $cli_senha, 
-    $cli_cep, 
-    $cli_endereco, 
-    $cli_numero, 
-    $cli_bairro, 
-    $cli_cidade, 
-    $cli_uf, 
-    $cli_complemento, 
-    $cli_data_cad, 
-    $cli_hora_cad;
+    private $cli_nome,
+    $cli_sobrenome,
+    $cli_cpf,
+    $cli_data_nasc,
+    $cli_sexo,
+    $cli_celular,
+    $cli_telefone,
+    $cli_email,
+    $cli_senha,
+    $cli_cep,
+    $cli_endereco,
+    $cli_numero,
+    $cli_bairro,
+    $cli_cidade,
+    $cli_uf,
+    $cli_complemento,
+    $cli_data_cad,
+        $cli_hora_cad;
 
     public function __construct()
     {
         parent::__construct();
     }
     //Função para preparar o cliente
-    public function Preparar(
+    public function prepararDados(
         $cli_nome,
         $cli_sobrenome,
         $cli_cpf,
@@ -66,7 +66,7 @@ class Clientes extends Conexao
         $this->setCli_hora_cad($cli_hora_cad);
     }
     //Função para preparar o cliente para editar dados
-    public function PrepararEditarDados(
+    public function prepararEditarDados(
         $cli_nome,
         $cli_sobrenome,
         $cli_data_nasc,
@@ -82,7 +82,7 @@ class Clientes extends Conexao
         $this->setcli_telefone($cli_telefone);
     }
     //Função para preparar o cliente para editar dados
-    public function PrepararEditarEndereco(
+    public function prepararEditarEndereco(
         $cli_cep,
         $cli_endereco,
         $cli_numero,
@@ -100,7 +100,7 @@ class Clientes extends Conexao
         $this->setcli_complemento($cli_complemento);
     }
 
-    public function GetClientes()
+    public function getClientes()
     {
         $query = " SELECT * FROM {$this->prefix}clientes ";
 
@@ -108,7 +108,7 @@ class Clientes extends Conexao
         $this->GetLista();
     }
 
-    public function GetClientesMonth($mes)
+    public function getClientesMes($mes)
     {
         $query = " SELECT * FROM {$this->prefix}clientes WHERE month(cli_data_cad) = '$mes'";
         $this->executeSql($query);
@@ -118,24 +118,19 @@ class Clientes extends Conexao
      *
      * @param INT $id id do cliente
      */
-    public function GetClientesID($id)
+    public function getClientesID($id)
     {
 
-        // monto a SQL
         $query = " SELECT * FROM {$this->prefix}clientes WHERE cli_id = :id";
-
-        // passo parametros
         $params = array(':id' => (int) $id);
-        //executo a SQL
         $this->executeSql($query, $params);
-        // chamo a listagem
-        $this->GetLista();
+        $this->getLista();
     }
 
     /**
      * fazendo a listagem dos dados retornados
      */
-    private function GetLista()
+    private function getLista()
     {
 
         $i = 1;
@@ -152,7 +147,6 @@ class Clientes extends Conexao
                 'cli_celular' => $lista['cli_celular'],
                 'cli_telefone' => $lista['cli_telefone'],
                 'cli_email' => $lista['cli_email'],
-                // 'cli_senha' => $lista['cli_senha'],
                 'cli_cep' => $lista['cli_cep'],
                 'cli_endereco' => $lista['cli_endereco'],
                 'cli_numero' => $lista['cli_numero'],
@@ -170,21 +164,21 @@ class Clientes extends Conexao
         endwhile;
     }
 
-    public function Inserir()
+    public function inserir()
     {
-        if ($this->GetClienteCPF($this->getCli_cpf()) > 0) {
+        if ($this->getClienteCpf($this->getCli_cpf()) > 0) {
             echo '<div class="alert alert-danger text-center cli_telefone" id="mostrar_erro"> Este CPF já existe </div>';
             Rotas::redirecionar(2, Rotas::pagLogin());
             exit();
         }
-        if ($this->GetClienteEmail($this->getCli_email()) > 0) {
+        if ($this->getClienteEmail($this->getCli_email()) > 0) {
             echo '<div class="alert alert-danger text-center" id="mostrar_erro"> Este E-mail já existe </div>';
             Rotas::redirecionar(2, Rotas::pagLogin());
             exit();
         }
         //query para inserir clientes
         $query = "INSERT INTO {$this->prefix}clientes (cli_nome, cli_sobrenome, cli_cpf, cli_data_nasc, cli_sexo, cli_celular, cli_telefone, cli_email, cli_senha, cli_cep, cli_endereco, cli_numero, cli_bairro, cli_cidade, cli_uf, cli_complemento, cli_data_cad, cli_hora_cad)";
-        $query .=" VALUES (:cli_nome, :cli_sobrenome, :cli_cpf, :cli_data_nasc, :cli_sexo, :cli_celular, :cli_telefone, :cli_email, :cli_senha, :cli_cep, :cli_endereco, :cli_numero, :cli_bairro, :cli_cidade, :cli_uf, :cli_complemento, :cli_data_cad, :cli_hora_cad) ";
+        $query .= " VALUES (:cli_nome, :cli_sobrenome, :cli_cpf, :cli_data_nasc, :cli_sexo, :cli_celular, :cli_telefone, :cli_email, :cli_senha, :cli_cep, :cli_endereco, :cli_numero, :cli_bairro, :cli_cidade, :cli_uf, :cli_complemento, :cli_data_cad, :cli_hora_cad) ";
 
         $params = array(
             ':cli_nome' => $this->getCli_nome(),
@@ -206,12 +200,12 @@ class Clientes extends Conexao
             ':cli_data_cad' => $this->getCli_data_cad(),
             ':cli_hora_cad' => $this->getCli_hora_cad(),
         );
-    
+
         $this->executeSql($query, $params);
     }
 
     //Metodo para editar os dados do cliente
-    public function EditarDados($id)
+    public function editarDados($id)
     {
 
         $query = " UPDATE {$this->prefix}clientes SET cli_nome=:cli_nome, cli_sobrenome=:cli_sobrenome, cli_data_nasc=:cli_data_nasc, cli_sexo=:cli_sexo,";
@@ -225,7 +219,7 @@ class Clientes extends Conexao
             ':cli_sexo' => $this->getCli_sexo(),
             ':cli_celular' => $this->getCli_celular(),
             ':cli_telefone' => $this->getcli_telefone(),
-            ':cli_id' => (int) $id
+            ':cli_id' => (int) $id,
         );
 
         if ($this->executeSql($query, $params)):
@@ -234,7 +228,7 @@ class Clientes extends Conexao
             return false;
         endif;
     }
-    public function EditarEndereco($id)
+    public function editarEndereco($id)
     {
 
         $query = " UPDATE {$this->prefix}clientes SET cli_cep=:cli_cep, cli_endereco=:cli_endereco, cli_numero=:cli_numero, cli_bairro=:cli_bairro, ";
@@ -249,7 +243,7 @@ class Clientes extends Conexao
             ':cli_cidade' => $this->getCli_cidade(),
             ':cli_uf' => $this->getCli_uf(),
             ':cli_complemento' => $this->getcli_complemento(),
-            ':cli_id' => (int) $id
+            ':cli_id' => (int) $id,
         );
 
         if ($this->executeSql($query, $params)):
@@ -259,17 +253,17 @@ class Clientes extends Conexao
         endif;
     }
 
-    public function EditarADM($id)
+    public function editarADM($id)
     {
         // verifico se ja tem este CPF no banco
-        if ($this->GetClienteCPF($this->getCli_cpf()) > 0 && $this->getCli_cpf() != $_REQUEST['cli_cpf']):
+        if ($this->getClienteCpf($this->getCli_cpf()) > 0 && $this->getCli_cpf() != $_REQUEST['cli_cpf']):
             echo '<div class="alert alert-danger " id="erro_mostrar"> Este CPF já esta cadastrado ';
             Sistema::voltarPagina();
             echo '</div>';
             exit();
         endif;
         // verifica se o email já esta cadstrado
-        if ($this->GetClienteEmail($this->getCli_email()) > 0 && $this->getCli_email() != $_REQUEST['cli_email']):
+        if ($this->getClienteEmail($this->getCli_email()) > 0 && $this->getCli_email() != $_REQUEST['cli_email']):
             echo '<div class="alert alert-danger " id="erro_mostrar"> Este Email já esta cadastrado ';
             Sistema::voltarPagina();
             echo '</div>';
@@ -282,7 +276,7 @@ class Clientes extends Conexao
         $query .= " cli_complemento=:cli_complemento,cli_telefone=:cli_telefone,cli_celular=:cli_celular ,cli_endereco=:cli_endereco ,cli_numero=:cli_numero,cli_bairro=:cli_bairro ,";
         $query .= " cli_cidade=:cli_cidade ,cli_uf=:cli_uf ,cli_cep=:cli_cep ,cli_email=:cli_email  ";
         $query .= " WHERE  cli_id = :cli_id";
-        
+
         $params = array(
             ':cli_nome' => $this->getCli_nome(),
             ':cli_sobrenome' => $this->getCli_sobrenome(),
@@ -310,7 +304,7 @@ class Clientes extends Conexao
     }
 
     //Buscar se o CPF do cliente já existe
-    public function GetClienteCPF($cpf)
+    public function getClienteCpf($cpf)
     {
         $query = "SELECT * FROM {$this->prefix}clientes WHERE cli_cpf = :cpf";
         $params = array(':cpf' => $cpf);
@@ -318,95 +312,105 @@ class Clientes extends Conexao
         return $this->totalDados();
     }
     //Procura pelo e-mail do cliente para resetar senha
-    public function GetClienteEmail($email)
+    public function getClienteEmail($email)
     {
         $query = "SELECT * FROM {$this->prefix}clientes WHERE cli_email = :email";
         $params = array(':email' => $email);
         $this->executeSql($query, $params);
-        
-        if($this->totalDados() > 0){
+
+        if ($this->totalDados() > 0) {
             $lista = $this->listarDados();
 
             $id = $lista['cli_id'];
             $senha = $lista['cli_senha'];
             $data = $lista['cli_data_nasc'];
-            $token = $id.$senha.$data;
+            $token = $id . $senha . $data;
 
             return md5($token);
-        }else{
-            return FALSE;
+        } else {
+            return false;
         }
-        
+
     }
     //Função do Token
-    public function CheckToken($email,$token){
-        
+    public function checkToken($email, $token)
+    {
+
         $query = "SELECT * FROM {$this->prefix}clientes WHERE cli_email = :email";
         $params = array(':email' => $email);
         $this->executeSql($query, $params);
-        
-        if($this->totalDados() > 0){
+
+        if ($this->totalDados() > 0) {
             $lista = $this->listarDados();
 
             $id = $lista['cli_id'];
             $senha = $lista['cli_senha'];
             $email = $lista['cli_email'];
             $data = $lista['cli_data_nasc'];
-            $chave = $id.$senha.$data;
+            $chave = $id . $senha . $data;
             $chave_correta = md5($chave);
 
-
-            if($token === $chave_correta){
+            if ($token === $chave_correta) {
                 return $id;
-            }else{
+            } else {
                 echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
                     <h4>Erro na operação<h4>
                     <p>Solicitar novo reset de senha</p>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button></div>' . Rotas::redirecionar(2, Rotas::pagLogin());
-                    exit();
+                exit();
             }
+        }else{
+            echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
+                    <h4>E-mail não encontrado<h4>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button></div>' . Rotas::redirecionar(2, Rotas::getSiteHome());
+                exit();
         }
     }
 
     //Função de Update de senha no banco
-    public function SenhaUpdate($senha, $id)
+    public function senhaUpdate($senha, $id)
     {
         $query = "UPDATE {$this->prefix}clientes SET cli_senha = :senha WHERE cli_id = :id";
-        
+
         $params = array(
-            ':senha' => $senha, 
-            ':id' => $id
+            ':senha' => $senha,
+            ':id' => $id,
         );
         $this->executeSql($query, $params);
-        return TRUE;
+        return true;
     }
 
     //Função de senha cliente
-    public function SenhaCliente($id){
+    public function senhaCliente($id)
+    {
         $query = "SELECT cli_email, cli_senha FROM {$this->prefix}clientes WHERE cli_id = :id";
 
         $params = array(
-            ':id' => $id
+            ':id' => $id,
         );
         $this->executeSql($query, $params);
-        $this->GetListaCliSenha();
-    }
-    public function GetListaCliSenha(){
-        $i = 1;
-        while ($lista = $this->listarDados()):
+        if($this->totalDados() > 0){
+            $i = 1;
+            while ($lista = $this->listarDados()):
 
-            $this->itens[$i] = array(
-                'cli_email' => $lista['cli_email'],
-                'cli_senha' => $lista['cli_senha'],
-            );
-            $i++;
-        endwhile;
+                $this->itens[$i] = array(
+                    'cli_email' => $lista['cli_email'],
+                    'cli_senha' => $lista['cli_senha'],
+                );
+                $i++;
+            endwhile;
+        }else{
+            return false;
+        }
     }
 
     //Função para excluir cliente
-    public function Excluir($id){
+    public function excluirCliente($id)
+    {
         $query = "DELETE FROM {$this->prefix}clientes WHERE cli_id = :id";
         $params = array(
             ':id' => (int) $id,

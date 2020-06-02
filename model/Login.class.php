@@ -8,7 +8,7 @@ class Login extends Conexao
     {
         parent::__construct();
     }
-    public function GetLogin($email, $senha)
+    public function getLogin($email, $senha)
     {
         $this->setEmail($email);
         $this->setSenha($senha);
@@ -44,8 +44,8 @@ class Login extends Conexao
             $_SESSION['CLI']['cli_data_cad'] = $lista['cli_data_cad'];
             $_SESSION['CLI']['cli_hora_cad'] = $lista['cli_hora_cad'];
             $_SESSION['CLI']['cli_foto'] = Rotas::imageLinkProfile($lista['cli_foto'], 50, 50);
-        
-            return TRUE;
+
+            return true;
         } else {
             echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
             <h4>Erro de usuário e/ou senha<h4>
@@ -81,27 +81,27 @@ class Login extends Conexao
     {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)):
             echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
-            <h4>Endereço de E-mail inválido<h4>
-            <p>Insira um endereço de E-mail válido</p>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button></div>' . Rotas::redirecionar(2, Rotas::pagLogin());
+		            <h4>Endereço de E-mail inválido<h4>
+		            <p>Insira um endereço de E-mail válido</p>
+		            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		                <span aria-hidden="true">&times;</span>
+		            </button></div>' . Rotas::redirecionar(2, Rotas::pagLogin());
             exit();
         else:
             $this->email = $email;
         endif;
-    
+
     }
     private function setSenha($senha)
     {
-        if($senha == ' ' OR $senha == null){
+        if ($senha == ' ' or $senha == null) {
             echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
             <h4>Formato de senha inválido<h4>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button></div>' . Rotas::redirecionar(2, Rotas::pagLogin());
             exit();
-        }else{
+        } else {
             $this->senha = md5($senha);
         }
     }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-31 11:17:42
+/* Smarty version 3.1.36, created on 2020-06-02 16:55:27
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed3bc86ba1fd4_39013990',
+  'unifunc' => 'content_5ed6aeafac6ff9_86806428',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1590934661,
+      1 => 1591127721,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed3bc86ba1fd4_39013990 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed6aeafac6ff9_86806428 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -389,7 +389,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             <li><a href="#">Sobre</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CADASTRO']->value;?>
 ">Cadastre-se</a></li>
-                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTACT']->value;?>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTATO']->value;?>
 ">Fale Conosco</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
 ">Produtos</a></li>
@@ -400,9 +400,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <div class="footer-widget">
                         <h5>Meu Perfil</h5>
                         <ul>
-                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PROFILE']->value;?>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PERFIL']->value;?>
 ">Meu Perfil</a></li>
-                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOPPING_CART']->value;?>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CARRINHO']->value;?>
 ">Meu Carrinho</a></li>
                         </ul>
                     </div>

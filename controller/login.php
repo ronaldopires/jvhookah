@@ -1,6 +1,5 @@
 <?php
 
-
 $smarty = new Template();
 $login = new Login();
 
@@ -10,8 +9,8 @@ if (!Login::Logado()) {
         $senha = addslashes($_POST['cli_senha']);
         $email = preg_replace("/[^[:alnum:]_.-@]/", '', $email);
 
-        if($login->GetLogin($email, $senha)){ 
-            isset($_SESSION['CARRINHO']) && !empty($_SESSION['CARRINHO']) ?  Rotas::redirecionar(0, Rotas::pagCarrinho()) : Rotas::redirecionar(0, Rotas::pagMeuPerfil());
+        if ($login->getLogin($email, $senha)) {
+            isset($_SESSION['CARRINHO']) && !empty($_SESSION['CARRINHO']) ? Rotas::redirecionar(0, Rotas::pagCarrinho()) : Rotas::redirecionar(0, Rotas::pagMeuPerfil());
         }
     }
 

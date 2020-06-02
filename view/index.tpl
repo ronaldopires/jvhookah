@@ -295,7 +295,7 @@
                         <ul>
                             <li><a href="#">Sobre</a></li>
                             <li><a href="{$PAG_CADASTRO}">Cadastre-se</a></li>
-                            <li><a href="{$PAG_CONTACT}">Fale Conosco</a></li>
+                            <li><a href="{$PAG_CONTATO}">Fale Conosco</a></li>
                             <li><a href="{$PAG_PRODUTOS}">Produtos</a></li>
                         </ul>
                     </div>
@@ -304,8 +304,8 @@
                     <div class="footer-widget">
                         <h5>Meu Perfil</h5>
                         <ul>
-                            <li><a href="{$PAG_PROFILE}">Meu Perfil</a></li>
-                            <li><a href="{$PAG_SHOPPING_CART}">Meu Carrinho</a></li>
+                            <li><a href="{$PAG_PERFIL}">Meu Perfil</a></li>
+                            <li><a href="{$PAG_CARRINHO}">Meu Carrinho</a></li>
                         </ul>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ $smarty = new Template();
 $produtos = new Produtos();
 $categorias = new Categorias();
 
-$categorias->GetSubCategorias();
+$categorias->getSubCategorias();
 
 /* echo '<pre>';
 var_dump($categorias->GetItens());
@@ -26,8 +26,8 @@ if (isset($_SESSION['CARRINHO']) and !empty($_SESSION['CARRINHO'])) {
         $total = $total + $qtd;
     }
     $carrinho = new Carrinho();
-    $smarty->assign('CARRINHO', $carrinho->GetCarrinho());
-    $smarty->assign('VALOR_TOTAL', Sistema::moedaBr($carrinho->GetTotal()));
+    $smarty->assign('CARRINHO', $carrinho->getCarrinho());
+    $smarty->assign('VALOR_TOTAL', Sistema::moedaBr($carrinho->getTotal()));
     $smarty->assign('ITENS_CARRINHO', $total);
     $smarty->assign('PAG_CARRINHO', Rotas::pagCarrinho());
 } else {

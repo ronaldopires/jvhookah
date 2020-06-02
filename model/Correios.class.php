@@ -7,24 +7,23 @@ class Correios
      * SEDEX 10 40215
      * PAC 41106
      */
-	public 
-	$frete = array(), 
-	$empresa = '', 
-	$senha = '', 
-	$servico1, 
-	$servico2, 
-	$cepOrigem, 
-	$cepDestino, 
-	$peso, 
-	$formato = '1',
-	$comprimento, 
-	$altura, 
-	$largura, 
-	$diametro, 
-	$maoPropria = 'n',
-	$valordeclarado = '0', 
-	$avisoRecebimento = 'n',
-	$error,
+    public $frete = array(),
+    $empresa = '',
+    $senha = '',
+    $servico1,
+    $servico2,
+    $cepOrigem,
+    $cepDestino,
+    $peso,
+    $formato = '1',
+    $comprimento,
+    $altura,
+    $largura,
+    $diametro,
+    $maoPropria = 'n',
+    $valordeclarado = '0',
+    $avisoRecebimento = 'n',
+    $error,
     $retorno = 'xml';
 
     private $url = 'http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx';
@@ -60,11 +59,11 @@ class Correios
      **/
     public function calcular()
     {
-                
+
         $cURL = curl_init(sprintf(
-			$this->url . '?nCdEmpresa=%s&sDsSenha=%s&sCepOrigem=%s&sCepDestino=%s&nVlPeso=%s&nCdFormato=%s&nVlComprimento=%s&nVlAltura=%s&nVlLargura=%s&sCdMaoPropria=%s&nVlValorDeclarado=%s&sCdAvisoRecebimento=%s&nCdServico=%s&nVlDiametro=%s&StrRetorno=%s&nIndicaCalculo=3',
-			$this->empresa,
-			$this->senha,
+            $this->url . '?nCdEmpresa=%s&sDsSenha=%s&sCepOrigem=%s&sCepDestino=%s&nVlPeso=%s&nCdFormato=%s&nVlComprimento=%s&nVlAltura=%s&nVlLargura=%s&sCdMaoPropria=%s&nVlValorDeclarado=%s&sCdAvisoRecebimento=%s&nCdServico=%s&nVlDiametro=%s&StrRetorno=%s&nIndicaCalculo=3',
+            $this->empresa,
+            $this->senha,
             $this->cepOrigem,
             $this->cepDestino,
             $this->peso,
@@ -75,7 +74,7 @@ class Correios
             $this->maoPropria,
             $this->valordeclarado,
             $this->avisoRecebimento,
-			$this->servico1,
+            $this->servico1,
             $this->diametro,
             $this->retorno
         ));
@@ -83,33 +82,33 @@ class Correios
         curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
 
         $string = curl_exec($cURL);
-		curl_close($cURL);
+        curl_close($cURL);
         $xml = simplexml_load_string($string);
-		
-		if ($xml->Erro != ''):			
-			$this->error = array($xml->cServico->Erro, $xml->cServico->MsgErro);
+
+        if ($xml->Erro != ''):
+            $this->error = array($xml->cServico->Erro, $xml->cServico->MsgErro);
             return false;
-		else:
-			
+        else:
+
             $servico1 = $xml->cServico;
 
             $cURL = curl_init(sprintf(
-				$this->url . '?nCdEmpresa=%s&sDsSenha=%s&sCepOrigem=%s&sCepDestino=%s&nVlPeso=%s&nCdFormato=%s&nVlComprimento=%s&nVlAltura=%s&nVlLargura=%s&sCdMaoPropria=%s&nVlValorDeclarado=%s&sCdAvisoRecebimento=%s&nCdServico=%s&nVlDiametro=%s&StrRetorno=%s&nIndicaCalculo=3',
-				$this->empresa,
-				$this->senha,
-				$this->cepOrigem,
-				$this->cepDestino,
-				$this->peso,
-				$this->formato,
-				$this->comprimento,
-				$this->altura,
-				$this->largura,
-				$this->maoPropria,
-				$this->valordeclarado,
-				$this->avisoRecebimento,
-				$this->servico2,
-				$this->diametro,
-				$this->retorno
+                $this->url . '?nCdEmpresa=%s&sDsSenha=%s&sCepOrigem=%s&sCepDestino=%s&nVlPeso=%s&nCdFormato=%s&nVlComprimento=%s&nVlAltura=%s&nVlLargura=%s&sCdMaoPropria=%s&nVlValorDeclarado=%s&sCdAvisoRecebimento=%s&nCdServico=%s&nVlDiametro=%s&StrRetorno=%s&nIndicaCalculo=3',
+                $this->empresa,
+                $this->senha,
+                $this->cepOrigem,
+                $this->cepDestino,
+                $this->peso,
+                $this->formato,
+                $this->comprimento,
+                $this->altura,
+                $this->largura,
+                $this->maoPropria,
+                $this->valordeclarado,
+                $this->avisoRecebimento,
+                $this->servico2,
+                $this->diametro,
+                $this->retorno
             ));
 
             curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
@@ -133,8 +132,8 @@ class Correios
                     'valor' => $servico2->Valor,
                     'tipo' => 'SEDEX',
                     'prazo' => $servico2->PrazoEntrega,
-					'codigo_erro' => $servico1->Erro,
-                    'mensagem_erro' => $servico1->MsgErro,					
+                    'codigo_erro' => $servico1->Erro,
+                    'mensagem_erro' => $servico1->MsgErro,
                 ],
             ];
 

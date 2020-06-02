@@ -5,7 +5,7 @@ $produtos = new Produtos();
 $categorias = new Categorias();
 
 //CATEGORIAS E SUB CATEGORIAS
-$categoria = 'categoria';;
+$categoria = 'categoria';
 $sub_categoria = 'sub_categoria';
 if (isset(Rotas::$pag[1]) && Rotas::$pag[1] == $categoria) {
     $id = Rotas::$pag[2];
@@ -18,7 +18,7 @@ if (isset(Rotas::$pag[1]) && Rotas::$pag[1] == $categoria) {
     $produtos->getProdutosSubCateID($id);
     $smarty->assign('PRODUTOS', $produtos->getItens());
     $smarty->assign('PAGINAS', $produtos->mostrarPaginacao());
-}else{
+} else {
     $produtos->getProdutos();
     $smarty->assign('PRODUTOS', $produtos->getItens());
     $smarty->assign('PAGINAS', $produtos->mostrarPaginacao());
@@ -26,21 +26,21 @@ if (isset(Rotas::$pag[1]) && Rotas::$pag[1] == $categoria) {
 }
 
 //Listando mais produtos
-if($produtos->totalDados() < 1){
+if ($produtos->totalDados() < 1) {
     $listagem = new Produtos();
     $listagem->getProdutos();
     $smarty->assign('MAIS_PRODUTOS', $listagem->getItens());
     $smarty->assign('ITENS', $produtos->totalDados());
 
-}else{
+} else {
     $smarty->assign('ITENS', $produtos->totalDados());
 }
 
 $marca = new Categorias();
 $marca->GetMarcas();
-$categorias->GetCategorias();
+$categorias->getCategorias();
 $sub_categorias = new Categorias();
-$sub_categorias->GetSubCategorias();
+$sub_categorias->getSubCategorias();
 
 //Filtro de ordenação
 if (isset($_POST['opcoes'])) {
@@ -74,7 +74,6 @@ if (isset($_POST['opcoes'])) {
     $smarty->assign('PRODUTOS', $produtos->getItens());
     $smarty->assign('PAGINAS', $produtos->mostrarPaginacao());
 
-
 }
 
 /**
@@ -85,10 +84,10 @@ if (isset($_POST['checked'])) {
     $filtro_marcas = new Categorias();
     $check = count($_POST['checked']);
     $resultado = array();
-    foreach($_POST['checked'] as $id){
+    foreach ($_POST['checked'] as $id) {
         $filtro_marcas->GetMarcasProducts($id);
         array_push($resultado, $filtro_marcas->getItens());
-                
+
         $smarty->assign('PRODUTOS', $filtro_marcas->getItens());
     }
     $smarty->assign('PAGINAS', $filtro_marcas->mostrarPaginacao());
@@ -108,14 +107,12 @@ if (isset($_POST['price_min']) and isset($_POST['price_min'])) {
     $betweenProducts->getProdutosBetween($result_min, $result_max);
     $smarty->assign('PRODUTOS', $betweenProducts->getItens());
     $smarty->assign('PAGINAS', $betweenProducts->mostrarPaginacao());
- 
+
 }
 $smarty->assign('MIN', $min);
 $smarty->assign('MAX', $max);
 
-
-
-if(isset($_SESSION['FAVORITOS'])){
+if (isset($_SESSION['FAVORITOS'])) {
     $smarty->assign('ITENS_FAVORITOS', $_SESSION['FAVORITOS']);
 }
 
@@ -128,6 +125,5 @@ $smarty->assign('FAVORITOS', Rotas::pagProdutosFavoritos());
 $smarty->assign('CATEGORIAS', $categorias->getItens());
 $smarty->assign('SUB_CATEGORIAS', $sub_categorias->getItens());
 $smarty->assign('MARCAS', $marca->getItens());
-
 
 $smarty->display('produtos.tpl');

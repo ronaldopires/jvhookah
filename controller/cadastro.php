@@ -26,7 +26,7 @@ if(isset($_POST['cli_email']) && isset($_POST['cli_senha']) && isset($_POST['cli
 
 
     //CHAMAR A FUNÇÃO PARA PREPARAR OS DADOS
-    $clientes->Preparar(
+    $clientes->prepararDados(
         $cli_nome,
         $cli_sobrenome,
         $cli_cpf,
@@ -47,7 +47,7 @@ if(isset($_POST['cli_email']) && isset($_POST['cli_senha']) && isset($_POST['cli
         $cli_hora_cad
     );
 
-        $clientes->Inserir();
+        $clientes->inserir();
 
     echo '<div class="container text-center alert alert-dismissible fade show alert-success" role="alert">
             <h4>Cadastro efetuado com sucesso<h4>

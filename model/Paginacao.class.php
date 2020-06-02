@@ -1,9 +1,11 @@
 <?php
 
-class Paginacao extends Conexao {
+class Paginacao extends Conexao
+{
     public $limite, $inicio, $total_paginas, $link = array();
 
-    function getPaginacao($campo, $tabela){
+    public function getPaginacao($campo, $tabela)
+    {
         $query = " SELECT {$campo} FROM {$tabela} ";
         $this->executeSql($query);
         $total_itens = $this->totalDados();
@@ -12,11 +14,11 @@ class Paginacao extends Conexao {
 
         $this->total_paginas = $paginas;
 
-        $p = (int)isset($_GET['p']) ? $_GET['p'] : 1;
-        
-        if($p < 1 ){
+        $p = (int) isset($_GET['p']) ? $_GET['p'] : 1;
+
+        if ($p < 1) {
             $p = 1;
-        }else if ($p > $paginas){
+        } else if ($p > $paginas) {
             $p = $paginas;
         }
         $this->inicio = ($p * $this->limite) - $this->limite;
@@ -24,11 +26,11 @@ class Paginacao extends Conexao {
         $tolerancia = 1;
         $mostrar = $p + $tolerancia;
 
-        if($mostrar > $paginas){
+        if ($mostrar > $paginas) {
             $mostrar = $paginas;
         }
 
-        for($i = ($p - $tolerancia); $i <= $mostrar; $i++){
+        for ($i = ($p - $tolerancia); $i <= $mostrar; $i++) {
             $i < 1 ? $i = 1 : $i;
             array_push($this->link, $i);
         }

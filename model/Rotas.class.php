@@ -9,137 +9,172 @@ class Rotas
     private static $pasta_adm = 'adm'; //Pasta padrão de templates
 
     //Pasta principal do site
-    static function getSiteHome(){
+    public static function getSiteHome()
+    {
         return Config::SITE_URL . '/' . Config::SITE_PASTA;
     }
     //Raiz do site
-    static function getSiteRaiz(){
+    public static function getSiteRaiz()
+    {
         return $_SERVER['DOCUMENT_ROOT'] . '/' . Config::SITE_PASTA;
     }
     //Obter caminho para os templates
-    static function get_SiteTEMA(){
+    public static function get_SiteTEMA()
+    {
         return self::getSiteHome() . '/' . self::$pasta_view;
     }
     //Obter caminho para controller
-    static function getPastaController(){
+    public static function getPastaController()
+    {
         return self::$pasta_controller;
     }
     //Obter caminho das páginas
-    static function pagCarrinho(){
+    public static function pagCarrinho()
+    {
         return self::getSiteHome() . 'carrinho';
     }
-    static function pagAlterarCarrinho(){
+    public static function pagAlterarCarrinho()
+    {
         return self::getSiteHome() . 'alterar_carrinho';
     }
-    static function pagDetalhesProduto(){
+    public static function pagDetalhesProduto()
+    {
         return self::getSiteHome() . 'detalhes_produto';
     }
-    static function pagProdutos(){
+    public static function pagProdutos()
+    {
         return self::getSiteHome() . 'produtos';
     }
-    static function pagContato(){
+    public static function pagContato()
+    {
         return self::getSiteHome() . 'contato';
     }
-    static function pagLogin(){
+    public static function pagLogin()
+    {
         return self::getSiteHome() . 'login';
     }
-    static function pagLogout(){
+    public static function pagLogout()
+    {
         return self::getSiteHome() . 'logout';
     }
-    static function pagMeuPerfil(){
+    public static function pagMeuPerfil()
+    {
         return self::getSiteHome() . 'meu_perfil';
     }
-    static function pagDetalhesPedido(){
+    public static function pagDetalhesPedido()
+    {
         return self::getSiteHome() . 'detalhes_pedido';
     }
-    static function pagCadastro(){
+    public static function pagCadastro()
+    {
         return self::getSiteHome() . 'cadastro';
     }
-    static function pagFinalizarPedido(){
+    public static function pagFinalizarPedido()
+    {
         return self::getSiteHome() . 'finalizar_pedido';
     }
-    static function pagPagamento(){
+    public static function pagPagamento()
+    {
         return self::getSiteHome() . 'pagamento';
     }
-    static function pagPerguntasFrequentes(){
+    public static function pagPerguntasFrequentes()
+    {
         return self::getSiteHome() . 'perguntas_frequentes';
     }
-    static function pagRecuperarSenha(){
+    public static function pagRecuperarSenha()
+    {
         return self::getSiteHome() . 'recuperar_senha';
     }
-    static function pagNovaSenha(){
+    public static function pagNovaSenha()
+    {
         return self::getSiteHome() . 'nova_senha';
     }
-    static function pagProdutosFavoritos(){
+    public static function pagProdutosFavoritos()
+    {
         return self::getSiteHome() . 'produtos_favoritos';
     }
-    static function pagBlog(){
+    public static function pagBlog()
+    {
         return self::getSiteHome() . 'blog';
     }
 
     // ROTAS ADM
-    static function getSiteAdm(){
+    public static function getSiteAdm()
+    {
         return self::getSiteHome() . '/' . self::$pasta_adm;
     }
 
-    static function pagProdutosAdm(){
+    public static function pagProdutosAdm()
+    {
         return self::getSiteAdm() . 'adm_produtos';
     }
-    static function pagAdicionarProdutosAdm(){
+    public static function pagAdicionarProdutosAdm()
+    {
         return self::getSiteAdm() . 'adm_adicionar_produtos';
     }
-    static function pagEditarProdutosAdm(){
+    public static function pagEditarProdutosAdm()
+    {
         return self::getSiteAdm() . 'adm_editar_produtos';
     }
-    static function pagDeletarProdutosAdm(){
+    public static function pagDeletarProdutosAdm()
+    {
         return self::getSiteAdm() . 'adm_deletar_produtos';
     }
-    static function pagImagensProdutosAdm(){
+    public static function pagImagensProdutosAdm()
+    {
         return self::getSiteAdm() . 'adm_imagens_produtos';
     }
-    static function pagAdicionarCategoriasAdm(){
+    public static function pagAdicionarCategoriasAdm()
+    {
         return self::getSiteAdm() . 'adm_adicionar_categorias';
     }
-    static function pagClientesAdm(){
+    public static function pagClientesAdm()
+    {
         return self::getSiteAdm() . 'adm_clientes';
     }
-    static function pagCategoriasAdm(){
+    public static function pagCategoriasAdm()
+    {
         return self::getSiteAdm() . 'adm_categorias';
     }
-    
 
-
-
-    static function pagError(){
+    public static function pagError()
+    {
         return 'erro.php';
     }
     //Rotas de imagens internamente
-    static function getImagePasta(){
+    public static function getImagePasta()
+    {
         return 'media/images/produtos/';
     }
-    static function getImagePastaProfile(){
+    public static function getImagePastaProfile()
+    {
         return 'media/images/profile/';
     }
     //Rotas de imagens para hospedagem
-    static function getImageUrl(){
+    public static function getImageUrl()
+    {
         return self::getSiteHome() . '/' . self::getImagePasta();
     }
-    static function getImageUrlProfile(){
+    public static function getImageUrlProfile()
+    {
         return self::getSiteHome() . '/' . self::getImagePastaProfile();
     }
     //Rotas de imagens para redimencionar e chamar rota
-    static function imageLink($img, $largura, $altura){
+    public static function imageLink($img, $largura, $altura)
+    {
         $imagem = self::getImageUrl() . "thumb.php?src={$img}&w={$largura}&h={$altura}&zc=1";
         return $imagem;
     }
     //Rotas de imagens para redimencionar e chamar rota
-    static function imageLinkProfile($img, $largura, $altura){
+    public static function imageLinkProfile($img, $largura, $altura)
+    {
         $imagem = self::getImageUrlProfile() . "thumb.php?src={$img}&w={$largura}&h={$altura}&zc=1";
         return $imagem;
     }
     //Rotas para redirecionar de página
-    static function redirecionar($tempo, $pagina){
-        $url = '<meta http-equiv="refresh" content="'. $tempo .'; url='. $pagina .'">';
+    public static function redirecionar($tempo, $pagina)
+    {
+        $url = '<meta http-equiv="refresh" content="' . $tempo . '; url=' . $pagina . '">';
         echo $url;
     }
 
@@ -159,7 +194,7 @@ class Rotas
             } else {
                 include 'erro.php';
             }
-        }else{
+        } else {
             include 'home.php';
         }
     }

@@ -39,7 +39,7 @@ class EnviarEmail extends PHPMailer
      * $setor = setor , $destinatario=email dominio, assunto, msg
      * $reply = email que vai a resposta
      */
-    public function Enviar($assunto, $msg, $destinatarios = array())
+    public function enviarEmail($assunto, $msg, $destinatarios = array())
     {
 
         //seto dados da mensagem

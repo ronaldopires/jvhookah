@@ -3,21 +3,21 @@
 class Categorias extends Conexao
 {
 
-    private $cate_id, $cate_nome, $cate_slug, $cate_img;
+    // private $cate_id, $cate_nome, $cate_slug, $cate_img;
 
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function GetCategorias()
+    public function getCategorias()
     {
         //Buscar itens por categoria
         $query = "SELECT * FROM {$this->prefix}categorias ";
         $this->executeSql($query);
         $this->GetLista();
     }
-    public function GetSubCategorias()
+    public function getSubCategorias()
     {
         //Buscar itens por categoria
         $query = "SELECT * FROM {$this->prefix}sub_categorias s INNER JOIN {$this->prefix}categorias c ON s.cate_id = c.cate_id ";

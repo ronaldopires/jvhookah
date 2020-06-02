@@ -19,12 +19,12 @@ if (isset($_SESSION['CARRINHO']) && count($_SESSION['CARRINHO']) > 0) {
     $smarty = new Template();
     $carrinho = new Carrinho();
 
-    $smarty->assign('PRO', $carrinho->GetCarrinho());
+    $smarty->assign('PRO', $carrinho->getCarrinho());
 
     $_SESSION['PED']['frete'] = $_POST['frete_radio'];
-    $_SESSION['PED']['total_com_frete'] = ($_POST['frete_radio'] + $carrinho->GetTotal());
+    $_SESSION['PED']['total_com_frete'] = ($_POST['frete_radio'] + $carrinho->getTotal());
 
-    $smarty->assign('VALOR', Sistema::moedaBr($carrinho->GetTotal()));
+    $smarty->assign('VALOR', Sistema::moedaBr($carrinho->getTotal()));
     $smarty->assign('FRETE', Sistema::moedaBr($_SESSION['PED']['frete']));
     $smarty->assign('TOTAL', Sistema::moedaBr($_SESSION['PED']['total_com_frete']));
     $smarty->assign('PAG_PRODUTOS', Rotas::pagProdutos());

@@ -5,7 +5,7 @@ class Carrinho
     private $total_valor, $total_peso, $itens = array();
 
     //Cria uma sessão com os itens do carrinho
-    public function GetCarrinho()
+    public function getCarrinho()
     {
         $i = 1;
         $sub = 1.00;
@@ -52,12 +52,12 @@ class Carrinho
         }
     }
 
-    public function GetTotal()
+    public function getTotal()
     {
         return $this->total_valor;
     }
 
-    public function GetPeso()
+    public function getPeso()
     {
         return $this->total_peso;
     }
@@ -113,7 +113,7 @@ class Carrinho
                 if ($_SESSION['CARRINHO'][$ID]['QTD'] < $_SESSION['CARRINHO'][$ID]['ESTOQUE']) {
                     $_SESSION['CARRINHO'][$ID]['QTD'] += $QTD;
                     Rotas::redirecionar(0, Rotas::pagCarrinho());
-                    
+
                 } else {
                     echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
                                     <h4>A quantidade desejada para o ' . $NOME . ' está indisponível.<h4>
@@ -185,7 +185,7 @@ class Carrinho
             $NOME = $_SESSION['CARRINHO'][$ID]['NOME'];
             echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
                                 <h4 class="">A quantidade desejada para ' . $NOME . ' está indisponível.<h4>
-                                <p>Quantidade em estoque é '. $_SESSION['CARRINHO'][$ID]['ESTOQUE'] .'</p>
+                                <p>Quantidade em estoque é ' . $_SESSION['CARRINHO'][$ID]['ESTOQUE'] . '</p>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button></div>';

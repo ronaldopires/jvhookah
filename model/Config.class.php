@@ -20,10 +20,10 @@ class Config
     //INFORMAÇÕES PARA PHPMAILER
     const EMAIL_HOST = "smtp.gmail.com";
     const EMAIL_USER = "ronaldobondezica@gmail.com";
-	const EMAIL_NOME = "Contato Loja Virtual Jv Hookah";
-	const EMAIL_SENHA = "ronaldinhog";
-	const EMAIL_PORTA = 587;
-	const EMAIL_SMTPAUTH = true;
-	const EMAIL_SMTPSECURE = "tls";
-	const EMAIL_COPIA = "ronaldo.carvalho@hotmail.com";
+    const EMAIL_NOME = "Contato Loja Virtual Jv Hookah";
+    const EMAIL_SENHA = "ronaldinhog";
+    const EMAIL_PORTA = 587;
+    const EMAIL_SMTPAUTH = true;
+    const EMAIL_SMTPSECURE = "tls";
+    const EMAIL_COPIA = "ronaldo.carvalho@hotmail.com";
 }

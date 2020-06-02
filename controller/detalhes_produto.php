@@ -13,28 +13,27 @@ if ((isset(Rotas::$pag[1])) && (isset(Rotas::$pag[2]))) {
     $marca = new Categorias();
     $marca->GetMarcas();
     $sub_categorias = new Categorias();
-    $sub_categorias->GetSubCategorias();
+    $sub_categorias->getSubCategorias();
     $image->getImagePro(Rotas::$pag[2]);
     $pro_relacionado = new Produtos();
     $id = filter_var(Rotas::$pag[2], FILTER_SANITIZE_NUMBER_INT);
     if ($produtos->getProdutosId($id)) {
-        foreach($produtos->getItens() as $dados){
+        foreach ($produtos->getItens() as $dados) {
             $nome = $dados['pro_nome'];
         }
-        if($pro_relacionado->getProdutosIguaisId($nome)){
+        if ($pro_relacionado->getProdutosIguaisId($nome)) {
             $smarty->assign('TOTAL_DADOS', $pro_relacionado->totalDados());
             $smarty->assign('CORES', $pro_relacionado->getItens());
             $smarty->assign('ID', Rotas::$pag[2]);
-            
-       /*  echo '<pre>';
+
+            /*  echo '<pre>';
         print_r($pro_relacionado->getItens());
-        echo '</pre>';  */   
+        echo '</pre>';  */
         }
-        
 
         $caract->getCaracteristicaPro($id);
         $listagem->getProdutos();
-        
+
         $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
         $smarty->assign('PAG_HOME', Rotas::getSiteHome());
         $smarty->assign('PRODUTOS_INFO', $produtos->getItens());

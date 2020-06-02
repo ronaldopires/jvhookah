@@ -5,8 +5,8 @@ if (isset($_SESSION['CARRINHO']) && count($_SESSION['CARRINHO']) > 0) {
     $smarty = new Template();
     $carrinho = new Carrinho();
 
-    $smarty->assign('PRO', $carrinho->GetCarrinho());
-    $smarty->assign('TOTAL', Sistema::moedaBr($carrinho->GetTotal()));
+    $smarty->assign('PRO', $carrinho->getCarrinho());
+    $smarty->assign('TOTAL', Sistema::moedaBr($carrinho->getTotal()));
     $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
     $smarty->assign('PAG_HOME', Rotas::getSiteHome());
     $smarty->assign('PAG_ALTERAR_CARRINHO', Rotas::pagAlterarCarrinho());
@@ -15,12 +15,12 @@ if (isset($_SESSION['CARRINHO']) && count($_SESSION['CARRINHO']) > 0) {
     $smarty->assign('PAG_FINALIZAR_PEDIDO', Rotas::pagFinalizarPedido());
     $smarty->assign('PAG_DETALHES_PRODUTO', Rotas::pagDetalhesProduto());
     $smarty->assign('LINK', $_SESSION['CARRINHO']);
-    $smarty->assign('PESO', number_format($carrinho->GetPeso(), 3, '.', ''));
+    $smarty->assign('PESO', number_format($carrinho->getPeso(), 3, '.', ''));
 
     /* echo '<pre>';
     var_dump($_SESSION['CARRINHO']);
     echo '</pre>'; */
-    
+
     //Caso esteja logado adicionar o cep no calculo
     if (Login::Logado()) {
         $smarty->assign('LOGADO', true);

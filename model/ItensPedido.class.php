@@ -8,9 +8,10 @@ class Itens extends Conexao
     {
         parent::__construct();
     }
-    
+
     //Detalhes do Pedido
-    function GetItensPedidos($pedido, $cliente=null){
+    public function getItensPedidos($pedido, $cliente = null)
+    {
         $query = "SELECT * FROM {$this->prefix}pedidos p, {$this->prefix}itens_pedido i, {$this->prefix}produtos d WHERE p.ped_cod = i.item_ped_cod AND i.item_produto = d.pro_id ";
         $query .= " AND p.ped_cod = :pedido";
 
@@ -18,15 +19,16 @@ class Itens extends Conexao
             $query .= " AND p.ped_cliente = {:cliente}";
             $params[':cliente'] = (int) $cliente;
         }
-        $params[':pedido'] = (int)$pedido;
-        
+        $params[':pedido'] = (int) $pedido;
+
         $this->executeSql($query, $params);
-        $this->GetLista();
+        $this->getLista();
     }
 
-    private function GetLista() {
+    private function getLista()
+    {
         $i = 1;
-        while($lista = $this->listarDados()):
+        while ($lista = $this->listarDados()):
             // subtotal de cada item
             $sub = $lista['item_valor'] * $lista['item_qtd'];
             $this->valor_total += $sub;
@@ -57,12 +59,12 @@ class Itens extends Conexao
             );
             $i++;
         endwhile;
-            
+
     }
 
-    function GetTotal(){
+    public function getTotal()
+    {
         return $this->valor_total;
     }
 
-    
 }
