@@ -9,14 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{$TITULO_SITE}</title>
     <!--Favicon-->
-    <link rel="shortcut icon" href="{$GET_TEMA}/tema/img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="{$GET_TEMA}/tema/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{$GET_TEMA}/img/favicon.ico" type="image/x-icon">
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" />
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="{$GET_TEMA}/tema/css/bootstrap.min.css" type="text/css">
@@ -110,8 +106,12 @@
                                 <a class="dropdown-item" href="#">Carvões</a>
                             </div> -->
                             <div class="input-group">
-                                <input type="text" placeholder="O que está procurando ?">
-                                <button type="button"><i class="ti-search"></i></button>
+                                <div class="col-12 p-0">
+                                    <form action="{$PAG_PRODUTOS}" method="POST">
+                                        <input type="text" name="pesquisar" id="pesquisar" placeholder="O que está procurando ?">
+                                        <button><i class="ti-search"></i></button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                             <li class="text-left">
                                 <div class="row no-gutters" style="font-size: 14px;">
                                     <div class="col">
-                                        <img class="img img-responsive img_profile" src="{$FOTO}" alt="Foto Perfil" />
+                                        <img class="img img-responsive rounded-circle" src="{$FOTO}" alt="Foto Perfil" />
                                     </div>
                                     <div class="col ml-3">
                                         <span style="line-height: 40px;">{$USER}</span>
@@ -296,6 +296,7 @@
                             <li><a href="#">Sobre</a></li>
                             <li><a href="{$PAG_CADASTRO}">Cadastre-se</a></li>
                             <li><a href="{$PAG_CONTATO}">Fale Conosco</a></li>
+                            <li><a href="{$PAG_PERGUNTAS_FREQUENTES}">Perguntas Frequentes</a></li>
                             <li><a href="{$PAG_PRODUTOS}">Produtos</a></li>
                         </ul>
                     </div>
@@ -349,11 +350,9 @@
 
 
     <!-- Js Plugins -->
-    <script src="{$GET_TEMA}/tema/js/jquery-3.3.1.min.js"></script>
+    <script src="{$GET_TEMA}/tema/js/jquery-3.5.1.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <!-- <script src="{$GET_TEMA}/tema/js/bootstrap.min.js"></script> -->
+    <script src="{$GET_TEMA}/tema/js/bootstrap.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/jquery-ui.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/jquery.countdown.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/jquery.nice-select.min.js"></script>

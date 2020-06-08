@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-31 07:29:10
+/* Smarty version 3.1.36, created on 2020-06-03 19:11:50
   from 'C:\xampp\htdocs\jvhookah\view\meu_perfil.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed386f6833ca4_30898300',
+  'unifunc' => 'content_5ed8202647cc98_64959535',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e843dc1f0fe4aacb26e9a0526b60f0177f8ecbb0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\meu_perfil.tpl',
-      1 => 1590920949,
+      1 => 1591222306,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed386f6833ca4_30898300 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed8202647cc98_64959535 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -382,14 +382,14 @@ $_smarty_tpl->tpl_vars['E']->do_else = false;
 , <strong>Estado:</strong> <?php echo $_smarty_tpl->tpl_vars['E']->value['endereco_cli_uf'];?>
  - <strong>Complemento:</strong> <?php echo $_smarty_tpl->tpl_vars['E']->value['endereco_cli_complemento'];?>
 </p>
-                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#<?php echo $_smarty_tpl->tpl_vars['E']->value['endereco_cli_uf'];?>
+                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#enderecos<?php echo $_smarty_tpl->tpl_vars['E']->value['endereco_id'];?>
 ">
                                         <i class="ti-pencil-alt mr-2"></i> Editar
                                       </button>
                                     <a href="#" class="btn btn-outline-danger"><i class="ti-trash mr-2"></i> Deletar</a>
                                 </div>
                                 <!-- Modal others Address-->
-                                <div class="modal fade" id="<?php echo $_smarty_tpl->tpl_vars['E']->value['endereco_cli_uf'];?>
+                                <div class="modal fade" id="enderecos<?php echo $_smarty_tpl->tpl_vars['E']->value['endereco_id'];?>
 " tabindex="-1" role="dialog" aria-labelledby="modalOthersAddress" aria-hidden="true">
                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                         <div class="modal-content">

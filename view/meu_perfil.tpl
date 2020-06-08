@@ -310,13 +310,13 @@
                                     <p class="card-text">{$E.endereco_cli_endereco}, {$E.endereco_cli_numero}</p>
                                     <p class="card-text"><strong>Bairro:</strong> {$E.endereco_cli_bairro} <strong>CEP:</strong> {$E.endereco_cli_cep}</p>
                                     <p class="card-text"><strong>Cidade:</strong> {$E.endereco_cli_cidade}, <strong>Estado:</strong> {$E.endereco_cli_uf} - <strong>Complemento:</strong> {$E.endereco_cli_complemento}</p>
-                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#{$E.endereco_cli_uf}">
+                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#enderecos{$E.endereco_id}">
                                         <i class="ti-pencil-alt mr-2"></i> Editar
                                       </button>
                                     <a href="#" class="btn btn-outline-danger"><i class="ti-trash mr-2"></i> Deletar</a>
                                 </div>
                                 <!-- Modal others Address-->
-                                <div class="modal fade" id="{$E.endereco_cli_uf}" tabindex="-1" role="dialog" aria-labelledby="modalOthersAddress" aria-hidden="true">
+                                <div class="modal fade" id="enderecos{$E.endereco_id}" tabindex="-1" role="dialog" aria-labelledby="modalOthersAddress" aria-hidden="true">
                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">

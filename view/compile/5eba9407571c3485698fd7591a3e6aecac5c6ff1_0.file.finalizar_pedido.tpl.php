@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-31 08:16:54
+/* Smarty version 3.1.36, created on 2020-06-05 02:58:52
   from 'C:\xampp\htdocs\jvhookah\view\finalizar_pedido.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed39226170564_85271421',
+  'unifunc' => 'content_5ed9df1ca1b628_32220731',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5eba9407571c3485698fd7591a3e6aecac5c6ff1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\finalizar_pedido.tpl',
-      1 => 1590923812,
+      1 => 1591336730,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed39226170564_85271421 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed9df1ca1b628_32220731 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -33,7 +33,7 @@ function content_5ed39226170564_85271421 (Smarty_Internal_Template $_smarty_tpl)
 ">Produtos</a>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CARRINHO']->value;?>
 ">Carrinho</a>
-                    <span>Check Out</span>
+                    <span>Finalizar Pedido</span>
                 </div>
             </div>
         </div>
@@ -70,6 +70,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </span></li>
                                 <li class="fw-normal">Frete <span>R$ <?php echo $_smarty_tpl->tpl_vars['FRETE']->value;?>
 </span></li>
+                                <?php if ($_smarty_tpl->tpl_vars['DESCONTO']->value == true) {?>
+                                <li class="fw-normal">Cupom de desconto <span>-<?php echo $_smarty_tpl->tpl_vars['DESCONTO']->value;?>
+ %</span></li>
+                                <?php }?>
                                 <li class="total-price">Total <span>R$ <?php echo $_smarty_tpl->tpl_vars['TOTAL']->value;?>
 </span></li>
                             </ul>

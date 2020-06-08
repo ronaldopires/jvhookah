@@ -86,7 +86,7 @@ $(window).on('load', function() {
     /** BUSCA CEP */
     function limpa_formulário_cep() {
         // Limpa valores do formulário de cep.
-        $("#rua").val("");
+        $("#endereco").val("");
         $("#bairro").val("");
         $("#cidade").val("");
         $("#uf").val("");
@@ -108,7 +108,7 @@ $(window).on('load', function() {
             if (validacep.test(cep)) {
 
                 //Preenche os campos com "..." enquanto consulta webservice.
-                $("#rua").val("Pesquisando...");
+                $("#endereco").val("Pesquisando...");
                 $("#bairro").val("Pesquisando...");
                 $("#cidade").val("Pesquisando...");
                 $("#uf").val("Pesquisando...");
@@ -118,7 +118,7 @@ $(window).on('load', function() {
 
                     if (!("erro" in dados)) {
                         //Atualiza os campos com os valores da consulta.
-                        $("#rua").val(dados.logradouro);
+                        $("#endereco").val(dados.logradouro);
                         $("#bairro").val(dados.bairro);
                         $("#cidade").val(dados.localidade);
                         $("#uf").val(dados.uf);
@@ -148,17 +148,12 @@ $(window).on('load', function() {
 
     /* Alertas remover produtos */
     $('#alertRemoveAll').hide();
-    $('#alertRemoveItem').hide();
 
     $('#btnRemoveAll').on('click', () => {
         $('#alertRemoveAll').slideDown();
     })
-    $('.btnRemoveItem').on('click', () => {
-        $('#alertRemoveItem').slideDown();
-    })
     $('.closeAlert').on('click', () => {
         $('#alertRemoveAll').slideUp();
-        $('#alertRemoveItem').slideUp();
     });
 
     /** Salvar dados do cliente */
@@ -226,16 +221,100 @@ $(window).on('load', function() {
     });
 
 
+    /* FORM REGISTER */
+    let tabAtivo = 0
+
+    showtab(tabAtivo);
+
+    function showtab(n) {
+        let x = $('.tab');
+
+        x[n].style.display = "block";
+
+        if (n == 0) {
+            $('#anterior').hide();
+        } else {
+            $('#anterior').show();
+        }
+
+        if (n == (x.length - 1)) {
+            $('#proximo').prop("submit");
+            $('#proximo').html('Enviar');
+        } else {
+            $('#proximo').html('Próximo');
+        }
+    }
+    $('#anterior').on('click', () => {
+        nextPrev(-1);
+    });
+    $('#proximo').on('click', () => {
+        nextPrev(1);
+    });
+
+    function nextPrev(n) {
+        let x = $('.tab');
+
+        if (n == 1 && !validateForm()) return false;
+
+        x[tabAtivo].style.display = "none";
+        tabAtivo = tabAtivo + n;
+
+        if (tabAtivo == 1) {
+            $('.progress-bar').css("width", "66%");
+        } else if (tabAtivo == 2) {
+            $('.progress-bar').css("width", "100%");
+        } else {
+            $('.progress-bar').css("width", "33%");
+        }
+
+        if (tabAtivo >= x.length) {
+            $('#formReg').submit();
+            $('#formReg').hide();
+            return false;
+        }
+        showtab(tabAtivo);
+    }
+
+    function validateForm() {
+        let x, y, i, valid = true;
+        x = $('.tab');
+        y = x[tabAtivo].getElementsByClassName("validator");
+        for (i = 0; i < y.length; i++) {
+            if (y[i].value == "") {
+                y[i].className += " invalid";
+                valid = false;
+            } else {
+                y[i].className = "form-control";
+            }
+
+        }
+        return valid;
+    }
 
 
+    /* Validar senha */
 
+    $('#con_senha').on('blur', () => {
+        verificaSenhas();
+    });
 
+    function verificaSenhas() {
+        let senha = $('#senha').val();
+        let con_senha = $('#con_senha').val();
+        if (senha !== con_senha) {
+            $('#senha').css("border-color", "red");
+            $('#con_senha').css("border-color", "red");
+            $('.erro_senha').html("As senhas não confere.");
+        } else {
+            $('#senha').css("border-color", "#ced4da");
+            $('#con_senha').css("border-color", "#ced4da");
+            $('.erro_senha').html("");
+        }
+    }
 
-
-
-
-
-
+    $('#nascimento').datepicker({
+        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+    });
 
 
 

@@ -93,6 +93,26 @@ class Produtos extends Conexao
         $this->getLista();
     }
 
+    public function pesquisarProduto($nome)
+    {
+        //Query  especifica para buscar os produtos de uma categorias especificas
+        $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id";
+        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id WHERE pro_nome LIKE '%$nome%' ";
+
+        $query .= $this->paginacaoLink("pro_id", $this->prefix . "produtos WHERE pro_nome LIKE '%$nome%'");
+        $params = array(
+            ':nome' => $nome
+        );
+
+        $this->executeSql($query, $params);
+        if ($this->totalDados() > 0) {
+            $this->getLista();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getTotalPro()
     {
 

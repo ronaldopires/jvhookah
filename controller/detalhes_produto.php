@@ -51,7 +51,7 @@ if ((isset(Rotas::$pag[1])) && (isset(Rotas::$pag[2]))) {
 
     } else {
         echo '<div class="container text-center alert alert-dismissible fade show alert-warning" role="alert">
-        <h4>Parametro de produto inválido.<h4>
+        <h4>Produto não localizado<h4>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button></div>' . Rotas::redirecionar(2, Rotas::pagProdutos());

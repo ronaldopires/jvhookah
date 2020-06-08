@@ -31,6 +31,24 @@ if (isset($_SESSION['CARRINHO']) && count($_SESSION['CARRINHO']) > 0) {
     $smarty->assign('PAG_CARRINHO', Rotas::pagCarrinho());
     $smarty->assign('PAG_PAGAMENTO', Rotas::pagPagamento());
     $smarty->assign('PAG_HOME', Rotas::getSiteHome());
+    $smarty->assign('DESCONTO', false);
+
+
+
+    if(isset($_SESSION['CUPOM'])){
+        $desconto = $_SESSION['CUPOM']['cupom_desconto'];
+        
+        $valor_carrinho = $carrinho->getTotal();
+        $porcento = ($valor_carrinho / 100) * $desconto;
+        $total = $valor_carrinho - $porcento + $_SESSION['PED']['frete'];
+        $smarty->assign('TOTAL', Sistema::moedaBr($total));
+        $smarty->assign('DESCONTO', Sistema::moedaBr($desconto));
+        $_SESSION['PED']['frete'] = $_POST['frete_radio'];
+        $_SESSION['PED']['total_com_frete'] = ($_POST['frete_radio'] + $carrinho->getTotal());
+    }
+
+
+
     $smarty->display('finalizar_pedido.tpl');
 } else {
     echo '

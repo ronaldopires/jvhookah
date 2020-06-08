@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-02 16:55:27
+/* Smarty version 3.1.36, created on 2020-06-08 13:23:15
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed6aeafac6ff9_86806428',
+  'unifunc' => 'content_5ede65f308ed40_36083380',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1591127721,
+      1 => 1591633377,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed6aeafac6ff9_86806428 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ede65f308ed40_36083380 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -34,15 +34,10 @@ function content_5ed6aeafac6ff9_86806428 (Smarty_Internal_Template $_smarty_tpl)
 </title>
     <!--Favicon-->
     <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/img/favicon.ico" type="image/x-icon">
+/img/favicon.ico" type="image/x-icon">
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" />
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
@@ -151,8 +146,13 @@ function content_5ed6aeafac6ff9_86806428 (Smarty_Internal_Template $_smarty_tpl)
                                 <a class="dropdown-item" href="#">Carvões</a>
                             </div> -->
                             <div class="input-group">
-                                <input type="text" placeholder="O que está procurando ?">
-                                <button type="button"><i class="ti-search"></i></button>
+                                <div class="col-12 p-0">
+                                    <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
+" method="POST">
+                                        <input type="text" name="pesquisar" id="pesquisar" placeholder="O que está procurando ?">
+                                        <button><i class="ti-search"></i></button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -162,7 +162,7 @@ function content_5ed6aeafac6ff9_86806428 (Smarty_Internal_Template $_smarty_tpl)
                             <li class="text-left">
                                 <div class="row no-gutters" style="font-size: 14px;">
                                     <div class="col">
-                                        <img class="img img-responsive img_profile" src="<?php echo $_smarty_tpl->tpl_vars['FOTO']->value;?>
+                                        <img class="img img-responsive rounded-circle" src="<?php echo $_smarty_tpl->tpl_vars['FOTO']->value;?>
 " alt="Foto Perfil" />
                                     </div>
                                     <div class="col ml-3">
@@ -391,6 +391,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 ">Cadastre-se</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTATO']->value;?>
 ">Fale Conosco</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PERGUNTAS_FREQUENTES']->value;?>
+">Perguntas Frequentes</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
 ">Produtos</a></li>
                         </ul>
@@ -452,22 +454,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <!-- Js Plugins -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
+/tema/js/jquery-3.5.1.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/js/script.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"><?php echo '</script'; ?>
->
-    <!-- <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/js/bootstrap.min.js"><?php echo '</script'; ?>
-> -->
+>
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/js/jquery-ui.min.js"><?php echo '</script'; ?>

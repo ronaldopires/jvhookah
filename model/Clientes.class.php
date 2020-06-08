@@ -19,7 +19,7 @@ class Clientes extends Conexao
     $cli_uf,
     $cli_complemento,
     $cli_data_cad,
-        $cli_hora_cad;
+    $cli_hora_cad;
 
     public function __construct()
     {
@@ -257,14 +257,14 @@ class Clientes extends Conexao
     {
         // verifico se ja tem este CPF no banco
         if ($this->getClienteCpf($this->getCli_cpf()) > 0 && $this->getCli_cpf() != $_REQUEST['cli_cpf']):
-            echo '<div class="alert alert-danger " id="erro_mostrar"> Este CPF já esta cadastrado ';
+            echo '<div class="alert alert-danger "> Este CPF já esta cadastrado ';
             Sistema::voltarPagina();
             echo '</div>';
             exit();
         endif;
         // verifica se o email já esta cadstrado
         if ($this->getClienteEmail($this->getCli_email()) > 0 && $this->getCli_email() != $_REQUEST['cli_email']):
-            echo '<div class="alert alert-danger " id="erro_mostrar"> Este Email já esta cadastrado ';
+            echo '<div class="alert alert-danger "> Este Email já esta cadastrado ';
             Sistema::voltarPagina();
             echo '</div>';
             exit();
@@ -502,17 +502,19 @@ class Clientes extends Conexao
 
     public function setCli_nome($cli_nome)
     {
-        if (strlen($cli_nome) < 3): echo '<div class="alert alert-danger " id="erro_mostrar"> Digite seu nome ';
+        if (strlen($cli_nome) < 3 || is_numeric($cli_nome)){
+            echo '<div class="alert alert-danger "> Digite seu nome corretamente';
             Sistema::voltarPagina();
             echo '</div>';
-        else:
+        }else{
             $this->cli_nome = $cli_nome;
-        endif;
+        }
     }
 
     public function setCli_sobrenome($cli_sobrenome)
     {
-        if (strlen($cli_sobrenome) < 3): echo '<div class="alert alert-danger " id="erro_mostrar"> Digite seu sobrenome ';
+        if (strlen($cli_sobrenome) < 3 || is_numeric($cli_sobrenome)): 
+            echo '<div class="alert alert-danger "> Digite seu sobrenome corretamente';
             Sistema::voltarPagina();
             echo '</div>';
         else:
@@ -522,19 +524,51 @@ class Clientes extends Conexao
 
     public function setCli_cpf($cli_cpf)
     {
-        $this->cli_cpf = $cli_cpf;
+        if (strlen($cli_cpf) != 11){
+            echo '<div class="alert alert-danger "> CPF com tamanho inválido ';
+            Sistema::voltarPagina();
+            echo '</div>';
+        }else if (!is_numeric($cli_cpf)){
+            echo '<div class="alert alert-danger "> Digite somente números no CPF';
+            Sistema::voltarPagina();
+            echo '</div>';
+        }else{
+            $this->cli_cpf = $cli_cpf;
+        }
     }
     public function setCli_data_nasc($cli_data_nasc)
     {
-        $this->cli_data_nasc = $cli_data_nasc;
+        if($cli_data_nasc > Sistema::dataAtualUs()){
+            echo '<div class="alert alert-danger ">Data de nascimento não pode ser maior que o ano atual';
+            Sistema::voltarPagina();
+            echo '</div>';
+        }else{
+            $this->cli_data_nasc = $cli_data_nasc;
+        }
     }
     public function setCli_sexo($cli_sexo)
     {
-        $this->cli_sexo = $cli_sexo;
+        if(($cli_sexo == 'f') || ($cli_sexo == 'm')){
+            $this->cli_sexo = $cli_sexo;
+        }else{
+            echo '<div class="alert alert-danger"> Sexo inválido';
+                Sistema::voltarPagina();
+                echo '</div>';
+        }
     }
     public function setCli_celular($cli_celular)
-    {
-        $this->cli_celular = $cli_celular;
+    {   
+        if(strlen($cli_celular) < 9 || strlen($cli_celular) > 12){
+            echo '<div class="alert alert-danger">Tamanho do número de celular inválido';
+            Sistema::voltarPagina();
+            echo '</div>';
+        }else if(!is_numeric($cli_celular)){
+            echo '<div class="alert alert-danger">Somente números é permitido no campo celular ';
+            Sistema::voltarPagina();
+            echo '</div>';
+        }else{
+            $this->cli_celular = $cli_celular;
+        }
     }
     public function setcli_complemento($cli_complemento)
     {
@@ -548,12 +582,9 @@ class Clientes extends Conexao
     {
         if (!filter_var($cli_email, FILTER_VALIDATE_EMAIL)):
 
-            echo '<div class="alert alert-danger " id="erro_mostrar"> Email incorreto ';
+            echo '<div class="alert alert-danger"> Email incorreto ';
             Sistema::voltarPagina();
             echo '</div>';
-
-            exit();
-
         else:
 
             $this->cli_email = $cli_email;
@@ -568,15 +599,14 @@ class Clientes extends Conexao
     {
         $cep = filter_var($cli_cep, FILTER_SANITIZE_NUMBER_INT);
 
-        if (strlen($cep) != 8):
-            echo '<div class="alert alert-danger " id="erro_mostrar"> CEP incorreto ';
+        if (strlen($cep) != 8){
+            echo '<div class="alert alert-danger"> CEP incorreto ';
             Sistema::voltarPagina();
             echo '</div>';
-
-        else:
+        }else{
             $this->cli_cep = $cli_cep;
 
-        endif;
+        }
     }
     public function setCli_endereco($cli_endereco)
     {
@@ -598,11 +628,10 @@ class Clientes extends Conexao
     {
         $uf = filter_var($cli_uf, FILTER_SANITIZE_STRING);
 
-        if (strlen($uf) != 2): // 11111
-            echo '<div class="alert alert-danger " id="erro_mostrar"> UF incorreto ';
+        if (strlen($uf) != 2):
+            echo '<div class="alert alert-danger"> UF incorreto ';
             Sistema::voltarPagina();
             echo '</div>';
-
         else:
             $this->cli_uf = $cli_uf;
 

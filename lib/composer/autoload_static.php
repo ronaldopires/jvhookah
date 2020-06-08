@@ -27,6 +27,7 @@ class ComposerStaticInit5205bec8f42c9cca6c2298977d0291c4
         'Conexao' => __DIR__ . '/../..' . '/model/Conexao.class.php',
         'Config' => __DIR__ . '/../..' . '/model/Config.class.php',
         'Correios' => __DIR__ . '/../..' . '/model/Correios.class.php',
+        'Cupons' => __DIR__ . '/../..' . '/model/Cupons.class.php',
         'Endereco' => __DIR__ . '/../..' . '/model/Endereco.class.php',
         'EnviarEmail' => __DIR__ . '/../..' . '/model/EnviarEmail.class.php',
         'Itens' => __DIR__ . '/../..' . '/model/ItensPedido.class.php',

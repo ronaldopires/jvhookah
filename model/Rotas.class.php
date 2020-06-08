@@ -6,7 +6,7 @@ class Rotas
     public static $pag;
     private static $pasta_controller = 'controller'; //Pasta padrão de controllers
     private static $pasta_view = 'view'; //Pasta padrão de templates
-    private static $pasta_adm = 'adm'; //Pasta padrão de templates
+    private static $pasta_adm = 'adm/'; //Pasta padrão de templates
 
     //Pasta principal do site
     public static function getSiteHome()
@@ -101,7 +101,7 @@ class Rotas
     // ROTAS ADM
     public static function getSiteAdm()
     {
-        return self::getSiteHome() . '/' . self::$pasta_adm;
+        return self::getSiteHome() . self::$pasta_adm;
     }
 
     public static function pagProdutosAdm()
@@ -135,6 +135,10 @@ class Rotas
     public static function pagCategoriasAdm()
     {
         return self::getSiteAdm() . 'adm_categorias';
+    }
+    public static function pagPedidosAdm()
+    {
+        return self::getSiteAdm() . 'adm_pedidos';
     }
 
     public static function pagError()

@@ -2,7 +2,7 @@
 
 class Carrinho
 {
-    private $total_valor, $total_peso, $itens = array();
+    private $valor_total, $total_peso, $itens = array();
 
     //Cria uma sessão com os itens do carrinho
     public function getCarrinho()
@@ -13,8 +13,8 @@ class Carrinho
 
         //Laço nos itens criando uma sessão
         foreach ($_SESSION['CARRINHO'] as $lista) {
-            $sub = ($lista['VALOR_US'] - $lista['DESCONTO']) * $lista['QTD'];
-            $this->total_valor += $sub;
+            $sub = ($lista['VALOR_US'] * $lista['QTD']);
+            $this->valor_total += $sub;
 
             $peso = $lista['PESO'] * $lista['QTD'];
             $this->total_peso += $peso;
@@ -54,7 +54,7 @@ class Carrinho
 
     public function getTotal()
     {
-        return $this->total_valor;
+        return $this->valor_total;
     }
 
     public function getPeso()
@@ -109,20 +109,19 @@ class Carrinho
                     $_SESSION['CARRINHO'][$ID]['IMG'] = $IMG;
                     $_SESSION['CARRINHO'][$ID]['SLUG'] = $SLUG;
                     Rotas::redirecionar(0, Rotas::pagCarrinho());
-                } else
-                if ($_SESSION['CARRINHO'][$ID]['QTD'] < $_SESSION['CARRINHO'][$ID]['ESTOQUE']) {
+                } else if ($_SESSION['CARRINHO'][$ID]['QTD'] < $ESTOQUE) {
                     $_SESSION['CARRINHO'][$ID]['QTD'] += $QTD;
+                    $_SESSION['CARRINHO'][$ID]['ESTOQUE'] = $ESTOQUE;
                     Rotas::redirecionar(0, Rotas::pagCarrinho());
 
                 } else {
                     echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
-                                    <h4>A quantidade desejada para o ' . $NOME . ' está indisponível.<h4>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button></div>' . Rotas::redirecionar(3, Rotas::pagCarrinho());
+                                <h4 class="">A quantidade desejada para ' . $NOME . ' está indisponível.<h4>
+                                <p>Quantidade em estoque é ' . $ESTOQUE . '</p>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button></div>';
                 }
-
-                //Rotas::redirecionar(3, Rotas::pagCarrinho());
 
                 break;
             case 'del':
@@ -133,24 +132,18 @@ class Carrinho
             case 'limpar':
                 //Deletar todos produtos do carrinho
                 $this->carrinhoLimpar();
-                echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
-                                <h4>Itens removidos com sucesso.<h4>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button></div>';
-
+                Rotas::redirecionar(0, Rotas::pagCarrinho());
                 break;
             case 'remover':
                 //Remove item
                 $this->remover($ID, $QTD);
+                $_SESSION['CARRINHO'][$ID]['ESTOQUE'] = $ESTOQUE;
                 Rotas::redirecionar(0, Rotas::pagCarrinho());
                 break;
             case 'quantidade':
                 //Altera a quantidade
-                //$this->quantidade($ID);
-                if (!$this->quantidade($ID)) {
-                    Rotas::redirecionar(0, Rotas::pagCarrinho());
-                }
+                $_SESSION['CARRINHO'][$ID]['ESTOQUE'] = $ESTOQUE;
+                $this->quantidade($ID);
                 break;
         }
     }
@@ -163,7 +156,7 @@ class Carrinho
     private function carrinhoLimpar()
     {
         unset($_SESSION['CARRINHO']);
-        //unset($_SESSION['CUPOM']);
+        unset($_SESSION['CUPOM']);
     }
     private function remover($ID)
     {
@@ -179,19 +172,19 @@ class Carrinho
         if (!isset($_POST['pro_qtd']) or $_POST['pro_qtd'] < 1) {
             $_SESSION['CARRINHO'][$ID]['QTD'] = 1;
         }
-
-        if ($_SESSION['CARRINHO'][$ID]['QTD'] > $_SESSION['CARRINHO'][$ID]['ESTOQUE']) {
-            $_SESSION['CARRINHO'][$ID]['QTD'] = 1;
+        $ESTOQUE = $_SESSION['CARRINHO'][$ID]['ESTOQUE'];
+        if ($_SESSION['CARRINHO'][$ID]['QTD'] > $ESTOQUE) {
+            $_SESSION['CARRINHO'][$ID]['QTD'] = $ESTOQUE;
             $NOME = $_SESSION['CARRINHO'][$ID]['NOME'];
             echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
-                                <h4 class="">A quantidade desejada para ' . $NOME . ' está indisponível.<h4>
-                                <p>Quantidade em estoque é ' . $_SESSION['CARRINHO'][$ID]['ESTOQUE'] . '</p>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button></div>';
-            return true;
+                    <h4 class="">A quantidade desejada para ' . $NOME . ' está indisponível.<h4>
+                    <p>Quantidade em estoque é <b>' . $ESTOQUE . '</b></p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button></div>';
+
         }
-        return false;
+
     }
 
 }

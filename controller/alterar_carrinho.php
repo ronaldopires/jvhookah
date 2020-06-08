@@ -20,7 +20,6 @@ if(isset($_POST['acao'])){
         </button></div>'. Rotas::redirecionar(2, Rotas::pagCarrinho()));
     }
     
-    //Rotas::redirecionar(0, Rotas::pag_Check_Out());
 }
 
 

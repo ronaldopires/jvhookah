@@ -1,6 +1,5 @@
 <?php
 
-if (Login::Logado()) {
     if (isset($_SESSION['CARRINHO']) and count($_SESSION['CARRINHO']) > 0) {
 
         if (!isset($_SESSION['PED']['frete'])) {
@@ -32,14 +31,25 @@ if (Login::Logado()) {
         $cod = $_SESSION['PED']['pedido'];
         $ref = $_SESSION['PED']['ref'];
         $frete = $_SESSION['PED']['frete'];
+        if(isset($_SESSION['CUPOM'])){
+            echo $cupom = $_SESSION['CUPOM']['cupom_desconto'];
+
+        }else{
+            $cupom = '';
+        }
 
         $smarty->assign('CARRINHO', $carrinho->getCarrinho());
         $smarty->assign('TOTAL', Sistema::moedaBr($carrinho->getTotal()));
         $smarty->assign('PAG_PRODUTOS', Rotas::pagProdutos());
         $smarty->assign('PAG_HOME', Rotas::getSiteHome());
 
+        
+        /* echo '<pre>';
+        print_r($pedido->getItens());
+        echo '</pre>'; */
+
         //Se gravou o pedido limpa as sessões
-        if ($pedido->pedidoGravar($cliente, $cod, $ref, $frete)) {
+        /* if ($pedido->pedidoGravar($cliente, $cod, $ref, $frete, $cupom)) {
             $email = new EnviarEmail();
 
             //Alterar email depois
@@ -64,7 +74,7 @@ if (Login::Logado()) {
                 <span aria-hidden="true">&times;</span>
             </button></div>' . Rotas::redirecionar(3, Rotas::pagProdutos());
 
-        }
+        } */
 
         $smarty->display('pagamento.tpl');
     } else {
@@ -74,6 +84,3 @@ if (Login::Logado()) {
             <span aria-hidden="true">&times;</span>
         </button></div>';
     }
-} else {
-    Rotas::redirecionar(0, Rotas::pagLogin());
-}

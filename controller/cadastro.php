@@ -26,7 +26,7 @@ if(isset($_POST['cli_email']) && isset($_POST['cli_senha']) && isset($_POST['cli
 
 
     //CHAMAR A FUNÇÃO PARA PREPARAR OS DADOS
-    $clientes->prepararDados(
+    if($clientes->prepararDados(
         $cli_nome,
         $cli_sobrenome,
         $cli_cpf,
@@ -45,22 +45,31 @@ if(isset($_POST['cli_email']) && isset($_POST['cli_senha']) && isset($_POST['cli
         $cli_complemento,
         $cli_data_cad,
         $cli_hora_cad
-    );
-
-        $clientes->inserir();
-
-    echo '<div class="container text-center alert alert-dismissible fade show alert-success" role="alert">
+    )){
+        if($clientes->inserir()){
+            echo '<div class="container text-center alert alert-dismissible fade show alert-success" role="alert">
             <h4>Cadastro efetuado com sucesso<h4>
             <p>Redirecionando...</p>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-            </button></div>' . Rotas::redirecionar(3, Rotas::pagLogin());
-        exit();
+            </button></div>' . Rotas::redirecionar(2, Rotas::pagLogin());
+            exit();
+        }
+        
+    }else{
+        echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
+        <h4>Erro ao efetuar o cadastro<h4>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button></div>';
+    }
     
+
+}else{
     $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
     $smarty->assign('PAG_HOME', Rotas::getSiteHome());
     $smarty->assign('PAG_LOGIN', Rotas::pagLogin());
-}else{
+    $smarty->assign('PAG_CADASTRO', Rotas::pagCadastro());
     $smarty->display('cadastro.tpl');
 }
     

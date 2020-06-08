@@ -116,6 +116,23 @@ if (isset($_SESSION['FAVORITOS'])) {
     $smarty->assign('ITENS_FAVORITOS', $_SESSION['FAVORITOS']);
 }
 
+if(isset($_POST['pesquisar'])){
+    $pesquisa = new Produtos();
+    $listagem = new Produtos();
+    $listagem->getProdutos();
+    $nome = filter_var($_POST['pesquisar'], FILTER_SANITIZE_STRING);
+    if($pesquisa->pesquisarProduto($nome)){
+        $smarty->assign('PRODUTOS', $pesquisa->getItens());
+        $smarty->assign('PAGINAS',  $pesquisa->mostrarPaginacao());
+
+    }else{
+        $smarty->assign('MAIS_PRODUTOS', $listagem->getItens());
+        $smarty->assign('ITENS', $pesquisa->totalDados());
+        $smarty->assign('PAGINAS', );
+
+    }
+}
+
 $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
 $smarty->assign('PAG_HOME', Rotas::getSiteHome());
 $smarty->assign('PAG_DETALHES_PRODUTO', Rotas::pagDetalhesProduto());

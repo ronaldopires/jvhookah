@@ -7,7 +7,7 @@
                     <a href="{$PAG_HOME}"><i class="fa fa-home"></i> Home</a>
                     <a href="{$PAG_PRODUTOS}">Produtos</a>
                     <a href="{$PAG_CARRINHO}">Carrinho</a>
-                    <span>Check Out</span>
+                    <span>Finalizar Pedido</span>
                 </div>
             </div>
         </div>
@@ -31,6 +31,9 @@
                                 {/foreach}
                                 <li class="fw-normal">Subtotal <span>R$ {$VALOR}</span></li>
                                 <li class="fw-normal">Frete <span>R$ {$FRETE}</span></li>
+                                {if $DESCONTO == true}
+                                <li class="fw-normal">Cupom de desconto <span>-{$DESCONTO} %</span></li>
+                                {/if}
                                 <li class="total-price">Total <span>R$ {$TOTAL}</span></li>
                             </ul>
                             <div class="order-btn">

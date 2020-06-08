@@ -6,11 +6,11 @@ class Pedidos extends Conexao
     {
         parent::__construct();
     }
-    public function pedidoGravar($cliente, $cod, $ref, $freteValor = null, $freteTipo = null)
+    public function pedidoGravar($cliente, $cod, $ref, $freteValor = null, $freteTipo = null, $cupom = null)
     {
         $retorno = false;
-        $query = "INSERT INTO {$this->prefix}pedidos (ped_data, ped_hora, ped_cliente, ped_cod, ped_ref, ped_frete_valor, ped_frete_tipo)";
-        $query .= " VALUES (:data, :hora, :cliente, :cod, :ref, :frete_valor, :frete_tipo)";
+        $query = "INSERT INTO {$this->prefix}pedidos (ped_data, ped_hora, ped_cliente, ped_cod, ped_ref, ped_frete_valor, ped_frete_tipo, ped_cupom)";
+        $query .= " VALUES (:data, :hora, :cliente, :cod, :ref, :frete_valor, :frete_tipo, :cupom)";
         $params = array(
             ':data' => Sistema::dataAtualUs(),
             ':hora' => Sistema::horaAtual(),
@@ -19,6 +19,7 @@ class Pedidos extends Conexao
             ':ref' => $ref,
             ':frete_valor' => $freteValor,
             ':frete_tipo' => $freteTipo,
+            ':cupom' => $cupom,
         );
         $this->executeSql($query, $params);
         $this->gravarItensPedido($cod);
@@ -32,7 +33,9 @@ class Pedidos extends Conexao
 
         if (($cliente != null) and ($cliente > 0)) {
             $cli = (int) $cliente;
-            $query .= " AND ped_cliente = {$cli} ORDER BY p.ped_id DESC";
+            $query .= " AND ped_cliente = {$cli} ORDER BY p.ped_data DESC";
+        }else{
+            $query .= " ORDER BY p.ped_data DESC";
         }
 
         $query .= $this->paginacaoLink("ped_id", $this->prefix . "pedidos WHERE ped_cliente=" . (int) $cliente);
@@ -61,6 +64,7 @@ class Pedidos extends Conexao
                 'ped_frete_tipo' => $lista['ped_frete_tipo'],
                 'cli_nome' => $lista['cli_nome'],
                 'cli_sobrenome' => $lista['cli_sobrenome'],
+                'cli_foto' => $lista['cli_foto'],
             );
             $i++;
         endwhile;
@@ -104,6 +108,56 @@ class Pedidos extends Conexao
 
         $this->executeSql($query, $params);
 
+    }
+
+    //Pedidos feitos
+    public function getPedidosRecente()
+    {
+        
+        $query = "SELECT ped_data FROM {$this->prefix}pedidos WHERE month(ped_data) = 6";
+
+        $this->executeSql($query);
+        if($this->totalDados()> 0){
+            $i = 1;
+            while ($lista = $this->listarDados()):
+                $this->itens[$i] = array(
+                    'ped_data' => Sistema::formatarData($lista['ped_data']),
+                );
+                $i++;
+            endwhile;
+            
+        }
+
+    }
+
+    //Clientes que mais comprou
+    public function clientePedido()
+    {
+        $query = "SELECT ped_data, ped_hora, count(ped_cliente) as total, cli_nome, cli_sobrenome, cli_foto FROM {$this->prefix}pedidos p INNER JOIN {$this->prefix}clientes c ON p.ped_cliente = c.cli_id GROUP BY ped_cliente ORDER BY ped_cliente ASC";
+        $this->executeSql($query);
+        
+        if($this->totalDados() > 0){
+            $i = 1;
+            while ($lista = $this->listarDados()):
+                $this->itens[$i] = array(
+                    'ped_data' => Sistema::formatarData($lista['ped_data']),
+                    'ped_hora' => $lista['ped_hora'],
+                    'total' => $lista['total'],
+                    // 'ped_cliente' => $lista['ped_cliente'],
+                    'cli_nome' => $lista['cli_nome'],
+                    'cli_sobrenome' => $lista['cli_sobrenome'],
+                    'cli_foto' => Rotas::imageLinkProfile($lista['cli_foto'], 75, 75),
+                );
+                $i++;
+            endwhile;
+        }
+    }
+
+    //Pedidos mes
+    public function pedidoMes($mes)
+    {
+        $query = " SELECT * FROM {$this->prefix}pedidos WHERE month(ped_data) = '$mes'";
+        $this->executeSql($query);
     }
 
     //Limpar Sessão

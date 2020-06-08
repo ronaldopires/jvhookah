@@ -163,18 +163,16 @@ class Sistema
      */
     public static function voltarPagina()
     {
-
         echo '<script> function goBack() {
                     window.history.back();
                     } </script>';
-        echo '<button onclick="goBack()" class="btn btn-default p-1 m-2">'
-            . '<i class="ti-arrow-left" ></i> Voltar </button> ';
+        echo '<button class="btn btn-outline-danger ml-3" onclick="goBack()"><i class="ti-arrow-left"></i> Voltar</button>';
     }
 
     /**
      * @return string: cria um nome para pastas e URL amigavel (SLUG)
      */
-    public static function GetSlug($string)
+    public static function getSlug($string)
     {
         //    original =  Produto maçã do Amor  - produto-maca-do-amor
         if (is_string($string)) {
@@ -207,12 +205,12 @@ class Sistema
 
     }
 
-    public function validarCep($cep)
+    public static function validarCep($cep)
     {
         // retira espacos em branco
         $cep = trim($cep);
         // expressao regular para avaliar o cep
-        $avaliaCep = ereg("^[0-9]{5}-[0-9]{3}$", $cep);
+        $avaliaCep = preg_match('/^[0-9]{5}[0-9]{3}$/', $cep);
 
         // verifica o resultado
         if (!$avaliaCep) {
