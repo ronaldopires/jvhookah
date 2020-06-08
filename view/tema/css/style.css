@@ -75,7 +75,7 @@ a[href="#top"]>i {
 
 html,
 body {
-    height: 100%;
+    /* height: 100%; */
     font-family: "Muli", sans-serif;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
@@ -200,7 +200,7 @@ ol {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
-    height: 340px;
+    /* height: 340px; */
 }
 
 .spad {
@@ -515,10 +515,6 @@ ol {
     height: 100%;
 }
 
-#pesquisar {
-    height: 48px;
-}
-
 .inner-header .advanced-search .input-group input {
     width: 100%;
     height: 100%;
@@ -542,14 +538,14 @@ ol {
 }
 
 .inner-header .nav-right {
-    padding: 10px 0;
+    padding: 10px;
 }
 
 .inner-header .nav-right li {
     list-style: none;
     display: inline-block;
     font-size: 20px;
-    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .inner-header .nav-right li.heart-icon a {
@@ -4146,6 +4142,7 @@ ol {
     .nav-item .nav-menu li a {
         padding: 16px 45px 15px;
     }
+    
 }
 
 @media only screen and (min-width: 1200px) {
@@ -4191,6 +4188,42 @@ ol {
     .related-products .product-item .pi-pic ul li a {
         padding: 16px 12px 12px 11px;
     }
+    .primary-btn, .catagory-name{
+        font-size: 11px;
+    }
+    .product-name{
+        font-size: 12px;
+    }
+    a.whatsFixo {
+    bottom: 30px;
+    right: 35px;
+    width: 60px;
+    height: 60px;
+    }
+
+    a.whatsFixo i {
+        font-size: 3.0em;
+        width: 60px;
+        height: 60px;
+        top: 0px;
+        left: 0px;
+        line-height: 60px;
+    }
+
+    a[href="#top"] {
+        position: fixed;
+        bottom: 30px;
+        left: 20px;
+        font-size: 40px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .card-body{
+        max-height: 170px;
+        overflow: auto;
+    }
+
 }
 
 @media only screen and (max-width: 991px) {
@@ -4243,9 +4276,47 @@ ol {
     .product-shop.page-details .product-details {
         padding-top: 30px;
     }
-    .inner-header .advanced-search .input-group button {
-        right: -8px;
+    
+    a.whatsFixo {
+    bottom: 30px;
+    right: 45px;
+    width: 45px;
+    height: 45px;
     }
+
+    a.whatsFixo i {
+        font-size: 2.0em;
+        width: 30px;
+        height: 30px;
+        top: 10px;
+        left: 8px;
+        line-height: 30px;
+    }
+
+    a[href="#top"] {
+        position: fixed;
+        bottom: 30px;
+        left: 20px;
+        font-size: 40px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .hero-items .single-hero-items {
+        height: 340px;
+        padding-top: 0;
+    }
+    .primary-btn, .catagory-name{
+        font-size: 10px;
+    }
+    .card-body{
+        max-height: 150px;
+        overflow: auto;
+    }
+    .product-name{
+        font-size: 12px;
+    }
+    
 }
 
 
@@ -4307,6 +4378,24 @@ ol {
     }
     .page-profile .nav {
         width: 100% !important;
+    }
+    a.whatsFixo {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+    }
+    a.whatsFixo i {
+        font-size: 1.5em;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        top: 5px;
+        left: 5px;
+    }
+    a[href="#top"] {
+        bottom: 20px;
+        left: 20px;
     }
 }
 
@@ -4370,7 +4459,7 @@ ol {
         display: block;
         background: transparent;
         text-align: center;
-        margin-top: -48px;
+        margin-top: -51px;
     }
     .slicknav_nav {
         background: #333;
@@ -4393,7 +4482,7 @@ ol {
         border-radius: 0;
         background-color: #e7ab3c;
         display: inline-block;
-        right: -16px;
+        right: -10px;
     }
     .slicknav_nav .slicknav_row,
     .slicknav_nav a {
@@ -4465,6 +4554,8 @@ ol {
     a.whatsFixo {
         width: 40px;
         height: 40px;
+        bottom: 20px;
+        right: 20px;
     }
     a.whatsFixo i {
         font-size: 1.5em;
@@ -4474,6 +4565,11 @@ ol {
         top: 5px;
         left: 5px;
     }
+    a[href="#top"] {
+        bottom: 20px;
+        left: 20px;
+    }
+
     .cart-table table tr td.qua-col .pro-qty input {
         text-align: center;
         /* width: 52px; */
@@ -4489,7 +4585,7 @@ ol {
         font-size: 12px;
     }
     .hero-items .single-hero-items {
-        height: auto;
+        height: 300px;
     }
     .hero-items .single-hero-items h1 {
         font-size: 40px;
@@ -4544,6 +4640,9 @@ ol {
     .page-profile .nav {
         width: 100% !important;
     }
+    .foto{
+        display: none;
+    }
 }
 
 
@@ -4562,6 +4661,9 @@ ol {
     .inner-header .nav-right li.cart-icon .cart-hover {
         width: 270px;
         padding: 20px;
+    }
+    .hero-items .single-hero-items {
+        height: 300px;
     }
     .countdown-timer .cd-item {
         margin-right: 5px;
@@ -4626,6 +4728,17 @@ ol {
     .benefit-items .single-benefit {
         padding-left: 15px;
         padding-right: 15px;
+    }
+    a.whatsFixo {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 15px;
+    }
+    
+    a[href="#top"] {
+        bottom: 20px;
+        left: 20px;
     }
 }
 

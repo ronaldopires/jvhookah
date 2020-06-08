@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="product-pic-zoom">
-                            <img class="product-big-img" src="{$P.pro_img_gg}" alt="{$P.pro_nome}">
+                            <img class="product-big-img" src="{$P.pro_img_g}" alt="{$P.pro_nome}">
                             <div class="zoom-icon">
                                 <i class="fa fa-search-plus"></i>
                             </div>
@@ -31,9 +31,9 @@
                         <div class="product-thumbs">
                             <div class="product-thumbs-track ps-slider owl-carousel">
                                 {foreach from=$CORES item=C} {if $ID == $C.pro_id}
-                                <div class="pt active" data-imgbigurl="{$C.pro_img_gg}"><img src="{$C.pro_img_gg}" alt="{$C.pro_nome}"></div>
+                                <div class="pt active" data-imgbigurl="{$C.pro_img_g}"><img src="{$C.pro_img_g}" alt="{$C.pro_nome}"></div>
                                 {else}
-                                <div class="pt " data-imgbigurl="{$C.pro_img_gg}"><img src="{$C.pro_img_gg}" alt="{$C.pro_nome}"></div>
+                                <div class="pt " data-imgbigurl="{$C.pro_img_g}"><img src="{$C.pro_img_g}" alt="{$C.pro_nome}"></div>
                                 {/if} {/foreach}
                             </div>
                         </div>

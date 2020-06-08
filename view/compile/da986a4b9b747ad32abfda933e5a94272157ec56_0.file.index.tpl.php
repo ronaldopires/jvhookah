@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-08 13:23:15
+/* Smarty version 3.1.36, created on 2020-06-08 18:30:53
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ede65f308ed40_36083380',
+  'unifunc' => 'content_5edeae0df11178_42878415',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1591633377,
+      1 => 1591651851,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ede65f308ed40_36083380 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5edeae0df11178_42878415 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -102,16 +102,6 @@ function content_5ede65f308ed40_36083380 (Smarty_Internal_Template $_smarty_tpl)
 " class="login-panel"><i class="fa fa-user"></i>Logout</a> <?php } else { ?>
                     <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_LOGIN']->value;?>
 " class="login-panel"><i class="fa fa-user"></i>Login</a> <?php }?>
-                    <!-- <div class="lan-selector">
-                        <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                            <option value='yt' data-image="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/flag-1.jpg" data-imagecss="flag yt"
-                                data-title="English">English</option>
-                            <option value='yu' data-image="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/flag-2.jpg" data-imagecss="flag yu"
-                                data-title="Bangladesh">German </option>
-                        </select>
-                    </div> -->
                     <div class="top-social">
                         <a href="#"><i class="ti-facebook"></i></a>
                         <a href="#"><i class="ti-twitter-alt"></i></a>
@@ -123,8 +113,8 @@ function content_5ede65f308ed40_36083380 (Smarty_Internal_Template $_smarty_tpl)
         </div>
         <div class="container">
             <div class="inner-header">
-                <div class="row">
-                    <div class="col-lg-2 col-md-2">
+                <div class="row no-gutters">
+                    <div class="col-lg-2 col-md-2 ">
                         <div class="logo">
                             <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
 ">
@@ -133,36 +123,24 @@ function content_5ede65f308ed40_36083380 (Smarty_Internal_Template $_smarty_tpl)
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-md-7">
-                        <div class="advanced-search dropdown">
-                            <!-- <button type="button" id="categories" class="category-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Todas Categorias</button>
-                            <div class="dropdown-menu" aria-labelledby="categories">
-                                <a class="dropdown-item" href="#">Kit Completo</a>
-                                <a class="dropdown-item" href="#">Abafadores</a>
-                                <a class="dropdown-item" href="#">Carvões</a>
-                                <a class="dropdown-item" href="#">Pratos</a>
-                                <a class="dropdown-item" href="#">Essências</a>
-                                <a class="dropdown-item" href="#">Carvões</a>
-                                <a class="dropdown-item" href="#">Carvões</a>
-                            </div> -->
+                    <div class="col-lg-7 col-md-5">
+                        <div class="advanced-search">
                             <div class="input-group">
-                                <div class="col-12 p-0">
-                                    <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
+                                <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
 " method="POST">
-                                        <input type="text" name="pesquisar" id="pesquisar" placeholder="O que está procurando ?">
-                                        <button><i class="ti-search"></i></button>
-                                    </form>
-                                </div>
+                                    <input type="text" name="pesquisar" id="pesquisar" placeholder="O que está procurando ?">
+                                    <button><i class="ti-search"></i></button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 text-right col-md-3">
+                    <div class="col-lg-3 col-md-5 text-right p-0">
                         <ul class="nav-right">
                             <?php if ($_smarty_tpl->tpl_vars['LOGADO']->value == TRUE) {?>
                             <li class="text-left">
                                 <div class="row no-gutters" style="font-size: 14px;">
-                                    <div class="col">
-                                        <img class="img img-responsive rounded-circle" src="<?php echo $_smarty_tpl->tpl_vars['FOTO']->value;?>
+                                    <div class="col foto">
+                                        <img class="img img-fluid rounded-circle" src="<?php echo $_smarty_tpl->tpl_vars['FOTO']->value;?>
 " alt="Foto Perfil" />
                                     </div>
                                     <div class="col ml-3">
@@ -232,15 +210,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
 </h5>
                                     </div>
                                     <div class="select-button">
-                                        <!-- <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_SHOP']->value;?>
-" class="primary-btn view-card">VER PRODUTOS</a> -->
+                                        <?php if ($_smarty_tpl->tpl_vars['CARRINHO']->value == false) {?>
+                                        <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
+" class="primary-btn view-card">VER PRODUTOS</a>
+                                        <?php } else { ?>
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CARRINHO']->value;?>
 " class="primary-btn checkout-btn">FINALIZAR PEDIDO</a>
+                                        <?php }?>
                                     </div>
                                 </div>
                             </li>
-                            <!-- <li class="cart-price">R$ <?php echo $_smarty_tpl->tpl_vars['VALOR_TOTAL']->value;?>
-</li> -->
                         </ul>
                     </div>
                 </div>
@@ -320,7 +299,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <!--Rotas de páginas -->
     <?php  Rotas::getPagina(); ?>
     <!-- Partner Logo Section Begin -->
-    <div class="partner-logo">
+    <!-- <div class="partner-logo">
         <div class="container">
             <div class="logo-carousel owl-carousel">
                 <div class="logo-item">
@@ -355,7 +334,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Partner Logo Section End -->
 
     <!-- Footer Section Begin -->
@@ -366,7 +345,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <div class="footer-left">
                         <div class="footer-logo">
                             <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
-"><img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+"><img width="200" height="80" src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /img/logo-carousel/jvhk2.png" alt=""></a>
                         </div>
                         <ul>
@@ -420,20 +399,18 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="copyright-reserved">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="copyright-text">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;
                             <?php echo '<script'; ?>
 >
                                 document.write(new Date().getFullYear());
                             <?php echo '</script'; ?>
 > All rights reserved | by <a href="https://github.com/ronaldopires" target="_blank">Ronaldo Carvalho</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="payment-pic">
                             <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-31 05:14:09
+/* Smarty version 3.1.36, created on 2020-06-08 18:01:18
   from 'C:\xampp\htdocs\jvhookah\view\detalhes_produto.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed36751330518_91458494',
+  'unifunc' => 'content_5edea71ec75d70_57876726',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c5ab0333eae9405528006835b755af911dbb8543' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\detalhes_produto.tpl',
-      1 => 1590912837,
+      1 => 1591638454,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed36751330518_91458494 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5edea71ec75d70_57876726 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -53,7 +53,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="product-pic-zoom">
-                            <img class="product-big-img" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_gg'];?>
+                            <img class="product-big-img" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_g'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 ">
                             <div class="zoom-icon">
@@ -68,13 +68,13 @@ $_smarty_tpl->tpl_vars['C']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
 $_smarty_tpl->tpl_vars['C']->do_else = false;
 ?> <?php if ($_smarty_tpl->tpl_vars['ID']->value == $_smarty_tpl->tpl_vars['C']->value['pro_id']) {?>
-                                <div class="pt active" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_gg'];?>
-"><img src="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_gg'];?>
+                                <div class="pt active" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_g'];?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_g'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_nome'];?>
 "></div>
                                 <?php } else { ?>
-                                <div class="pt " data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_gg'];?>
-"><img src="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_gg'];?>
+                                <div class="pt " data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_g'];?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_g'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_nome'];?>
 "></div>
                                 <?php }?> <?php

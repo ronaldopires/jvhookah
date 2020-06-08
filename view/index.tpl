@@ -66,14 +66,6 @@
                     {if $LOGADO == TRUE}
                     <a href="{$PAG_LOGOUT}" class="login-panel"><i class="fa fa-user"></i>Logout</a> {else}
                     <a href="{$PAG_LOGIN}" class="login-panel"><i class="fa fa-user"></i>Login</a> {/if}
-                    <!-- <div class="lan-selector">
-                        <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                            <option value='yt' data-image="{$GET_TEMA}/img/flag-1.jpg" data-imagecss="flag yt"
-                                data-title="English">English</option>
-                            <option value='yu' data-image="{$GET_TEMA}/img/flag-2.jpg" data-imagecss="flag yu"
-                                data-title="Bangladesh">German </option>
-                        </select>
-                    </div> -->
                     <div class="top-social">
                         <a href="#"><i class="ti-facebook"></i></a>
                         <a href="#"><i class="ti-twitter-alt"></i></a>
@@ -85,43 +77,31 @@
         </div>
         <div class="container">
             <div class="inner-header">
-                <div class="row">
-                    <div class="col-lg-2 col-md-2">
+                <div class="row no-gutters">
+                    <div class="col-lg-2 col-md-2 ">
                         <div class="logo">
                             <a href="{$PAG_HOME}">
                                 <img height=" 40" src="{$GET_TEMA}/img/jv_logo.jpg" alt="">
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-md-7">
-                        <div class="advanced-search dropdown">
-                            <!-- <button type="button" id="categories" class="category-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Todas Categorias</button>
-                            <div class="dropdown-menu" aria-labelledby="categories">
-                                <a class="dropdown-item" href="#">Kit Completo</a>
-                                <a class="dropdown-item" href="#">Abafadores</a>
-                                <a class="dropdown-item" href="#">Carvões</a>
-                                <a class="dropdown-item" href="#">Pratos</a>
-                                <a class="dropdown-item" href="#">Essências</a>
-                                <a class="dropdown-item" href="#">Carvões</a>
-                                <a class="dropdown-item" href="#">Carvões</a>
-                            </div> -->
+                    <div class="col-lg-7 col-md-5">
+                        <div class="advanced-search">
                             <div class="input-group">
-                                <div class="col-12 p-0">
-                                    <form action="{$PAG_PRODUTOS}" method="POST">
-                                        <input type="text" name="pesquisar" id="pesquisar" placeholder="O que está procurando ?">
-                                        <button><i class="ti-search"></i></button>
-                                    </form>
-                                </div>
+                                <form action="{$PAG_PRODUTOS}" method="POST">
+                                    <input type="text" name="pesquisar" id="pesquisar" placeholder="O que está procurando ?">
+                                    <button><i class="ti-search"></i></button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 text-right col-md-3">
+                    <div class="col-lg-3 col-md-5 text-right p-0">
                         <ul class="nav-right">
                             {if $LOGADO == TRUE}
                             <li class="text-left">
                                 <div class="row no-gutters" style="font-size: 14px;">
-                                    <div class="col">
-                                        <img class="img img-responsive rounded-circle" src="{$FOTO}" alt="Foto Perfil" />
+                                    <div class="col foto">
+                                        <img class="img img-fluid rounded-circle" src="{$FOTO}" alt="Foto Perfil" />
                                     </div>
                                     <div class="col ml-3">
                                         <span style="line-height: 40px;">{$USER}</span>
@@ -172,12 +152,14 @@
                                         <h5>R$ {$VALOR_TOTAL}</h5>
                                     </div>
                                     <div class="select-button">
-                                        <!-- <a href="{$PAG_SHOP}" class="primary-btn view-card">VER PRODUTOS</a> -->
+                                        {if $CARRINHO == false}
+                                        <a href="{$PAG_PRODUTOS}" class="primary-btn view-card">VER PRODUTOS</a>
+                                        {else}
                                         <a href="{$PAG_CARRINHO}" class="primary-btn checkout-btn">FINALIZAR PEDIDO</a>
+                                        {/if}
                                     </div>
                                 </div>
                             </li>
-                            <!-- <li class="cart-price">R$ {$VALOR_TOTAL}</li> -->
                         </ul>
                     </div>
                 </div>
@@ -234,7 +216,7 @@
     <!--Rotas de páginas -->
     {php} Rotas::getPagina(); {/php}
     <!-- Partner Logo Section Begin -->
-    <div class="partner-logo">
+    <!-- <div class="partner-logo">
         <div class="container">
             <div class="logo-carousel owl-carousel">
                 <div class="logo-item">
@@ -264,7 +246,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Partner Logo Section End -->
 
     <!-- Footer Section Begin -->
@@ -274,7 +256,7 @@
                 <div class="col-lg-3">
                     <div class="footer-left">
                         <div class="footer-logo">
-                            <a href="{$PAG_HOME}"><img src="{$GET_TEMA}/img/logo-carousel/jvhk2.png" alt=""></a>
+                            <a href="{$PAG_HOME}"><img width="200" height="80" src="{$GET_TEMA}/img/logo-carousel/jvhk2.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Endereço: Av. Maria Luiza Americano, 2806</li>
@@ -321,18 +303,16 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="copyright-reserved">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="copyright-text">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;
                             <script>
                                 document.write(new Date().getFullYear());
                             </script> All rights reserved | by <a href="https://github.com/ronaldopires" target="_blank">Ronaldo Carvalho</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="payment-pic">
                             <img src="{$GET_TEMA}/img/payment-method.png" alt="">

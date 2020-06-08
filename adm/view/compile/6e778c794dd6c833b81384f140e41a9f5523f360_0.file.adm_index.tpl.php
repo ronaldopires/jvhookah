@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-05 01:11:25
+/* Smarty version 3.1.36, created on 2020-06-08 20:52:10
   from 'C:\xampp\htdocs\jvhookah\adm\view\adm_index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed9c5ed1fd141_87405074',
+  'unifunc' => 'content_5edecf2a60e562_07863838',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6e778c794dd6c833b81384f140e41a9f5523f360' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\adm\\view\\adm_index.tpl',
-      1 => 1591330281,
+      1 => 1591660328,
       2 => 'file',
     ),
   ),
@@ -20,30 +20,37 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed9c5ed1fd141_87405074 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5edecf2a60e562_07863838 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <title><?php echo $_smarty_tpl->tpl_vars['TITULO_SITE']->value;?>
- - Área ADM</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    
+    <title><?php echo $_smarty_tpl->tpl_vars['TITULO_SITE']->value;?>
+ - Dashboard</title>
     <!--Chart js-->
     <?php echo '<script'; ?>
  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"><?php echo '</script'; ?>
 >
-    <!-- Material Kit CSS -->
+    
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
     <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/assets/css/demo/demo.css" rel="stylesheet" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
 </head>
-
-<body class="">
+<body>
     <div class="wrapper ">
         <div class="sidebar" data-color="green" data-background-color="white" data-image="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/jv_logo.jpg">
@@ -186,54 +193,8 @@ function content_5ed9c5ed1fd141_87405074 (Smarty_Internal_Template $_smarty_tpl)
 
         </div>
     </div>
-    <div class="fixed-plugin">
-        <div class="dropdown show-dropdown">
-            <a href="#" data-toggle="dropdown">
-                <i class="fa fa-cog fa-2x"> </i>
-            </a>
-            <ul class="dropdown-menu">
-                <li class="header-title"> Cores do Menu</li>
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger active-color">
-                        <div class="badge-colors ml-auto mr-auto">
-                            <span class="badge filter badge-purple" data-color="purple"></span>
-                            <span class="badge filter badge-azure" data-color="azure"></span>
-                            <span class="badge filter badge-green" data-color="green"></span>
-                            <span class="badge filter badge-warning" data-color="orange"></span>
-                            <span class="badge filter badge-danger" data-color="danger"></span>
-                            <span class="badge filter badge-rose active" data-color="rose"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-                <li class="header-title">Images</li>
-                <li class="active">
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/img/sidebar-1.jpg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/img/sidebar-2.jpg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/img/sidebar-3.jpg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/img/sidebar-4.jpg" alt="">
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+
+
     <!--   Core JS Files   -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
@@ -273,8 +234,7 @@ function content_5ed9c5ed1fd141_87405074 (Smarty_Internal_Template $_smarty_tpl)
 >
     <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
     <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/bootstrap-selectpicker.js"><?php echo '</script'; ?>
+ src="../assets/js/plugins/bootstrap-selectpicker.js"><?php echo '</script'; ?>
 >
     <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
     <?php echo '<script'; ?>
@@ -334,6 +294,12 @@ function content_5ed9c5ed1fd141_87405074 (Smarty_Internal_Template $_smarty_tpl)
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/assets/js/plugins/bootstrap-notify.js"><?php echo '</script'; ?>
 >
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"><?php echo '</script'; ?>
+>
+    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/assets/demo/demo.js"><?php echo '</script'; ?>
@@ -341,187 +307,187 @@ function content_5ed9c5ed1fd141_87405074 (Smarty_Internal_Template $_smarty_tpl)
 
     <?php echo '<script'; ?>
 >
-        $(document).ready(function() {
-            $().ready(function() {
-                $sidebar = $('.sidebar');
-
-                $sidebar_img_container = $sidebar.find('.sidebar-background');
-
-                $full_page = $('.full-page');
-
-                $sidebar_responsive = $('body > .navbar-collapse');
-
-                window_width = $(window).width();
-
-                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-                if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
-                    if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
-                        $('.fixed-plugin .dropdown').addClass('open');
-                    }
-
-                }
-
-                $('.fixed-plugin a').click(function(event) {
-                    // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-                    if ($(this).hasClass('switch-trigger')) {
-                        if (event.stopPropagation) {
-                            event.stopPropagation();
-                        } else if (window.event) {
-                            window.event.cancelBubble = true;
-                        }
-                    }
-                });
-
-                $('.fixed-plugin .active-color span').click(function() {
-                    $full_page_background = $('.full-page-background');
-
-                    $(this).siblings().removeClass('active');
-                    $(this).addClass('active');
-
-                    var new_color = $(this).data('color');
-
-                    if ($sidebar.length != 0) {
-                        $sidebar.attr('data-color', new_color);
-                    }
-
-                    if ($full_page.length != 0) {
-                        $full_page.attr('filter-color', new_color);
-                    }
-
-                    if ($sidebar_responsive.length != 0) {
-                        $sidebar_responsive.attr('data-color', new_color);
-                    }
-                });
-
-                $('.fixed-plugin .background-color .badge').click(function() {
-                    $(this).siblings().removeClass('active');
-                    $(this).addClass('active');
-
-                    var new_color = $(this).data('background-color');
-
-                    if ($sidebar.length != 0) {
-                        $sidebar.attr('data-background-color', new_color);
-                    }
-                });
-
-                $('.fixed-plugin .img-holder').click(function() {
-                    $full_page_background = $('.full-page-background');
-
-                    $(this).parent('li').siblings().removeClass('active');
-                    $(this).parent('li').addClass('active');
-
-
-                    var new_image = $(this).find("img").attr('src');
-
-                    if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-                        $sidebar_img_container.fadeOut('fast', function() {
-                            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-                            $sidebar_img_container.fadeIn('fast');
-                        });
-                    }
-
-                    if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-                        $full_page_background.fadeOut('fast', function() {
-                            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-                            $full_page_background.fadeIn('fast');
-                        });
-                    }
-
-                    if ($('.switch-sidebar-image input:checked').length == 0) {
-                        var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-                        $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-                        $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-                    }
-
-                    if ($sidebar_responsive.length != 0) {
-                        $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-                    }
-                });
-
-                $('.switch-sidebar-image input').change(function() {
-                    $full_page_background = $('.full-page-background');
-
-                    $input = $(this);
-
-                    if ($input.is(':checked')) {
-                        if ($sidebar_img_container.length != 0) {
-                            $sidebar_img_container.fadeIn('fast');
-                            $sidebar.attr('data-image', '#');
-                        }
-
-                        if ($full_page_background.length != 0) {
-                            $full_page_background.fadeIn('fast');
-                            $full_page.attr('data-image', '#');
-                        }
-
-                        background_image = true;
-                    } else {
-                        if ($sidebar_img_container.length != 0) {
-                            $sidebar.removeAttr('data-image');
-                            $sidebar_img_container.fadeOut('fast');
-                        }
-
-                        if ($full_page_background.length != 0) {
-                            $full_page.removeAttr('data-image', '#');
-                            $full_page_background.fadeOut('fast');
-                        }
-
-                        background_image = false;
-                    }
-                });
-
-                $('.switch-sidebar-mini input').change(function() {
-                    $body = $('body');
-
-                    $input = $(this);
-
-                    if (md.misc.sidebar_mini_active == true) {
-                        $('body').removeClass('sidebar-mini');
-                        md.misc.sidebar_mini_active = false;
-
-                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-                    } else {
-
-                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
-                        setTimeout(function() {
-                            $('body').addClass('sidebar-mini');
-
-                            md.misc.sidebar_mini_active = true;
-                        }, 300);
-                    }
-
-                    // we simulate the window Resize so the charts will get updated in realtime.
-                    var simulateWindowResize = setInterval(function() {
-                        window.dispatchEvent(new Event('resize'));
-                    }, 180);
-
-                    // we stop the simulation of Window Resize after the animations are completed
-                    setTimeout(function() {
-                        clearInterval(simulateWindowResize);
-                    }, 1000);
-
-                });
-            });
+      $(document).ready(function() {
+        $().ready(function() {
+          $sidebar = $('.sidebar');
+  
+          $sidebar_img_container = $sidebar.find('.sidebar-background');
+  
+          $full_page = $('.full-page');
+  
+          $sidebar_responsive = $('body > .navbar-collapse');
+  
+          window_width = $(window).width();
+  
+          fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+  
+          if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+            if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+              $('.fixed-plugin .dropdown').addClass('open');
+            }
+  
+          }
+  
+          $('.fixed-plugin a').click(function(event) {
+            // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+            if ($(this).hasClass('switch-trigger')) {
+              if (event.stopPropagation) {
+                event.stopPropagation();
+              } else if (window.event) {
+                window.event.cancelBubble = true;
+              }
+            }
+          });
+  
+          $('.fixed-plugin .active-color span').click(function() {
+            $full_page_background = $('.full-page-background');
+  
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+  
+            var new_color = $(this).data('color');
+  
+            if ($sidebar.length != 0) {
+              $sidebar.attr('data-color', new_color);
+            }
+  
+            if ($full_page.length != 0) {
+              $full_page.attr('filter-color', new_color);
+            }
+  
+            if ($sidebar_responsive.length != 0) {
+              $sidebar_responsive.attr('data-color', new_color);
+            }
+          });
+  
+          $('.fixed-plugin .background-color .badge').click(function() {
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+  
+            var new_color = $(this).data('background-color');
+  
+            if ($sidebar.length != 0) {
+              $sidebar.attr('data-background-color', new_color);
+            }
+          });
+  
+          $('.fixed-plugin .img-holder').click(function() {
+            $full_page_background = $('.full-page-background');
+  
+            $(this).parent('li').siblings().removeClass('active');
+            $(this).parent('li').addClass('active');
+  
+  
+            var new_image = $(this).find("img").attr('src');
+  
+            if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+              $sidebar_img_container.fadeOut('fast', function() {
+                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                $sidebar_img_container.fadeIn('fast');
+              });
+            }
+  
+            if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+              var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+  
+              $full_page_background.fadeOut('fast', function() {
+                $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                $full_page_background.fadeIn('fast');
+              });
+            }
+  
+            if ($('.switch-sidebar-image input:checked').length == 0) {
+              var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+              var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+  
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+            }
+  
+            if ($sidebar_responsive.length != 0) {
+              $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+            }
+          });
+  
+          $('.switch-sidebar-image input').change(function() {
+            $full_page_background = $('.full-page-background');
+  
+            $input = $(this);
+  
+            if ($input.is(':checked')) {
+              if ($sidebar_img_container.length != 0) {
+                $sidebar_img_container.fadeIn('fast');
+                $sidebar.attr('data-image', '#');
+              }
+  
+              if ($full_page_background.length != 0) {
+                $full_page_background.fadeIn('fast');
+                $full_page.attr('data-image', '#');
+              }
+  
+              background_image = true;
+            } else {
+              if ($sidebar_img_container.length != 0) {
+                $sidebar.removeAttr('data-image');
+                $sidebar_img_container.fadeOut('fast');
+              }
+  
+              if ($full_page_background.length != 0) {
+                $full_page.removeAttr('data-image', '#');
+                $full_page_background.fadeOut('fast');
+              }
+  
+              background_image = false;
+            }
+          });
+  
+          $('.switch-sidebar-mini input').change(function() {
+            $body = $('body');
+  
+            $input = $(this);
+  
+            if (md.misc.sidebar_mini_active == true) {
+              $('body').removeClass('sidebar-mini');
+              md.misc.sidebar_mini_active = false;
+  
+              $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+  
+            } else {
+  
+              $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+  
+              setTimeout(function() {
+                $('body').addClass('sidebar-mini');
+  
+                md.misc.sidebar_mini_active = true;
+              }, 300);
+            }
+  
+            // we simulate the window Resize so the charts will get updated in realtime.
+            var simulateWindowResize = setInterval(function() {
+              window.dispatchEvent(new Event('resize'));
+            }, 180);
+  
+            // we stop the simulation of Window Resize after the animations are completed
+            setTimeout(function() {
+              clearInterval(simulateWindowResize);
+            }, 1000);
+  
+          });
         });
+      });
     <?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
 >
-        $(document).ready(function() {
-            // Javascript method's body can be found in assets/js/demos.js
-            md.initDashboardPageCharts();
-
-        });
+      $(document).ready(function() {
+        // Javascript method's body can be found in assets/js/demos.js
+        md.initDashboardPageCharts();
+  
+      });
     <?php echo '</script'; ?>
 >
-</body>
 
+</body>
 </html><?php }
 }

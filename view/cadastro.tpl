@@ -137,11 +137,11 @@
 
 
                     <div class="switch-login my-4">
-                        <a href="{$PAG_LOGIN}" class="or-login">Faça Login</a>
+                        <a href="{$PAG_LOGIN}" class="or-login">Faça o Login</a>
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
-    <!-- Register Form Section End -->
+</div>

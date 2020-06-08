@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-08 13:50:25
+/* Smarty version 3.1.36, created on 2020-06-08 15:08:26
   from 'C:\xampp\htdocs\jvhookah\view\cadastro.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ede6c5147fed7_18208873',
+  'unifunc' => 'content_5ede7e9a7e4901_10543070',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c1f89aeb94cb7fb5601a5a47a44944fc18c36ea1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\cadastro.tpl',
-      1 => 1591634808,
+      1 => 1591639701,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ede6c5147fed7_18208873 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ede7e9a7e4901_10543070 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Register Section Begin -->
 <div class="register-login-section spad">
     <div class="container">
@@ -162,12 +162,12 @@ function content_5ede6c5147fed7_18208873 (Smarty_Internal_Template $_smarty_tpl)
 
                     <div class="switch-login my-4">
                         <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_LOGIN']->value;?>
-" class="or-login">Faça Login</a>
+" class="or-login">Faça o Login</a>
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
-    <!-- Register Form Section End --><?php }
+</div><?php }
 }

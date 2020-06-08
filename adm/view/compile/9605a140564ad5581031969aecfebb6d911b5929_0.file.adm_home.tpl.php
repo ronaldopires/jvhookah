@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-05 03:02:06
+/* Smarty version 3.1.36, created on 2020-06-08 18:48:40
   from 'C:\xampp\htdocs\jvhookah\adm\view\adm_home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed9dfde3239b6_57331881',
+  'unifunc' => 'content_5edeb238923c58_11831719',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9605a140564ad5581031969aecfebb6d911b5929' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\adm\\view\\adm_home.tpl',
-      1 => 1591336924,
+      1 => 1591652903,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed9dfde3239b6_57331881 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5edeb238923c58_11831719 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -468,7 +468,21 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 top: 10,
                 bottom: 0
             }
-        }
+            },
+            scales: {
+                yAxes: [{
+                    display: true,
+                    ticks: {
+                        fontColor: '#fff'
+                    }
+                }],
+                xAxes: [{
+                    display: true,
+                    ticks: {
+                        fontColor: '#fff'
+                    }
+                }]
+            }
         }
     });
 
@@ -497,13 +511,15 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             },
             scales: {
                 yAxes: [{
-                    gridLines: {
-                        offsetGridLines: false
+                    display: true,
+                    ticks: {
+                        fontColor: '#fff'
                     }
                 }],
                 xAxes: [{
-                    gridLines: {
-                        offsetGridLines: false
+                    display: true,
+                    ticks: {
+                        fontColor: '#fff'
                     }
                 }]
             }

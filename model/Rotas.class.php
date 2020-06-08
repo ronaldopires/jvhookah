@@ -101,7 +101,7 @@ class Rotas
     // ROTAS ADM
     public static function getSiteAdm()
     {
-        return self::getSiteHome() . self::$pasta_adm;
+        return self::getSiteHome() . '/' . self::$pasta_adm;
     }
 
     public static function pagProdutosAdm()

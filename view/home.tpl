@@ -53,8 +53,8 @@
 <!-- Banner Section Begin -->
 <div class="banner-section spad">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4">
+        <div class="row ">
+            <div class="col-lg-4 col-md-6">
                 <a href="#1">
                     <div class="single-banner">
                         <img src="{$GET_TEMA}/img/post.png" alt="">
@@ -64,7 +64,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-sm-6">
                 <a href="#2">
                     <div class="single-banner">
                         <img src="{$GET_TEMA}/img/card-1.png" alt="">
@@ -74,7 +74,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 offset-lg-0 col-md-6 col-sm-12 offset-md-3">
                 <a href="#3">
                     <div class="single-banner">
                         <img src="{$GET_TEMA}/img/card-2.png" alt="">
@@ -91,24 +91,21 @@
 <!-- Produtos mais vendidos-->
 <div class="row no-gutters my-4">
     <div class="col-lg-12 col-md-12 col-sm-auto">
-        <div class="col-lg-12">
-            <div class="section-title">
-                <h2>Mais Vendidos</h2>
-            </div>
+        <div class="section-title">
+            <h2>Mais Vendidos</h2>
         </div>
-        <div class="col-lg-10 offset-lg-1">
-
+        <div class="col-lg-10 offset-lg-1 col-md-12">
             <div class="card-deck">
                 {foreach from=$MAIS_VENDIDOS item=P}
                 <div class="card mais_vendidos">
-                    <div class="">
+                    <div class="card-header p-0">
                         <img class="card-img-top img-fluid" src="{$P.pro_img_g}" alt="Imagem de capa do card">
                     </div>
                     <div class="card-body text-center">
                         <div class="pi-text">
                             <div class="catagory-name mb-3" style="color: #b2b2b2; text-transform: uppercase;">{$P.cate_nome}</div>
                             <a href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}">
-                                <h5>{$P.pro_nome}</h5>
+                                <h5 class="product-name">{$P.pro_nome}</h5>
                             </a>
                             <div class="product-price mt-2" style="text-transform: uppercase; color: #e7ab3c; font-weight: 700; font-size: 20px;">
                                 R$ {$P.pro_valor}
@@ -129,13 +126,13 @@
 <section class="women-banner spad">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6">
                 <div class="product-large set-bg" data-setbg="{$GET_TEMA}/img/products/women-large.jpg">
                     <h2>Bases</h2>
                     <a href="#">Discover More</a>
                 </div>
             </div>
-            <div class="col-lg-8 offset-lg-1">
+            <div class="col-lg-8 offset-lg-1 col-md-6">
                 <div class="filter-control">
                     <ul>
                         {foreach from=$CATEGORIA item=C}

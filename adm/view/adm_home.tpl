@@ -429,7 +429,21 @@
                 top: 10,
                 bottom: 0
             }
-        }
+            },
+            scales: {
+                yAxes: [{
+                    display: true,
+                    ticks: {
+                        fontColor: '#fff'
+                    }
+                }],
+                xAxes: [{
+                    display: true,
+                    ticks: {
+                        fontColor: '#fff'
+                    }
+                }]
+            }
         }
     });
 
@@ -457,13 +471,15 @@
             },
             scales: {
                 yAxes: [{
-                    gridLines: {
-                        offsetGridLines: false
+                    display: true,
+                    ticks: {
+                        fontColor: '#fff'
                     }
                 }],
                 xAxes: [{
-                    gridLines: {
-                        offsetGridLines: false
+                    display: true,
+                    ticks: {
+                        fontColor: '#fff'
                     }
                 }]
             }
