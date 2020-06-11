@@ -115,10 +115,47 @@ class Produtos extends Conexao
 
     public function getTotalPro()
     {
+        $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id";
+        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id ";
+        $query .= " INNER JOIN {$this->prefix}fabricantes f ON p.pro_fabricantes = f.fab_id ";
 
-        $query = "SELECT pro_id FROM {$this->prefix}produtos p ";
         $this->executeSql($query);
-        return $this->totalDados();
+        
+        if($this->totalDados() > 0){
+            $i = 1;
+            while ($lista = $this->listarDados()):
+                $this->itens[$i] = array(
+                    'pro_id' => $lista['pro_id'],
+                    'pro_nome' => $lista['pro_nome'],
+                    'pro_desc' => $lista['pro_desc'],
+                    'pro_peso' => $lista['pro_peso'],
+                    'pro_cor' => $lista['pro_cor'],
+                    'pro_valor' => Sistema::moedaBr($lista['pro_valor']),
+                    'pro_tamanho' => $lista['pro_tamanho'],
+                    'pro_largura' => $lista['pro_largura'],
+                    'pro_altura' => $lista['pro_altura'],
+                    'pro_comprimento' => $lista['pro_comprimento'],
+                    'pro_img_p' => Rotas::imageLink($lista['pro_img'], 150, 150),
+                    'pro_img' => Rotas::imageLink($lista['pro_img'], 500, 500),
+                    'pro_img_g' => Rotas::imageLink($lista['pro_img'], 700, 700),
+                    'pro_img_gg' => Rotas::imageLink($lista['pro_img'], 1200, 1200),
+                    'pro_estoque' => $lista['pro_estoque'],
+                    'pro_modelo' => $lista['pro_modelo'],
+                    'pro_ref' => $lista['pro_ref'],
+                    'pro_lancamento' => $lista['pro_lancamento'],
+                    'pro_frete_free' => $lista['pro_frete_free'],
+                    'pro_data_cad' => Sistema::formatarData($lista['pro_data_cad']),
+                    'pro_desconto' => $lista['pro_desconto'],
+                    'cate_nome' => $lista['cate_nome'],
+                    'sub_nome' => $lista['sub_nome'],
+                    'fab_nome' => $lista['fab_nome'],
+                );
+                $i++;
+            endwhile;
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public function getCaracteristicaPro($id)
@@ -231,6 +268,24 @@ class Produtos extends Conexao
         }
     }
 
+    public function produtosPromocoes()
+    {
+        //Query  especifica para buscar os produtos de uma categorias especificas
+        $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id";
+        $query .= " INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id WHERE pro_desconto > 0 ORDER BY pro_id DESC ";
+
+        $query .= $this->paginacaoLink("pro_id", $this->prefix . "produtos WHERE pro_desconto > 0");
+
+        $this->executeSql($query);
+        if ($this->totalDados() > 0) {
+            $this->getLista();
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
     private function getLista()
     {
         $i = 1;
@@ -255,7 +310,6 @@ class Produtos extends Conexao
                 'pro_estoque' => $lista['pro_estoque'],
                 'pro_modelo' => $lista['pro_modelo'],
                 'pro_ref' => $lista['pro_ref'],
-                'pro_fabricante' => $lista['pro_fabricante'],
                 'pro_lancamento' => $lista['pro_lancamento'],
                 'pro_frete_free' => $lista['pro_frete_free'],
                 'pro_data_cad' => Sistema::formatarData($lista['pro_data_cad']),
@@ -291,7 +345,7 @@ class Produtos extends Conexao
                 'pro_estoque' => $lista['pro_estoque'],
                 'pro_modelo' => $lista['pro_modelo'],
                 'pro_ref' => $lista['pro_ref'],
-                'pro_fabricante' => $lista['pro_fabricante'],
+                'pro_fabricantes' => $lista['pro_fabricantes'],
                 'pro_lancamento' => $lista['pro_lancamento'],
                 'cts_id' => $lista['cts_id'],
                 'cts_pro_id' => $lista['cts_pro_id'],

@@ -11,11 +11,12 @@ require './lib/autoload.php';
 $smarty = new Template();
 $produtos = new Produtos();
 $categorias = new Categorias();
+$log = new LogSystem();
 
 $categorias->getSubCategorias();
 
 /* echo '<pre>';
-var_dump($categorias->GetItens());
+var_dump($_SESSION['CLI']);
 echo '</pre>'; */
 
 if (isset($_SESSION['CARRINHO']) and !empty($_SESSION['CARRINHO'])) {
@@ -57,6 +58,17 @@ if(isset($_SESSION['FAVORITOS'])){
 }
 
 
+if(isset($_SESSION['CLI'])){
+    $tempo = (time() - $_SESSION['CLI']['cli_tempo_sessao']);
+    
+    if($tempo > $_SESSION['CLI']['cli_tempo_limite']){
+        $msg = "Deslogado por inatividade {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']}";
+        $log->getLogger($msg, "acesso");
+        Rotas::redirecionar(0, Rotas::pagLogout());
+    }else{
+        $_SESSION['CLI']['cli_tempo_sessao'] = time();
+    }
+}
 
 //Valores chaves para o template
 $smarty->assign('PAG_HOME', Rotas::getSiteHome());

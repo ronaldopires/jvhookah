@@ -105,12 +105,13 @@ class Clientes extends Conexao
         $query = " SELECT * FROM {$this->prefix}clientes ";
 
         $this->executeSql($query);
-        $this->GetLista();
+        $this->getLista();
     }
 
     public function getClientesMes($mes)
     {
-        $query = " SELECT * FROM {$this->prefix}clientes WHERE month(cli_data_cad) = '$mes'";
+        $ano = date('yy');
+        $query = " SELECT * FROM {$this->prefix}clientes WHERE month(cli_data_cad) = '$mes' AND year(cli_data_cad) = '$ano'";
         $this->executeSql($query);
     }
 
@@ -162,6 +163,35 @@ class Clientes extends Conexao
             $i++;
 
         endwhile;
+    }
+
+    //Atualiza status do cliente para Online
+    public function statusCliOn($id)
+    {   
+        $query = "UPDATE {$this->prefix}clientes SET cli_status = 'online' WHERE  cli_id = :id";
+        $params = array(
+            ':id' => (int) $id,
+        );
+
+        if ($this->executeSql($query, $params)):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+    //Atualiza status do cliente para Offline
+    public function statusCliOff($id)
+    {   
+        $query = "UPDATE {$this->prefix}clientes SET cli_status = 'offline' WHERE  cli_id = :id";
+        $params = array(
+            ':id' => (int) $id,
+        );
+
+        if ($this->executeSql($query, $params)):
+            return true;
+        else:
+            return false;
+        endif;
     }
 
     public function inserir()
@@ -251,6 +281,21 @@ class Clientes extends Conexao
         else:
             return false;
         endif;
+    }
+
+    //Clientes onlines
+    public function cliOnline()
+    {
+        $query = "SELECT cli_id FROM {$this->prefix}clientes WHERE cli_status = 'online'";
+        $this->executeSql($query);
+        return $this->totalDados();
+    }
+    //Clientes offline
+    public function cliOffline()
+    {
+        $query = "SELECT cli_id FROM {$this->prefix}clientes WHERE cli_status = 'offline'";
+        $this->executeSql($query);
+        return $this->totalDados();
     }
 
     public function editarADM($id)

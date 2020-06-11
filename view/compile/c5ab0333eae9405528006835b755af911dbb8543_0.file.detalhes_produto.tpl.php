@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-08 18:01:18
+/* Smarty version 3.1.36, created on 2020-06-09 23:55:02
   from 'C:\xampp\htdocs\jvhookah\view\detalhes_produto.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5edea71ec75d70_57876726',
+  'unifunc' => 'content_5ee04b866f52e6_83577995',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c5ab0333eae9405528006835b755af911dbb8543' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\detalhes_produto.tpl',
-      1 => 1591638454,
+      1 => 1591757649,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5edea71ec75d70_57876726 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee04b866f52e6_83577995 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -49,9 +49,9 @@ $_smarty_tpl->tpl_vars['P']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
 $_smarty_tpl->tpl_vars['P']->do_else = false;
 ?>
-            <div class="col-lg-12">
+            <div class="col-12">
                 <div class="row">
-                    <div class="col-lg-5">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
                         <div class="product-pic-zoom">
                             <img class="product-big-img" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_g'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
@@ -73,7 +73,7 @@ $_smarty_tpl->tpl_vars['C']->do_else = false;
 " alt="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_nome'];?>
 "></div>
                                 <?php } else { ?>
-                                <div class="pt " data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_g'];?>
+                                <div class="pt" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_g'];?>
 "><img src="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_g'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_nome'];?>
 "></div>
@@ -83,7 +83,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-lg-7 col-md-7 col-sm-7">
                         <div class="product-details">
                             <div class="pd-title">
                                 <form class="float-right" action="<?php echo $_smarty_tpl->tpl_vars['FAVORITOS']->value;?>
@@ -207,7 +207,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             <div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
                                 <div class="product-content">
                                     <div class="row">
-                                        <div class="col-lg-7">
+                                        <div class="col-lg-7 col-md-7 col-sm-7">
                                             <h5>Descrição</h5>
                                             <div class="col-auto p-0">
                                                 <p><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_desc'];?>
@@ -230,7 +230,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </p>
                                             </div>
                                         </div>
-                                        <div class="col-lg-5">
+                                        <div class="col-lg-5 col-md-5 col-sm-5">
                                             <img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_gg'];?>
 " alt="">
                                         </div>
@@ -427,7 +427,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
 ?>
             <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-lg-5">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
                         <div class="product-pic-zoom">
                             <img class="product-big-img" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_gg'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
@@ -458,7 +458,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-lg-7 col-md-7 col-sm-12">
                         <div class="product-details">
                             <div class="pd-title">
                                 <form class="float-right" action="<?php echo $_smarty_tpl->tpl_vars['FAVORITOS']->value;?>
@@ -701,7 +701,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                             </div>
                             <div class="tab-pane fade" id="tab-3" role="tabpanel">
                                 <div class="customer-review-option">
-                                    <h4>2 Comments</h4>
+                                    <h4>2 Comentários</h4>
                                     <div class="comment-option">
                                         <div class="co-item">
                                             <div class="avatar-pic">
@@ -738,33 +738,50 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="personal-rating">
-                                        <h6>Your Ratind</h6>
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
+                                    <form action="#" class="" method="POST">
+                                        <div class="personal-rating">
+                                            <h6>Suas estrelas</h6>
+                                            <span class="rating">
+                                                <input name="stars" value="5" type="radio" class="rating-input"
+                                                    id="rating-input-1-5" name="rating-input-1">
+                                                <label for="rating-input-1-5" class="rating-star"></label>
+                                                <input name="stars" value="4" type="radio" class="rating-input"
+                                                    id="rating-input-1-4" name="rating-input-1">
+                                                <label for="rating-input-1-4" class="rating-star"></label>
+                                                <input name="stars" value="3" type="radio" class="rating-input"
+                                                    id="rating-input-1-3" name="rating-input-1">
+                                                <label for="rating-input-1-3" class="rating-star"></label>
+                                                <input name="stars" value="2" type="radio" class="rating-input"
+                                                    id="rating-input-1-2" name="rating-input-1">
+                                                <label for="rating-input-1-2" class="rating-star"></label>
+                                                <input name="stars" value="1" type="radio" class="rating-input"
+                                                    id="rating-input-1-1" name="rating-input-1">
+                                                <label for="rating-input-1-1" class="rating-star"></label>
+                                            </span>
+                                            <!-- <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </div> -->
                                         </div>
-                                    </div>
-                                    <div class="leave-comment">
-                                        <h4>Leave A Comment</h4>
-                                        <form action="#" class="comment-form">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <input type="text" placeholder="Name">
+                                        <div class="leave-comment register-form">
+                                            <h4>Faça um Comentário</h4>
+                                            <div class="row comment-form">
+                                                <div class="col-lg-6 group-input">
+                                                    <input type="text" name="coment_nome" class="form-control" placeholder="Seu nome" required>
                                                 </div>
-                                                <div class="col-lg-6">
-                                                    <input type="text" placeholder="Email">
+                                                <div class="col-lg-6 group-input">
+                                                    <input type="email" name="coment_email" class="form-control" placeholder="Email" required>
                                                 </div>
-                                                <div class="col-lg-12">
-                                                    <textarea placeholder="Messages"></textarea>
-                                                    <button type="submit" class="site-btn">Send message</button>
+                                                <div class="col-lg-12 group-input">
+                                                    <textarea placeholder="Seu comentário" name="coment_msg"></textarea>
+                                                    <button type="submit" class="site-btn">Enviar</button>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -783,7 +800,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php }?>
 <div class="related-products spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="section-title">
                     <hr>
                     <h2>Produtos Relacionados</h2>
@@ -799,7 +816,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
 $_smarty_tpl->tpl_vars['P']->do_else = false;
 ?>
-                <div class="col-lg-12 col-sm-6">
+                <div class="col-12">
                     <div class="product-item">
                         <div class="pi-pic">
                             <img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_gg'];?>
@@ -837,7 +854,6 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-
         </div>
     </div>
 </div>

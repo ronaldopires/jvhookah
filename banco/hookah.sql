@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Jun-2020 às 19:36
+-- Tempo de geração: 11-Jun-2020 às 06:43
 -- Versão do servidor: 10.4.10-MariaDB
 -- versão do PHP: 7.3.12
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `jv_caracteristicas`
 --
 
+DROP TABLE IF EXISTS `jv_caracteristicas`;
 CREATE TABLE `jv_caracteristicas` (
   `cts_id` int(11) NOT NULL,
   `cts_pro_id` int(11) NOT NULL,
@@ -59,6 +60,7 @@ INSERT INTO `jv_caracteristicas` (`cts_id`, `cts_pro_id`, `cts_material_tipo`, `
 -- Estrutura da tabela `jv_categorias`
 --
 
+DROP TABLE IF EXISTS `jv_categorias`;
 CREATE TABLE `jv_categorias` (
   `cate_id` int(11) NOT NULL,
   `cate_nome` varchar(50) NOT NULL,
@@ -81,6 +83,7 @@ INSERT INTO `jv_categorias` (`cate_id`, `cate_nome`, `cate_slug`, `cate_img`) VA
 -- Estrutura da tabela `jv_clientes`
 --
 
+DROP TABLE IF EXISTS `jv_clientes`;
 CREATE TABLE `jv_clientes` (
   `cli_id` int(11) NOT NULL,
   `cli_nome` varchar(80) NOT NULL,
@@ -101,17 +104,34 @@ CREATE TABLE `jv_clientes` (
   `cli_data_nasc` date DEFAULT NULL,
   `cli_data_cad` date NOT NULL,
   `cli_hora_cad` time NOT NULL,
-  `cli_foto` varchar(100) NOT NULL
+  `cli_foto` varchar(100) NOT NULL,
+  `cli_status` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `jv_clientes`
 --
 
-INSERT INTO `jv_clientes` (`cli_id`, `cli_nome`, `cli_sobrenome`, `cli_cpf`, `cli_sexo`, `cli_cep`, `cli_endereco`, `cli_bairro`, `cli_cidade`, `cli_uf`, `cli_numero`, `cli_complemento`, `cli_email`, `cli_senha`, `cli_telefone`, `cli_celular`, `cli_data_nasc`, `cli_data_cad`, `cli_hora_cad`, `cli_foto`) VALUES
-(3, 'Ronaldo', 'Pires de Carvalho', '01234567890', 'm', '08040740', 'Rua das Nemésias', 'Jardim Casa Pintada', 'São Paulo', 'SP', '422', 'Próximo ao cemitério da Saudade', 'ronaldo@hotmail.com', '202cb962ac59075b964b07152d234b70', '1134599104', '11955544918', '1992-08-29', '2020-05-20', '19:16:22', 'eu.jpeg'),
-(4, 'Renata', 'Lopes', '00012345678', 'f', '8040740', 'Rua das Nemésias', 'Jardim Casa Pintada', 'São Paulo', 'SP', '422', '', 'renata@hotmail.com', '202cb962ac59075b964b07152d234b70', '0123456789', '0123456789', '1988-01-25', '2020-01-20', '19:25:55', 'user-default.png'),
-(5, 'Rafael', 'Guimaraes', '32555505233', 'm', '08040750', 'Rua Peruvá Preta', 'Jardim Casa Pintada', 'São Paulo', 'SP', '135 - A', '', 'rafael@hotmail.com', '202cb962ac59075b964b07152d234b70', '', '', '1993-04-03', '2020-04-25', '19:38:28', 'user-default.png');
+INSERT INTO `jv_clientes` (`cli_id`, `cli_nome`, `cli_sobrenome`, `cli_cpf`, `cli_sexo`, `cli_cep`, `cli_endereco`, `cli_bairro`, `cli_cidade`, `cli_uf`, `cli_numero`, `cli_complemento`, `cli_email`, `cli_senha`, `cli_telefone`, `cli_celular`, `cli_data_nasc`, `cli_data_cad`, `cli_hora_cad`, `cli_foto`, `cli_status`) VALUES
+(3, 'Ronaldo', 'Pires C', '01234567890', 'm', '08040740', 'Rua das Nemésias', 'Jardim Casa Pintada', 'São Paulo', 'SP', '222', 'Próximo ao cemitério da Saudade', 'ronaldo@hotmail.com', '202cb962ac59075b964b07152d234b70', '', '11912345678', '1992-08-29', '2020-06-02', '19:16:22', 'eu.jpeg', 'offline'),
+(4, 'Renata', 'Lopes', '00012345678', 'f', '8040740', 'Rua das Nemésias', 'Jardim Casa Pintada', 'São Paulo', 'SP', '422', '', 'renata@hotmail.com', '202cb962ac59075b964b07152d234b70', '0123456789', '0123456789', '1988-01-25', '2020-02-20', '19:25:55', 'user-default.png', 'offline'),
+(5, 'Rafael', 'Guimaraes', '32555505233', 'm', '08040750', 'Rua Peruvá Preta', 'Jardim Casa Pintada', 'São Paulo', 'SP', '135 - A', '', 'rafael@hotmail.com', '202cb962ac59075b964b07152d234b70', '', '', '1993-04-03', '2020-04-25', '19:38:28', 'user-default.png', 'offline');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `jv_comentarios_produto`
+--
+
+DROP TABLE IF EXISTS `jv_comentarios_produto`;
+CREATE TABLE `jv_comentarios_produto` (
+  `com_id` int(11) NOT NULL,
+  `com_cli_nome` varchar(80) NOT NULL,
+  `com_cli_email` varchar(80) NOT NULL,
+  `com_mensagem` varchar(250) NOT NULL,
+  `com_estrela` int(11) NOT NULL,
+  `com_status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -119,6 +139,7 @@ INSERT INTO `jv_clientes` (`cli_id`, `cli_nome`, `cli_sobrenome`, `cli_cpf`, `cl
 -- Estrutura da tabela `jv_cupons`
 --
 
+DROP TABLE IF EXISTS `jv_cupons`;
 CREATE TABLE `jv_cupons` (
   `cupom_id` int(11) NOT NULL,
   `cupom_nome` varchar(150) NOT NULL,
@@ -145,6 +166,7 @@ INSERT INTO `jv_cupons` (`cupom_id`, `cupom_nome`, `cupom_desconto`, `cupom_data
 -- Estrutura da tabela `jv_enderecos`
 --
 
+DROP TABLE IF EXISTS `jv_enderecos`;
 CREATE TABLE `jv_enderecos` (
   `endereco_id` int(11) NOT NULL,
   `endereco_cli_cep` varchar(11) NOT NULL,
@@ -162,7 +184,7 @@ CREATE TABLE `jv_enderecos` (
 --
 
 INSERT INTO `jv_enderecos` (`endereco_id`, `endereco_cli_cep`, `endereco_cli_endereco`, `endereco_cli_bairro`, `endereco_cli_cidade`, `endereco_cli_uf`, `endereco_cli_numero`, `endereco_cli_complemento`, `endereco_cli_id`) VALUES
-(6, '8040740', 'Rua Dos mongos', 'Jardim Helian', 'São Paulo', 'SP', '555', 'Teste', 3);
+(6, '08040750', 'Teste', 'Teste', 'São Paulo', 'SP', '2544', '', 3);
 
 -- --------------------------------------------------------
 
@@ -170,6 +192,7 @@ INSERT INTO `jv_enderecos` (`endereco_id`, `endereco_cli_cep`, `endereco_cli_end
 -- Estrutura da tabela `jv_fabricantes`
 --
 
+DROP TABLE IF EXISTS `jv_fabricantes`;
 CREATE TABLE `jv_fabricantes` (
   `fab_id` int(11) NOT NULL,
   `fab_nome` varchar(255) NOT NULL,
@@ -200,6 +223,7 @@ INSERT INTO `jv_fabricantes` (`fab_id`, `fab_nome`, `fab_slug`) VALUES
 -- Estrutura da tabela `jv_imagens`
 --
 
+DROP TABLE IF EXISTS `jv_imagens`;
 CREATE TABLE `jv_imagens` (
   `img_id` int(11) NOT NULL,
   `img_nome` varchar(255) NOT NULL,
@@ -221,6 +245,7 @@ INSERT INTO `jv_imagens` (`img_id`, `img_nome`, `img_pasta`, `img_pro_id`) VALUE
 -- Estrutura da tabela `jv_itens_pedido`
 --
 
+DROP TABLE IF EXISTS `jv_itens_pedido`;
 CREATE TABLE `jv_itens_pedido` (
   `item_id` int(11) NOT NULL,
   `item_produto` int(11) NOT NULL,
@@ -243,7 +268,7 @@ INSERT INTO `jv_itens_pedido` (`item_id`, `item_produto`, `item_valor`, `item_qt
 (32, 7, 27.50, 3, '6', 'VERDE', '2005310605023'),
 (33, 4, 450.00, 2, '49', 'Azul', '2005310705233'),
 (34, 3, 90.00, 1, '50', 'Verde Dourado', '2005310705513'),
-(35, 6, 299.00, 10, '250', 'Preto', '2005311005113'),
+(35, 6, 299.00, 5, '250', 'Preto', '2005311005113'),
 (36, 6, 299.00, 10, '250', 'Preto', '2005311005113'),
 (37, 4, 450.00, 5, '47', 'Azul', '2005311005083');
 
@@ -253,6 +278,7 @@ INSERT INTO `jv_itens_pedido` (`item_id`, `item_produto`, `item_valor`, `item_qt
 -- Estrutura da tabela `jv_pedidos`
 --
 
+DROP TABLE IF EXISTS `jv_pedidos`;
 CREATE TABLE `jv_pedidos` (
   `ped_id` int(11) NOT NULL,
   `ped_data` date NOT NULL,
@@ -289,6 +315,7 @@ INSERT INTO `jv_pedidos` (`ped_id`, `ped_data`, `ped_hora`, `ped_cliente`, `ped_
 -- Estrutura da tabela `jv_produtos`
 --
 
+DROP TABLE IF EXISTS `jv_produtos`;
 CREATE TABLE `jv_produtos` (
   `pro_id` int(11) NOT NULL,
   `pro_categoria` int(11) NOT NULL,
@@ -309,7 +336,6 @@ CREATE TABLE `jv_produtos` (
   `pro_estoque` int(11) NOT NULL,
   `pro_modelo` varchar(100) NOT NULL,
   `pro_ref` varchar(100) NOT NULL,
-  `pro_fabricante` int(11) NOT NULL,
   `pro_lancamento` char(1) NOT NULL,
   `pro_frete_free` varchar(100) NOT NULL,
   `pro_data_cad` date NOT NULL,
@@ -320,15 +346,20 @@ CREATE TABLE `jv_produtos` (
 -- Extraindo dados da tabela `jv_produtos`
 --
 
-INSERT INTO `jv_produtos` (`pro_id`, `pro_categoria`, `pro_sub_categoria`, `pro_caracteristica`, `pro_fabricantes`, `pro_nome`, `pro_desc`, `pro_peso`, `pro_cor`, `pro_valor`, `pro_tamanho`, `pro_largura`, `pro_altura`, `pro_comprimento`, `pro_img`, `pro_slug`, `pro_estoque`, `pro_modelo`, `pro_ref`, `pro_fabricante`, `pro_lancamento`, `pro_frete_free`, `pro_data_cad`, `pro_desconto`) VALUES
-(1, 1, 1, 0, 1, 'Vaso Narguile – Vaso Aladin', 'Vaso Narguile – Vaso Aladin Preto\r\n\r\nVaso Econo para narguiles pequenos.', 1.000, 'Preto', 50.00, 'Tamanho Pequeno', 20, 20, 20, 'vaso_aladin_preto.jpg', 'vaso_narguile_preto', 0, 'Aladin', '001', 123, 'n', 'n', '2005-01-15', '0'),
-(2, 1, 1, 0, 1, 'Vaso Narguile – Vaso Jumbo Bless', 'Vaso Narguile – Vaso Jumbo Bless Transparente Com Dourado\r\n\r\nVaso transparente para narguiles e arguiles pequenos. Vaso estiloso e ótimo custo beneficio.', 0.100, 'Transparente Com Dourado', 300.00, 'Pequeno', 20, 20, 20, 'vaso_jumbo.jpg', 'vaso_jumbo', 35, 'Jumbo', '01254', 1, 'n', 's', '2016-12-05', '0'),
-(3, 1, 1, 0, 1, 'Vaso Narguile – Vaso Sino Monte', 'Vaso Narguile – Vaso Sino Monte Verde Dourado\r\nVaso grande para narguile, da marca Monte Verde com detalhes dourados. Compatível com narguiles grandes.', 1.000, 'Verde Dourado', 90.00, 'Grande', 20, 20, 20, 'vaso_sino_monte.jpg', 'vaso_sino_monte', 49, 'Monte', '023365', 1, 'n', 's', '2017-05-08', '0'),
-(4, 1, 1, 0, 3, 'Vaso Narguile – Vaso Bohemian Genie', 'Vaso Narguile – Vaso Bohemian Genie Azul\r\nOs vasos Bohemian são vasos para narguile extremamente detalhados. São fabricados em cristal na Republica Tcheca, com detalhes em outro 24k a Bohemian é um item luxuoso para colocar em seu narguile!\r\nSeu encaixe de stem é compatível com narguiles de tamanho grande nacionais e importados.\r\nTamanho: 30 centímetros.', 3.000, 'Azul', 450.00, 'Grande', 20, 20, 20, 'vaso_bohemian.jpg', 'vaso_bohemian', 39, 'Bohemian', '55624', 1, 's', 'n', '2015-09-10', '2'),
-(5, 1, 1, 0, 4, 'Vaso Narguile – Vaso Bohemian Egermann Yunan', 'Vaso Narguile – Vaso Bohemian Egermann Yunan Preta\r\nOs vasos Bohemian são vasos para narguile extremamente detalhados. São fabricados em cristal na Republica Tcheca, com detalhes em outro 24k a Bohemian é um item luxuoso para colocar em seu narguile!\r\nSeu encaixe de stem é compatível com narguiles de tamanho grande nacionais e importados.\r\nTamanho: 30 centímetros.', 1.000, 'Preta', 390.00, 'Grande', 20, 20, 20, 'vaso_bohemian_yunan.jpg', 'vaso_bohemian_yunan', 100, 'Bohemian', '65412', 2, 'n', 'n', '2019-08-29', '5'),
-(6, 3, 1, 1, 5, 'SETUP LOVE 02 - NARGUILE COMPLETO LOVE HOOKAH FRANCE BLACK CLEAR COM BASE MONTE VERDE JUMBO FOLHA PRETO', 'O Narguile Completo Love Hookah France foi desenvolvido para aqueles que gostam de Arguiles moderno, o mesmo fabricado em alumínio com uma pintura anodizada e uma central fabricada em madeira, mais um produto com ótimo acabamento da marca Love Hookah.', 3.000, 'Preto', 299.00, 'Grande', 20, 20, 20, 'narguile_completo_love.jpg', 'narguile_completo_love', 240, 'France', '23215', 2, 's', 'n', '2020-01-25', '15'),
-(7, 1, 2, 0, 5, 'PITEIRA HOOKAH LIKE FLIP', 'Piteira de aluminio Hookah Like. Produzida com alumínio de alta qualidade, higienização simplificada e ampla gama de cor.', 0.500, 'VERDE', 27.50, 'Grande', 20, 20, 20, 'piteira_hookah_verde.jpg', 'piteira_hookah_like_flip', 9, 'HOOKAH LIKE', '2541', 1, 's', 's', '2020-04-28', '10'),
-(8, 1, 2, 0, 5, 'PITEIRA HOOKAH LIKE FLIP', 'Piteira de aluminio Hookah Like. Produzida com alumínio de alta qualidade, higienização simplificada e ampla gama de cor.', 0.500, 'PRETA FOSCO', 22.50, 'Grande', 20, 20, 20, 'piteira_hookah_like_flip_preta.jpg', 'piteira_hookah_like_flip', 10, 'HOOKAH LIKE FLIP', '654564', 1, 's', 'n', '2020-05-31', '10');
+INSERT INTO `jv_produtos` (`pro_id`, `pro_categoria`, `pro_sub_categoria`, `pro_caracteristica`, `pro_fabricantes`, `pro_nome`, `pro_desc`, `pro_peso`, `pro_cor`, `pro_valor`, `pro_tamanho`, `pro_largura`, `pro_altura`, `pro_comprimento`, `pro_img`, `pro_slug`, `pro_estoque`, `pro_modelo`, `pro_ref`, `pro_lancamento`, `pro_frete_free`, `pro_data_cad`, `pro_desconto`) VALUES
+(1, 1, 1, 0, 1, 'Vaso Narguile – Vaso Aladin', 'Vaso Narguile – Vaso Aladin Preto\r\n\r\nVaso Econo para narguiles pequenos.', 1.000, 'Preto', 50.00, 'Pequeno', 20, 20, 20, 'vaso_aladin_preto.jpg', 'vaso_narguile_preto', 0, 'Aladin', '001', 'n', 'n', '2005-01-15', '0'),
+(2, 1, 1, 0, 1, 'Vaso Narguile – Vaso Jumbo Bless', 'Vaso Narguile – Vaso Jumbo Bless Transparente Com Dourado\r\n\r\nVaso transparente para narguiles e arguiles pequenos. Vaso estiloso e ótimo custo beneficio.', 0.100, 'Transparente Com Dourado', 300.00, 'Pequeno', 20, 20, 20, 'vaso_jumbo.jpg', 'vaso_jumbo', 35, 'Jumbo', '01254', 'n', 's', '2016-12-05', '0'),
+(3, 1, 1, 0, 1, 'Vaso Narguile – Vaso Sino Monte', 'Vaso Narguile – Vaso Sino Monte Verde Dourado\r\nVaso grande para narguile, da marca Monte Verde com detalhes dourados. Compatível com narguiles grandes.', 1.000, 'Verde Dourado', 90.00, 'Grande', 20, 20, 20, 'vaso_sino_monte.jpg', 'vaso_sino_monte', 49, 'Monte', '023365', 'n', 's', '2017-05-08', '0'),
+(4, 1, 1, 0, 3, 'Vaso Narguile – Vaso Bohemian Genie', 'Vaso Narguile – Vaso Bohemian Genie Azul\r\nOs vasos Bohemian são vasos para narguile extremamente detalhados. São fabricados em cristal na Republica Tcheca, com detalhes em outro 24k a Bohemian é um item luxuoso para colocar em seu narguile!\r\nSeu encaixe de stem é compatível com narguiles de tamanho grande nacionais e importados.\r\nTamanho: 30 centímetros.', 3.000, 'Azul', 450.00, 'Grande', 20, 20, 20, 'vaso_bohemian.jpg', 'vaso_bohemian', 39, 'Bohemian', '55624', 's', 'n', '2015-09-10', '2'),
+(5, 1, 1, 0, 4, 'Vaso Narguile – Vaso Bohemian Egermann Yunan', 'Vaso Narguile – Vaso Bohemian Egermann Yunan Preta\r\nOs vasos Bohemian são vasos para narguile extremamente detalhados. São fabricados em cristal na Republica Tcheca, com detalhes em outro 24k a Bohemian é um item luxuoso para colocar em seu narguile!\r\nSeu encaixe de stem é compatível com narguiles de tamanho grande nacionais e importados.\r\nTamanho: 30 centímetros.', 1.000, 'Preta', 390.00, 'Grande', 20, 20, 20, 'vaso_bohemian_yunan.jpg', 'vaso_bohemian_yunan', 100, 'Bohemian', '65412', 'n', 'n', '2019-08-29', '5'),
+(6, 3, 1, 1, 5, 'SETUP LOVE 02 - NARGUILE COMPLETO LOVE HOOKAH FRANCE BLACK CLEAR COM BASE MONTE VERDE JUMBO FOLHA PRETO', 'O Narguile Completo Love Hookah France foi desenvolvido para aqueles que gostam de Arguiles moderno, o mesmo fabricado em alumínio com uma pintura anodizada e uma central fabricada em madeira, mais um produto com ótimo acabamento da marca Love Hookah.', 3.000, 'Preto', 299.00, 'Grande', 20, 20, 20, 'narguile_completo_love.jpg', 'narguile_completo_love', 240, 'France', '23215', 's', 'n', '2020-01-25', '15'),
+(7, 1, 2, 0, 5, 'PITEIRA HOOKAH LIKE FLIP', 'Piteira de aluminio Hookah Like. Produzida com alumínio de alta qualidade, higienização simplificada e ampla gama de cor.', 0.500, 'VERDE', 27.50, 'Grande', 20, 20, 20, 'piteira_hookah_verde.jpg', 'piteira_hookah_like_flip', 9, 'HOOKAH LIKE', '2541', 's', 's', '2020-04-28', '10'),
+(8, 1, 2, 0, 5, 'PITEIRA HOOKAH LIKE FLIP', 'Piteira de aluminio Hookah Like. Produzida com alumínio de alta qualidade, higienização simplificada e ampla gama de cor.', 0.500, 'PRETA FOSCO', 22.50, 'Grande', 20, 20, 20, 'piteira_hookah_like_flip_preta.jpg', 'piteira_hookah_like_flip', 10, 'HOOKAH LIKE FLIP', '654564', 's', 'n', '2020-05-31', '10'),
+(9, 3, 1, 0, 4, 'Kit Anubis', '', 1.000, 'Vermelha', 230.00, 'Pequeno', 20, 20, 20, 'jv_louge_8.jpg', 'kit_anubis', 5, 'Anubis', '132456', 's', 'n', '2020-06-08', '0'),
+(10, 3, 1, 0, 0, 'Narguile Completo', 'Lançamento kit completo', 1.000, 'Rosa', 230.00, 'Pequeno', 20, 20, 20, 'jv_louge_7.jpg', 'narguile_completo', 20, 'Dragon', '52412', 'n', 'n', '2020-06-08', '0'),
+(11, 3, 1, 0, 4, 'Kit Completo Anubis', 'Narguile completo marca Anubis', 1.000, 'Amarelo', 280.00, 'Médio', 20, 20, 20, 'jv_louge_6.jpg', 'kit_completo_anubis', 30, 'Anubis', '65451', 's', 'n', '2020-06-08', '5'),
+(12, 3, 1, 0, 10, 'Kit Completo Triton', 'Narguile completo da marca Triton', 1.000, 'Rosa e Branco', 350.00, 'Médio', 20, 20, 20, 'jv_louge_5.jpg', 'kit_completo_triton_rosa_e_branco', 25, 'Triton', '8885455', 'n', '0', '2020-06-08', '0'),
+(13, 3, 1, 10, 0, 'Kit Completo Triton', 'Narguile completo marca triton', 1.000, 'Roxo com Branco', 390.00, 'Médio', 20, 20, 20, 'jv_louge_4.jpg', 'kit_completo_triton_roxo_com_branco', 30, 'Triton', '2231654', 'n', '0', '2020-06-08', '0');
 
 -- --------------------------------------------------------
 
@@ -336,6 +367,7 @@ INSERT INTO `jv_produtos` (`pro_id`, `pro_categoria`, `pro_sub_categoria`, `pro_
 -- Estrutura da tabela `jv_sub_categorias`
 --
 
+DROP TABLE IF EXISTS `jv_sub_categorias`;
 CREATE TABLE `jv_sub_categorias` (
   `sub_id` int(11) NOT NULL,
   `cate_id` int(11) NOT NULL,
@@ -376,6 +408,12 @@ ALTER TABLE `jv_categorias`
 --
 ALTER TABLE `jv_clientes`
   ADD PRIMARY KEY (`cli_id`);
+
+--
+-- Índices para tabela `jv_comentarios_produto`
+--
+ALTER TABLE `jv_comentarios_produto`
+  ADD PRIMARY KEY (`com_id`);
 
 --
 -- Índices para tabela `jv_cupons`
@@ -448,6 +486,12 @@ ALTER TABLE `jv_clientes`
   MODIFY `cli_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT de tabela `jv_comentarios_produto`
+--
+ALTER TABLE `jv_comentarios_produto`
+  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `jv_cupons`
 --
 ALTER TABLE `jv_cupons`
@@ -457,7 +501,7 @@ ALTER TABLE `jv_cupons`
 -- AUTO_INCREMENT de tabela `jv_enderecos`
 --
 ALTER TABLE `jv_enderecos`
-  MODIFY `endereco_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `endereco_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `jv_fabricantes`
@@ -487,7 +531,7 @@ ALTER TABLE `jv_pedidos`
 -- AUTO_INCREMENT de tabela `jv_produtos`
 --
 ALTER TABLE `jv_produtos`
-  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `jv_sub_categorias`

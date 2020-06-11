@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-08 18:30:53
+/* Smarty version 3.1.36, created on 2020-06-10 15:59:03
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5edeae0df11178_42878415',
+  'unifunc' => 'content_5ee12d7765abc6_57513804',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1591651851,
+      1 => 1591815535,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5edeae0df11178_42878415 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee12d7765abc6_57513804 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
@@ -126,7 +126,7 @@ function content_5edeae0df11178_42878415 (Smarty_Internal_Template $_smarty_tpl)
                     <div class="col-lg-7 col-md-5">
                         <div class="advanced-search">
                             <div class="input-group">
-                                <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
+                                <form class="w-100" action="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
 " method="POST">
                                     <input type="text" name="pesquisar" id="pesquisar" placeholder="O que está procurando ?">
                                     <button><i class="ti-search"></i></button>
@@ -212,11 +212,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
                                     <div class="select-button">
                                         <?php if ($_smarty_tpl->tpl_vars['CARRINHO']->value == false) {?>
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
-" class="primary-btn view-card">VER PRODUTOS</a>
-                                        <?php } else { ?>
+" class="primary-btn view-card">VER PRODUTOS</a> <?php } else { ?>
                                         <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CARRINHO']->value;?>
-" class="primary-btn checkout-btn">FINALIZAR PEDIDO</a>
-                                        <?php }?>
+" class="primary-btn checkout-btn">FINALIZAR PEDIDO</a> <?php }?>
                                     </div>
                                 </div>
                             </li>
@@ -399,7 +397,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="copyright-reserved">
             <div class="container">
                 <div class="row">
@@ -472,6 +470,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/js/main.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/js/imagesloaded.pkgd.min.js"><?php echo '</script'; ?>
 >
 </body>
 

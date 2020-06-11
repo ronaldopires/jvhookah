@@ -57,7 +57,7 @@ if (isset($_SESSION['CARRINHO']) && count($_SESSION['CARRINHO']) > 0) {
     <span style="font-size:10em;"><i class="ti-shopping-cart"></i></span>
     <h3 class="section-title">Seu carrinho está vazio no momento.</h3>
     <p>Clique no botão para verificar nossos produtos.<p>
-    <a href="produtos" type="button" class="btn btn-outline-info">Escolher produtos</a>
+    <a href="produtos" type="button" class="site-btn-info">Escolher produtos</a>
     </div>
     </div>
     ' . Rotas::redirecionar(3, Rotas::pagProdutos());

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-08 18:15:55
+/* Smarty version 3.1.36, created on 2020-06-10 14:14:36
   from 'C:\xampp\htdocs\jvhookah\view\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5edeaa8b9f6820_67414020',
+  'unifunc' => 'content_5ee114fcdffe35_06683066',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d6a43a3e8998c3b7a30974c67961ff376e5032' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\home.tpl',
-      1 => 1591650954,
+      1 => 1591809275,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5edeaa8b9f6820_67414020 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee114fcdffe35_06683066 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
@@ -75,12 +75,77 @@ function content_5edeaa8b9f6820_67414020 (Smarty_Internal_Template $_smarty_tpl)
     </div>
 </section>
 <!-- Hero Section End -->
-
+<div class="section-title my-3">
+    <h2>Novidades</h2>
+</div>
+<!-- featured post -->
+<section>
+    <div class="container-fluid p-sm-0">
+        <div class="row featured-post-slider no-gutters">
+            <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0 px-1">
+                <article class="card bg-dark text-center border-0 rounded-0">
+                    <img class="card-img rounded-0 img-fluid w-100" src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/vaso.jpg" alt="post-thumb">
+                    <div class="card-img-overlay">
+                        <div class="card-content">
+                            <p class="text-uppercase">LifeStyle</p>
+                            <h4 class="card-title mb-4"><a class="" href="blog-single.html">Organize Your Life With 10 Simple rule</a></h4>
+                            <a class="btn btn-outline-light" href="blog-single.html">read more</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0 px-1">
+                <article class="card bg-dark text-center border-0 rounded-0">
+                    <img class="card-img rounded-0 img-fluid w-100" src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/vaso.jpg" alt="post-thumb">
+                    <div class="card-img-overlay">
+                        <div class="card-content">
+                            <p class="text-uppercase">Philosophy</p>
+                            <h4 class="card-title mb-4"><a class="" href="blog-single.html">Organize Your Life With 10
+                    Simple rule</a></h4>
+                            <a class="btn btn-outline-light" href="blog-single.html">read more</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0 px-1">
+                <article class="card bg-dark text-center border-0 rounded-0">
+                    <img class="card-img rounded-0 img-fluid w-100" src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/vaso.jpg" alt="post-thumb">
+                    <div class="card-img-overlay">
+                        <div class="card-content">
+                            <p class="text-uppercase">Fashion</p>
+                            <h4 class="card-title mb-4"><a class="" href="blog-single.html">Organize Your Life With 10
+                    Simple rule</a></h4>
+                            <a class="btn btn-outline-light" href="blog-single.html">read more</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0 px-1">
+                <article class="card bg-dark text-center border-0 rounded-0">
+                    <img class="card-img rounded-0 img-fluid w-100" src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/vaso.jpg" alt="post-thumb">
+                    <div class="card-img-overlay">
+                        <div class="card-content">
+                            <p class="text-uppercase">Article</p>
+                            <h4 class="card-title mb-4"><a class="" href="blog-single.html">Organize Your Life With 10
+                    Simple rule</a></h4>
+                            <a class="btn btn-outline-light" href="blog-single.html">read more</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /featured post -->
 <!-- Banner Section Begin -->
 <div class="banner-section spad">
     <div class="container-fluid">
         <div class="row ">
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-sm-10 offset-sm-1 offset-md-0">
                 <a href="#1">
                     <div class="single-banner">
                         <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
@@ -91,7 +156,7 @@ function content_5edeaa8b9f6820_67414020 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-10 offset-sm-1 offset-md-0">
                 <a href="#2">
                     <div class="single-banner">
                         <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
@@ -102,7 +167,7 @@ function content_5edeaa8b9f6820_67414020 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 offset-lg-0 col-md-6 col-sm-12 offset-md-3">
+            <div class="col-lg-4 offset-lg-0 col-md-6 col-sm-10 offset-sm-1 offset-md-3">
                 <a href="#3">
                     <div class="single-banner">
                         <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
@@ -174,11 +239,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3 col-md-6">
-                <div class="product-large set-bg" data-setbg="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/img/products/women-large.jpg">
-                    <h2>Bases</h2>
-                    <a href="#">Discover More</a>
-                </div>
+                <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
+">
+                    <div class="product-large set-bg" data-setbg="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/vaso.jpg"></div>
+                </a>
             </div>
             <div class="col-lg-8 offset-lg-1 col-md-6">
                 <div class="filter-control">
@@ -224,7 +289,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
 "><i
                                     class="icon_bag_alt" title="Comprar"></i></a></li>
-                                <li class="quick-view"><i class="fa fa-search-plus"></i></li>
+                                <li class="quick-view"><a href="#"><i class="fa fa-search-plus"></i></a></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>

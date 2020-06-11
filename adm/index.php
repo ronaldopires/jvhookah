@@ -15,7 +15,10 @@ $smarty->assign('TITULO_SITE', Config::SITE_NOME);
 $smarty->assign('GET_HOME', Rotas::getSiteHome());
 $smarty->assign('PAG_HOME', Rotas::getSiteAdm());
 $smarty->assign('PAG_PEDIDOS', Rotas::pagPedidosAdm());
+$smarty->assign('PAG_PRODUTOS', Rotas::pagProdutosAdm());
 $smarty->assign('PAG_CLIENTES', Rotas::pagClientesAdm());
+$smarty->assign('PAG_ADICIONAR_PRODUTO', Rotas::pagAdicionarProdutosAdm());
+
 
 
 $smarty->display('adm_index.tpl');

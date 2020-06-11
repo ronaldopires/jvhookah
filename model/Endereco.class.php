@@ -32,6 +32,8 @@ class Endereco extends Conexao
     //Consultar Endereços
     public function enderecoCliente($id)
     {
+        $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+
         $query = "SELECT * FROM {$this->prefix}enderecos e INNER JOIN {$this->prefix}clientes c ON e.endereco_cli_id = c.cli_id";
         $query .= " WHERE cli_id = {$id}";
 
@@ -62,7 +64,7 @@ class Endereco extends Conexao
     {
         $query = "UPDATE {$this->prefix}enderecos SET endereco_cli_cep = :cep, endereco_cli_endereco = :endereco, endereco_cli_bairro = :bairro, endereco_cli_cidade = :cidade, ";
         $query .= " endereco_cli_uf = :uf, endereco_cli_numero = :numero, endereco_cli_complemento = :complemento ";
-        $query .= " WHERE endereco_cli_id = :id ";
+        $query .= " WHERE endereco_id = :id ";
 
         $params = array(
             ':cep' => $cep,
@@ -73,6 +75,20 @@ class Endereco extends Conexao
             ':numero' => $numero,
             ':complemento' => $complemento,
             ':id' => (int) $id,
+        );
+        if ($this->executeSql($query, $params)):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+    //Excluir Endereço
+    public function deletarEndereco($id)
+    {
+        $query = "DELETE FROM {$this->prefix}enderecos WHERE endereco_id = :id ";
+
+        $params = array(
+            ':id' => (int) $id
         );
         if ($this->executeSql($query, $params)):
             return true;

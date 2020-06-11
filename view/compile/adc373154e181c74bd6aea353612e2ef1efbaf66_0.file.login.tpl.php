@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-30 20:42:24
+/* Smarty version 3.1.36, created on 2020-06-09 16:25:56
   from 'C:\xampp\htdocs\jvhookah\view\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed2ef60265253_77173561',
+  'unifunc' => 'content_5edfe2440111e3_20412882',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'adc373154e181c74bd6aea353612e2ef1efbaf66' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\login.tpl',
-      1 => 1590882141,
+      1 => 1591730755,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed2ef60265253_77173561 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5edfe2440111e3_20412882 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -41,7 +41,7 @@ function content_5ed2ef60265253_77173561 (Smarty_Internal_Template $_smarty_tpl)
 <div class="register-login-section spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 offset-lg-3">
+            <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
                 <div class="login-form">
                     <h2>Login</h2>
                     <form method="POST">

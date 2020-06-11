@@ -16,7 +16,7 @@
 
 <div class="row no-gutters py-4 justify-content-center">
     <div class="col-lg-7 col-md-6 col-sm-auto">
-        <h4 class="text-center">DETALHES DO PEDIDO <span class="float-right mb-4"><a href="meu_perfil" type="button" class="btn btn-default border">Voltar</a></span></h4>
+        <h4 class="text-center">DETALHES DO PEDIDO <span class="float-right mb-4"><a href="meu_perfil" type="button" class="site-btn">Voltar</a></span></h4>
         <hr>
         <div class="col table-responsive">
             <table class="table">

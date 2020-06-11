@@ -49,12 +49,73 @@
     </div>
 </section>
 <!-- Hero Section End -->
-
+<div class="section-title my-3">
+    <h2>Novidades</h2>
+</div>
+<!-- featured post -->
+<section>
+    <div class="container-fluid p-sm-0">
+        <div class="row featured-post-slider no-gutters">
+            <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0 px-1">
+                <article class="card bg-dark text-center border-0 rounded-0">
+                    <img class="card-img rounded-0 img-fluid w-100" src="{$GET_TEMA}/img/vaso.jpg" alt="post-thumb">
+                    <div class="card-img-overlay">
+                        <div class="card-content">
+                            <p class="text-uppercase">LifeStyle</p>
+                            <h4 class="card-title mb-4"><a class="" href="blog-single.html">Organize Your Life With 10 Simple rule</a></h4>
+                            <a class="btn btn-outline-light" href="blog-single.html">read more</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0 px-1">
+                <article class="card bg-dark text-center border-0 rounded-0">
+                    <img class="card-img rounded-0 img-fluid w-100" src="{$GET_TEMA}/img/vaso.jpg" alt="post-thumb">
+                    <div class="card-img-overlay">
+                        <div class="card-content">
+                            <p class="text-uppercase">Philosophy</p>
+                            <h4 class="card-title mb-4"><a class="" href="blog-single.html">Organize Your Life With 10
+                    Simple rule</a></h4>
+                            <a class="btn btn-outline-light" href="blog-single.html">read more</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0 px-1">
+                <article class="card bg-dark text-center border-0 rounded-0">
+                    <img class="card-img rounded-0 img-fluid w-100" src="{$GET_TEMA}/img/vaso.jpg" alt="post-thumb">
+                    <div class="card-img-overlay">
+                        <div class="card-content">
+                            <p class="text-uppercase">Fashion</p>
+                            <h4 class="card-title mb-4"><a class="" href="blog-single.html">Organize Your Life With 10
+                    Simple rule</a></h4>
+                            <a class="btn btn-outline-light" href="blog-single.html">read more</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0 px-1">
+                <article class="card bg-dark text-center border-0 rounded-0">
+                    <img class="card-img rounded-0 img-fluid w-100" src="{$GET_TEMA}/img/vaso.jpg" alt="post-thumb">
+                    <div class="card-img-overlay">
+                        <div class="card-content">
+                            <p class="text-uppercase">Article</p>
+                            <h4 class="card-title mb-4"><a class="" href="blog-single.html">Organize Your Life With 10
+                    Simple rule</a></h4>
+                            <a class="btn btn-outline-light" href="blog-single.html">read more</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /featured post -->
 <!-- Banner Section Begin -->
 <div class="banner-section spad">
     <div class="container-fluid">
         <div class="row ">
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-sm-10 offset-sm-1 offset-md-0">
                 <a href="#1">
                     <div class="single-banner">
                         <img src="{$GET_TEMA}/img/post.png" alt="">
@@ -64,7 +125,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-10 offset-sm-1 offset-md-0">
                 <a href="#2">
                     <div class="single-banner">
                         <img src="{$GET_TEMA}/img/card-1.png" alt="">
@@ -74,7 +135,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 offset-lg-0 col-md-6 col-sm-12 offset-md-3">
+            <div class="col-lg-4 offset-lg-0 col-md-6 col-sm-10 offset-sm-1 offset-md-3">
                 <a href="#3">
                     <div class="single-banner">
                         <img src="{$GET_TEMA}/img/card-2.png" alt="">
@@ -127,10 +188,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3 col-md-6">
-                <div class="product-large set-bg" data-setbg="{$GET_TEMA}/img/products/women-large.jpg">
-                    <h2>Bases</h2>
-                    <a href="#">Discover More</a>
-                </div>
+                <a href="{$PAG_PRODUTOS}">
+                    <div class="product-large set-bg" data-setbg="{$GET_TEMA}/img/vaso.jpg"></div>
+                </a>
             </div>
             <div class="col-lg-8 offset-lg-1 col-md-6">
                 <div class="filter-control">
@@ -156,7 +216,7 @@
                             <ul>
                                 <li class="w-icon active"><a href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}"><i
                                     class="icon_bag_alt" title="Comprar"></i></a></li>
-                                <li class="quick-view"><i class="fa fa-search-plus"></i></li>
+                                <li class="quick-view"><a href="#"><i class="fa fa-search-plus"></i></a></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>

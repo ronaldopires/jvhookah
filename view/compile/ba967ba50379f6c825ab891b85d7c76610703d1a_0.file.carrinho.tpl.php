@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-03 20:51:53
+/* Smarty version 3.1.36, created on 2020-06-09 23:55:08
   from 'C:\xampp\htdocs\jvhookah\view\carrinho.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed83799347e15_37836648',
+  'unifunc' => 'content_5ee04b8cdea268_37310131',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba967ba50379f6c825ab891b85d7c76610703d1a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\carrinho.tpl',
-      1 => 1591228311,
+      1 => 1591757700,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed83799347e15_37836648 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee04b8cdea268_37310131 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -48,8 +48,8 @@ function content_5ed83799347e15_37836648 (Smarty_Internal_Template $_smarty_tpl)
 " method="post">
                 <input type="hidden" name="pro_id" value="1">
                 <input type="hidden" name="acao" value="limpar">
-                <button class="btn btn-warning md-mx-2 col-sm-6 col-md-2 col-lg-2" title="Remover todos os itens">Remover</button>
-                <button type="button" class="closeAlert btn bg-white col-sm-2 col-md-2 col-lg-2" title="Cancelar remoção">Cancelar</button>
+                <button class="site-btn-danger" title="Remover todos os itens">Remover</button>
+                <button type="button" class="closeAlert site-btn" title="Cancelar remoção">Cancelar</button>
             </form>
         </div>
     </div>
@@ -165,10 +165,10 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
 ">
                                                             <input type="hidden" name="acao" value="del">
                                                             <div class="col mr-3">
-                                                                <button class="btn btn-danger" title="Remover Item">Remover</button>
+                                                                <button class="site-btn-danger" title="Remover Item">Remover</button>
                                                             </div>
                                                             <div class="col">
-                                                                <button type="button" class="closeAlert border btn" data-dismiss="modal" title="Cancelar remoção">Cancelar</button>
+                                                                <button type="button" class="closeAlert site-btn" data-dismiss="modal" title="Cancelar remoção">Cancelar</button>
                                                             </div>
                                                         </form>
                                                     </div>

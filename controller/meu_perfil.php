@@ -3,6 +3,8 @@
 $smarty = new Template();
 
 if (Login::Logado() && !empty($_SESSION['CLI'])) {
+
+    $log = new LogSystem();
     $cliente = new Clientes();
     $pedidos = new Pedidos();
     $novo_endereco = new Endereco();
@@ -40,18 +42,24 @@ if (Login::Logado() && !empty($_SESSION['CLI'])) {
             $_SESSION['CLI']['cli_celular'] = $_POST['cli_celular'];
             $_SESSION['CLI']['cli_telefone'] = $_POST['cli_telefone'];
 
-            exit('<div class="container text-center alert alert-dismissible fade show alert-success" role="alert">
+            $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} alterou os seguintes dados {$_SESSION['CLI']['cli_nome']}, {$_SESSION['CLI']['cli_sobrenome']}, {$_SESSION['CLI']['cli_data_nasc']}, {$_SESSION['CLI']['cli_sexo']}, {$_SESSION['CLI']['cli_celular']}, {$_SESSION['CLI']['cli_telefone']}";
+            $log->getLogger($msg, "conta");
+            
+            echo '<div class="container text-center alert alert-dismissible fade show alert-success" role="alert">
                     <h4>Dados atualiados com sucesso.<h4>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button></div>' . Rotas::redirecionar(2, Rotas::pagMeuPerfil()));
+                    </button></div>' . Rotas::redirecionar(1, Rotas::pagMeuPerfil());
         } else {
-            exit('<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
+            $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} tentou alterar {$_SESSION['CLI']['cli_nome']}, {$_SESSION['CLI']['cli_sobrenome']}, {$_SESSION['CLI']['cli_data_nasc']}, {$_SESSION['CLI']['cli_sexo']}, {$_SESSION['CLI']['cli_celular']}, {$_SESSION['CLI']['cli_telefone']}";
+            $log->getLogger($msg, "conta");
+
+            echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
                         <h4>Erro ao atualizar os dados.<h4>
                         <p>Tente novamente.</p>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                        </button></div>' . Rotas::redirecionar(3, Rotas::pagMeuPerfil()));
+                        </button></div>' . Rotas::redirecionar(1, Rotas::pagMeuPerfil());
         }
 
     }
@@ -78,23 +86,34 @@ if (Login::Logado() && !empty($_SESSION['CLI'])) {
         );
 
         if ($cliente->editarEndereco($id)) {
-            $_SESSION['CLI']['cli_cep'] = $_POST['cli_cep'];
-            $_SESSION['CLI']['cli_endereco'] = $_POST['cli_endereco'];
-            $_SESSION['CLI']['cli_numero'] = $_POST['cli_numero'];
-            $_SESSION['CLI']['cli_bairro'] = $_POST['cli_bairro'];
-            $_SESSION['CLI']['cli_cidade'] = $_POST['cli_cidade'];
-            $_SESSION['CLI']['cli_uf'] = $_POST['cli_uf'];
-            $_SESSION['CLI']['cli_complemento'] = $_POST['cli_complemento'];
+            $_SESSION['CLI']['cli_cep'] = $cli_cep;
+            $_SESSION['CLI']['cli_endereco'] = $cli_endereco;
+            $_SESSION['CLI']['cli_numero'] = $cli_numero;
+            $_SESSION['CLI']['cli_bairro'] = $cli_bairro;
+            $_SESSION['CLI']['cli_cidade'] = $cli_cidade;
+            $_SESSION['CLI']['cli_uf'] = $cli_uf;
+            $_SESSION['CLI']['cli_complemento'] = $cli_complemento;
 
-            echo '<script> alert("Dados atualizados com sucesso.");</script>;' . Rotas::redirecionar(2, Rotas::pagMeuPerfil());
+            $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} alterou os seguintes dados {$cli_cep}, {$cli_endereco}, {$cli_numero}, {$cli_bairro}, {$cli_cidade}, {$cli_uf}, {$cli_complemento}";
+            $log->getLogger($msg, "conta");
+
+            echo '<div class="container text-center alert alert-dismissible fade show alert-success" role="alert">
+                    <h4>Dados atualizados com sucesso.<h4>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button></div>' . Rotas::redirecionar(1, Rotas::pagMeuPerfil());
+            
         } else {
+            $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} alterou os seguintes dados {$cli_cep}, {$cli_endereco}, {$cli_numero}, {$cli_bairro}, {$cli_cidade}, {$cli_uf}, {$cli_complemento}";
+            $log->getLogger($msg, "conta");
+
             echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
                     <h4>Erro ao atualizar os dados.<h4>
                     <p>Tente novamente.</p>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button></div>' . Rotas::redirecionar(2, Rotas::pagMeuPerfil());
-            exit();
+                    </button></div>' . Rotas::redirecionar(1, Rotas::pagMeuPerfil());
+            // exit();
         }
     }
 
@@ -109,21 +128,34 @@ if (Login::Logado() && !empty($_SESSION['CLI'])) {
         $numero = $_POST['novo_cli_numero'];
         $complemento = $_POST['novo_cli_complemento'];
 
+        //CHAMAR A FUNÇÃO PARA PREPARAR OS DADOS
+        $cliente->prepararEditarEndereco(
+            $cep,
+            $endereco,
+            $numero,
+            $bairro,
+            $cidade,
+            $uf,
+            $complemento
+        );
+
         if ($novo_endereco->gravarEndereco($cep, $endereco, $bairro, $cidade, $uf, $numero, $complemento, $id)) {
+            $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} adicionou um novo endereço {$cep}, {$endereco}, {$numero}, {$bairro}, {$cidade}, {$uf}, {$complemento}";
+            $log->getLogger($msg, "conta");
             echo '<div class="container text-center alert alert-dismissible fade show alert-success" role="alert">
                     <h4>Endereço adicionado com sucesso.<h4>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button></div>' . Rotas::redirecionar(2, Rotas::pagMeuPerfil());
-            exit();
+                    </button></div>' . Rotas::redirecionar(1, Rotas::pagMeuPerfil());
         } else {
+            $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} tentou adicionar um novo endereço {$cep}, {$endereco}, {$numero}, {$bairro}, {$cidade}, {$uf}, {$complemento}";
+            $log->getLogger($msg, "conta");
             echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
             <h4>Erro ao adicionar novo endereço.<h4>
             <p>Tente novamente.</p>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-            </button></div>' . Rotas::redirecionar(2, Rotas::pagMeuPerfil());
-            exit();
+            </button></div>' . Rotas::redirecionar(1, Rotas::pagMeuPerfil());
         }
 
     }
@@ -137,24 +169,54 @@ if (Login::Logado() && !empty($_SESSION['CLI'])) {
         $uf = $_POST['endereco_cli_uf'];
         $numero = $_POST['endereco_cli_numero'];
         $complemento = $_POST['endereco_cli_complemento'];
+        $id = $_POST['endereco_id'];
 
         if ($novo_endereco->atualizarEndereco($cep, $endereco, $bairro, $cidade, $uf, $numero, $complemento, $id)) {
+            $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} editou o endereço {$cep}, {$endereco}, {$numero}, {$bairro}, {$cidade}, {$uf}, {$complemento} no id {$id}";
+            $log->getLogger($msg, "conta");
             echo '<div class="container text-center alert alert-dismissible fade show alert-success" role="alert">
-                    <h4>Endereço adicionado com sucesso.<h4>
+                    <h4>Endereço atualizado com sucesso.<h4>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button></div>' . Rotas::redirecionar(2, Rotas::pagMeuPerfil());
-            exit();
+                    </button></div>' . Rotas::redirecionar(1, Rotas::pagMeuPerfil());
+            // exit();
         } else {
+            $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} tentou editar o endereço {$cep}, {$endereco}, {$numero}, {$bairro}, {$cidade}, {$uf}, {$complemento} no id {$id}";
+            $log->getLogger($msg, "conta");
             echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
-            <h4>Erro ao adicionar novo endereço.<h4>
+            <h4>Erro ao editar endereço.<h4>
             <p>Tente novamente.</p>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-            </button></div>' . Rotas::redirecionar(2, Rotas::pagMeuPerfil());
-            exit();
+            </button></div>' . Rotas::redirecionar(1, Rotas::pagMeuPerfil());
+            // exit();
         }
 
+    }
+
+    //Deletar Endereço
+    if(isset($_POST['deletar_outro_endereco'])){
+        $id = $_POST['deletar_outro_endereco'];
+        
+        if($novo_endereco->deletarEndereco($id)){
+            $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} deletou o endereço do id {$id}";
+            $log->getLogger($msg, "conta");
+            echo '<div class="container text-center alert alert-dismissible fade show alert-success" role="alert">
+                    <h4>Endereço deletado com sucesso.<h4>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button></div>' . Rotas::redirecionar(1, Rotas::pagMeuPerfil());
+        }else {
+            $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} erro ao deletar endereço do id {$id}";
+            $log->getLogger($msg, "conta");
+            echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
+            <h4>Erro ao deletar endereço.<h4>
+            <p>Tente novamente.</p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button></div>' . Rotas::redirecionar(1, Rotas::pagMeuPerfil());
+            // exit();
+        }
     }
 
     //CONSULTA NOVO ENDEREÇO
@@ -180,6 +242,8 @@ if (Login::Logado() && !empty($_SESSION['CLI'])) {
 
             if ($valor['cli_senha'] === $cli_senha) {
                 if ($cli_nova_senha === $cli_senha) {
+                    $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} tentou trocar a senha erro = A senha atual e a nova senha estão iguais : email: {$_POST['cli_email']}";
+                    $log->getLogger($msg, "conta");
                     echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
                     <h4>A senha atual e a nova senha estão iguais.<h4>
                     <p>Digite a sua senha novamente.</p>
@@ -189,6 +253,8 @@ if (Login::Logado() && !empty($_SESSION['CLI'])) {
                     exit();
                 } else {
                     $cliente->senhaUpdate($cli_nova_senha, $id);
+                    $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} cujo o email é {$_SESSION['CLI']['cli_email']} alterou a senha com sucesso no email digitado: {$_POST['cli_email']}";
+                    $log->getLogger($msg, "conta");
                     echo '<div class="container text-center alert alert-dismissible fade show alert-success" role="alert">
                     <h4>Senha atualizada com sucesso.<h4>
                     <p>Faça login novamente.</p>
@@ -198,6 +264,8 @@ if (Login::Logado() && !empty($_SESSION['CLI'])) {
                     exit();
                 }
             } else {
+                $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} tentou alterar a senha erro = senha atual está incorreta no email digitado: {$_POST['cli_email']}";
+                $log->getLogger($msg, "conta");
                 echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
                 <h4>Senha atual está incorreta<h4>
                 <p>Digite a sua senha novamente.</p>
@@ -208,6 +276,8 @@ if (Login::Logado() && !empty($_SESSION['CLI'])) {
             }
 
         } else {
+            $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} cujo o email é {$_SESSION['CLI']['cli_email']} tentou trocar de senha erro = O endereço de email digitado é diferente do cadastrados : email digitado: {$_POST['cli_email']}";
+            $log->getLogger($msg, "conta");
             echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
                 <h4>O endereço de e-mail digitado é diferente do cadastrado.<h4>
                 <p>Digite seu e-mail corretamente.</p>
@@ -220,7 +290,8 @@ if (Login::Logado() && !empty($_SESSION['CLI'])) {
     //EXCLUIR CONTA
     if (isset($_POST['confirmar']) && $id != null && !empty($id)) {
         if ($cliente->excluirCliente($id)) {
-
+            $msg = "Usuario {$_SESSION['CLI']['cli_nome']} {$_SESSION['CLI']['cli_sobrenome']} cujo o email é {$_SESSION['CLI']['cli_email']} excluiu a conta de cadastro.";
+            $log->getLogger($msg, "conta");
             echo '<div class="container text-center alert alert-dismissible fade show alert-warning" role="alert">
                 <h4>Conta excluída com sucesso.<h4>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">

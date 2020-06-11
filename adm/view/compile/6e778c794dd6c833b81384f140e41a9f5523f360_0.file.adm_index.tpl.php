@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-08 20:52:10
+/* Smarty version 3.1.36, created on 2020-06-11 01:21:22
   from 'C:\xampp\htdocs\jvhookah\adm\view\adm_index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5edecf2a60e562_07863838',
+  'unifunc' => 'content_5ee1b142c9ca26_83965219',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6e778c794dd6c833b81384f140e41a9f5523f360' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\adm\\view\\adm_index.tpl',
-      1 => 1591660328,
+      1 => 1591849281,
       2 => 'file',
     ),
   ),
@@ -20,474 +20,449 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5edecf2a60e562_07863838 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee1b142c9ca26_83965219 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title><?php echo $_smarty_tpl->tpl_vars['TITULO_SITE']->value;?>
- - Dashboard</title>
-    <!--Chart js-->
-    <?php echo '<script'; ?>
- src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"><?php echo '</script'; ?>
->
-    
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <!-- CSS Files -->
-    <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/css/demo/demo.css" rel="stylesheet" />
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-</head>
-<body>
-    <div class="wrapper ">
-        <div class="sidebar" data-color="green" data-background-color="white" data-image="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/jv_logo.jpg">
-            <!--
-          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-  
-          Tip 2: you can also add an image using data-image tag -->
-            <div class="logo"><a href="<?php echo $_smarty_tpl->tpl_vars['GET_HOME']->value;?>
-" class="simple-text logo-normal">
-            <?php echo $_smarty_tpl->tpl_vars['TITULO_SITE']->value;?>
+</title>
 
-          </a></div>
-            <div class="sidebar-wrapper">
-                <ul class="nav">
-                    <li class="nav-item active  ">
-                        <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
+    <!--Favicon-->
+    <link rel="shortcut icon" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/img/favicon.ico" type="image/x-icon">
+
+    <!-- Chart -->
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/js/Chart.min.js"><?php echo '</script'; ?>
+>
+
+    <!-- Custom fonts for this template-->
+    <!-- <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/css/all.min.css" type="text/css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/css/font-awesome.min.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/css/sb-admin-2.min.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/css/style-adm.css" type="text/css">
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
 ">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['PAG_CLIENTES']->value;?>
+                <div class="sidebar-brand-icon rotate-n-15">
+                    JV
+                </div>
+                <div class="sidebar-brand-text mx-3">HOOKAH<sup> ADM</sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
 ">
-                            <i class="material-icons">person</i>
-                            <p>Clientes</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['PAG_PEDIDOS']->value;?>
-">
-                            <i class="material-icons">content_paste</i>
-                            <p>Pedidos</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./typography.html">
-                            <i class="material-icons">library_books</i>
-                            <p>Typography</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./icons.html">
-                            <i class="material-icons">bubble_chart</i>
-                            <p>Icons</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./map.html">
-                            <i class="material-icons">location_ons</i>
-                            <p>Maps</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./notifications.html">
-                            <i class="material-icons">notifications</i>
-                            <p>Notifications</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./rtl.html">
-                            <i class="material-icons">language</i>
-                            <p>RTL Support</p>
-                        </a>
-                    </li>
-                </ul>
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Itens
             </div>
-        </div>
-        <div class="main-panel">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-                <div class="container-fluid">
-                    <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="javascript:;">
-                            <!--Página atual -->
-                        </a>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="navbar-toggler-icon icon-bar"></span>
-              <span class="navbar-toggler-icon icon-bar"></span>
-              <span class="navbar-toggler-icon icon-bar"></span>
-            </button>
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <form class="navbar-form">
-                            <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
-                                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                    <i class="material-icons">search</i>
-                    <div class="ripple-container"></div>
-                  </button>
-                            </div>
-                        </form>
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="javascript:;">
-                                    <i class="material-icons">dashboard</i>
-                                    <p class="d-lg-none d-md-block">
-                                        Stats
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">notifications</i>
-                                    <span class="notification">5</span>
-                                    <p class="d-lg-none d-md-block">
-                                        Some Actions
-                                    </p>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                                    <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                                    <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                                    <a class="dropdown-item" href="#">Another Notification</a>
-                                    <a class="dropdown-item" href="#">Another One</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">person</i>
-                                    <p class="d-lg-none d-md-block">
-                                        Account
-                                    </p>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                    <a class="dropdown-item" href="#">Profile</a>
-                                    <a class="dropdown-item" href="#">Settings</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Log out</a>
-                                </div>
-                            </li>
-                        </ul>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Produtos</span>
+                </a>
+                <div id="collapseProducts" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Opções de Produtos:</h6>
+                        <a class="collapse-item" href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
+">Produtos</a>
+                        <a class="collapse-item" href="<?php echo $_smarty_tpl->tpl_vars['PAG_ADICIONAR_PRODUTO']->value;?>
+">Adicionar</a>
+                        <a class="collapse-item" href="cards.html">Cupons</a>
                     </div>
                 </div>
-            </nav>
-            <!-- End Navbar -->
-            <!--Rotas de páginas -->
-            <?php  Rotas::getPagina(); ?>
+            </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePedidos" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Pedidos</span>
+                </a>
+                <div id="collapsePedidos" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Opções de Pedidos:</h6>
+                        <a class="collapse-item" href="<?php echo $_smarty_tpl->tpl_vars['PAG_PEDIDOS']->value;?>
+">Todos</a>
+                        <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Categorias</span>
+                </a>
+                <div id="collapseCategory" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Opções de Categorias:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Pages</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
+                        <a class="collapse-item" href="login.html">Login</a>
+                        <a class="collapse-item" href="register.html">Register</a>
+                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['PAG_CLIENTES']->value;?>
+">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Clientes</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+<i class="fas fa-bars"></i>
+</button>
+
+                    <!-- Topbar Search -->
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquise produtos" aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+<i class="fas fa-search fa-sm"></i>
+</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquise produtos" aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+<i class="fas fa-search fa-sm"></i>
+</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="1" alt="">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="2" alt="">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="3" alt="">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="3" alt="">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ronaldo Carvalho</span>
+                                <img class="img-profile rounded-circle" src="3">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Configurações
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!--Rotas de páginas -->
+                <?php  Rotas::getPagina(); ?>
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Ronaldo Carvalho 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
         </div>
     </div>
 
-
-    <!--   Core JS Files   -->
     <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/core/jquery.min.js"><?php echo '</script'; ?>
+ src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/core/popper.min.js"><?php echo '</script'; ?>
+/tema/js/jquery-3.5.1.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/core/bootstrap-material-design.min.js"><?php echo '</script'; ?>
+/tema/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/perfect-scrollbar.jquery.min.js"><?php echo '</script'; ?>
+/tema/js/bootstrap.bundle.min.js"><?php echo '</script'; ?>
 >
-    <!-- Plugin for the momentJs  -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/moment.min.js"><?php echo '</script'; ?>
+/tema/js/sb-admin-2.min.js"><?php echo '</script'; ?>
 >
-    <!--  Plugin for Sweet Alert -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/sweetalert2.js"><?php echo '</script'; ?>
+/tema/js/script.js"><?php echo '</script'; ?>
 >
-    <!-- Forms Validations Plugin -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/jquery.validate.min.js"><?php echo '</script'; ?>
->
-    <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/jquery.bootstrap-wizard.js"><?php echo '</script'; ?>
->
-    <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-    <?php echo '<script'; ?>
- src="../assets/js/plugins/bootstrap-selectpicker.js"><?php echo '</script'; ?>
->
-    <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/bootstrap-datetimepicker.min.js"><?php echo '</script'; ?>
->
-    <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/jquery.dataTables.min.js"><?php echo '</script'; ?>
->
-    <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/bootstrap-tagsinput.js"><?php echo '</script'; ?>
->
-    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/jasny-bootstrap.min.js"><?php echo '</script'; ?>
->
-    <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/fullcalendar.min.js"><?php echo '</script'; ?>
->
-    <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/jquery-jvectormap.js"><?php echo '</script'; ?>
->
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/nouislider.min.js"><?php echo '</script'; ?>
->
-    <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-    <?php echo '<script'; ?>
- src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"><?php echo '</script'; ?>
->
-    <!-- Library for adding dinamically elements -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/arrive.min.js"><?php echo '</script'; ?>
->
-    <!--  Google Maps Plugin    -->
-    <?php echo '<script'; ?>
- src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"><?php echo '</script'; ?>
->
-    <!-- Chartist JS -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/chartist.min.js"><?php echo '</script'; ?>
->
-    <!--  Notifications Plugin    -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/plugins/bootstrap-notify.js"><?php echo '</script'; ?>
->
-    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"><?php echo '</script'; ?>
->
-    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/assets/demo/demo.js"><?php echo '</script'; ?>
+/tema/chartsAdm/chart-area-demo.js"><?php echo '</script'; ?>
 >
 
-    <?php echo '<script'; ?>
->
-      $(document).ready(function() {
-        $().ready(function() {
-          $sidebar = $('.sidebar');
-  
-          $sidebar_img_container = $sidebar.find('.sidebar-background');
-  
-          $full_page = $('.full-page');
-  
-          $sidebar_responsive = $('body > .navbar-collapse');
-  
-          window_width = $(window).width();
-  
-          fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-  
-          if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
-            if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
-              $('.fixed-plugin .dropdown').addClass('open');
-            }
-  
-          }
-  
-          $('.fixed-plugin a').click(function(event) {
-            // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-            if ($(this).hasClass('switch-trigger')) {
-              if (event.stopPropagation) {
-                event.stopPropagation();
-              } else if (window.event) {
-                window.event.cancelBubble = true;
-              }
-            }
-          });
-  
-          $('.fixed-plugin .active-color span').click(function() {
-            $full_page_background = $('.full-page-background');
-  
-            $(this).siblings().removeClass('active');
-            $(this).addClass('active');
-  
-            var new_color = $(this).data('color');
-  
-            if ($sidebar.length != 0) {
-              $sidebar.attr('data-color', new_color);
-            }
-  
-            if ($full_page.length != 0) {
-              $full_page.attr('filter-color', new_color);
-            }
-  
-            if ($sidebar_responsive.length != 0) {
-              $sidebar_responsive.attr('data-color', new_color);
-            }
-          });
-  
-          $('.fixed-plugin .background-color .badge').click(function() {
-            $(this).siblings().removeClass('active');
-            $(this).addClass('active');
-  
-            var new_color = $(this).data('background-color');
-  
-            if ($sidebar.length != 0) {
-              $sidebar.attr('data-background-color', new_color);
-            }
-          });
-  
-          $('.fixed-plugin .img-holder').click(function() {
-            $full_page_background = $('.full-page-background');
-  
-            $(this).parent('li').siblings().removeClass('active');
-            $(this).parent('li').addClass('active');
-  
-  
-            var new_image = $(this).find("img").attr('src');
-  
-            if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-              $sidebar_img_container.fadeOut('fast', function() {
-                $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-                $sidebar_img_container.fadeIn('fast');
-              });
-            }
-  
-            if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-              var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-  
-              $full_page_background.fadeOut('fast', function() {
-                $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-                $full_page_background.fadeIn('fast');
-              });
-            }
-  
-            if ($('.switch-sidebar-image input:checked').length == 0) {
-              var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-              var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-  
-              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-            }
-  
-            if ($sidebar_responsive.length != 0) {
-              $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-            }
-          });
-  
-          $('.switch-sidebar-image input').change(function() {
-            $full_page_background = $('.full-page-background');
-  
-            $input = $(this);
-  
-            if ($input.is(':checked')) {
-              if ($sidebar_img_container.length != 0) {
-                $sidebar_img_container.fadeIn('fast');
-                $sidebar.attr('data-image', '#');
-              }
-  
-              if ($full_page_background.length != 0) {
-                $full_page_background.fadeIn('fast');
-                $full_page.attr('data-image', '#');
-              }
-  
-              background_image = true;
-            } else {
-              if ($sidebar_img_container.length != 0) {
-                $sidebar.removeAttr('data-image');
-                $sidebar_img_container.fadeOut('fast');
-              }
-  
-              if ($full_page_background.length != 0) {
-                $full_page.removeAttr('data-image', '#');
-                $full_page_background.fadeOut('fast');
-              }
-  
-              background_image = false;
-            }
-          });
-  
-          $('.switch-sidebar-mini input').change(function() {
-            $body = $('body');
-  
-            $input = $(this);
-  
-            if (md.misc.sidebar_mini_active == true) {
-              $('body').removeClass('sidebar-mini');
-              md.misc.sidebar_mini_active = false;
-  
-              $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-  
-            } else {
-  
-              $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-  
-              setTimeout(function() {
-                $('body').addClass('sidebar-mini');
-  
-                md.misc.sidebar_mini_active = true;
-              }, 300);
-            }
-  
-            // we simulate the window Resize so the charts will get updated in realtime.
-            var simulateWindowResize = setInterval(function() {
-              window.dispatchEvent(new Event('resize'));
-            }, 180);
-  
-            // we stop the simulation of Window Resize after the animations are completed
-            setTimeout(function() {
-              clearInterval(simulateWindowResize);
-            }, 1000);
-  
-          });
-        });
-      });
-    <?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
->
-      $(document).ready(function() {
-        // Javascript method's body can be found in assets/js/demos.js
-        md.initDashboardPageCharts();
-  
-      });
-    <?php echo '</script'; ?>
->
 
 </body>
+
 </html><?php }
 }

@@ -21,6 +21,7 @@ $smarty->assign('CATEGORIAS', $categorias->getItens());
 $smarty->assign('CATEGORIA', $categoria->getItens());
 $smarty->assign('PRODUTOS', $produtos->getItens());
 $smarty->assign('PAG_DETALHES_PRODUTO', Rotas::pagDetalhesProduto());
+$smarty->assign('PAG_PRODUTOS', Rotas::pagProdutos());
 $smarty->assign('MAIS_VENDIDOS', $mais_vendidos->getItens());
 $smarty->assign('FAVORITOS', Rotas::pagProdutosFavoritos());
 

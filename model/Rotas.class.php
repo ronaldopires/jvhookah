@@ -6,7 +6,7 @@ class Rotas
     public static $pag;
     private static $pasta_controller = 'controller'; //Pasta padrão de controllers
     private static $pasta_view = 'view'; //Pasta padrão de templates
-    private static $pasta_adm = 'adm/'; //Pasta padrão de templates
+    private static $pasta_adm = 'adm'; //Pasta padrão de templates
 
     //Pasta principal do site
     public static function getSiteHome()
@@ -21,7 +21,7 @@ class Rotas
     //Obter caminho para os templates
     public static function get_SiteTEMA()
     {
-        return self::getSiteHome() . '/' . self::$pasta_view;
+        return self::getSiteHome() . self::$pasta_view;
     }
     //Obter caminho para controller
     public static function getPastaController()
@@ -44,6 +44,10 @@ class Rotas
     public static function pagProdutos()
     {
         return self::getSiteHome() . 'produtos';
+    }
+    public static function pagPromocoes()
+    {
+        return self::getSiteHome() . 'promocoes';
     }
     public static function pagContato()
     {
@@ -101,7 +105,7 @@ class Rotas
     // ROTAS ADM
     public static function getSiteAdm()
     {
-        return self::getSiteHome() . '/' . self::$pasta_adm;
+        return self::getSiteHome() . self::$pasta_adm . '/';
     }
 
     public static function pagProdutosAdm()
@@ -157,11 +161,11 @@ class Rotas
     //Rotas de imagens para hospedagem
     public static function getImageUrl()
     {
-        return self::getSiteHome() . '/' . self::getImagePasta();
+        return self::getSiteHome() . self::getImagePasta();
     }
     public static function getImageUrlProfile()
     {
-        return self::getSiteHome() . '/' . self::getImagePastaProfile();
+        return self::getSiteHome() . self::getImagePastaProfile();
     }
     //Rotas de imagens para redimencionar e chamar rota
     public static function imageLink($img, $largura, $altura)

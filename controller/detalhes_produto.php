@@ -31,6 +31,11 @@ if ((isset(Rotas::$pag[1])) && (isset(Rotas::$pag[2]))) {
         echo '</pre>';  */
         }
 
+        if(isset($_POST['stars']) && isset($_POST['coment_nome']) && isset($_POST['coment_email']) && isset($_POST['coment_msg'])){
+            /* verificar depois */
+
+        }
+
         $caract->getCaracteristicaPro($id);
         $listagem->getProdutos();
 

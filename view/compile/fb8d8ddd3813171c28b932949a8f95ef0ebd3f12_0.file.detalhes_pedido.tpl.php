@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-31 05:20:33
+/* Smarty version 3.1.36, created on 2020-06-09 19:52:39
   from 'C:\xampp\htdocs\jvhookah\view\detalhes_pedido.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ed368d149b374_78170910',
+  'unifunc' => 'content_5ee012b75ec262_68165913',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fb8d8ddd3813171c28b932949a8f95ef0ebd3f12' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\detalhes_pedido.tpl',
-      1 => 1590913231,
+      1 => 1591743157,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed368d149b374_78170910 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee012b75ec262_68165913 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -41,7 +41,7 @@ function content_5ed368d149b374_78170910 (Smarty_Internal_Template $_smarty_tpl)
 
 <div class="row no-gutters py-4 justify-content-center">
     <div class="col-lg-7 col-md-6 col-sm-auto">
-        <h4 class="text-center">DETALHES DO PEDIDO <span class="float-right mb-4"><a href="meu_perfil" type="button" class="btn btn-default border">Voltar</a></span></h4>
+        <h4 class="text-center">DETALHES DO PEDIDO <span class="float-right mb-4"><a href="meu_perfil" type="button" class="site-btn">Voltar</a></span></h4>
         <hr>
         <div class="col table-responsive">
             <table class="table">

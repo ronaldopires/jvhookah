@@ -2,6 +2,7 @@
 
 $smarty = new Template();
 $produtos = new Produtos();
+$log = new LogSystem();
 $categorias = new Categorias();
 
 //CATEGORIAS E SUB CATEGORIAS
@@ -117,6 +118,8 @@ if (isset($_SESSION['FAVORITOS'])) {
 }
 
 if(isset($_POST['pesquisar'])){
+    $msg = "Pesquisa por produtos com o nome {$_POST['pesquisar']}";
+    $log->getLogger($msg, "pesquisa");
     $pesquisa = new Produtos();
     $listagem = new Produtos();
     $listagem->getProdutos();

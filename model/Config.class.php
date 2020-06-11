@@ -4,11 +4,12 @@ class Config
 {
     //INFORMAÇÕES BÁSICAS DO SITE
     const SITE_URL = "http://localhost";
-    const SITE_PASTA = "jvhookah";
+    const SITE_PASTA = "jvhookah/";
     const SITE_NOME = "Jv Hookah";
     const SITE_EMAIL_ADM = "ronaldobondezica@gmail.com";
     const SITE_CEP = '08280090';
-    const BD_LIMIT_PAG = 6;
+    const BD_LIMIT_PAG = 12;
+    const LIMIT_SESSAO = 900; //900 = 15m
 
     //INFORMAÇÕES DO BANCO DE DADOS
     const BD_HOST = "localhost";

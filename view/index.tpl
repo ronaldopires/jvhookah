@@ -88,7 +88,7 @@
                     <div class="col-lg-7 col-md-5">
                         <div class="advanced-search">
                             <div class="input-group">
-                                <form action="{$PAG_PRODUTOS}" method="POST">
+                                <form class="w-100" action="{$PAG_PRODUTOS}" method="POST">
                                     <input type="text" name="pesquisar" id="pesquisar" placeholder="O que está procurando ?">
                                     <button><i class="ti-search"></i></button>
                                 </form>
@@ -153,10 +153,8 @@
                                     </div>
                                     <div class="select-button">
                                         {if $CARRINHO == false}
-                                        <a href="{$PAG_PRODUTOS}" class="primary-btn view-card">VER PRODUTOS</a>
-                                        {else}
-                                        <a href="{$PAG_CARRINHO}" class="primary-btn checkout-btn">FINALIZAR PEDIDO</a>
-                                        {/if}
+                                        <a href="{$PAG_PRODUTOS}" class="primary-btn view-card">VER PRODUTOS</a> {else}
+                                        <a href="{$PAG_CARRINHO}" class="primary-btn checkout-btn">FINALIZAR PEDIDO</a> {/if}
                                     </div>
                                 </div>
                             </li>
@@ -303,7 +301,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="copyright-reserved">
             <div class="container">
                 <div class="row">
@@ -341,6 +339,7 @@
     <script src="{$GET_TEMA}/tema/js/jquery.slicknav.js"></script>
     <script src="{$GET_TEMA}/tema/js/owl.carousel.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/main.js"></script>
+    <script src="{$GET_TEMA}/tema/js/imagesloaded.pkgd.min.js"></script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 <div class="register-login-section spad">
     <div class="container">
         <div class="row no-gutters justify-content-center">
-            <div class="col-lg-10 col-md-8 col-sm-auto">
+            <div class="col-lg-10 col-md-10 col-sm-auto">
 
                 <h2 style="text-align: center;">Cadastro</h2>
                 <hr>
@@ -20,27 +20,27 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group group-input col-md-6">
                                     <label for="nome">Nome <span class="text-danger">*</span></label>
                                     <input type="text" name="cli_nome" class="form-control validator" id="nome" placeholder="Nome" required oninput="this.className = 'form-control'">
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group group-input col-md-6">
                                     <label for="sobrenome">Sobrenome <span class="text-danger">*</span></label>
                                     <input type="text" name="cli_sobrenome" class="form-control validator" id="sobrenome" placeholder="Sobrenome" required oninput="this.className = 'form-control'">
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group group-input col-md-6">
                                     <label for="cpf">CPF <span class="text-danger">*</span></label>
                                     <input type="number" name="cli_cpf" min="1" maxlength="11" class="form-control validator" id="cpf" placeholder="CPF" required oninput="this.className = 'form-control'">
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group group-input col-md-6">
                                     <label for="nascimento">Nascimento <span class="text-danger">*</span></label>
-                                    <input type="text" name="cli_data_nasc" class="form-control validator" maxlength="8" id="nascimento" placeholder="dd/mm/aaaa" required oninput="this.className = 'form-control'">
+                                    <input type="date" name="cli_data_nasc" class="form-control validator" maxlength="8" id="nascimento" placeholder="dd/mm/aaaa" required oninput="this.className = 'form-control'">
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-4">
+                                <div class="form-group group-input col-md-4">
                                     <label for="sexo">Sexo <span class="text-danger">*</span></label>
                                     <select id="sexo" name="cli_sexo" class="form-control validator" required oninput="this.className = 'form-control'">
                                         <option value="" disabled selected>Sexo</option>
@@ -48,11 +48,11 @@
                                         <option value="m">Masculino</option>
                                       </select>
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group group-input col-md-4">
                                     <label for="telefone">Telefone</label>
                                     <input type="tel" name="cli_telefone" class="form-control" id="telefone" placeholder="Telefone">
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group group-input col-md-4">
                                     <label for="celular">Celular <span class="text-danger">*</span></label>
                                     <input type="tel" name="cli_celular" class="form-control validator" id="celular" placeholder="Celular" required oninput="this.className = 'form-control'">
                                 </div>
@@ -68,35 +68,35 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-4">
+                                <div class="form-group group-input col-md-4">
                                     <label for="cep">CEP <span class="text-danger">*</span></label>
                                     <input type="number" class="form-control validator" min="1" name="cli_cep" id="cep" placeholder="CEP" autocomplete="off" required oninput="this.className = 'form-control'">
                                 </div>
-                                <div class="form-group col-md-8">
+                                <div class="form-group group-input col-md-8">
                                     <label for="endereco">Endereço <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control validator" name="cli_endereco" id="endereco" placeholder="Endereço" required oninput="this.className = 'form-control'">
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group group-input col-md-6">
                                     <label for="complemento">Complemento</label>
                                     <input type="text" class="form-control" name="cli_complemento" id="complemento" placeholder="Complemento">
                                 </div>
-                                <div class="form-group col-md-2">
+                                <div class="form-group group-input col-md-2">
                                     <label for="numero">Número <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control validator" name="cli_numero" id="numero" placeholder="Número" required oninput="this.className = 'form-control'">
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-4">
+                                <div class="form-group group-input col-md-4">
                                     <label for="bairro">Bairro <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control validator" name="cli_bairro" id="bairro" placeholder="Bairro" required oninput="this.className = 'form-control'">
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group group-input col-md-4">
                                     <label for="cidade">Cidade <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control validator" name="cli_cidade" id="cidade" placeholder="Cidade" required oninput="this.className = 'form-control'">
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group group-input col-md-4">
                                     <label for="uf">UF <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control validator" name="cli_uf" id="uf" placeholder="UF" required oninput="this.className = 'form-control'">
                                 </div>
@@ -112,18 +112,18 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-12">
+                                <div class="form-group group-input col-md-12">
                                     <label for="email">E-mail <span class="text-danger">*</span></label>
                                     <input type="email" class="form-control validator" name="cli_email" id="email" placeholder="Seu e-mail" required oninput="this.className = 'form-control'">
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group group-input col-md-6">
                                     <label for="senha">Senha <span class="text-danger">*</span></label>
                                     <input type="password" class="form-control validator" name="cli_senha" id="senha" placeholder="Senha" required oninput="this.className = 'form-control'">
                                     <span class="text-danger erro_senha"></span>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group group-input col-md-6">
                                     <label for="con_senha">Confirme a senha <span class="text-danger">*</span></label>
                                     <input type="password" class="form-control validator" id="con_senha" placeholder="Confirme a senha" required oninput="this.className = 'form-control'">
                                     <span class="text-danger erro_senha"></span>
@@ -131,8 +131,8 @@
                             </div>
                         </div>
 
-                        <button type="button" id="anterior" class="btn btn-primary">Anterior</button>
-                        <button type="button" id="proximo" class="btn btn-primary">Próximo</button>
+                        <button type="button" id="anterior" class="site-btn">Anterior</button>
+                        <button type="button" id="proximo" class="site-btn">Próximo</button>
                     </form>
 
 

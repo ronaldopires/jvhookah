@@ -1,0 +1,4 @@
+[07:15:45][::1]> Tentativa de acesso sem token ou com token incorreto | token:  
+[07:16:19][::1]> Tentativa de acesso sem token ou com token incorreto 
+[07:20:47][::1]> Acesso na página de recuperação de senha com token = 222 
+[07:20:54][::1]> Acesso na página de recuperação de senha com token = 2226546546545 

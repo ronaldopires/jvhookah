@@ -1,7 +1,7 @@
 <?php
 
 $smarty = new Template();
-
+$log = new LogSystem();
 $cliente = new Clientes();
 
 if (isset($_POST['cli_email'])) {
@@ -31,6 +31,9 @@ if (isset($_POST['cli_email'])) {
 
         $email->enviarEmail($assunto, $msg, $destinatarios);
 
+        $msg = "Solicitado recuperação de senha pelo email: {$email_cli}";
+        $log->getLogger($msg, "conta");
+
         echo '<div class="container text-center alert alert-dismissible fade show alert-success" role="alert">
                     <h4>Enviamos um link para você alterar sua senha.<h4>
                     <p>Acesse seu e-mail.</p>
@@ -39,6 +42,8 @@ if (isset($_POST['cli_email'])) {
                     </button></div>';
         exit();
     } else {
+        $msg = "Erro na solicitação de recuperação de senha pelo email: {$email_cli}";
+        $log->getLogger($msg, "conta");
         echo '<div class="container text-center alert alert-dismissible fade show alert-danger" role="alert">
                     <h4>Email não cadastrado.<h4>
                     <p>Tente novamente</p>

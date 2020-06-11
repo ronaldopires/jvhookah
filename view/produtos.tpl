@@ -18,7 +18,7 @@
 <section class="product-shop spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1 produts-sidebar-filter">
+            <div class="col-lg-3 col-md-3 col-sm-3 order-2 order-lg-1 produts-sidebar-filter">
                 <div class="filter-widget">
                     <h4 class="fw-title">Categorias</h4>
                     <ul class="filter-catagories">
@@ -136,10 +136,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9 order-1 order-lg-2">
+            <div class="col-lg-9 col-md-9 col-sm-9 order-1 order-lg-2">
                 <div class="product-show-option">
                     <div class="row">
-                        <div class="col-lg-7 col-md-7">
+                        <div class="col-lg-7 col-md-12 col-sm-12">
                             <div class="select-option">
                                 <form action="{$PAG_PRODUTOS}" method="post">
                                     <select name="opcoes" id="opcoes" class="sorting">
@@ -157,7 +157,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-5 col-md-5 text-right">
+                        <div class="col-lg-5 col-md-12 col-sm-12 text-right">
                             <p>Mostrando {$ITENS} de {$ITENS} Produtos</p>
                         </div>
                     </div>
@@ -183,26 +183,45 @@
                                     {foreach from=$MAIS_PRODUTOS item=P}
                                     <div class="product-item">
                                         <div class="pi-pic">
-                                            <img src="{$P.pro_img}" alt="">
-                                            <div class="sale">- 10%</div>
-                                            <div class="icon">
-                                                <i class="icon_heart_alt"></i>
-                                            </div>
+                                            <a class="img-hover-zoom" href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}"><img src="{$P.pro_img_g}" alt="{$P.pro_nome}" title="{$P.pro_nome}"></a>
+                                            <form action="{$FAVORITOS}" method="POST">
+                                                <div class="icon">
+                                                    <input type="hidden" name="pro_id_favorito" value="{$P.pro_id}">
+                                                    <button class="btn"><i style="font-size: 24px;" class="icon_heart_alt"></i></button>
+                                                </div>
+                                            </form>
                                             <ul>
-                                                <li class="w-icon active"><a href="{$PAG_DETALHES_PRODUTO}/{$P.pro_id}"><i
-                                                            class="icon_bag_alt"></i></a></li>
-                                                <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                                <li class="w-icon active"><a href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}"><i class="icon_bag_alt" title="Comprar"></i></a></li>
+                                                <li class="quick-view"><a href="" data-toggle="modal" data-target="#maisprodutos" title="Zoom na foto"><i class="fa fa-search-plus"></i></a></li>
+                                                <!-- <li class="w-icon"><a href="#" title="Comparar"><i class="fa fa-random"></i></a></li> -->
                                             </ul>
+                                            <!-- Modal Products-->
+                                            <div class="modal fade" id="maisprodutos" tabindex="-1" role="dialog" aria-labelledby="PhotoMoreProducts" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-body">
+                                                            oi
+                                                            <!-- <div class="card">
+                                                            <div class="product-pic-zoom">
+                                                                <img class="card-img-top product-big-img" src="{$P.pro_img_gg}" alt="{$P.pro_nome}">
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <p class="card-text">{$P.pro_nome} </p>
+                                                            </div>
+                                                        </div> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="pi-text">
                                             <div class="catagory-name">{$P.sub_nome}</div>
-                                            <a href="#">
+                                            <a href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}">
                                                 <h5>{$P.pro_nome}</h5>
                                             </a>
                                             <div class="product-price">
-                                                R$ {$P.pro_valor_us}
-                                                <span>$35.00</span>
+                                                R$ {$P.pro_valor} {if $P.pro_desconto > 0}
+                                                <span>R$ {$P.pro_valor_us}</span> {/if}
                                             </div>
                                         </div>
                                     </div>

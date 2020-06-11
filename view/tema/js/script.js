@@ -172,7 +172,7 @@ $(window).on('load', function() {
     });
 
     //Desabilita o envio do formulário com o enter
-    $('form#formNovoEndereco, #formEditarEndereco, #formEditarOutroEndereco').keypress(function(e) {
+    $('form#formNovoEndereco, #formEditarEndereco, .formEditarOutroEndereco').keypress(function(e) {
         if ((e.keyCode == 10) || (e.keyCode == 13)) {
             e.preventDefault();
         }
@@ -201,20 +201,28 @@ $(window).on('load', function() {
     });
 
     /* Senha */
-    let $inputSenha = $('#cli_senha');
-    let $eye = $('#eye');
+    let inputSenha = $('#cli_senha');
+    let eye = $('#eye');
 
-    $eye.mousedown(function() {
-        $inputSenha.attr("type", "text");
-        $eye.removeClass("fa fa-eye-slash");
-        $eye.addClass("fa fa-eye");
+    eye.mousedown(function() {
+        senhaOn();
     });
 
-    $eye.mouseup(function() {
-        $inputSenha.attr("type", "password");
-        $eye.removeClass("fa fa-eye");
-        $eye.addClass("fa fa-eye-slash");
+    function senhaOn() {
+        inputSenha.attr("type", "text");
+        eye.removeClass("fa fa-eye-slash");
+        eye.addClass("fa fa-eye");
+    }
+
+    eye.mouseup(function() {
+        senhaOff();
     });
+
+    function senhaOff() {
+        inputSenha.attr("type", "password");
+        eye.removeClass("fa fa-eye");
+        eye.addClass("fa fa-eye-slash");
+    }
 
     $("#eye").mouseout(function() {
         $("#senha").attr("type", "password");
@@ -223,14 +231,14 @@ $(window).on('load', function() {
 
     /* FORM REGISTER */
     let tabAtivo = 0
-
     showtab(tabAtivo);
 
     function showtab(n) {
         let x = $('.tab');
 
-        x[n].style.display = "block";
-
+        if (x[n] != undefined) {
+            x[n].style.display = "block";
+        }
         if (n == 0) {
             $('#anterior').hide();
         } else {
@@ -311,22 +319,6 @@ $(window).on('load', function() {
             $('.erro_senha').html("");
         }
     }
-
-    $('#nascimento').datepicker({
-        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
-    });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

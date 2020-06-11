@@ -11,6 +11,7 @@ $smarty->assign('TOTAL_PEDIDOS', $pedidos->totalDados());
 $pedidos->getPedidosRecente();
 $smarty->assign('PEDIDO_RECENTE', $pedidos->getItens());
 $smarty->assign('PAG_PEDIDOS', Rotas::pagPedidosAdm());
+$smarty->assign('PAG_CLIENTES', Rotas::pagClientesAdm());
 
 $clientes = new Clientes();
 $clientes->getClientes();

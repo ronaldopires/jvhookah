@@ -19,9 +19,9 @@
     <div class="container">
         <div class="row">
             {if $TOTAL_DADOS > 1} {foreach from=$PRODUTOS_INFO item=P}
-            <div class="col-lg-12">
+            <div class="col-12">
                 <div class="row">
-                    <div class="col-lg-5">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
                         <div class="product-pic-zoom">
                             <img class="product-big-img" src="{$P.pro_img_g}" alt="{$P.pro_nome}">
                             <div class="zoom-icon">
@@ -33,12 +33,12 @@
                                 {foreach from=$CORES item=C} {if $ID == $C.pro_id}
                                 <div class="pt active" data-imgbigurl="{$C.pro_img_g}"><img src="{$C.pro_img_g}" alt="{$C.pro_nome}"></div>
                                 {else}
-                                <div class="pt " data-imgbigurl="{$C.pro_img_g}"><img src="{$C.pro_img_g}" alt="{$C.pro_nome}"></div>
+                                <div class="pt" data-imgbigurl="{$C.pro_img_g}"><img src="{$C.pro_img_g}" alt="{$C.pro_nome}"></div>
                                 {/if} {/foreach}
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-lg-7 col-md-7 col-sm-7">
                         <div class="product-details">
                             <div class="pd-title">
                                 <form class="float-right" action="{$FAVORITOS}" method="POST">
@@ -124,7 +124,7 @@
                             <div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
                                 <div class="product-content">
                                     <div class="row">
-                                        <div class="col-lg-7">
+                                        <div class="col-lg-7 col-md-7 col-sm-7">
                                             <h5>Descrição</h5>
                                             <div class="col-auto p-0">
                                                 <p>{$P.pro_desc}</p>
@@ -140,7 +140,7 @@
                                                 <p><b>Cor: </b>{$P.pro_cor}</p>
                                             </div>
                                         </div>
-                                        <div class="col-lg-5">
+                                        <div class="col-lg-5 col-md-5 col-sm-5">
                                             <img src="{$P.pro_img_gg}" alt="">
                                         </div>
                                     </div>
@@ -308,7 +308,7 @@
             {/foreach} {else} {foreach from=$PRODUTOS_INFO item=P}
             <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-lg-5">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
                         <div class="product-pic-zoom">
                             <img class="product-big-img" src="{$P.pro_img_gg}" alt="{$P.pro_nome}">
                             <div class="zoom-icon">
@@ -324,7 +324,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-lg-7 col-md-7 col-sm-12">
                         <div class="product-details">
                             <div class="pd-title">
                                 <form class="float-right" action="{$FAVORITOS}" method="POST">
@@ -519,7 +519,7 @@
                             </div>
                             <div class="tab-pane fade" id="tab-3" role="tabpanel">
                                 <div class="customer-review-option">
-                                    <h4>2 Comments</h4>
+                                    <h4>2 Comentários</h4>
                                     <div class="comment-option">
                                         <div class="co-item">
                                             <div class="avatar-pic">
@@ -554,33 +554,50 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="personal-rating">
-                                        <h6>Your Ratind</h6>
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
+                                    <form action="#" class="" method="POST">
+                                        <div class="personal-rating">
+                                            <h6>Suas estrelas</h6>
+                                            <span class="rating">
+                                                <input name="stars" value="5" type="radio" class="rating-input"
+                                                    id="rating-input-1-5" name="rating-input-1">
+                                                <label for="rating-input-1-5" class="rating-star"></label>
+                                                <input name="stars" value="4" type="radio" class="rating-input"
+                                                    id="rating-input-1-4" name="rating-input-1">
+                                                <label for="rating-input-1-4" class="rating-star"></label>
+                                                <input name="stars" value="3" type="radio" class="rating-input"
+                                                    id="rating-input-1-3" name="rating-input-1">
+                                                <label for="rating-input-1-3" class="rating-star"></label>
+                                                <input name="stars" value="2" type="radio" class="rating-input"
+                                                    id="rating-input-1-2" name="rating-input-1">
+                                                <label for="rating-input-1-2" class="rating-star"></label>
+                                                <input name="stars" value="1" type="radio" class="rating-input"
+                                                    id="rating-input-1-1" name="rating-input-1">
+                                                <label for="rating-input-1-1" class="rating-star"></label>
+                                            </span>
+                                            <!-- <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </div> -->
                                         </div>
-                                    </div>
-                                    <div class="leave-comment">
-                                        <h4>Leave A Comment</h4>
-                                        <form action="#" class="comment-form">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <input type="text" placeholder="Name">
+                                        <div class="leave-comment register-form">
+                                            <h4>Faça um Comentário</h4>
+                                            <div class="row comment-form">
+                                                <div class="col-lg-6 group-input">
+                                                    <input type="text" name="coment_nome" class="form-control" placeholder="Seu nome" required>
                                                 </div>
-                                                <div class="col-lg-6">
-                                                    <input type="text" placeholder="Email">
+                                                <div class="col-lg-6 group-input">
+                                                    <input type="email" name="coment_email" class="form-control" placeholder="Email" required>
                                                 </div>
-                                                <div class="col-lg-12">
-                                                    <textarea placeholder="Messages"></textarea>
-                                                    <button type="submit" class="site-btn">Send message</button>
+                                                <div class="col-lg-12 group-input">
+                                                    <textarea placeholder="Seu comentário" name="coment_msg"></textarea>
+                                                    <button type="submit" class="site-btn">Enviar</button>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -597,7 +614,7 @@
 <div class="related-products spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="section-title">
                     <hr>
                     <h2>Produtos Relacionados</h2>
@@ -608,7 +625,7 @@
         <div class="row">
             <div class="product-slider owl-carousel">
                 {foreach from=$MAIS_PRODUTOS item=P}
-                <div class="col-lg-12 col-sm-6">
+                <div class="col-12">
                     <div class="product-item">
                         <div class="pi-pic">
                             <img src="{$P.pro_img_gg}" alt="{$P.pro_nome}"> {if $P.pro_estoque == 0}
@@ -638,7 +655,6 @@
                 </div>
             </div>
             {/foreach}
-
         </div>
     </div>
 </div>
