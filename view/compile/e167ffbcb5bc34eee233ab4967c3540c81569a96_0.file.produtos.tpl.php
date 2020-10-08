@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-10 01:15:26
+/* Smarty version 3.1.36, created on 2020-06-18 21:58:01
   from 'C:\xampp\htdocs\jvhookah\view\produtos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ee05e5e1cdba9_27207785',
+  'unifunc' => 'content_5eec0d993ddbd4_96780518',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e167ffbcb5bc34eee233ab4967c3540c81569a96' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\produtos.tpl',
-      1 => 1591762524,
+      1 => 1592528261,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ee05e5e1cdba9_27207785 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eec0d993ddbd4_96780518 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -55,20 +55,6 @@ $_smarty_tpl->tpl_vars['C']->do_else = false;
                         <li><a href="<?php echo $_smarty_tpl->tpl_vars['C']->value['cate_link'];?>
 "><?php echo $_smarty_tpl->tpl_vars['C']->value['cate_nome'];?>
 </a>
-                            <!--  <ul class="filter-catagories">
-                                    <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['SUB_CATEGORIAS']->value, 'S');
-$_smarty_tpl->tpl_vars['S']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['S']->value) {
-$_smarty_tpl->tpl_vars['S']->do_else = false;
-?>
-                                    <li class="ml-5"><a href="<?php echo $_smarty_tpl->tpl_vars['S']->value['sub_link'];?>
-"><?php echo $_smarty_tpl->tpl_vars['S']->value['sub_nome'];?>
-</a></li>
-                                    <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                                </ul> -->
                         </li>
                         <?php
 }
@@ -252,7 +238,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                                             <a class="img-hover-zoom" href="<?php echo $_smarty_tpl->tpl_vars['PAG_DETALHES_PRODUTO']->value;?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
-"><img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_g'];?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 " title="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 "></a>
@@ -272,27 +258,6 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                                                 <li class="quick-view"><a href="" data-toggle="modal" data-target="#maisprodutos" title="Zoom na foto"><i class="fa fa-search-plus"></i></a></li>
                                                 <!-- <li class="w-icon"><a href="#" title="Comparar"><i class="fa fa-random"></i></a></li> -->
                                             </ul>
-                                            <!-- Modal Products-->
-                                            <div class="modal fade" id="maisprodutos" tabindex="-1" role="dialog" aria-labelledby="PhotoMoreProducts" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-body">
-                                                            oi
-                                                            <!-- <div class="card">
-                                                            <div class="product-pic-zoom">
-                                                                <img class="card-img-top product-big-img" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_gg'];?>
-" alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
-">
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <p class="card-text"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
- </p>
-                                                            </div>
-                                                        </div> -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="pi-text">
                                             <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['sub_nome'];?>
@@ -329,7 +294,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                                         <a class="img-hover-zoom" href="<?php echo $_smarty_tpl->tpl_vars['PAG_DETALHES_PRODUTO']->value;?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
-"><img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_g'];?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 " title="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 "></a>
@@ -369,6 +334,8 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                                 </div>
                                 <?php }?> -->
                                 <div class="pi-text">
+                                    <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['cate_nome'];?>
+</div>
                                     <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['sub_nome'];?>
 </div>
                                     <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_DETALHES_PRODUTO']->value;?>

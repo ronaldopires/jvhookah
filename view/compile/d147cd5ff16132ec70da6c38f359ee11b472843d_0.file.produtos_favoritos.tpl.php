@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-05-27 00:07:47
+/* Smarty version 3.1.36, created on 2020-06-12 13:36:13
   from 'C:\xampp\htdocs\jvhookah\view\produtos_favoritos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ecdd983633655_11077391',
+  'unifunc' => 'content_5ee3aefdc3cd02_41214438',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd147cd5ff16132ec70da6c38f359ee11b472843d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\produtos_favoritos.tpl',
-      1 => 1590548866,
+      1 => 1591979773,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ecdd983633655_11077391 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee3aefdc3cd02_41214438 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -62,15 +62,17 @@ $_smarty_tpl->tpl_vars['F']->do_else = false;
 ">
                             </div>
                             <div class="col">
-                                <h5 class="card-title"><?php echo $_smarty_tpl->tpl_vars['F']->value['NOME'];?>
+                                <h5 class="card-title"><b><?php echo $_smarty_tpl->tpl_vars['F']->value['NOME'];?>
+</b></h5>
+                                <h5 class="card-text mb-2">Categoria: <?php echo $_smarty_tpl->tpl_vars['F']->value['CATE_NOME'];?>
 </h5>
-                                <h5 class="card-text"><?php echo $_smarty_tpl->tpl_vars['F']->value['CATE_NOME'];?>
+                                <h5 class="card-text mb-2">Sub Categoria: <?php echo $_smarty_tpl->tpl_vars['F']->value['SUB_NOME'];?>
 </h5>
                                 <p class="card-text"><?php echo $_smarty_tpl->tpl_vars['F']->value['DESC'];?>
 </p>
-                                <p class="card-text ">Valor <span style="color: #e7ab3c;">R$ <?php echo $_smarty_tpl->tpl_vars['F']->value['VALOR'];?>
-</span> <span class="ml-5">R$ <?php echo $_smarty_tpl->tpl_vars['F']->value['DESCONTO'];?>
-</span></p>
+                                <p class="card-text">Valor <span style="color: #e7ab3c; font-weight: bold;">R$ <?php echo $_smarty_tpl->tpl_vars['F']->value['VALOR'];?>
+</span> <span class="float-right"><button class="site-btn">Comprar</button></span></p>
+
                             </div>
                         </div>
                     </div>

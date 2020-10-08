@@ -19,11 +19,7 @@
         <div class="map-inner">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2923609220284!2d-46.47759788447571!3d-23.557941067352402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce66e2e2bd0cf7%3A0xfb681256b68fec36!2sAv.%20Maria%20Luiza%20Americano%2C%202806%20-%20Cidade%20L%C3%ADder%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2008280-090!5e0!3m2!1spt-BR!2sbr!4v1582756938137!5m2!1spt-BR!2sbr"
                 width="610" height="450" frameborder="0" style="border:0;" allowfullscreen="">
-            
             </iframe>
-            <!-- <div class="icon">
-                <i class="fa fa-map-marker"></i>
-            </div> -->
         </div>
     </div>
 </div>
@@ -55,7 +51,7 @@
                         </div>
                         <div class="ci-text">
                             <span>Phone:</span>
-                            <p><a class="nav-link" id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511940249845">+55 11 94024-9845</a> </p>
+                            <p><a class="nav-link" id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511955544918">+55 11 95554-4918</a> </p>
                         </div>
                     </div>
                     <div class="cw-item">
@@ -64,7 +60,7 @@
                         </div>
                         <div class="ci-text">
                             <span>Email:</span>
-                            <p>hellocolorlib@gmail.com</p>
+                            <p>ronaldo.carvalho@hotmail.com</p>
                         </div>
                     </div>
                 </div>

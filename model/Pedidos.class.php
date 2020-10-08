@@ -6,11 +6,13 @@ class Pedidos extends Conexao
     {
         parent::__construct();
     }
-    public function pedidoGravar($cliente, $cod, $ref, $freteValor = null, $freteTipo = null, $cupom = null)
+    public function pedidoGravar($cliente, $cod, $ref, $freteValor, $freteTipo = null, $cupom = null)
     {
+        $ped_pag_status = 'Não concluído';
         $retorno = false;
-        $query = "INSERT INTO {$this->prefix}pedidos (ped_data, ped_hora, ped_cliente, ped_cod, ped_ref, ped_frete_valor, ped_frete_tipo, ped_cupom)";
-        $query .= " VALUES (:data, :hora, :cliente, :cod, :ref, :frete_valor, :frete_tipo, :cupom)";
+        $query = "INSERT INTO {$this->prefix}pedidos (ped_data, ped_hora, ped_cliente, ped_cod, ped_ref, ped_pag_status, ped_frete_valor, ped_frete_tipo, ped_cupom)";
+        $query .= " VALUES (:data, :hora, :cliente, :cod, :ref, :status, :frete_valor, :frete_tipo, :cupom)";
+       
         $params = array(
             ':data' => Sistema::dataAtualUs(),
             ':hora' => Sistema::horaAtual(),
@@ -18,6 +20,7 @@ class Pedidos extends Conexao
             ':cod' => $cod,
             ':ref' => $ref,
             ':frete_valor' => $freteValor,
+            ':status' => $ped_pag_status,
             ':frete_tipo' => $freteTipo,
             ':cupom' => $cupom,
         );
@@ -165,5 +168,6 @@ class Pedidos extends Conexao
     {
         unset($_SESSION['CARRINHO']);
         unset($_SESSION['PED']);
+        unset($_SESSION['CUPOM']);
     }
 }

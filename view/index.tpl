@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="JH Hookah Lounge">
-    <meta name="keywords" content="arguiles, narguiles, rochi, essencias, carvão, pegador, fogareiro">
+    <meta name="keywords" content="arguiles, narguiles, rosh, essencias, carvão, pegador, fogareiro">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{$TITULO_SITE}</title>
@@ -59,7 +59,7 @@
                         <i class=" fa fa-envelope"></i> ronaldo.carvalho@hotmail.com
                     </div>
                     <div class="phone-service">
-                        <i class=" fa fa-phone"></i><a id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511940249845">+55 11 94024-9845</a>
+                        <i class=" fa fa-phone"></i><a id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511955544918">+55 11 95554-4918</a>
                     </div>
                 </div>
                 <div class="ht-right">
@@ -110,7 +110,7 @@
                             </li>
                             {/if}
                             <li class="heart-icon">
-                                <a href="{$FAVORITOS}">
+                                <a href="{$PAG_FAVORITOS}">
                                     <i class="icon_heart_alt"></i>
                                     <span>{$ITENS_FAVORITOS}</span>
                                 </a>
@@ -126,7 +126,7 @@
                                             <tbody>
                                                 {if $CARRINHO == true} {foreach from=$CARRINHO item=C}
                                                 <tr>
-                                                    <td class="si-pic"><img width="150" src="{$C.pro_img}" alt=""></td>
+                                                    <td class="si-pic"><img width="150" src="{$C.pro_img_p}" alt=""></td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
                                                             <p>R$ {$C.pro_valor} X {$C.pro_qtd}</p>
@@ -165,31 +165,187 @@
         </div>
         <div class="nav-item">
             <div class="container">
-                <div class="nav-depart">
+                <!-- <div class="nav-depart">
                     <div class="depart-btn">
                         <i class="ti-menu"></i>
                         <span>Produtos</span>
                         <ul class="depart-hover">
                             <li class="active"><a href="{$PAG_PRODUTOS}">Todos os Produtos</a></li>
                             {foreach $CATEGORIAS item=C}
-                            <li><a href="{$PAG_PRODUTOS}/sub_categoria/{$C.sub_id}/{$C.sub_slug}">{$C.sub_nome}</a></li>
+                            <li><a href="{$PAG_PRODUTOS}/{$C.sub_slug}">{$C.sub_nome}</a></li>
                             {/foreach}
+                            <li>
+                                <a href="{$PAG_PRODUTOS}/{$C.sub_slug}">sub nível</a>
+                                <ul class="sub-nivel">
+                                    <li><a href="{$PAG_PRODUTOS}/{$C.sub_slug}">Teste</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class=""><a href="{$PAG_HOME}">Home</a></li>
-                        <li><a href="{$PAG_PRODUTOS}">Produtos</a></li>
-                        <li><a href="#">Collection</a>
+                        <!-- <li class=""><a href="{$PAG_HOME}">Home</a></li> -->
+                        <!-- <li><a href="{$PAG_PRODUTOS}">Produtos</a></li> -->
+                        <li><a href="#">Narguiles</a>
                             <ul class="dropdown">
-                                <li><a href="#">Men's</a></li>
-                                <li><a href="#">Women's</a></li>
-                                <li><a href="#">Kid's</a></li>
+                                <li class="sub-nivel"><a href="#">Marca</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Material</a></li>
+                                        <li><a href="#">Tamanho</a></li>
+                                        <li><a href="#">Acessórios</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Material</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Tamanho</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Acessórios</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
-                        <li><a href="{$PAG_BLOG}">Blog</a></li>
-                        <li><a href="{$PAG_CONTATO}">Contato</a></li>
+                        <li><a href="#">Mangueiras</a>
+                            <ul class="dropdown">
+                                <li class="sub-nivel"><a href="#">Marcas</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Tamanho</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Acessórios</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Bases</a>
+                            <ul class="dropdown">
+                                <li class="sub-nivel"><a href="#">Marcas</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Tamanho</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Acessórios</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Pratos</a>
+                            <ul class="dropdown">
+                                <li class="sub-nivel"><a href="#">Marcas</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Tamanho</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Acessórios</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Rosh's</a>
+                            <ul class="dropdown">
+                                <li class="sub-nivel"><a href="#">Marcas</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Tamanho</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Acessórios</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Acessórios</a>
+                            <ul class="dropdown">
+                                <li class="sub-nivel"><a href="#">Marcas</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Tamanho</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Acessórios</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- <li><a href="{$PAG_BLOG}">Blog</a></li> -->
+                        <!-- <li><a href="{$PAG_CONTATO}">Contato</a></li> -->
                         <li><a href="#">Páginas</a>
                             <ul class="dropdown">
                                 <li><a href="{$PAG_BLOG}">Blog</a></li>
@@ -258,8 +414,8 @@
                         </div>
                         <ul>
                             <li>Endereço: Av. Maria Luiza Americano, 2806</li>
-                            <li>WhatsApp: +55 11 94024-9845</li>
-                            <li>Email: hello.colorlib@gmail.com</li>
+                            <li>WhatsApp: +55 11 95554-4918</li>
+                            <li>Email: ronaldo.carvalho@hotmail.com</li>
                         </ul>
                         <div class="footer-social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -269,24 +425,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 offset-lg-1">
+                <div class="col-lg-2 offset-lg-1 col-md-6">
                     <div class="footer-widget">
                         <h5>Informações</h5>
                         <ul>
-                            <li><a href="#">Sobre</a></li>
-                            <li><a href="{$PAG_CADASTRO}">Cadastre-se</a></li>
+                            <li><a href="{$PAG_QUEM_SOMOS}">Quem Somos</a></li>
                             <li><a href="{$PAG_CONTATO}">Fale Conosco</a></li>
                             <li><a href="{$PAG_PERGUNTAS_FREQUENTES}">Perguntas Frequentes</a></li>
                             <li><a href="{$PAG_PRODUTOS}">Produtos</a></li>
+                            <li><a href="{$PAG_TROCAS_DEVOLUCOES}">Trocas e Devoluções</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-md-6">
                     <div class="footer-widget">
                         <h5>Meu Perfil</h5>
                         <ul>
+                            <li><a href="{$PAG_CADASTRO}">Cadastre-se</a></li>
                             <li><a href="{$PAG_PERFIL}">Meu Perfil</a></li>
                             <li><a href="{$PAG_CARRINHO}">Meu Carrinho</a></li>
+                            <li><a href="{$PAG_FAVORITOS}">Favoritos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -330,6 +488,7 @@
     <!-- Js Plugins -->
     <script src="{$GET_TEMA}/tema/js/jquery-3.5.1.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/script.js"></script>
+    <script src="{$GET_TEMA}/tema/js/pag-seguro.js"></script>
     <script src="{$GET_TEMA}/tema/js/bootstrap.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/jquery-ui.min.js"></script>
     <script src="{$GET_TEMA}/tema/js/jquery.countdown.min.js"></script>

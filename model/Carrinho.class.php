@@ -2,19 +2,19 @@
 
 class Carrinho
 {
-    private $valor_total, $total_peso, $itens = array();
+    private $total_valor, $total_peso, $itens = array();
 
     //Cria uma sessão com os itens do carrinho
     public function getCarrinho()
     {
-        $i = 1;
+        $i = 0;
         $sub = 1.00;
         $peso = 0;
 
         //Laço nos itens criando uma sessão
         foreach ($_SESSION['CARRINHO'] as $lista) {
             $sub = ($lista['VALOR_US'] * $lista['QTD']);
-            $this->valor_total += $sub;
+            $this->total_valor += $sub;
 
             $peso = $lista['PESO'] * $lista['QTD'];
             $this->total_peso += $peso;
@@ -34,7 +34,7 @@ class Carrinho
                 'pro_altura' => $lista['ALTURA'],
                 'pro_comprimento' => $lista['COMPRIMENTO'],
                 'pro_qtd' => $lista['QTD'],
-                'pro_img' => $lista['IMG'],
+                'pro_img_p' => $lista['IMG'],
                 'pro_slug' => $lista['SLUG'],
                 'pro_subTotal' => Sistema::moedaBr($sub),
                 'pro_subTotal_us' => $sub,
@@ -54,7 +54,7 @@ class Carrinho
 
     public function getTotal()
     {
-        return $this->valor_total;
+        return $this->total_valor;
     }
 
     public function getPeso()
@@ -83,7 +83,7 @@ class Carrinho
             $ALTURA = $pro['pro_altura'];
             $COMPRIMENTO = $pro['pro_comprimento'];
             $QTD = 1;
-            $IMG = $pro['pro_img'];
+            $IMG = $pro['pro_img_p'];
             $SLUG = $pro['pro_slug'];
             $ACAO = $_POST['acao'];
         }

@@ -16,8 +16,10 @@ $log = new LogSystem();
 $categorias->getSubCategorias();
 
 /* echo '<pre>';
-var_dump($_SESSION['CLI']);
+var_dump($_SESSION['PED']);
 echo '</pre>'; */
+
+// unset($_SESSION['PED']);
 
 if (isset($_SESSION['CARRINHO']) and !empty($_SESSION['CARRINHO'])) {
     $total = 0;
@@ -59,6 +61,7 @@ if(isset($_SESSION['FAVORITOS'])){
 
 
 if(isset($_SESSION['CLI'])){
+    $clientes = new Clientes();
     $tempo = (time() - $_SESSION['CLI']['cli_tempo_sessao']);
     
     if($tempo > $_SESSION['CLI']['cli_tempo_limite']){
@@ -66,6 +69,7 @@ if(isset($_SESSION['CLI'])){
         $log->getLogger($msg, "acesso");
         Rotas::redirecionar(0, Rotas::pagLogout());
     }else{
+        $clientes->statusCliOn($_SESSION['CLI']['cli_id']);
         $_SESSION['CLI']['cli_tempo_sessao'] = time();
     }
 }
@@ -82,9 +86,11 @@ $smarty->assign('PAG_PERGUNTAS_FREQUENTES', Rotas::pagPerguntasFrequentes());
 $smarty->assign('PAG_LOGOUT', Rotas::pagLogout());
 $smarty->assign('PAG_PERFIL', Rotas::pagMeuPerfil());
 $smarty->assign('PAG_BLOG', Rotas::pagBlog());
-$smarty->assign('TITULO_SITE', Config::SITE_NOME);
-$smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
-$smarty->assign('FAVORITOS', Rotas::pagProdutosFavoritos());
+$smarty->assign('PAG_FAVORITOS', Rotas::pagProdutosFavoritos());
+$smarty->assign('PAG_TROCAS_DEVOLUCOES', Rotas::pagTrocaseDevolucoes());
+$smarty->assign('PAG_QUEM_SOMOS', Rotas::pagQuemSomos());
 $smarty->assign('CATEGORIAS', $categorias->getItens());
+$smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
+$smarty->assign('TITULO_SITE', Config::SITE_NOME);
 
 $smarty->display('index.tpl');

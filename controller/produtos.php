@@ -2,11 +2,37 @@
 
 $smarty = new Template();
 $produtos = new Produtos();
+
+//caso não encontre o produto mostra uma lista de outras opções de produtos
+$mais_produtos = new Produtos();
+$mais_produtos->getProdutos();
+
+//Log
 $log = new LogSystem();
 $categorias = new Categorias();
 
 //CATEGORIAS E SUB CATEGORIAS
-$categoria = 'categoria';
+if(isset(Rotas::$pag[1])){
+    $slug = Rotas::$pag[1];
+    // Faz a pesquisa por slug de categorias
+    if($produtos->getProdutosSlug($slug)){
+        $smarty->assign('PRODUTOS', $produtos->getItens());
+        $smarty->assign('PAGINAS', false);
+    }else{
+        // Pesquisa por slug de sub categorias
+        $produtos->getProdutosSubSlug($slug);
+        $smarty->assign('PRODUTOS', $produtos->getItens());
+        $smarty->assign('PAGINAS', false);
+    }
+}else {
+    $produtos->getProdutos();
+    $smarty->assign('PRODUTOS', $produtos->getItens());
+    $smarty->assign('PAGINAS', $produtos->mostrarPaginacao());
+
+}
+
+
+/* $categoria = 'categoria';
 $sub_categoria = 'sub_categoria';
 if (isset(Rotas::$pag[1]) && Rotas::$pag[1] == $categoria) {
     $id = Rotas::$pag[2];
@@ -24,21 +50,16 @@ if (isset(Rotas::$pag[1]) && Rotas::$pag[1] == $categoria) {
     $smarty->assign('PRODUTOS', $produtos->getItens());
     $smarty->assign('PAGINAS', $produtos->mostrarPaginacao());
 
-}
+} */
 
 //Listando mais produtos
 if ($produtos->totalDados() < 1) {
-    $listagem = new Produtos();
-    $listagem->getProdutos();
-    $smarty->assign('MAIS_PRODUTOS', $listagem->getItens());
+    $smarty->assign('MAIS_PRODUTOS', $mais_produtos->getItens());
     $smarty->assign('ITENS', $produtos->totalDados());
-
 } else {
     $smarty->assign('ITENS', $produtos->totalDados());
 }
 
-$marca = new Categorias();
-$marca->GetMarcas();
 $categorias->getCategorias();
 $sub_categorias = new Categorias();
 $sub_categorias->getSubCategorias();
@@ -77,21 +98,15 @@ if (isset($_POST['opcoes'])) {
 
 }
 
-/**
- * Filtro de marcas
- * Pesquisar método melhor para exibir produtos
- */
+// Pesquisa por fabricantes
 if (isset($_POST['checked'])) {
     $filtro_marcas = new Categorias();
-    $check = count($_POST['checked']);
-    $resultado = array();
-    foreach ($_POST['checked'] as $id) {
-        $filtro_marcas->GetMarcasProducts($id);
-        array_push($resultado, $filtro_marcas->getItens());
+    $filtro_marcas->getProdutosFab($_POST['checked']);
 
-        $smarty->assign('PRODUTOS', $filtro_marcas->getItens());
-    }
+    $smarty->assign('PRODUTOS', $filtro_marcas->getItens());
     $smarty->assign('PAGINAS', $filtro_marcas->mostrarPaginacao());
+    $smarty->assign('ITENS', $filtro_marcas->totalDados());
+    $smarty->assign('MAIS_PRODUTOS', $mais_produtos->getItens());
 }
 
 //FILTRO PREÇO
@@ -135,6 +150,10 @@ if(isset($_POST['pesquisar'])){
 
     }
 }
+
+// Lista de fabricantes
+$marca = new Categorias();
+$marca->getMarcas();
 
 $smarty->assign('GET_TEMA', Rotas::get_SiteTEMA());
 $smarty->assign('PAG_HOME', Rotas::getSiteHome());

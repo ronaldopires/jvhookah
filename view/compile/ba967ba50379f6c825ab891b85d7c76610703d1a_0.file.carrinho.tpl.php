@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-09 23:55:08
+/* Smarty version 3.1.36, created on 2020-06-19 01:45:24
   from 'C:\xampp\htdocs\jvhookah\view\carrinho.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ee04b8cdea268_37310131',
+  'unifunc' => 'content_5eec42e442b016_63099273',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba967ba50379f6c825ab891b85d7c76610703d1a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\carrinho.tpl',
-      1 => 1591757700,
+      1 => 1592541923,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ee04b8cdea268_37310131 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eec42e442b016_63099273 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -44,13 +44,21 @@ function content_5ee04b8cdea268_37310131 (Smarty_Internal_Template $_smarty_tpl)
     <div class="container">
         <div id="alertRemoveAll" class="alert alert-danger alert-dismissible fade show text-center" role="alert">
             <p class="">Tem certeza que deseja remover <strong>TODOS</strong> os itens do seu carrinho ?</p>
-            <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_ALTERAR_CARRINHO']->value;?>
+            <div class="col p-0">
+                <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_ALTERAR_CARRINHO']->value;?>
 " method="post">
-                <input type="hidden" name="pro_id" value="1">
-                <input type="hidden" name="acao" value="limpar">
-                <button class="site-btn-danger" title="Remover todos os itens">Remover</button>
-                <button type="button" class="closeAlert site-btn" title="Cancelar remoção">Cancelar</button>
-            </form>
+                    <input type="hidden" name="pro_id" value="1">
+                    <input type="hidden" name="acao" value="limpar">
+                    <div class="row justify-content-center">
+                        <div class="col-md-3 col-sm-6">
+                            <button class="site-btn-danger btn-block" title="Remover todos os itens">Remover</button>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <button type="button" class="closeAlert site-btn btn-block" title="Cancelar remoção">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -82,7 +90,7 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
 $_smarty_tpl->tpl_vars['P']->do_else = false;
 ?>
                             <tr>
-                                <td class="cart-pic first-row"><img width="150" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
+                                <td class="cart-pic first-row"><img width="150" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_p'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 " title="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
 "></td>
@@ -103,7 +111,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
 </td>
                                 <td class="qua-col first-row">
                                     <div class="quantity">
-                                        <div class="pro-qty">
+                                        <div class="pro-qty row">
                                             <!--Remover uma unidade-->
                                             <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_ALTERAR_CARRINHO']->value;?>
 " method="post">
@@ -114,6 +122,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                                                 <input type="hidden" name="acao" value="remover">
                                                 <button class="btn menos"><i class="ti-minus" title="Remover Unidade"></i></button>
                                             </form>
+                                            <!--Quantidade-->
                                             <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_ALTERAR_CARRINHO']->value;?>
 " method="post">
                                                 <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
@@ -145,7 +154,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                                 <div class="col-auto p-0">
                                     <div class="modal fade" id="nome<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
 " tabindex="-1" role="dialog" aria-labelledby="modalRemoverProduto" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="modalRemoverProduto"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
@@ -155,23 +164,21 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                                                     </button>
                                                 </div>
                                                 <div class="modal-body text-center">
-                                                    <p class="">Tem certeza que deseja remover esse item do seu carrinho ? </p>
+                                                    <p class="text-danger">Tem certeza que deseja remover esse item do seu carrinho ? </p>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <div class="row no-gutters justify-content-center">
-                                                        <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_ALTERAR_CARRINHO']->value;?>
+                                                <div class="modal-footer text-center">
+                                                    <form action="<?php echo $_smarty_tpl->tpl_vars['PAG_ALTERAR_CARRINHO']->value;?>
 " method="post">
-                                                            <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+                                                        <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
 ">
-                                                            <input type="hidden" name="acao" value="del">
-                                                            <div class="col mr-3">
-                                                                <button class="site-btn-danger" title="Remover Item">Remover</button>
-                                                            </div>
-                                                            <div class="col">
-                                                                <button type="button" class="closeAlert site-btn" data-dismiss="modal" title="Cancelar remoção">Cancelar</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
+                                                        <input type="hidden" name="acao" value="del">
+                                                        <div class="col">
+                                                            <button class="site-btn-danger btn-block" title="Remover Item">Remover</button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button type="button" class="closeAlert site-btn btn-block" data-dismiss="modal" title="Cancelar remoção">Cancelar</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -245,6 +252,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
 "> <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                                            <!-- Valor CEP-->
                                             <input type="hidden" name="frete_valor" id="frete_valor"> <?php if ($_smarty_tpl->tpl_vars['LOGADO']->value == true) {?>
                                             <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" value="<?php echo $_smarty_tpl->tpl_vars['CEP']->value;?>
 " required/> <?php } else { ?>
