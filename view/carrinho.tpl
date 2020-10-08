@@ -19,12 +19,20 @@
     <div class="container">
         <div id="alertRemoveAll" class="alert alert-danger alert-dismissible fade show text-center" role="alert">
             <p class="">Tem certeza que deseja remover <strong>TODOS</strong> os itens do seu carrinho ?</p>
-            <form action="{$PAG_ALTERAR_CARRINHO}" method="post">
-                <input type="hidden" name="pro_id" value="1">
-                <input type="hidden" name="acao" value="limpar">
-                <button class="site-btn-danger" title="Remover todos os itens">Remover</button>
-                <button type="button" class="closeAlert site-btn" title="Cancelar remoção">Cancelar</button>
-            </form>
+            <div class="col p-0">
+                <form action="{$PAG_ALTERAR_CARRINHO}" method="post">
+                    <input type="hidden" name="pro_id" value="1">
+                    <input type="hidden" name="acao" value="limpar">
+                    <div class="row justify-content-center">
+                        <div class="col-md-3 col-sm-6">
+                            <button class="site-btn-danger btn-block" title="Remover todos os itens">Remover</button>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <button type="button" class="closeAlert site-btn btn-block" title="Cancelar remoção">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -51,7 +59,7 @@
                         <tbody>
                             {foreach from=$PRO item=P}
                             <tr>
-                                <td class="cart-pic first-row"><img width="150" src="{$P.pro_img}" alt="{$P.pro_nome}" title="{$P.pro_nome}"></td>
+                                <td class="cart-pic first-row"><img width="150" src="{$P.pro_img_p}" alt="{$P.pro_nome}" title="{$P.pro_nome}"></td>
                                 <td class="cart-title first-row">
                                     <a href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}">
                                         <h5 title="{$P.pro_nome}">{$P.pro_nome} {$P.pro_cor}
@@ -61,7 +69,7 @@
                                 <td class="p-price first-row" title="Valor {$P.pro_valor}">R$ {$P.pro_valor}</td>
                                 <td class="qua-col first-row">
                                     <div class="quantity">
-                                        <div class="pro-qty">
+                                        <div class="pro-qty row">
                                             <!--Remover uma unidade-->
                                             <form action="{$PAG_ALTERAR_CARRINHO}" method="post">
                                                 <input type="hidden" name="pro_id" value="{$P.pro_id}">
@@ -69,6 +77,7 @@
                                                 <input type="hidden" name="acao" value="remover">
                                                 <button class="btn menos"><i class="ti-minus" title="Remover Unidade"></i></button>
                                             </form>
+                                            <!--Quantidade-->
                                             <form action="{$PAG_ALTERAR_CARRINHO}" method="post">
                                                 <input type="hidden" name="pro_id" value="{$P.pro_id}">
                                                 <input type="hidden" name="pro_qtd" value="{$P.pro_qtd}">
@@ -91,7 +100,7 @@
                                 <!-- Modal -->
                                 <div class="col-auto p-0">
                                     <div class="modal fade" id="nome{$P.pro_id}" tabindex="-1" role="dialog" aria-labelledby="modalRemoverProduto" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="modalRemoverProduto">{$P.pro_nome}</h5>
@@ -100,21 +109,19 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body text-center">
-                                                    <p class="">Tem certeza que deseja remover esse item do seu carrinho ? </p>
+                                                    <p class="text-danger">Tem certeza que deseja remover esse item do seu carrinho ? </p>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <div class="row no-gutters justify-content-center">
-                                                        <form action="{$PAG_ALTERAR_CARRINHO}" method="post">
-                                                            <input type="hidden" name="pro_id" value="{$P.pro_id}">
-                                                            <input type="hidden" name="acao" value="del">
-                                                            <div class="col mr-3">
-                                                                <button class="site-btn-danger" title="Remover Item">Remover</button>
-                                                            </div>
-                                                            <div class="col">
-                                                                <button type="button" class="closeAlert site-btn" data-dismiss="modal" title="Cancelar remoção">Cancelar</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
+                                                <div class="modal-footer text-center">
+                                                    <form action="{$PAG_ALTERAR_CARRINHO}" method="post">
+                                                        <input type="hidden" name="pro_id" value="{$P.pro_id}">
+                                                        <input type="hidden" name="acao" value="del">
+                                                        <div class="col">
+                                                            <button class="site-btn-danger btn-block" title="Remover Item">Remover</button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button type="button" class="closeAlert site-btn btn-block" data-dismiss="modal" title="Cancelar remoção">Cancelar</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -170,6 +177,7 @@
                                             <input type="hidden" name="largura_frete" id="largura_frete" value="{$P.pro_largura}">
                                             <input type="hidden" name="altura_frete" id="altura_frete" value="{$P.pro_altura}">
                                             <input type="hidden" name="comprimento_frete" id="comprimento_frete" value="{$P.pro_comprimento}"> {/foreach}
+                                            <!-- Valor CEP-->
                                             <input type="hidden" name="frete_valor" id="frete_valor"> {if $LOGADO == true}
                                             <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" value="{$CEP}" required/> {else}
                                             <input type="text" name="cep_frete" id="cep_cli" maxlength="8" placeholder="Digite seu cep" autofocus required/> {/if}

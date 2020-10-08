@@ -25,24 +25,34 @@ class Categorias extends Conexao
         $this->GetListaSub();
     }
 
-    public function GetMarcas(){
+    public function getMarcas(){
         //Buscar itens por marca
         $query = "SELECT * FROM {$this->prefix}fabricantes ";
         $this->executeSql($query);
-        $this->GetListaMarcas();
+        $this->getListaMarcas();
     }
-    public function GetMarcasProducts($id){
-        //Buscar itens por marca
-        $query = " SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id INNER JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id INNER JOIN {$this->prefix}fabricantes f ON p.pro_fabricantes = f.fab_id AND pro_fabricantes = " . $id;
-        $query .= $this->paginacaoLink("pro_fabricantes", $this->prefix."produtos WHERE pro_fabricantes = " . $id);
-        // echo $query . "<br>";
-        $params = array(':id' => (int)$id);
+    public function getProdutosFab($id){
 
-        $this->executeSql($query, $params);
-        $this->GetListaMarcasProducts();
+        // conta quantas opções tem
+        if(count($id) == 1){
+            // Caso seja somente uma ele executa essa query
+            $query = "SELECT * FROM {$this->prefix}produtos p inner join {$this->prefix}categorias c on p.pro_categoria = c.cate_id join {$this->prefix}sub_categorias s on p.pro_sub_categoria = s.sub_id join {$this->prefix}fabricantes f ON p.pro_fabricantes = f.fab_id WHERE f.fab_id = ". $id[0];
+            $query .= $this->paginacaoLink("fab_id", $this->prefix."fabricantes WHERE fab_id = " . $id[0]);
+        
+        }else{
+            // Caso tenha mais de uma opção separo cada item do array com o parametro da query or f.fab_id = [$i]
+            $resultado = implode(" or f.fab_id = ", $id);            
+            $query = "SELECT * FROM {$this->prefix}produtos p inner join {$this->prefix}categorias c on p.pro_categoria = c.cate_id join {$this->prefix}sub_categorias s on p.pro_sub_categoria = s.sub_id join {$this->prefix}fabricantes f ON p.pro_fabricantes = f.fab_id WHERE f.fab_id = ". $resultado;
+            //Para a pesquisa tem que ser sem o f.
+            $pesquisa = implode(" or fab_id = ", $id);            
+            $query .= $this->paginacaoLink("fab_id", $this->prefix."fabricantes WHERE fab_id =" . $pesquisa);
+        }
+        
+        $this->executeSql($query);
+        $this->getListaMarcasProducts();
     }
 
-    private function GetListaMarcas(){
+    private function getListaMarcas(){
         $i = 1;
         while ($lista = $this->listarDados()):
             $this->itens[$i] = array(
@@ -54,7 +64,7 @@ class Categorias extends Conexao
             $i++;
         endwhile;
     }
-    private function GetListaMarcasProducts(){
+    private function getListaMarcasProducts(){
         $i = 1;
         while ($lista = $this->listarDados()):
             $this->itens[$i] = array(
@@ -81,7 +91,7 @@ class Categorias extends Conexao
                 'pro_estoque' => $lista['pro_estoque'],
                 'pro_modelo' => $lista['pro_modelo'],
                 'pro_ref' => $lista['pro_ref'],
-                'pro_fabricante' => $lista['pro_fabricante'],
+                'pro_fabricantes' => $lista['pro_fabricantes'],
                 'pro_lancamento' => $lista['pro_lancamento'],
                 'pro_frete_free' => $lista['pro_frete_free'],
                 'pro_data_cad' => $lista['pro_data_cad'],
@@ -107,7 +117,8 @@ class Categorias extends Conexao
                 'cate_nome' => $lista['cate_nome'],
                 'cate_slug' => $lista['cate_slug'],
                 'cate_img' => $lista['cate_img'],
-                'cate_link' => Rotas::pagProdutos() . '\categoria/' . $lista['cate_id'] . '/' . $lista['cate_slug'],
+                'cate_link' => Rotas::pagProdutos() . '/' . $lista['cate_slug'],
+                // 'cate_link' => Rotas::pagProdutos() . '\categoria/' . $lista['cate_id'] . '/' . $lista['cate_slug'],
             );
             $i++;
         endwhile;

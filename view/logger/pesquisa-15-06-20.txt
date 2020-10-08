@@ -1,0 +1,4 @@
+[11:07:52][::1]> Pesquisa por produtos com o nome dfgdfgf 
+[11:21:04][::1]> Pesquisa por produtos com o nome dfgdfgf 
+[11:37:34][::1]> Pesquisa por produtos com o nome dfgfghgh 
+[12:25:27][::1]> Pesquisa por produtos com o nome  

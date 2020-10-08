@@ -23,6 +23,10 @@
 
 /*----------------------------------------*/
 
+.alert-dismissible {
+    padding: .75rem;
+}
+
 a.whatsFixo {
     position: fixed;
     bottom: 20px;
@@ -270,7 +274,7 @@ ol {
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
-    padding: 13px 45px 11px;
+    padding: 10px 20px;
     cursor: pointer;
 }
 
@@ -865,9 +869,29 @@ ol {
     top: 52px;
 }
 
+.nav-item .nav-menu li .dropdown2 {
+    position: absolute;
+    top: 0;
+    left: 205px;
+    background-color: #252525;
+    width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.nav-item .nav-menu .sub-nivel:hover .dropdown2 {
+    visibility: visible;
+    opacity: 1;
+    left: 200px;
+    top: 0;
+}
+
 .nav-item .nav-menu li .dropdown {
     position: absolute;
-    right: 0;
+    left: 0;
     top: 82px;
     width: 200px;
     z-index: 9999;
@@ -2447,13 +2471,18 @@ ol {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    margin-bottom: 33px;
 }
 
 .menos {
-    position: relative;
-    top: 3px;
-    left: -39px;
+    border: none;
+    outline: none;
+    border-radius: 0;
+}
+
+.mais {
+    border: none;
+    outline: none;
+    border-radius: 0;
 }
 
 #cep::selection {
@@ -2461,25 +2490,29 @@ ol {
     visibility: hidden;
 }
 
-.mais {
-    position: relative;
-    top: -71px;
-    left: 40px;
-}
-
 .btn .mais:active:focus {
     outline: none;
 }
 
-.resultado {
+.btn .menos:active:focus {
+    outline: none;
+}
+
+.btnRemoveItem {
+    border-radius: 0;
+}
+
+
+/* .resultado {
     position: relative;
     top: -34px;
     right: -19px;
     border: none;
     background: none;
-}
+} */
 
-.product-details .quantity .pro-qty {
+
+/* .product-details .quantity .pro-qty {
     width: 123px;
     height: 46px;
     border: 2px solid #ebebeb;
@@ -2514,7 +2547,7 @@ ol {
 
 .product-details .quantity .primary-btn.pd-cart {
     padding: 14px 70px 10px;
-}
+} */
 
 .product-details .pd-tags {
     margin-bottom: 27px;
@@ -2921,21 +2954,22 @@ ol {
 }
 
 .cart-table table tr td.qua-col .pro-qty {
-    width: 123px;
-    height: 46px;
+    /* width: 100%; */
+    /* height: 46px; */
     border: 2px solid #ebebeb;
-    padding: 0 15px;
-    float: left;
+    /* padding: 0 15px; */
+    /* float: left; */
 }
 
-.cart-table table tr td.qua-col .pro-qty .qtybtn {
+
+/* .cart-table table tr td.qua-col .pro-qty .qtybtn {
     font-size: 24px;
     color: #b2b2b2;
     float: left;
     line-height: 38px;
     cursor: pointer;
     width: 18px;
-}
+} */
 
 .cart-table table tr td.qua-col .pro-qty .qtybtn.dec {
     font-size: 30px;
@@ -2948,8 +2982,7 @@ ol {
     font-weight: 700;
     border: none;
     color: #4c4c4c;
-    line-height: 40px;
-    float: left;
+    border-radius: 0;
 }
 
 .cart-table table tr td.total-price {
@@ -4395,9 +4428,6 @@ ol {
         max-width: 40%;
         padding-right: 25px;
     }
-    .inner-header .advanced-search .input-group {
-        /* max-width: 60%; */
-    }
     .inner-header .nav-right li {
         margin-left: 8px;
     }
@@ -4428,6 +4458,10 @@ ol {
     }
     .checkout-content input {
         margin-top: 50px;
+    }
+    .cart-table table tr td.qua-col .pro-qty input {
+        padding: 0;
+        width: 20px;
     }
     a.whatsFixo {
         width: 40px;
@@ -4532,6 +4566,9 @@ ol {
     .slicknav_nav .dropdown a {
         padding-left: 25px;
     }
+    .slicknav_nav .sub-nivel .dropdown2 a {
+        padding-left: 80px;
+    }
     .nav-item .nav-depart {
         display: none;
     }
@@ -4585,28 +4622,13 @@ ol {
     .cart-table table tbody tr td:nth-child(1) {
         display: none;
     }
-    .cart-table table tr td.qua-col .quantity .pro-qty {
-        width: 60px;
-        position: relative;
-        padding: 0;
+    .cart-table table {
+        width: 100%;
+        min-width: 100%;
     }
-    .resultado {
+    .cart-table table tr td.qua-col .pro-qty input {
         padding: 0;
-        position: absolute;
-        top: 0;
-        left: 2%;
-    }
-    .menos {
-        padding: 0;
-        position: absolute;
-        top: 17%;
-        left: 0;
-    }
-    .mais {
-        position: absolute;
-        top: 17%;
-        right: 11%;
-        padding: 0;
+        width: 20px;
     }
     /*Icone Whats*/
     a.whatsFixo {
@@ -4626,16 +4648,6 @@ ol {
     a[href="#top"] {
         bottom: 20px;
         left: 20px;
-    }
-    .cart-table table tr td.qua-col .pro-qty input {
-        text-align: center;
-        /* width: 52px; */
-        font-size: 14px;
-        font-weight: 700;
-        border: none;
-        color: #4c4c4c;
-        line-height: 40px;
-        float: left;
     }
     .cart-table table tr td.p-price,
     .cart-table table tr td.total-price {
@@ -4709,6 +4721,26 @@ ol {
     }
     .d-xs-none {
         display: none;
+    }
+    .tabela-cli {
+        font-size: 12px;
+    }
+    .site-btn-info {
+        font-size: 11px;
+    }
+    .tab-cli {
+        margin: 16px;
+    }
+    .card-body {
+        max-height: 100%;
+        overflow: none;
+    }
+    .table-itens {
+        font-size: 12px;
+    }
+    .site-btn {
+        font-size: 12px;
+        padding: 10px 20px;
     }
 }
 
@@ -4808,6 +4840,13 @@ ol {
     }
     .d-xs-none {
         display: none;
+    }
+    .site-btn-info {
+        padding: 10px 15px;
+    }
+    .tab-cli {
+        margin: 15px;
+        background-color: #EEEE21;
     }
 }
 

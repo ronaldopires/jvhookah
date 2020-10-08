@@ -168,11 +168,11 @@ class Clientes extends Conexao
     //Atualiza status do cliente para Online
     public function statusCliOn($id)
     {   
-        $query = "UPDATE {$this->prefix}clientes SET cli_status = 'online' WHERE  cli_id = :id";
+        $data = time();
+        $query = "UPDATE {$this->prefix}clientes SET cli_status = 1, cli_hora_status = {$data} WHERE  cli_id = :id";
         $params = array(
             ':id' => (int) $id,
         );
-
         if ($this->executeSql($query, $params)):
             return true;
         else:
@@ -182,7 +182,7 @@ class Clientes extends Conexao
     //Atualiza status do cliente para Offline
     public function statusCliOff($id)
     {   
-        $query = "UPDATE {$this->prefix}clientes SET cli_status = 'offline' WHERE  cli_id = :id";
+        $query = "UPDATE {$this->prefix}clientes SET cli_status = 0 WHERE  cli_id = :id";
         $params = array(
             ':id' => (int) $id,
         );
@@ -194,6 +194,44 @@ class Clientes extends Conexao
         endif;
     }
 
+    //Clientes onlines
+    public function cliOnline()
+    {
+        $query = "SELECT cli_id, cli_status, cli_hora_status FROM {$this->prefix}clientes WHERE cli_status = 1";
+        $this->executeSql($query);
+
+        if($this->totalDados() > 0){
+            $i = 0;
+            while ($lista = $this->listarDados()):
+                $this->itens[$i] = array(
+                    'cli_id' => $lista['cli_id'],
+                    'cli_status' => $lista['cli_status'],
+                    'cli_hora_status' => $lista['cli_hora_status'],
+                );
+                $i++;
+            endwhile;
+            
+            foreach($this->getItens() as $valor){
+                $id = $valor['cli_id'];
+                if((time() - $valor['cli_hora_status']) > 300){
+                    // Se o cliente estiver ausente por 300 segundos = 5m o atualiza o status para offline
+                    $clioff = "UPDATE {$this->prefix}clientes set cli_status = 0 WHERE cli_id = {$id}";
+                    $this->executeSql($clioff);
+                }
+            }
+        }
+        
+        return $this->totalDados();
+    }
+    //Clientes offline
+    public function cliOffline()
+    {
+        $query = "SELECT cli_id FROM {$this->prefix}clientes WHERE cli_status = 0";
+        $this->executeSql($query);
+        
+        return $this->totalDados();
+    }
+    
     public function inserir()
     {
         if ($this->getClienteCpf($this->getCli_cpf()) > 0) {
@@ -281,21 +319,6 @@ class Clientes extends Conexao
         else:
             return false;
         endif;
-    }
-
-    //Clientes onlines
-    public function cliOnline()
-    {
-        $query = "SELECT cli_id FROM {$this->prefix}clientes WHERE cli_status = 'online'";
-        $this->executeSql($query);
-        return $this->totalDados();
-    }
-    //Clientes offline
-    public function cliOffline()
-    {
-        $query = "SELECT cli_id FROM {$this->prefix}clientes WHERE cli_status = 'offline'";
-        $this->executeSql($query);
-        return $this->totalDados();
     }
 
     public function editarADM($id)

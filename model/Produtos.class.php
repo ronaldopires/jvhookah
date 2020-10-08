@@ -136,7 +136,7 @@ class Produtos extends Conexao
                     'pro_altura' => $lista['pro_altura'],
                     'pro_comprimento' => $lista['pro_comprimento'],
                     'pro_img_p' => Rotas::imageLink($lista['pro_img'], 150, 150),
-                    'pro_img' => Rotas::imageLink($lista['pro_img'], 500, 500),
+                    'pro_img' => Rotas::imageLink($lista['pro_img'], 400, 400),
                     'pro_img_g' => Rotas::imageLink($lista['pro_img'], 700, 700),
                     'pro_img_gg' => Rotas::imageLink($lista['pro_img'], 1200, 1200),
                     'pro_estoque' => $lista['pro_estoque'],
@@ -147,8 +147,10 @@ class Produtos extends Conexao
                     'pro_data_cad' => Sistema::formatarData($lista['pro_data_cad']),
                     'pro_desconto' => $lista['pro_desconto'],
                     'cate_nome' => $lista['cate_nome'],
+                    'cate_slug' => $lista['cate_slug'],
                     'sub_nome' => $lista['sub_nome'],
                     'fab_nome' => $lista['fab_nome'],
+                    'fab_slug' => $lista['fab_slug'],
                 );
                 $i++;
             endwhile;
@@ -184,6 +186,43 @@ class Produtos extends Conexao
 
         $this->executeSql($query, $params);
         $this->getLista();
+    }
+
+    public function getProdutosSlug($slug)
+    {
+
+        $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id";
+        $query .= " JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id";
+        $query .= " AND cate_slug = :slug";
+
+        $params = array(':slug' => $slug);
+
+        $this->executeSql($query, $params);
+        
+        if($this->totalDados() > 0){
+            $this->getLista();
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function getProdutosSubSlug($slug)
+    {
+
+        $query = "SELECT * FROM {$this->prefix}produtos p INNER JOIN {$this->prefix}categorias c ON p.pro_categoria = c.cate_id";
+        $query .= " JOIN {$this->prefix}sub_categorias s ON p.pro_sub_categoria = s.sub_id";
+        $query .= " AND sub_slug = :slug";
+        
+        $params = array(':slug' => $slug);
+
+        $this->executeSql($query, $params);
+        
+        if($this->totalDados() > 0){
+            $this->getLista();
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public function getProdutosSubCateID($id)
@@ -251,7 +290,7 @@ class Produtos extends Conexao
                     'pro_desc' => $lista['pro_desc'],
                     'pro_valor' => Sistema::moedaBr($lista['pro_valor']),
                     'pro_img_p' => Rotas::imageLink($lista['pro_img'], 150, 150),
-                    'pro_img' => Rotas::imageLink($lista['pro_img'], 500, 500),
+                    'pro_img' => Rotas::imageLink($lista['pro_img'], 400, 400),
                     'pro_img_g' => Rotas::imageLink($lista['pro_img'], 700, 700),
                     'pro_img_gg' => Rotas::imageLink($lista['pro_img'], 1200, 1200),
                     'pro_slug' => $lista['pro_slug'],
@@ -292,6 +331,10 @@ class Produtos extends Conexao
         while ($lista = $this->listarDados()):
             $this->itens[$i] = array(
                 'pro_id' => $lista['pro_id'],
+                'pro_categoria' => $lista['pro_categoria'],
+                'pro_sub_categoria' => $lista['pro_sub_categoria'],
+                'pro_caracteristica' => $lista['pro_caracteristica'],
+                'pro_fabricantes' => $lista['pro_fabricantes'],
                 'pro_nome' => $lista['pro_nome'],
                 'pro_desc' => $lista['pro_desc'],
                 'pro_peso' => $lista['pro_peso'],
@@ -303,7 +346,7 @@ class Produtos extends Conexao
                 'pro_altura' => $lista['pro_altura'],
                 'pro_comprimento' => $lista['pro_comprimento'],
                 'pro_img_p' => Rotas::imageLink($lista['pro_img'], 150, 150),
-                'pro_img' => Rotas::imageLink($lista['pro_img'], 500, 500),
+                'pro_img' => Rotas::imageLink($lista['pro_img'], 400, 400),
                 'pro_img_g' => Rotas::imageLink($lista['pro_img'], 700, 700),
                 'pro_img_gg' => Rotas::imageLink($lista['pro_img'], 1200, 1200),
                 'pro_slug' => $lista['pro_slug'],
@@ -314,10 +357,12 @@ class Produtos extends Conexao
                 'pro_frete_free' => $lista['pro_frete_free'],
                 'pro_data_cad' => Sistema::formatarData($lista['pro_data_cad']),
                 'pro_desconto' => $lista['pro_desconto'],
-                'cate_nome' => $lista['cate_nome'],
                 'cate_id' => $lista['cate_id'],
+                'cate_nome' => $lista['cate_nome'],
+                'cate_slug' => $lista['cate_slug'],
                 'sub_id' => $lista['sub_id'],
                 'sub_nome' => $lista['sub_nome'],
+                'sub_slug' => $lista['sub_slug'],
             );
             $i++;
         endwhile;
@@ -338,7 +383,7 @@ class Produtos extends Conexao
                 'pro_altura' => $lista['pro_altura'],
                 'pro_comprimento' => $lista['pro_comprimento'],
                 'pro_img_p' => Rotas::imageLink($lista['pro_img'], 150, 150),
-                'pro_img' => Rotas::imageLink($lista['pro_img'], 500, 500),
+                'pro_img' => Rotas::imageLink($lista['pro_img'], 400, 400),
                 'pro_img_g' => Rotas::imageLink($lista['pro_img'], 700, 700),
                 'pro_img_gg' => Rotas::imageLink($lista['pro_img'], 1200, 1200),
                 'pro_slug' => $lista['pro_slug'],
@@ -397,7 +442,7 @@ class Produtos extends Conexao
             $ESTOQUE = $prof['pro_estoque'];
             $MODELO = $prof['pro_modelo'];
             $REF = $prof['pro_ref'];
-            $FABRICANTE = $prof['pro_fabricante'];
+            $FABRICANTE = $prof['pro_fabricantes'];
             $LANCAMENTO = $prof['pro_lancamento'];
             $FRETE_FREE = $prof['pro_frete_free'];
             $DATA_CAD = $prof['pro_data_cad'];
@@ -427,7 +472,7 @@ class Produtos extends Conexao
             $_SESSION['FAVORITOS'][$ID]['ESTOQUE'] = $ESTOQUE;
             $_SESSION['FAVORITOS'][$ID]['MODELO'] = $MODELO;
             $_SESSION['FAVORITOS'][$ID]['REF'] = $REF;
-            $_SESSION['FAVORITOS'][$ID]['FABRICANTE'] = $FABRICANTE;
+            $_SESSION['FAVORITOS'][$ID]['FABRICANTES'] = $FABRICANTE;
             $_SESSION['FAVORITOS'][$ID]['LANCAMENTO'] = $LANCAMENTO;
             $_SESSION['FAVORITOS'][$ID]['FRETE_FREE'] = $FRETE_FREE;
             $_SESSION['FAVORITOS'][$ID]['DATA_CAD'] = $DATA_CAD;

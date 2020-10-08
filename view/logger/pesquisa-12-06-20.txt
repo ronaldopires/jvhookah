@@ -1,0 +1,8 @@
+[15:04:51][::1]> Pesquisa por produtos com o nome piteira 
+[15:06:10][::1]> Pesquisa por produtos com o nome fsdfsdf 
+[15:06:23][::1]> Pesquisa por produtos com o nome fsdfsdf 
+[15:11:12][::1]> Pesquisa por produtos com o nome fsdfsdf 
+[15:13:03][::1]> Pesquisa por produtos com o nome fsdfsdf 
+[15:13:17][::1]> Pesquisa por produtos com o nome fsdfsdf 
+[15:13:45][::1]> Pesquisa por produtos com o nome fsdfsdf 
+[15:15:02][::1]> Pesquisa por produtos com o nome fsdfsdf 

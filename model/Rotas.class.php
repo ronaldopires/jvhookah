@@ -35,11 +35,15 @@ class Rotas
     }
     public static function pagAlterarCarrinho()
     {
-        return self::getSiteHome() . 'alterar_carrinho';
+        return self::getSiteHome() . 'alterar-carrinho';
     }
     public static function pagDetalhesProduto()
     {
-        return self::getSiteHome() . 'detalhes_produto';
+        return self::getSiteHome() . 'detalhes-produto';
+    }
+    public static function pagTrocaseDevolucoes()
+    {
+        return self::getSiteHome() . 'trocas-e-devolucoes';
     }
     public static function pagProdutos()
     {
@@ -63,11 +67,11 @@ class Rotas
     }
     public static function pagMeuPerfil()
     {
-        return self::getSiteHome() . 'meu_perfil';
+        return self::getSiteHome() . 'meu-perfil';
     }
     public static function pagDetalhesPedido()
     {
-        return self::getSiteHome() . 'detalhes_pedido';
+        return self::getSiteHome() . 'detalhes-pedido';
     }
     public static function pagCadastro()
     {
@@ -75,7 +79,15 @@ class Rotas
     }
     public static function pagFinalizarPedido()
     {
-        return self::getSiteHome() . 'finalizar_pedido';
+        return self::getSiteHome() . 'finalizar-pedido';
+    }
+    public static function pagPedidoConcluido()
+    {
+        return self::getSiteHome() . 'pedido-concluido';
+    }
+    public static function pagPedidoErro()
+    {
+        return self::getSiteHome() . 'pedido-erro';
     }
     public static function pagPagamento()
     {
@@ -83,23 +95,27 @@ class Rotas
     }
     public static function pagPerguntasFrequentes()
     {
-        return self::getSiteHome() . 'perguntas_frequentes';
+        return self::getSiteHome() . 'perguntas-frequentes';
     }
     public static function pagRecuperarSenha()
     {
-        return self::getSiteHome() . 'recuperar_senha';
+        return self::getSiteHome() . 'recuperar-senha';
     }
     public static function pagNovaSenha()
     {
-        return self::getSiteHome() . 'nova_senha';
+        return self::getSiteHome() . 'nova-senha';
     }
     public static function pagProdutosFavoritos()
     {
-        return self::getSiteHome() . 'produtos_favoritos';
+        return self::getSiteHome() . 'produtos-favoritos';
     }
     public static function pagBlog()
     {
         return self::getSiteHome() . 'blog';
+    }
+    public static function pagQuemSomos()
+    {
+        return self::getSiteHome() . 'quem-somos';
     }
 
     // ROTAS ADM

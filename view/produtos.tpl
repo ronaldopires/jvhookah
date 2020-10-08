@@ -24,11 +24,6 @@
                     <ul class="filter-catagories">
                         {foreach from=$CATEGORIAS item=C}
                         <li><a href="{$C.cate_link}">{$C.cate_nome}</a>
-                            <!--  <ul class="filter-catagories">
-                                    {foreach from=$SUB_CATEGORIAS item=S}
-                                    <li class="ml-5"><a href="{$S.sub_link}">{$S.sub_nome}</a></li>
-                                    {/foreach}
-                                </ul> -->
                         </li>
                         {/foreach}
                     </ul>
@@ -183,7 +178,7 @@
                                     {foreach from=$MAIS_PRODUTOS item=P}
                                     <div class="product-item">
                                         <div class="pi-pic">
-                                            <a class="img-hover-zoom" href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}"><img src="{$P.pro_img_g}" alt="{$P.pro_nome}" title="{$P.pro_nome}"></a>
+                                            <a class="img-hover-zoom" href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}"><img src="{$P.pro_img}" alt="{$P.pro_nome}" title="{$P.pro_nome}"></a>
                                             <form action="{$FAVORITOS}" method="POST">
                                                 <div class="icon">
                                                     <input type="hidden" name="pro_id_favorito" value="{$P.pro_id}">
@@ -195,24 +190,6 @@
                                                 <li class="quick-view"><a href="" data-toggle="modal" data-target="#maisprodutos" title="Zoom na foto"><i class="fa fa-search-plus"></i></a></li>
                                                 <!-- <li class="w-icon"><a href="#" title="Comparar"><i class="fa fa-random"></i></a></li> -->
                                             </ul>
-                                            <!-- Modal Products-->
-                                            <div class="modal fade" id="maisprodutos" tabindex="-1" role="dialog" aria-labelledby="PhotoMoreProducts" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-body">
-                                                            oi
-                                                            <!-- <div class="card">
-                                                            <div class="product-pic-zoom">
-                                                                <img class="card-img-top product-big-img" src="{$P.pro_img_gg}" alt="{$P.pro_nome}">
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <p class="card-text">{$P.pro_nome} </p>
-                                                            </div>
-                                                        </div> -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="pi-text">
                                             <div class="catagory-name">{$P.sub_nome}</div>
@@ -232,7 +209,7 @@
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-item">
                                     <div class="pi-pic">
-                                        <a class="img-hover-zoom" href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}"><img src="{$P.pro_img_g}" alt="{$P.pro_nome}" title="{$P.pro_nome}"></a>
+                                        <a class="img-hover-zoom" href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}"><img src="{$P.pro_img}" alt="{$P.pro_nome}" title="{$P.pro_nome}"></a>
                                         {if $P.pro_estoque == 0}
                                         <div class="estoque bg-danger">Esgotado</div>
                                         {else if $P.pro_estoque
@@ -264,6 +241,7 @@
                                 </div>
                                 {/if} -->
                                 <div class="pi-text">
+                                    <div class="catagory-name">{$P.cate_nome}</div>
                                     <div class="catagory-name">{$P.sub_nome}</div>
                                     <a href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}">
                                         <h5>{$P.pro_nome}</h5>

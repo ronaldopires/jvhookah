@@ -1,0 +1,19 @@
+[10:58:00][::1]> Usuario Ronaldo Pires De Carvalho efetuou login no sistema. 
+[11:43:59][::1]> Usuario Rafael Guimaraes efetuou login no sistema. 
+[12:23:16][::1]> Deslogado por inatividade Ronaldo Pires De Carvalho 
+[12:23:17][::1]> Deslogado por inatividade Ronaldo Pires De Carvalho 
+[12:23:17][::1]> Usuario Ronaldo Pires De Carvalho efetuou logout do sistema. 
+[12:23:17][::1]> Usuario   efetuou logout do sistema. 
+[12:23:32][::1]> Usuario Ronaldo Pires De Carvalho efetuou login no sistema. 
+[12:23:53][::1]> Deslogado por inatividade Rafael Guimaraes 
+[12:23:54][::1]> Deslogado por inatividade Rafael Guimaraes 
+[12:23:54][::1]> Usuario Rafael Guimaraes efetuou logout do sistema. 
+[12:23:54][::1]> Usuario   efetuou logout do sistema. 
+[12:24:12][::1]> Usuario Rafael Guimaraes efetuou login no sistema. 
+[12:47:53][::1]> Deslogado por inatividade Ronaldo Pires De Carvalho 
+[12:47:54][::1]> Deslogado por inatividade Ronaldo Pires De Carvalho 
+[12:47:54][::1]> Usuario Ronaldo Pires De Carvalho efetuou logout do sistema. 
+[12:47:55][::1]> Usuario   efetuou logout do sistema. 
+[12:48:06][::1]> Usuario Ronaldo Pires De Carvalho efetuou login no sistema. 
+[12:50:41][::1]> Usuario Rafael Guimaraes efetuou login no sistema. 
+[13:08:27][::1]> Usuario Ronaldo Pires De Carvalho efetuou logout do sistema. 

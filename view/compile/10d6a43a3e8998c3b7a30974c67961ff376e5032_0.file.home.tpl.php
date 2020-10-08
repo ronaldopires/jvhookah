@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-10 14:14:36
+/* Smarty version 3.1.36, created on 2020-10-08 17:13:01
   from 'C:\xampp\htdocs\jvhookah\view\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ee114fcdffe35_06683066',
+  'unifunc' => 'content_5f7f72cd7069d1_33922868',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '10d6a43a3e8998c3b7a30974c67961ff376e5032' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\home.tpl',
-      1 => 1591809275,
+      1 => 1602187979,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ee114fcdffe35_06683066 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7f72cd7069d1_33922868 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
@@ -188,8 +188,8 @@ function content_5ee114fcdffe35_06683066 (Smarty_Internal_Template $_smarty_tpl)
         <div class="section-title">
             <h2>Mais Vendidos</h2>
         </div>
-        <div class="col-lg-10 offset-lg-1 col-md-12">
-            <div class="card-deck">
+        <div class="col-lg-10 offset-lg-1 col-md-10">
+            <div class="card-deck col-6">
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['MAIS_VENDIDOS']->value, 'P');
 $_smarty_tpl->tpl_vars['P']->do_else = true;
@@ -198,7 +198,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
 ?>
                 <div class="card mais_vendidos">
                     <div class="card-header p-0">
-                        <img class="card-img-top img-fluid" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img_g'];?>
+                        <img width="400" height="400" class="card-img-top" src="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
 " alt="Imagem de capa do card">
                     </div>
                     <div class="card-body text-center">
@@ -224,7 +224,7 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                         <a type="button" href="<?php echo $_smarty_tpl->tpl_vars['PAG_DETALHES_PRODUTO']->value;?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
 /<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
-" role="button" class="btn primary-btn pd-cart btn-block">Adicionar</a>
+" role="button" class="site-btn">Adicionar</a>
                     </div>
                 </div>
                 <?php

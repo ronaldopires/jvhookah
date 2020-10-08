@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-09 23:55:02
+/* Smarty version 3.1.36, created on 2020-06-12 13:11:44
   from 'C:\xampp\htdocs\jvhookah\view\detalhes_produto.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ee04b866f52e6_83577995',
+  'unifunc' => 'content_5ee3a94025a2d2_85242975',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c5ab0333eae9405528006835b755af911dbb8543' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\detalhes_produto.tpl',
-      1 => 1591757649,
+      1 => 1591978300,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ee04b866f52e6_83577995 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee3a94025a2d2_85242975 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
     <div class="container">
@@ -43,8 +43,8 @@ function content_5ee04b866f52e6_83577995 (Smarty_Internal_Template $_smarty_tpl)
 <section class="product-shop spad page-details">
     <div class="container">
         <div class="row">
-            <?php if ($_smarty_tpl->tpl_vars['TOTAL_DADOS']->value > 1) {?> <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PRODUTOS_INFO']->value, 'P');
+            <?php if ($_smarty_tpl->tpl_vars['PRODUTOS_RELACIONADO']->value) {?> <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['DETALHES_PRODUTO']->value, 'P');
 $_smarty_tpl->tpl_vars['P']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
 $_smarty_tpl->tpl_vars['P']->do_else = false;
@@ -63,19 +63,19 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                         <div class="product-thumbs">
                             <div class="product-thumbs-track ps-slider owl-carousel">
                                 <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['CORES']->value, 'C');
-$_smarty_tpl->tpl_vars['C']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
-$_smarty_tpl->tpl_vars['C']->do_else = false;
-?> <?php if ($_smarty_tpl->tpl_vars['ID']->value == $_smarty_tpl->tpl_vars['C']->value['pro_id']) {?>
-                                <div class="pt active" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_g'];?>
-"><img src="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_g'];?>
-" alt="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_nome'];?>
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PRODUTOS_RELACIONADO']->value, 'R');
+$_smarty_tpl->tpl_vars['R']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['R']->value) {
+$_smarty_tpl->tpl_vars['R']->do_else = false;
+?> <?php if ($_smarty_tpl->tpl_vars['P']->value['pro_id'] == $_smarty_tpl->tpl_vars['R']->value['pro_id']) {?>
+                                <div class="pt active" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_img_g'];?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_img_g'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_nome'];?>
 "></div>
                                 <?php } else { ?>
-                                <div class="pt" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_g'];?>
-"><img src="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_g'];?>
-" alt="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_nome'];?>
+                                <div class="pt" data-imgbigurl="<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_img_g'];?>
+"><img src="<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_img_g'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_nome'];?>
 "></div>
                                 <?php }?> <?php
 }
@@ -121,41 +121,35 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 <form name="carrinho" action="<?php echo $_smarty_tpl->tpl_vars['PAG_ALTERAR_CARRINHO']->value;?>
 " method="post">
                                     <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['CORES']->value, 'C');
-$_smarty_tpl->tpl_vars['C']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
-$_smarty_tpl->tpl_vars['C']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PRODUTOS_RELACIONADO']->value, 'R');
+$_smarty_tpl->tpl_vars['R']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['R']->value) {
+$_smarty_tpl->tpl_vars['R']->do_else = false;
 ?>
                                     <div class="sc-item">
-                                        <?php if ($_smarty_tpl->tpl_vars['ID']->value == $_smarty_tpl->tpl_vars['C']->value['pro_id']) {?>
-                                        <input name="pro_cor" value="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_cor'];?>
-" required type="radio" id="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_id'];?>
+                                        <?php if ($_smarty_tpl->tpl_vars['P']->value['pro_id'] == $_smarty_tpl->tpl_vars['R']->value['pro_id']) {?>
+                                        <input name="pro_cor" value="<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_cor'];?>
+" required type="radio" id="<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_id'];?>
 " checked>
-                                        <label for="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_id'];?>
+                                        <label for="<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_id'];?>
 " class="active"><a class="cor_produto_ativo" href="<?php echo $_smarty_tpl->tpl_vars['PAG_DETALHES_PRODUTO']->value;?>
-/<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_slug'];?>
-/<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['C']->value['pro_cor'];?>
+/<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_slug'];?>
+/<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['R']->value['pro_cor'];?>
 </a></label> <?php } else { ?>
-                                        <input name="pro_cor" value="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_cor'];?>
-" required type="radio" id="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_id'];?>
+                                        <input name="pro_cor" value="<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_cor'];?>
+" required type="radio" id="<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_id'];?>
 ">
-                                        <label for="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_id'];?>
+                                        <label for="<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_id'];?>
 "><a class="cor_produto" href="<?php echo $_smarty_tpl->tpl_vars['PAG_DETALHES_PRODUTO']->value;?>
-/<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_slug'];?>
-/<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['C']->value['pro_cor'];?>
+/<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_slug'];?>
+/<?php echo $_smarty_tpl->tpl_vars['R']->value['pro_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['R']->value['pro_cor'];?>
 </a></label> <?php }?>
                                     </div>
-                                    <!-- <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_DETALHES_PRODUTO']->value;?>
-/<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_slug'];?>
-/<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['C']->value['pro_cor'];?>
-</a> -->
                                     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-
                             </div>
                             <div class="quantity">
                                 <input type="hidden" name="pro_id" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
@@ -420,7 +414,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { ?> <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PRODUTOS_INFO']->value, 'P');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['DETALHES_PRODUTO']->value, 'P');
 $_smarty_tpl->tpl_vars['P']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
 $_smarty_tpl->tpl_vars['P']->do_else = false;
@@ -803,7 +797,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php }?>
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="section-title">
                     <hr>
-                    <h2>Produtos Relacionados</h2>
+                    <h3>Produtos Relacionados</h3>
                     <hr>
                 </div>
             </div>
@@ -825,16 +819,26 @@ $_smarty_tpl->tpl_vars['P']->do_else = false;
                             <div class="estoque bg-danger">Esgotado</div>
                             <?php } elseif ($_smarty_tpl->tpl_vars['P']->value['pro_estoque'] < 20) {?> <div class="estoque bg-warning">Poucas Peças</div>
                         <?php }?>
-                        <div class="icon">
-                            <i class="icon_heart_alt"></i>
-                        </div>
+                        <form class="float-right" action="<?php echo $_smarty_tpl->tpl_vars['FAVORITOS']->value;?>
+" method="POST">
+                            <div class="icon">
+                                <input type="hidden" name="pro_id_favorito" value="<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+">
+                                <button class="btn"><i class="icon_heart_alt"></i></button>
+                            </div>
+                        </form>
                         <ul>
-                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                            <li class="quick-view"><a href="#">+ Quick View</a></li>
-                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                            <li class="w-icon active"><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_DETALHES_PRODUTO']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+"><i class="icon_bag_alt"></i> Adicionar</a></li>
+                            <!-- <li class="quick-view"><a href="#">+ Quick View</a></li> -->
+                            <!-- <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li> -->
                         </ul>
                     </div>
                     <div class="pi-text">
+                        <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['cate_nome'];?>
+</div>
                         <div class="catagory-name"><?php echo $_smarty_tpl->tpl_vars['P']->value['sub_nome'];?>
 </div>
                         <a href="<?php echo $_smarty_tpl->tpl_vars['PRODUTO']->value;?>

@@ -1,0 +1,4 @@
+[22:23:07][::1]> Usuario Ronaldo Pires De Carvalho efetuou login no sistema. 
+[22:52:46][::1]> Deslogado por inatividade Ronaldo Pires De Carvalho 
+[22:52:48][::1]> Deslogado por inatividade Ronaldo Pires De Carvalho 
+[22:52:48][::1]> Usuario Ronaldo Pires De Carvalho efetuou logout do sistema. 

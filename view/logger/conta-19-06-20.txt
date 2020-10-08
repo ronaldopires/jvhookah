@@ -1,0 +1,6 @@
+[02:20:27][::1]> Erro na solicitação de recuperação de senha pelo email:  
+[02:20:34][::1]> Erro na solicitação de recuperação de senha pelo email:  
+[02:21:20][::1]> Solicitado recuperação de senha pelo email: ronaldo.carvalho@hotmail.com 
+[02:21:50][::1]> Erro na solicitação de recuperação de senha pelo email:  
+[02:23:08][::1]> Erro na solicitação de recuperação de senha pelo email: teste@teste.com 
+[02:23:21][::1]> Erro na solicitação de recuperação de senha pelo email: fff@ddd 

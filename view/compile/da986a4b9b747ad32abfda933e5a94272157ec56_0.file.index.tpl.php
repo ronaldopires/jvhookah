@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.36, created on 2020-06-10 15:59:03
+/* Smarty version 3.1.36, created on 2020-06-27 15:16:38
   from 'C:\xampp\htdocs\jvhookah\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.36',
-  'unifunc' => 'content_5ee12d7765abc6_57513804',
+  'unifunc' => 'content_5ef78d06be4640_12589723',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'da986a4b9b747ad32abfda933e5a94272157ec56' => 
     array (
       0 => 'C:\\xampp\\htdocs\\jvhookah\\view\\index.tpl',
-      1 => 1591815535,
+      1 => 1593281798,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ee12d7765abc6_57513804 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ef78d06be4640_12589723 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="JH Hookah Lounge">
-    <meta name="keywords" content="arguiles, narguiles, rochi, essencias, carvão, pegador, fogareiro">
+    <meta name="keywords" content="arguiles, narguiles, rosh, essencias, carvão, pegador, fogareiro">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $_smarty_tpl->tpl_vars['TITULO_SITE']->value;?>
@@ -93,7 +93,7 @@ function content_5ee12d7765abc6_57513804 (Smarty_Internal_Template $_smarty_tpl)
                         <i class=" fa fa-envelope"></i> ronaldo.carvalho@hotmail.com
                     </div>
                     <div class="phone-service">
-                        <i class=" fa fa-phone"></i><a id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511940249845">+55 11 94024-9845</a>
+                        <i class=" fa fa-phone"></i><a id="apiwhatsapp" target="_blank" href="http://api.whatsapp.com/send?1=pt_BR&phone=5511955544918">+55 11 95554-4918</a>
                     </div>
                 </div>
                 <div class="ht-right">
@@ -151,7 +151,7 @@ function content_5ee12d7765abc6_57513804 (Smarty_Internal_Template $_smarty_tpl)
                             </li>
                             <?php }?>
                             <li class="heart-icon">
-                                <a href="<?php echo $_smarty_tpl->tpl_vars['FAVORITOS']->value;?>
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_FAVORITOS']->value;?>
 ">
                                     <i class="icon_heart_alt"></i>
                                     <span><?php echo $_smarty_tpl->tpl_vars['ITENS_FAVORITOS']->value;?>
@@ -175,7 +175,7 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
 $_smarty_tpl->tpl_vars['C']->do_else = false;
 ?>
                                                 <tr>
-                                                    <td class="si-pic"><img width="150" src="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img'];?>
+                                                    <td class="si-pic"><img width="150" src="<?php echo $_smarty_tpl->tpl_vars['C']->value['pro_img_p'];?>
 " alt=""></td>
                                                     <td class="si-text">
                                                         <div class="product-selected">
@@ -225,7 +225,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> <?php } else { 
         </div>
         <div class="nav-item">
             <div class="container">
-                <div class="nav-depart">
+                <!-- <div class="nav-depart">
                     <div class="depart-btn">
                         <i class="ti-menu"></i>
                         <span>Produtos</span>
@@ -239,33 +239,192 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
 $_smarty_tpl->tpl_vars['C']->do_else = false;
 ?>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
-/sub_categoria/<?php echo $_smarty_tpl->tpl_vars['C']->value['sub_id'];?>
 /<?php echo $_smarty_tpl->tpl_vars['C']->value['sub_slug'];?>
 "><?php echo $_smarty_tpl->tpl_vars['C']->value['sub_nome'];?>
 </a></li>
                             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                            <li>
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['C']->value['sub_slug'];?>
+">sub nível</a>
+                                <ul class="sub-nivel">
+                                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['C']->value['sub_slug'];?>
+">Teste</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class=""><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
-">Home</a></li>
-                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
-">Produtos</a></li>
-                        <li><a href="#">Collection</a>
+                        <!-- <li class=""><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_HOME']->value;?>
+">Home</a></li> -->
+                        <!-- <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
+">Produtos</a></li> -->
+                        <li><a href="#">Narguiles</a>
                             <ul class="dropdown">
-                                <li><a href="#">Men's</a></li>
-                                <li><a href="#">Women's</a></li>
-                                <li><a href="#">Kid's</a></li>
+                                <li class="sub-nivel"><a href="#">Marca</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Material</a></li>
+                                        <li><a href="#">Tamanho</a></li>
+                                        <li><a href="#">Acessórios</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Material</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Tamanho</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Acessórios</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
-                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_BLOG']->value;?>
-">Blog</a></li>
-                        <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTATO']->value;?>
-">Contato</a></li>
+                        <li><a href="#">Mangueiras</a>
+                            <ul class="dropdown">
+                                <li class="sub-nivel"><a href="#">Marcas</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Tamanho</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Acessórios</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Bases</a>
+                            <ul class="dropdown">
+                                <li class="sub-nivel"><a href="#">Marcas</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Tamanho</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Acessórios</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Pratos</a>
+                            <ul class="dropdown">
+                                <li class="sub-nivel"><a href="#">Marcas</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Tamanho</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Acessórios</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Rosh's</a>
+                            <ul class="dropdown">
+                                <li class="sub-nivel"><a href="#">Marcas</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Tamanho</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Acessórios</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Acessórios</a>
+                            <ul class="dropdown">
+                                <li class="sub-nivel"><a href="#">Marcas</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Tamanho</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Pequeno</a></li>
+                                        <li><a href="#">Médio</a></li>
+                                        <li><a href="#">Grande  </a></li>
+                                    </ul>
+                                </li>
+                                <li class="sub-nivel"><a href="#">Acessórios</a>
+                                    <ul class="dropdown2">
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                        <li><a href="#">Women's</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_BLOG']->value;?>
+">Blog</a></li> -->
+                        <!-- <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTATO']->value;?>
+">Contato</a></li> -->
                         <li><a href="#">Páginas</a>
                             <ul class="dropdown">
                                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_BLOG']->value;?>
@@ -348,8 +507,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </div>
                         <ul>
                             <li>Endereço: Av. Maria Luiza Americano, 2806</li>
-                            <li>WhatsApp: +55 11 94024-9845</li>
-                            <li>Email: hello.colorlib@gmail.com</li>
+                            <li>WhatsApp: +55 11 95554-4918</li>
+                            <li>Email: ronaldo.carvalho@hotmail.com</li>
                         </ul>
                         <div class="footer-social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -359,30 +518,35 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 offset-lg-1">
+                <div class="col-lg-2 offset-lg-1 col-md-6">
                     <div class="footer-widget">
                         <h5>Informações</h5>
                         <ul>
-                            <li><a href="#">Sobre</a></li>
-                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CADASTRO']->value;?>
-">Cadastre-se</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_QUEM_SOMOS']->value;?>
+">Quem Somos</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTATO']->value;?>
 ">Fale Conosco</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PERGUNTAS_FREQUENTES']->value;?>
 ">Perguntas Frequentes</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PRODUTOS']->value;?>
 ">Produtos</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_TROCAS_DEVOLUCOES']->value;?>
+">Trocas e Devoluções</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-2 col-md-6">
                     <div class="footer-widget">
                         <h5>Meu Perfil</h5>
                         <ul>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CADASTRO']->value;?>
+">Cadastre-se</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_PERFIL']->value;?>
 ">Meu Perfil</a></li>
                             <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CARRINHO']->value;?>
 ">Meu Carrinho</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_FAVORITOS']->value;?>
+">Favoritos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -434,6 +598,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/js/script.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/js/pag-seguro.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>

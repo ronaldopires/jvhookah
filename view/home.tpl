@@ -155,12 +155,12 @@
         <div class="section-title">
             <h2>Mais Vendidos</h2>
         </div>
-        <div class="col-lg-10 offset-lg-1 col-md-12">
-            <div class="card-deck">
+        <div class="col-lg-10 offset-lg-1 col-md-10">
+            <div class="card-deck col-6">
                 {foreach from=$MAIS_VENDIDOS item=P}
                 <div class="card mais_vendidos">
                     <div class="card-header p-0">
-                        <img class="card-img-top img-fluid" src="{$P.pro_img_g}" alt="Imagem de capa do card">
+                        <img width="400" height="400" class="card-img-top" src="{$P.pro_img}" alt="Imagem de capa do card">
                     </div>
                     <div class="card-body text-center">
                         <div class="pi-text">
@@ -175,7 +175,7 @@
                         </div>
                     </div>
                     <div class="card-footer text-center">
-                        <a type="button" href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}" role="button" class="btn primary-btn pd-cart btn-block">Adicionar</a>
+                        <a type="button" href="{$PAG_DETALHES_PRODUTO}/{$P.pro_slug}/{$P.pro_id}" role="button" class="site-btn">Adicionar</a>
                     </div>
                 </div>
                 {/foreach}

@@ -10,7 +10,7 @@ class LogSystem extends Conexao
         $hora = date("H:i:s");
         $ip = $_SERVER['REMOTE_ADDR'];
 
-        echo $arquivo = Rotas::getSiteRaiz() . "view/logger/$tipo-$data.txt";
+        $arquivo = Rotas::getSiteRaiz() . "view/logger/$tipo-$data.txt";
 
         $texto = "[$hora][$ip]> $msg \n";
 
